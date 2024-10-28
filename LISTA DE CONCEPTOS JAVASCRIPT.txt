@@ -1,0 +1,931 @@
+============ LISTA DE CONCEPTOS JAVASCRIPT ============
+Ver. 27.10.2024
+
+
+
+>>> COMENTARIOS <<<
+
+// Comentario de línea
+
+/* Comentario
+de
+párrafo
+*/
+
+
+
+>>> MENSAJES <<<
+
+// Imprimir mensaje por consola
+
+console.log("String");
+console.log("String", mensaje2);
+console.log("Gira" + "soles");
+
+console.log(variable)
+console.log(`${variable}`); // Ambos son lo mismo
+
+// Imprimir advertencia por consola
+
+console.warn("Advertencia");
+
+// Imprimir error por consola
+
+console.error("Error");
+
+// Pedir string al usuario con mensaje
+
+prompt("Ingresa:");
+
+// Pedir string al usuario con mensaje y con placeholder
+
+prompt("Ingresa:", "Placeholder");
+
+// Mostrar pop-up de confirmación (Aceptar / Cancelar)
+
+confirm("¿Aceptas o cancelas?");
+
+// Mostrar alerta con mensaje
+
+alert("String");
+
+// Limpiar consola
+
+console.clear();
+
+
+
+>>> CONSTANTES Y VARIABLES <<<
+
+// Declarar e inicializar constante
+
+const constante = 5;
+
+// Declarar variable
+
+let variable;
+
+// Declarar e inicializar variable
+
+let variable = 100;
+let var2 = "Hola mundo";
+
+// Declarar variable (global - en desuso)
+
+var variable;
+
+// Declarar e inicializar (global - en desuso)
+
+var variable = 5;
+
+// Establecer variable a valor
+
+variable = 10;
+variable = "Hola";
+variable = true;
+
+
+
+>>> TIPOS DE DATOS <<<
+
+// Número (Entero / Decimal)
+12
+3.14
+
+// Cadena
+"Hola Mundo"
+
+// Booleano
+true
+false
+
+// Declarar objeto
+
+let usuario = {
+	nombre: "Eduardo",
+	edad: 25,
+	casado: true
+};
+
+// Acceder a atributo de objeto
+
+usuario.nombre
+usuario.edad
+
+// Tipo de dato de una variable
+
+typeof miVariable
+
+// Número con 5 decimales
+
+numero.toFixed(5)
+
+
+
+>>> CONVERSIÓN DE TIPOS <<<
+
+// Valor en string de una variable
+
+String(miVariable);
+
+// Valor en número de una variable
+
+Number(miVariable);
+
+// Valor en booleano de una variable
+
+Boolean(miVariable);
+
+
+
+>>> OPERADORES ARITMÉTICOS <<<
+
++ Suma
+- Resta
+* Multiplicación
+/ División
+% Módulo
+** Potencia
+
+// Incremento anterior
+++variable;
+
+// Incremento posterior
+variable++;
+
+// Decremento anterior
+--variable;
+
+// Decremento posterior
+variable--;
+
+// Sumar valor a variable
+variable += valor;
+
+// Restar valor a variable
+variable -= valor;
+
+// Multiplicar valor a variable
+variable *= valor;
+
+// Dividir valor a variable
+variable /= valor;
+
+// Hacer módulo a variable
+variable %= valor;
+
+// Hacer potencia con valor a variable
+variable **= valor;
+
+
+
+>>> OPERADORES RELACIONALES <<<
+
+// Igual (valores)
+==
+
+// Estrictamente igual (valores y tipo)
+===
+
+// Distinto (valores)
+!=
+
+// Estrictamente Distinto (valores y tipo)
+!==
+
+// Mayor
+>
+
+// Mayor o igual
+>=
+
+// Menor
+<
+
+// Menor o igual
+<=
+
+
+
+>>> OPERADORES LÓGICOS <<<
+
+&& AND
+|| OR
+! NOT
+?? OR pero sin aplicar lógica (0 es true)
+
+
+
+>>> CONDICIONALES IF <<<
+
+// Si se da condición, realizar instrucción
+
+if(condición) {
+	// instrucción
+}
+if(condición) instruccion();
+
+// Si se da condición, realizar 1, si no, 2.
+
+if(condición){
+	// 1
+}else{
+	// 2
+}
+condición ? instruccion1() : instruccion2();
+
+// Múltiple condición
+
+if(condición1){
+	// 1
+}else if(condición2){
+	// 2
+}else if(condición3){
+	// 3
+}else{
+	// Resto
+}
+
+
+
+>>> CONDICIONAL SWITCH <<<
+
+// Realizar instrucción dependiendo del valor de variable
+
+switch(variable){
+	case 1:
+		// 1
+		break;
+	case 2:
+		// 2
+		break;
+	case 3:
+		// 3
+		break;
+	default:
+		// Resto
+}
+
+
+
+>>> BUCLE WHILE <<<
+
+// Repetir instrucción mientras se cumpla condición
+
+while(condición) {
+	// Instrucción
+}
+
+
+
+>>> BUCLE DO WHILE <<<
+
+// Realizar instrucción y repetir mientras se cumpla condición
+
+do{
+	// Instrucción
+}while(condición);
+
+
+
+>>> BUCLE FOR <<<
+
+// Realizar inicialización y repetir instrucción mientras se cumpla condición, y realizar iteración
+
+for(inicialización, condición, iteración){
+	// Instrucción
+}
+
+// Bucle For-Each (Valores de un iterable)
+
+let iterable = [1,2,3,4,5];
+for(let elemento of iterable){
+	console.log(elemento);
+}
+
+// Bucle For-Each (Claves de un objeto, iterable o no)
+
+let objeto = {
+	nombre: "Pepe",
+	edad: 20
+};
+for(let elemento in objeto){
+	console.log(elemento, objeto[elemento]);
+}
+
+
+
+>>> BREAK Y CONTINUE <<<
+
+// Salir del bucle
+
+while(condición)
+	break;
+}
+
+// Ejecutar siguiente iteración del bucle
+
+while(condición)
+	continue;
+}
+
+
+
+>>> ARRAYS <<<
+
+// Declarar array unidimensional
+
+let array = [0, 1, 2, "Casa", "Pelota", false];
+
+// Acceder a elemento por posición de array unidimensional
+
+array[3]
+array.at(3)
+
+// Declarar array multidimensional
+
+let array = [[1,2,3], [4,5,6], [7,8,9]];
+
+// Acceder a elemento por posición de array multidimensional
+
+array[5][2]
+
+// Declarar array unidimensional de tamaño 10 con constructor
+
+let array = new Array(10);
+
+// Tamaño de array
+
+array.length
+
+// Sacar primer elemento
+
+array.shift();
+
+// Meter elemento como primero
+
+array.unshift(elemento);
+
+// Sacar último elemento
+
+array.pop();
+
+// Meter elemento como último
+
+array.push(elemento);
+
+// Índice de la primera ocurrencia de elemento (devuelve -1 si no hay)
+
+array.indexOf(elemento)
+
+// Ordenar array
+
+array.sort();
+
+// Ordenar array siguiendo un criterio
+
+array.sort((elemento1, elemento2) => Instrucciones);
+
+// Poner array al revés
+
+array.reverse();
+
+// Desglose de valores de un array
+
+...array
+
+// Recorrer array (lee elemento, indice y array en ese orden) y realizar instrucciones a cada elemento
+
+array.forEach((elemento, indice, array) => Instrucciones);
+
+// Generar nuevo array recorriendo el original (lee elemento, indice y array en ese orden) de instrucciones aplicadas a cada elemento
+
+array.map((elemento, indice, array) => Instrucciones);
+
+// Generar nuevo array recorriendo el original (lee elemento, indice y array en ese orden) de sólo los elementos que cumplan condición devuelta en las instrucciones
+
+array.filter((elemento, indice, array) => Instrucciones);
+
+// Recorrer array (lee acumulador, elemento, indice y array en ese orden) iterando sobre un acumulador y devolver valor especificado en las instrucciones
+
+array.reduce((acumulador, elemento, indice, array) => Instrucciones);
+
+// ¿Es la variable un array?
+
+Array.isArray(variable)
+
+// ¿Contiene un elemento el array?
+
+array.includes(elemento)
+
+// Extraer de un array los elementos en un rango (y sustituirlos por otros si hay) (Funciona como añadir elementos a partir de inicio si cantidad es 0)
+
+array.splice(inicio, cantidad)
+array.splice(inicio, cantidad, ...reemplazos)
+
+// Elementos en un rango de un array
+
+array.slice(inicio, fin)
+
+// Array en cadena de texto
+
+array.toString()
+
+// Devolver primera ocurrencia de elemento en array por condición
+
+array.find((elemento, indice, array) => Instrucciones);
+
+// Posición de primera ocurrencia de elemento en array que cumpla condición
+
+array.findIndex((elemento, indice, array) => Instrucciones)
+
+// Posición de última ocurrencia de elemento en array que cumpla condición
+
+array.findLastIndex((elemento, indice, array) => Instrucciones)
+
+// Array con otro array concatenado
+
+array.concat(otroArray);
+
+// Dividir en array una cadena por elementos entre subcadena
+
+cadena.split(subcadena)
+
+// Crear cadena con strings de un array, separadas por una coma
+
+array.join()
+
+// Crear cadena con strings de un array, separadas por subcadena (a, b, c pasa a ser abc)
+
+array.join(subcadena)
+
+// Llenar un array de valores
+
+array.fill(valor);
+
+// Llenar un array de valores a partir de una posición
+
+array.fill(valor, inicio);
+
+// Llenar un array de valores sólo un rango (fin excluyente)
+
+array.fill(valor, inicio, fin);
+
+// Desesctructuración de array en variables
+
+let [a, b, c] = [1, 2, 3];
+
+
+
+>>> STRINGS <<<
+
+// Tamaño de cadena
+
+cadena.length
+
+// Carácter en posición específica
+
+cadena.charAt(posición)
+
+// Posición de la primera ocurrencia de cadena
+
+cadena.indexOf(cadena)
+
+// Posición de la última ocurrencia de cadena
+
+cadena.lastIndexOf(cadena)
+
+// Cadena con espacios regulados
+
+cadena.trim()
+
+// Cadena en mayúscula
+
+cadena.toUpperCase()
+
+// Cadena en minúscula
+
+cadena.toLowerCase()
+
+// Cadena concatenada repetidamente 5 veces
+
+cadena.repeat(5)
+
+// ¿La cadena empieza con una cadena?
+
+cadena.starsWith(cadena);
+
+// ¿La cadena termina con una cadena?
+
+cadena.endsWith(cadena);
+
+// ¿La cadena contiene una cadena?
+
+cadena.includes(cadena);
+
+// Cadena con las subcadena1 reemplazadas por subcadena2
+
+cadena.replaceAll(cadena1, cadena2)
+
+// Subcadena entre la posición 1 (incluyente) y 2 (excluyente) de una cadena
+
+cadena.slice(1, 2)
+
+// Dividir en array una cadena por elementos entre subcadena
+
+cadena.split(subcadena)
+
+// Crear cadena con strings de un array, separadas por una coma
+
+array.join()
+
+// Crear cadena con strings de un array, separadas por subcadena (a, b, c pasa a ser abc)
+
+array.join(subcadena)
+
+
+
+>>> CONVERSIÓN ESTÁNDAR JSON <<<
+
+// String de objeto
+
+JSON.stringify(objeto)
+
+// Objeto de string
+
+JSON.parse(string)
+
+
+
+>>> FUNCIONES <<<
+
+// Crear función
+
+function miFuncion() {
+	// Instrucciones
+}
+
+function miFuncion(variable1, variable2) {
+	// Instrucciones
+	return variable3;
+}
+
+let miFuncion = function () {
+	// Instrucciones
+}
+
+// Crear función con valor por defecto en parámetro
+
+function miFuncion(valor = 2) {
+	// Instrucciones
+}
+
+// Crear función anónima
+
+let funcion = () => {
+	// Instrucciones
+}
+
+let suma = (a, b) => {
+	return a + b;
+}
+
+// Función con número variable de argumentos (Es un iterable, agrupación de elementos)
+
+function sumarTodo(...numeros){
+	let suma = 0;
+	for(let numero of numeros){
+		suma += numero;
+	}
+	return suma;
+}
+
+// Objeto Argumentos (debe usarse dentro de un ámbito con parámetros)
+
+function miFuncion(arg1, arg2){
+	console.log(arguments);
+}
+
+// Usar función
+
+miFuncion();
+miFuncion(variable1, variable2);
+
+// Función anidada
+
+function externa() {
+	function interna() {
+		// Instrucciones
+	}
+	interna();
+}
+
+// Función autoejecutable
+
+(function () {
+	// Instrucción
+}) ();
+
+
+
+>>> CLASE MATH <<<
+
+// Constante Pi
+
+Math.PI
+
+// Constante e
+
+Math.E
+
+// Redondeo de número
+
+Math.round(numero)
+
+// Techo de número
+
+Math.ceil(numero)
+
+// Suelo de número
+
+Math.floor(numero)
+
+// Truncamiento de número
+
+Math.trunc(numero)
+
+// Valor absoluto
+
+Math.abs(numero)
+
+// Raíz cuadrada
+
+Math.sqrt(numero)
+
+// Raíz cúbica
+
+Math.cbrt(numero)
+
+// Potencia
+
+Math.pow(base, exponente)
+
+// Mínimo de un array
+
+Math.min(array)
+
+// Máximo de un array
+
+Math.max(array)
+
+// Número aleatorio entre 0 y 1
+
+Math.random()
+
+// Seno
+
+Math.sin(numero)
+
+// Coseno
+
+Math.cos(numero)
+
+// Tangente
+
+Math.tan(numero)
+
+// Logaritmo natural
+
+Math.log(numero)
+
+// Logaritmo decimal
+
+Math.log10(numero)
+
+
+
+>>> CLASE OBJECT <<<
+
+// Array de propiedades de objeto
+
+Object.keys(objeto)
+
+// Array de valores del objeto
+
+Object.values(objeto)
+
+// Array de entradas del objeto
+
+Object.entries(objeto)
+
+// Definir propiedad nueva de objeto especificando nombre y valor, si se pueden cambiar sus valores, enumerable o no y configur
+
+Object.defineProperty(objeto, "propiedad", {
+	value: "valor",
+	writable: booleano,
+	enumerable: booleano,
+	configurable: booleano
+});
+
+// Congelar objeto (No se pueden crear, eliminar o modificar sus propiedades)
+
+Object.freeze(objeto);
+
+// Sellar objeto (No se pueden crear o eliminar propiedades nuevas)
+
+Object.seal(objeto);
+
+// Preveer objeto de extenderse (No se pueden crear propiedades nuevas)
+
+Object.preventExtensions(objeto); 
+
+// ¿El objeto tiene la propiedad? (Antiguo)
+
+objeto.hasOwnProperty("propiedad")
+
+// ¿El objeto tiene la propiedad?
+
+objeto.hasOwn("propiedad")
+
+// Eliminar propiedad
+
+delete objeto.propiedad;
+
+// Desestructuración de objeto (sus propiedades) en variable del mismo nombre
+
+let {atributo1} = objeto;
+
+// Desestructuración de objeto (sus propiedades) en variable
+
+let {atributo1: variable} = objeto;
+
+>>> CLASES Y OBJETOS <<<
+
+// Declarar objeto de clase anónima
+
+let objeto = {
+	atributo1: valor1,
+	atributo2: valor2,
+	metodo1: function (...) {...},
+	metodo2 (...) {...},
+	metodo3: (...) => {...}
+};
+
+// Declarar objeto con función constructor
+
+function Objeto(atributo1, atributo2) {
+	this.atributo1 = atributo1;
+	this.atributo2 = atributo2;
+	this.metodo1 = function (...) {...};
+	this.metodo2 = function (...) {...};
+}
+
+let objeto = new Objeto(valor1, valor2);
+
+// Declarar objeto con clases
+
+class Objeto {
+	constructor(atributo1, atributo2) {
+		this.atributo1 = atributo1;
+		this.atributo2 = atributo2;
+	}
+	metodo() {
+		...
+	}
+}
+
+let objeto = new Objeto(valor1, valor2);
+
+// Acceder a propiedades del objeto
+
+objeto.atributo
+objeto["atributo"]
+
+// Añadir propiedad a objeto existente
+
+objeto.nueva = valor;
+objeto["nueva"] = valor;
+objeto.metodoNuevo = () => {...};
+objeto["metodoNuevo"] = () => {...};
+
+// Propiedades Estáticas
+
+class Objeto {
+	static cantidad = 0;
+	constructor() {
+		Objeto.cantidad++;
+	}
+	static mostrarCantidad = () => console.log(Objeto.cantidad);
+}
+
+
+
+>>> GETTERS Y SETTERS <<<
+
+// Si están definidos, los getters y setters son automáticamente invocados cuando se acceden o modifican propiedades
+// Todos los atributos que tengan getter se accederán mediante él para devolver valores de los mismos atributos privados.
+// Todos los atributos que tengan setter se modificarán mediante él para establecer los valores de los mismos atributos privados.
+// "objeto.atributo" invoca al getter
+// "objeto.atrituto = valor" invoca al setter
+// Se debe usar "this.atributo = atributo" en el constructor, para invocar al setter
+
+class Objeto {
+	constructor(atributo){
+		this.atributo = atributo;
+	}
+	get atributo(){
+		return this._atributo;
+	}
+	set atributo(atributo){
+		this._atributo = atributo;
+	}
+}
+
+
+
+>>> HERENCIA <<<
+
+// La clase hija tiene las propiedades de la clase padre
+// super() es el constructor del padre y super es el objeto padre
+
+class Padre {
+	constructor(atributo1){
+		this.atributo1 = atributo1;
+	}
+	metodo(){
+		console.log("Metodo");
+	}
+}
+
+class Hijo extends Padre {
+	constructor(atributo1, atributo2){
+		super(atributo1);
+		this.atributo2 = atributo2;
+	}
+	metodoHijo(){
+		console.log("Metodo del hijo");
+	}
+}
+
+
+
+>>> FECHAS <<<
+
+// Crear objeto fecha de hoy
+
+let fecha = new Date();
+
+// Crear objeto fecha con milisegundos desde 01/01/1970 01:00
+
+let fecha = new Date(1000000000000);
+
+// Crear objeto fecha especificada
+
+let fecha = new Date("2024-01-01");
+
+// Año
+
+fecha.getFullYear()
+fecha.setFullYear(año)
+
+// Mes (número)
+
+fecha.getMonth()
+fecha.setMonth(mes)
+
+// Día (número)
+
+fecha.getDate()
+fecha.setDate(día);
+
+// Día (semana)
+
+fecha.getDay()
+
+// Hora
+
+fecha.getHours()
+fecha.setHours(hora);
+
+// Minutos
+
+fecha.getMinutes()
+fecha.setMinutes(minutos);
+
+// Segundos
+
+fecha.getSeconds()
+fecha.setSeconds(segundos);
+
+
+
+>>> TIMEOUT <<<
+
+// Ejecutar función con 1000 milisegundos de retraso (y devuelve un valor ID)
+
+let id =
+setTimeout(funcion, 1000);
+
+// Cancelar Timeout con ID
+
+clearTimeout(id);
