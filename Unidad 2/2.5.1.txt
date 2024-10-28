@@ -1,0 +1,35 @@
+1.
+a = 2
+b = 2
+c = 2
+d = 1
+
+2.
+a = 4
+x = 5
+true
+true
+true
+true
+false
+false
+false
+
+3.
+10
+-1
+1
+2
+6
+9px
+$45
+2
+nan
+-95
+-14
+1
+nan
+-2
+
+4.
+alert(Number(a)+Number(b));
