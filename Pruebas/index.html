@@ -33,9 +33,9 @@
             transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
-        #myBox.shrink {
-            transform: scale(0);
-            opacity: 0;
+        @keyframes shrinkFade {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
         }
 
         #counter {
@@ -61,9 +61,9 @@
 
         myBox.addEventListener("click", (event) => {
             let color = "rgb(" +
-                (Math.random() * 255).toFixed(0) + ", " +
-                (Math.random() * 255).toFixed(0) + ", " +
-                (Math.random() * 255).toFixed(0) + ")";
+                (Math.random() * 127).toFixed(0) + ", " +
+                (Math.random() * 127).toFixed(0) + ", " +
+                (Math.random() * 127).toFixed(0) + ")";
             event.target.style.backgroundColor = color;
 
             let randomTop = Math.random() * (window.innerHeight - event.target.offsetHeight);
@@ -79,13 +79,13 @@
             myBox.style.height = `${boxSize}px`;
 
             if (boxSize <= 0) {
-                myBox.classList.add('shrink');
+                myBox.style.animation = 'shrinkFade 0.5s forwards';
                 setTimeout(() => {
                     boxSize = 300;
                     myBox.style.width = `${boxSize}px`;
                     myBox.style.height = `${boxSize}px`;
-                    myBox.classList.remove('shrink');
-                }, 200);
+                    myBox.style.animation = '';
+                }, 500);
             }
 
             updateFavicon(color);
