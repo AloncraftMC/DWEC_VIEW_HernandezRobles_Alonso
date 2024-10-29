@@ -1105,11 +1105,20 @@ document.querySelectorAll("selector")
 
 document.createElement("etiqueta");
 
+// Añadir escuchador de eventos (explicado en su sección)
+
+document.addEventListener("event", function);
+document.addEventListener("evento", event => {
+	// Instrucciones
+});
+
 
 
 >>> ELEMENTOS HTML <<<
 
-// Los elementos Head y Body son subinterfaces de Elemento HTML y tienen las mismas propiedades:
+// PROPIEDADES DE TODOS LOS ELEMENTOS HTML
+
+// Los elementos document.head y document.body son subinterfaces de Elemento HTML y tienen las mismas propiedades
 
 // Id de elemento (String)
 
@@ -1228,6 +1237,203 @@ element.getAttribute("atributo");
 // Eliminar atributo del elemento
 
 element.removeAttribute("atributo");
+
+// Añadir escuchador de eventos (Explicado en su sección)
+
+element.addEventListener("event", function);
+element.addEventListener("evento", event => {
+	// Instrucciones
+});
+
+
+
+>>> ELEMENTOS HTML ESPECÍFICOS <<<
+
+// Las siguiente propiedades por cada tipo de elemento son unas cuantas, seguramente tenga muchas dejadas
+
+// PROPIEDADES DE ELEMENTOS DE ENTRADA (<input>, <select>, <textarea>)
+
+// Tipo de input
+
+element.type
+
+// Valor del campo
+
+element.value
+
+// ¿Está seleccionado? (sólo tipo checkbox / radio)
+
+element.checked
+
+// ¿Está desabilitado?
+
+element.disabled
+
+// Texto de placeholder
+
+element.placeholder
+
+// Máxima longitud de caracteres (sólo tipo text)
+
+element.maxLength
+
+// Mínima longitud de caracteres (sólo tipo text)
+
+element.minLength
+
+// Tamaño de longitud de caracteres
+
+element.size
+
+// ¿Es de sólo lectura?
+
+element.readOnly
+
+// Opciones (sólo <select>)
+
+element.options
+
+// PROPIEDADES DE ELEMENTOS DE IMAGEN (<img>)
+
+// URL de imagen
+
+element.src
+
+// Texto alternativo
+
+element.alt
+
+// Ancho de imagen
+
+element.width
+
+// Alto de imagen
+
+element.height
+
+// PROPIEDADES DE ELEMENTOS DE ENLACE (<a>)
+
+// URL de enlace
+
+element.href
+
+// Apertura en misma o distinta pestaña
+
+element.target
+
+// ¿Se descarga al hacer clic?
+
+element.download
+
+// PROPIEDADES DE ELEMENTOS DE LISTADO (<ol>, <li>)
+
+// Tipo de numeración (de <ol>)
+
+element.type
+
+// Valor (de <li>)
+
+element.value
+
+// PROPIEDADES DE ELEMENTOS DE TABLA (<table>, <tr>, <th>, <td>)
+
+// Filas por celda
+
+element.rowSpan
+
+// Columnas por celda
+
+element.colSpan
+
+// Título (sólo <table>)
+
+element.caption
+
+// PROPIEDADES DE ELEMENTOS DE FORMULARIO (<form>)
+
+// URL de destino del formulario
+
+element.action
+
+// Método HTTP (GET | POST)
+
+element.method
+
+// PROPIEDADES DE ELEMENTOS DE ESTILO (<style>)
+
+// Hoja de estilos
+
+element.sheet
+
+// ¿Está desabilitada?
+
+element.disabled
+
+// PROPIEDADES DE ELEMENTOS DE SCRIPT (<script>)
+
+// URL del script
+
+element.src
+
+// ¿Se ejecuta de forma asíncrona?
+
+element.async
+
+// PROPIEDADES DE ELEMENTOS DE AUDIO Y VÍDEO (<audio>, <video>)
+
+// URL de contenido
+
+element.src
+
+// ¿Se muestran los controles?
+
+element.controls
+
+// ¿Se reproducirá automáticamente?
+
+element.autoplay
+
+// ¿Se reproducirá en bucle?
+
+element.loop
+
+// ¿Se cargará antes de interactuar?
+
+element.preload
+
+// ¿Está silenciado?
+
+element.muted
+
+// ¿Está pausado?
+
+element.paused
+
+// Posición actual de tiempo
+
+element.currentTime
+
+// Duración
+
+element.duration
+
+// Volumen
+
+element.volume
+
+// Reproducir contenido
+
+element.play();
+
+// Pausar contenido
+
+element.pause();
+
+// PROPIEDADES DE ELEMENTOS DE IFRAME (<iframe>)
+
+// URL del contenido
+
+element.src
 
 
 
@@ -1798,3 +2004,58 @@ element.classList.toogle("clase");
 // ¿El elemento tiene la clase?
 
 element.classList.contains("clase")
+
+
+
+>>> EVENT LISTENER <<<
+
+// Añadir escuchador de eventos (document / element);
+
+objeto.addEventListener("evento", event => {
+	// Instrucciones
+})
+
+// Lista de eventos destacables
+
+animationstart		// Animación empieza
+animationiteration	// Animación ejecuta siguiente iteración
+animationend		// Animación termina
+change				// Cambio
+click				// Clic
+dblclick			// Doble clic
+copy				// Algo copiado
+cut					// Algo cortado
+paste				// Algo pegado
+dragstart			// Empezar a arrastrar
+drag				// Arrastrando
+dragend				// Terminar de arrastrar
+dragenter			// Entrar arrastrando
+dragleave			// Salir arrastrando
+focus				// Seleccionado
+input				// Entrada de usuario
+keydown				// Tecla presionada
+keyup				// Tecla soltada
+mousedown			// Ratón presionado
+mouseup				// Ratón soltado
+mouseenter			// Cursor entra
+mouseleave			// Cursor sale
+mouseover			// Cursor entra (incluye hijos)
+mouseout			// Cursor sale (incluye hijos)
+mousemove			// Cursor se mueve
+wheel				// Rueda de ratón
+play				// Multimedia empieza a reproducirse
+playing				// Mutilmedia reproduciéndose
+pause				// Multimedia se pausa
+waiting				// Multimedia pausada
+ended				// Multimedia termina
+timeupdate			// Posición temporal cambia
+volumechange		// Volumen cambia
+scroll				// Scrolleando
+select				// Texto seleccionado
+reset				// Formulario reseteado
+submit				// Formulario enviado
+toggle				// <details> desplegado
+touchstart			// Dedo pulsado
+touchend			// Dedo levantado
+touchmove			// Dedo se mueve
+touchcancel			// Dedo interrumpido

@@ -57,7 +57,7 @@
     </style>
 
     <div id="counter">0</div>
-    <div id="version">v1.6</div>
+    <div id="version">v1.7</div>
     <div id="myBox"></div>
 
     <audio id="popSound" src="pop.mp3"></audio>
@@ -98,12 +98,13 @@
 
             popSound.currentTime = 0;
 
-            if (Math.random() < 0.01) { // 1% chance
-                jumpscareSound.currentTime = 0; // Reset sound
-                jumpscareSound.play(); // Play jumpscare sound
-                document.body.style.backgroundImage = "url('jumpscare.webp')"; // Change background
+            if (Math.random() < 0.01) { 
+                jumpscareSound.currentTime = 0;
+                jumpscareSound.play();
+                document.body.style.backgroundImage = "url('jumpscare.webp')";
             }else{
                 popSound.play();
+                jumpscareSound.pause();
                 document.body.style.backgroundImage = "none";
             }
 
