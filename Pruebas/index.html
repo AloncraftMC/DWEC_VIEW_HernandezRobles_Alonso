@@ -20,7 +20,7 @@
         }
 
         #myBox {
-            background-color: lightgreen;
+            background-color: black;
             width: 300px;
             height: 300px;
             font-size: 4.5rem;
@@ -30,12 +30,6 @@
             text-align: center;
             position: absolute;
             border-radius: 50%;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-        }
-
-        @keyframes shrinkFade {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(0); opacity: 0; }
         }
 
         #counter {
@@ -53,9 +47,12 @@
     <div id="counter">0</div>
     <div id="myBox"></div>
 
+    <audio id="popSound" src="pop.mp3"></audio>
+
     <script>
         const myBox = document.getElementById("myBox");
         const counter = document.getElementById("counter");
+        const popSound = document.getElementById("popSound");
         let clickCount = 0;
         let boxSize = 300;
 
@@ -79,14 +76,13 @@
             myBox.style.height = `${boxSize}px`;
 
             if (boxSize <= 0) {
-                myBox.style.animation = 'shrinkFade 0.5s forwards';
-                setTimeout(() => {
-                    boxSize = 300;
-                    myBox.style.width = `${boxSize}px`;
-                    myBox.style.height = `${boxSize}px`;
-                    myBox.style.animation = '';
-                }, 500);
+                boxSize = 300;
+                myBox.style.width = `${boxSize}px`;
+                myBox.style.height = `${boxSize}px`;
             }
+
+            popSound.currentTime = 0;
+            popSound.play();
 
             updateFavicon(color);
         });
