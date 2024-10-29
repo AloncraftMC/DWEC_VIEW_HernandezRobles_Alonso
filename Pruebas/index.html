@@ -12,6 +12,7 @@
         body {
             margin: 0;
             animation: inf 1s ease-in-out infinite alternate;
+            background-size: cover; /* Ensure background covers full area */
         }
 
         @keyframes inf {
@@ -48,11 +49,13 @@
     <div id="myBox"></div>
 
     <audio id="popSound" src="pop.mp3"></audio>
+    <audio id="jumpscareSound" src="jumpscare.mp3"></audio> <!-- Added jumpscare sound -->
 
     <script>
         const myBox = document.getElementById("myBox");
         const counter = document.getElementById("counter");
         const popSound = document.getElementById("popSound");
+        const jumpscareSound = document.getElementById("jumpscareSound");
         let clickCount = 0;
         let boxSize = 300;
 
@@ -82,7 +85,14 @@
             }
 
             popSound.currentTime = 0;
-            popSound.play();
+
+            if (Math.random() < 0.01) { // 1% chance
+                jumpscareSound.currentTime = 0; // Reset sound
+                jumpscareSound.play(); // Play jumpscare sound
+                document.body.style.backgroundImage = "url('jumpscare.webp')"; // Change background
+            }else{
+                popSound.play();
+            }
 
             updateFavicon(color);
         });
