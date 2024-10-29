@@ -1,5 +1,5 @@
 ============ LISTA DE CONCEPTOS JAVASCRIPT ============
-Ver. 28.10.2024
+Ver. 29.10.2024
 
 
 
@@ -747,19 +747,37 @@ Object.seal(objeto);
 
 // Preveer objeto de extenderse (No se pueden crear propiedades nuevas)
 
-Object.preventExtensions(objeto); 
+Object.preventExtensions(objeto);
 
-// ¿El objeto tiene la propiedad? (Antiguo)
+// Agregar a objeto propiedades de objetos sobreescribiendo las existentes
 
+Object.assign(objeto, ...objetos)
+
+// Referencia a objeto, con propiedades adicionales opcionales de otros objetos
+
+Object.create(objeto, ...objetos)
+
+// ¿El objeto tiene la propiedad no heredada?
+
+Object.hasOwn(objeto, "propiedad")
 objeto.hasOwnProperty("propiedad")
 
 // ¿El objeto tiene la propiedad?
 
-objeto.hasOwn("propiedad")
+"propiedad" in objeto
+
+// Prototipo de objeto
+
+Object.getPrototypeOf(objeto)
+Objeto.prototype
 
 // Eliminar propiedad
 
 delete objeto.propiedad;
+
+// Copia del objeto
+
+structuredClone(objeto)
 
 // Desestructuración de objeto (sus propiedades) en variable del mismo nombre
 
@@ -768,6 +786,8 @@ let {atributo1} = objeto;
 // Desestructuración de objeto (sus propiedades) en variable
 
 let {atributo1: variable} = objeto;
+
+
 
 >>> CLASES Y OBJETOS <<<
 
@@ -817,6 +837,11 @@ objeto.nueva = valor;
 objeto["nueva"] = valor;
 objeto.metodoNuevo = () => {...};
 objeto["metodoNuevo"] = () => {...};
+
+// Añadir propiedad a la clase del objeto
+
+Objeto.prototype.nueva = valor;
+Objeto.prototype.metodoNuevo = valor;
 
 // Propiedades Estáticas
 
@@ -983,6 +1008,17 @@ error.name
 
 
 
+>>> TIPOS DE DATOS DEL DOM <<<
+
+Node						// Nodo
+	Element					// Elemento 
+		HTMLElement			// Elemento HTML
+		Document			// Documento
+HTMLCollection				// Colección HTML (No tiene forEach() ni métodos similares)
+NodeList					// Lista de Nodos (No se actualizan automáticamente y tiene forEach())
+
+
+
 >>> DOM <<<
 
 // Página completa
@@ -999,7 +1035,7 @@ document.URL
 
 document.doctype
 
-// Head de la página (Elemento Head)
+// Head de la página (Elemento HTML)
 
 document.head
 
@@ -1007,7 +1043,7 @@ document.head
 
 document.title
 
-// Body de la página (Elemento Body)
+// Body de la página (Elemento HTML)
 
 document.body
 
@@ -1061,9 +1097,13 @@ document.getElementsByTagName("etiqueta");
 
 document.querySelector("selector") 
 
-// Seleccionar elementos por selector CSS (Lista de Nodos)
+// Seleccionar elementos por selector CSS (Lista de Nodos; la variable )
 
 document.querySelectorAll("selector")
+
+// Crear elemento en memoria
+
+document.createElement("etiqueta");
 
 
 
@@ -1087,9 +1127,107 @@ element.innerHTML
 
 element.textContent
 
-// Estilo del documento (Declaración de Estilos CSS)
+// Estilo del elemento (Declaración de Estilos CSS)
 
 element.style
+
+// Lista de clases del elemento (Lista)
+
+element.classList
+
+// Siguiente elemento (Elemento HTML)
+
+element.nextElementSibling
+
+// Siguiente elemento (Nodo)
+
+element.nextSibling
+
+// Anterior elemento (Elemento HTML)
+
+element.previousElementSibling
+
+// Anterior elemento (Nodo)
+
+element.previousSibling
+
+// Padre del elemento (Elemento HTML)
+
+element.parentElement
+
+// Padre del elemento (Nodo)
+
+element.parentNode
+
+// Hijos del elemento (Colección HTML)
+
+element.children
+
+// Hijos del elemento (Lista de Nodos)
+
+element.childNodes
+
+// Primer hijo del elemento (Elemento HTML)
+
+element.firstElementChild
+
+// Primer hijo del elemento (Nodo)
+
+element.firstChild
+
+// Último hijo del elemento (Elemento HTML)
+
+element.lastElementChild
+
+// Último hijo del elemento (Nodo)
+
+element.lastChild
+
+// Agregar elemento (o nodo) después del último hijo del elemento (o nodo)
+
+element.append(elemento);
+node.append(nodo);
+
+// Agregar elemento (o nodo) antes del primer hijo del elemento (o nodo)
+
+element.prepend(elemento);
+node.prepend(nodo);
+
+// Agregar nodo después del último hijo del nodo
+
+node.appendChild(nodo);
+
+// Agregar nodo antes de un hijo dentro de un nodo
+
+node.insertBefore(nodo, hijo);
+
+// Eliminar nodo
+
+nodo.remove();
+
+// Eliminar hijo dentro de un nodo
+
+nodo.removeChild(hijo);
+
+// Eliminar hijo por otro dentro de un nodo
+
+nodo.replaceChild(hijo, nuevo);
+
+// Copia de nodo (true con subnodos, false sólo él)
+
+nodo.cloneNode(booleano)
+
+// Establecer atributo del elemento
+
+element.setAttribute("atributo", "valor");
+
+// Valor de atributo del elemento
+
+element.getAttribute("atributo");
+
+// Eliminar atributo del elemento
+
+element.removeAttribute("atributo");
 
 
 
@@ -1640,3 +1778,23 @@ element.style.animationFillMode = "none|forwards|backwards|both";
 
 element.style.animationPlayState
 element.style.animationPlayState = "paused|running";
+
+
+
+>>> CLASES DEL ELEMENTO <<<
+
+// Añadir clase al elemento
+
+element.classList.add("clase");
+
+// Eliminar clase al elemento
+
+element.classList.remove("clase");
+
+// Añadir / Eliminar clase al elemento si no está / está
+
+element.classList.toogle("clase");
+
+// ¿El elemento tiene la clase?
+
+element.classList.contains("clase")
