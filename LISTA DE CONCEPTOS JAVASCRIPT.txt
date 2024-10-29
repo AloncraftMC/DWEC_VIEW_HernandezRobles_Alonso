@@ -1,5 +1,5 @@
 ============ LISTA DE CONCEPTOS JAVASCRIPT ============
-Ver. 27.10.2024
+Ver. 28.10.2024
 
 
 
@@ -32,6 +32,10 @@ console.warn("Advertencia");
 // Imprimir error por consola
 
 console.error("Error");
+
+// Imprimir objeto con más detalle
+
+console.dir(objeto);
 
 // Pedir string al usuario con mensaje
 
@@ -319,13 +323,13 @@ for(let elemento in objeto){
 
 // Salir del bucle
 
-while(condición)
+while(condición){
 	break;
 }
 
 // Ejecutar siguiente iteración del bucle
 
-while(condición)
+while(condición){
 	continue;
 }
 
@@ -413,6 +417,12 @@ array.reduce((acumulador, elemento, indice, array) => Instrucciones);
 // ¿Es la variable un array?
 
 Array.isArray(variable)
+
+// Convertir a array
+
+Array.from(coleccion)
+Array.from(listaDeNodos)
+Array.from(conjunto)
 
 // ¿Contiene un elemento el array?
 
@@ -929,3 +939,704 @@ setTimeout(funcion, 1000);
 // Cancelar Timeout con ID
 
 clearTimeout(id);
+
+
+
+>>> IMPORTACIÓN DE MÓDULOS <<<
+
+// Para importar módulos, debe hacerse en un servidor y el script principal tiene que tener en HTML:
+// <script type="module" src="main.js"></script>
+
+// Importar elementos de otro script
+
+import {elemento1, elemento2} from "./script.js";
+
+// Importar de otro script todos los elementos como objeto
+
+import * as objeto from "./script.js";
+
+
+
+>>> MANEJO DE ERRORES <<<
+
+// Manejar un error (finally es opcional)
+
+try{
+	// Código peligroso
+}catch(error){
+	// Manejo de errores
+}finally{
+	// Código final
+}
+
+// Lanzar un error personalizado
+
+throw new Error("Mensaje de error");
+
+// Mensaje del error
+
+error.message
+
+// Tipo del error
+
+error.name
+
+
+
+>>> DOM <<<
+
+// Página completa
+
+document
+
+// ATRIBUTOS DEL DOM
+
+// URL de la página (String)
+
+document.URL
+
+// Tipo del documento (Tipo de Documento, Ej. <!DOCTYPE html>)
+
+document.doctype
+
+// Head de la página (Elemento Head)
+
+document.head
+
+// Título de la página; se puede modificar (String)
+
+document.title
+
+// Body de la página (Elemento Body)
+
+document.body
+
+// Formularios de la página (Colección HTML)
+
+document.forms
+
+// Links de la página (Colección HTML)
+
+document.links
+
+// Imágenes de la página (Colección HTML)
+
+document.images
+
+// Embedidos de la página (Colección HTML)
+
+document.embeds
+
+// Hojas de estilo de la página (Lista de Hojas de Estilo)
+
+document.styleSheets
+
+// Charset de la página (String, Ej. "UTF-8")
+
+document.characterSet
+
+// Tipo del contenido de la página (String, Ej. "text/html")
+
+document.contentType
+
+// El elemento del documento (Elemento HTML)
+
+document.documentElement
+
+// MÉTODOS DEL DOM
+
+// Seleccionar elemento por su id (Elemento HTML)
+
+document.getElementById("id");
+
+// Seleccionar elementos por clase (Colección HTML)
+
+document.getElementsByClassName("clase");
+
+// Seleccionar elementos por etiqueta HTML (Colección HTML)
+
+document.getElementsByTagName("etiqueta");
+
+// Seleccionar elemento por primera ocurrencia de selector CSS (Elemento HTML)
+
+document.querySelector("selector") 
+
+// Seleccionar elementos por selector CSS (Lista de Nodos)
+
+document.querySelectorAll("selector")
+
+
+
+>>> ELEMENTOS HTML <<<
+
+// Los elementos Head y Body son subinterfaces de Elemento HTML y tienen las mismas propiedades:
+
+// Id de elemento (String)
+
+element.id
+
+// Clase de elemento (String)
+
+element.className
+
+// Contenido HTML dentro de elemento (String)
+
+element.innerHTML
+
+// Texto sin aplicar HTML dentro del elemento (String)
+
+element.textContent
+
+// Estilo del documento (Declaración de Estilos CSS)
+
+element.style
+
+
+
+>>> ESTILO DE ELEMENTO <<<
+
+/* Esto es básicamente un repaso de CSS, nada de JavaScript */
+
+// Color de fondo
+
+element.style.backgroundColor
+element.style.backgroundColor = "red";
+element.style.backgroundColor = "#ABCDEF";
+element.style.backgroundColor = "#ABCDEF00";
+element.style.backgroundColor = "rgb(100, 150, 250)";
+element.style.backgroundColor = "rgba(100, 150, 250, 0.5)";
+element.style.backgroundColor = "hsl(210, 60%, 70%)";
+element.style.backgroundColor = "hsla(210, 60%, 70%, 0.5)";
+
+// Color
+
+element.style.color
+element.style.color = "red";
+element.style.color = "#ABCDEF";
+element.style.color = "#ABCDEF00";
+element.style.color = "rgb(100, 150, 250)";
+element.style.color = "rgba(100, 150, 250, 0.5)";
+element.style.color = "hsl(210, 60%, 70%)";
+element.style.color = "hsla(210, 60%, 70%, 0.5)";
+
+// Tamaño de texto
+
+element.style.fontSize
+element.style.fontSize = "10px";
+element.style.fontSize = "2em";
+element.style.fontSize = "1.5rem";
+element.style.fontSize = "60%";
+
+// Peso de texto (Negrita y eso)
+
+element.style.fontWeight
+element.style.fontWeight = 100;
+element.style.fontWeight = "normal|bold|bolder|lighter";
+
+// Fuente de texto
+
+element.style.fontFamily
+element.style.fontFamily = "Helvetica, sans-serif";
+
+// Distancia a Top, Bottom, Left, Right
+
+element.style.top
+element.style.bottom
+element.style.left
+element.style.right
+
+element.style.top = "10px";
+element.style.bottom = "10px";
+element.style.left = "10px";
+element.style.right = "10px";
+
+element.style.top = "2em";
+element.style.top = "1.5rem";
+element.style.top = "auto";
+...
+
+// Margen
+
+element.style.margin
+element.style.margin = "10px";
+element.style.margin = "10px 20px"; // Verticales y Horizontales
+element.style.margin = "10px 20px 30px"; // Superior, Horizontales e Inferior
+element.style.margin = "10px 20px 30px 40px"; // Superior, Derecho, Inferior e Izquierdo
+element.style.margin = "2em";
+element.style.margin = "1.5rem";
+element.style.margin = "auto";
+
+// Margen Top, Bottom, Left, Right
+
+element.style.marginTop
+element.style.marginBottom
+element.style.marginLeft
+element.style.marginRight
+
+element.style.marginTop = "10px";
+element.style.marginBottom = "10px";
+element.style.marginLeft = "10px";
+element.style.marginRight = "10px";
+
+element.style.marginTop = "2em";
+element.style.marginTop = "1.5rem";
+element.style.marginTop = "auto";
+...
+
+// Padding
+
+element.style.padding
+element.style.padding = "10px";
+element.style.padding = "10px 20px"; // Verticales y Horizontales
+element.style.padding = "10px 20px 30px"; // Superior, Horizontales e Inferior
+element.style.padding = "10px 20px 30px 40px"; // Superior, Derecho, Inferior e Izquierdo
+element.style.padding = "2em";
+element.style.padding = "1.5rem";
+element.style.padding = "auto";
+
+// Padding Top, Bottom, Left, Right
+
+element.style.paddingTop
+element.style.paddingBottom
+element.style.paddingLeft
+element.style.paddingRight
+
+element.style.paddingTop = "10px";
+element.style.paddingBottom = "10px";
+element.style.paddingLeft = "10px";
+element.style.paddingRight = "10px";
+
+element.style.paddingTop = "2em";
+element.style.paddingTop = "1.5rem";
+element.style.paddingTop = "auto";
+...
+
+// Borde
+
+element.style.border
+element.style.border = "10px";
+element.style.border = "solid";
+element.style.border = "black";
+element.style.border = "10px solid black";
+
+// Borde Top, Bottom, Left, Right
+
+element.style.borderTop
+element.style.borderBottom
+element.style.borderLeft
+element.style.borderRight
+
+element.style.borderTop = "10px solid black";
+element.style.borderBottom = "10px solid black";
+element.style.borderLeft = "10px solid black";
+element.style.borderRight = "10px solid black";
+
+element.style.borderTop = "2em";
+element.style.borderTop = "1.5rem";
+...
+
+// Ancho de borde
+
+element.style.borderWidth
+element.style.borderWidth = "medium|thin|thick";
+element.style.borderWidth = "10px";
+element.style.borderWidth = "10px 20px"; // Verticales y Horizontales
+element.style.borderWidth = "10px 20px 30px"; // Superior, Horizontales e Inferior
+element.style.borderWidth = "10px 20px 30px 40px"; // Superior, Derecho, Inferior e Izquierdo
+element.style.borderWidth = "2em";
+element.style.borderWidth = "1.5rem";
+
+// Estilo de borde
+
+element.style.borderStyle
+element.style.borderStyle = "none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset";
+element.style.borderStyle = "none hidden"; // Verticales y Horizontales
+element.style.borderStyle = "none hidden dotted"; // Superior, Horizontales e Inferior
+element.style.borderStyle = "none hidden dotted dashed"; // Superior, Derecho, Inferior e Izquierdo
+
+// Color de borde
+
+element.style.borderColor
+element.style.borderColor = "red";
+element.style.borderColor = "red green"; // Verticales y Horizontales
+element.style.borderColor = "red green blue"; // Superior, Horizontales e Inferior
+element.style.borderColor = "red green blue yellow"; // Superior, Derecho, Inferior e Izquierdo
+element.style.borderColor = "#ABCDEF";
+element.style.borderColor = "#ABCDEF00";
+element.style.borderColor = "rgb(100, 150, 250)";
+element.style.borderColor = "rgba(100, 150, 250, 0.5)";
+element.style.borderColor = "hsl(210, 60%, 70%)";
+element.style.borderColor = "hsla(210, 60%, 70%, 0.5)";
+
+// También existen las siguientes propiedades específicas de bordes:
+
+element.style.borderTopWidth
+element.style.borderTopStyle
+element.style.borderTopColor
+element.style.borderBottomWidth
+element.style.borderBottomStyle
+element.style.borderBottomColor
+element.style.borderLeftWidth
+element.style.borderLeftStyle
+element.style.borderLeftColor
+element.style.borderRightWidth
+element.style.borderRightStyle
+element.style.borderRightColor
+
+// Radio de borde
+
+element.style.borderRadius
+element.style.borderRadius = "10px";
+element.style.borderRadius = "10px 20px"; // Esquinas 1,4 y Esquinas 2,3
+element.style.borderRadius = "10px 20px 30px"; // Esquina 1, Esquinas 2,3 y Esquina 4
+element.style.borderRadius = "10px 20px 30px 40px"; // Esquina 1, Esquina 2, Esquina 3 y Esquina 4
+element.style.borderRadius = "2em";
+element.style.borderRadius = "1.5rem";
+
+// Ancho
+
+element.style.width
+element.style.width = "10px";
+element.style.width = "50%";
+element.style.width = "2em";
+element.style.width = "1.5rem";
+element.style.width = "auto";
+
+// Alto
+
+element.style.height
+element.style.height = "10px";
+element.style.height = "50%";
+element.style.height = "2em";
+element.style.height = "1.5rem";
+element.style.height = "auto";
+
+// Posición
+
+element.style.position
+element.style.position = "static|absolute|fixed|relative|sticky";
+
+// Flotar
+
+element.style.float
+element.style.float = "none|left|right";
+
+// Display
+
+element.style.display
+element.style.display = "none|inline|block|flex|grid|table|inline-block|inline-grid|inline-table|...";
+
+// Visibilidad
+
+element.style.visibility
+element.style.visibility = "visible|hidden|collapse";
+
+// Opacidad
+
+element.style.opacity
+element.style.opacity = 0.5;
+
+// Overflow
+
+element.style.overflow
+element.style.overflow = "visible|hidden|clip|scroll|auto";
+
+// Capa en el eje Z
+
+element.style.zIndex
+element.style.zIndex = 10;
+
+// Alineación del texto
+
+element.style.textAlign
+element.style.textAlign = "left|right|center|justify";
+
+// Altura de línea de texto
+
+element.style.lineHeight
+element.style.lineHeight = 1.5;
+element.style.lineHeight = "80%";
+element.style.lineHeight = "normal";
+
+// Tipo de Línea de Decoración de texto
+
+element.style.textDecorationLine
+element.style.textDecorationLine = "none|underline|overline|line-through"; // Pueden ser varias
+
+// Color de Línea de Decoración de texto
+
+element.style.textDecorationColor
+element.style.textDecorationColor = "red";
+element.style.textDecorationColor = "#ABCDEF";
+element.style.textDecorationColor = "#ABCDEF00";
+element.style.textDecorationColor = "rgb(100, 150, 250)";
+element.style.textDecorationColor = "rgba(100, 150, 250, 0.5)";
+element.style.textDecorationColor = "hsl(210, 60%, 70%)";
+element.style.textDecorationColor = "hsla(210, 60%, 70%, 0.5)";
+
+// Estilo de Línea de Decoración de texto
+
+element.style.textDecorationStyle
+element.style.textDecorationStyle = "solid|double|dotted|dashed|wavy";
+
+// Grosor de Línea de Decoración de texto
+
+element.style.textDecorationThickness
+element.style.textDecorationThickness = "5px";
+element.style.textDecorationThickness = "80%";
+element.style.textDecorationThickness = "2em";
+element.style.textDecorationThickness = "1.5rem";
+element.style.textDecorationThickness = "auto";
+
+// Línea de Decoración de texto
+
+element.style.textDecoration
+element.style.textDecoration = "línea color estilo grosor"; // Da igual el orden
+element.style.textDecoration = "underline overline dotted red";
+
+// Transformación de texto
+
+element.style.textTransform
+element.style.textTransform = "none|capitalize|uppercase|lowercase";
+
+// Espaciado entre letras
+
+element.style.letterSpacing
+element.style.letterSpacing = 10px;
+element.style.letterSpacing = "2em";
+element.style.letterSpacing = "1.5rem";
+
+// Espaciado entre palabras
+
+element.style.wordSpacing
+element.style.wordSpacing = 10px;
+element.style.wordSpacing = "2em";
+element.style.wordSpacing = "1.5rem";
+
+// Imagen de fondo
+
+element.style.backgroundImage
+element.style.backgroundImage = 'url("imagen.jpg")';
+
+// Tamaño de imagen de fondo
+
+element.style.backgroundSize
+element.style.backgroundSize = "auto|cover|contain";
+element.style.backgroundSize = "300px 120px";
+element.style.backgroundSize = "100% 100%";
+element.style.backgroundSize = "2em 2em";
+element.style.backgroundSize = "1.5rem 1.5rem";
+
+// Repetición de imagen de fondo
+
+element.style.backgroundRepeat
+element.style.backgroundRepeat = "repeat|repeat-x|repeat-y|no-repeat";
+
+// Sombra
+
+element.style.boxShadow
+element.style.boxShadow = "none|horizontal vertical difuminado tamaño color |inset";
+element.style.boxShadow = "5px 4px";
+element.style.boxShadow = "2em 2em 2em";
+element.style.boxShadow = "1.5rem 1.5rem 1.5rem 1.5rem";
+element.style.boxShadow = "5px 4px 3px 6px red inset";
+
+// Cursor
+
+element.style.cursor
+element.style.cursor = "none";			// Ninguno
+element.style.cursor = "default";		// Por defecto
+element.style.cursor = "auto";			// Automático
+element.style.cursor = "all-scroll";	// 4 flechas
+element.style.cursor = "move";			// 4 flechas
+element.style.cursor = "ns-resize";		// Flecha Vertical
+element.style.cursor = "ew-resize";		// Flecha Horizontal
+element.style.cursor = "n-resize";		// Flecha Norte
+element.style.cursor = "ne-resize";		// Flecha Nordeste
+element.style.cursor = "e-resize";		// Flecha Este
+element.style.cursor = "se-resize";		// Flecha Sureste
+element.style.cursor = "s-resize";		// Flecha Sur
+element.style.cursor = "sw-resize";		// Flecha Suroeste
+element.style.cursor = "w-resize";		// Flecha Oeste
+element.style.cursor = "nw-resize";		// Flecha Noroeste
+element.style.cursor = "cell";			// Celda
+element.style.cursor = "crosshair";		// Cruz
+element.style.cursor = "help";			// Interrogación
+element.style.cursor = "no-drop";		// Prohibido
+element.style.cursor = "pointer";		// Mano
+element.style.cursor = "progress";		// Progreso
+element.style.cursor = "grab";			// Agarrar
+element.style.cursor = "grabbing";		// Agarrando
+element.style.cursor = "text";			// Sobre texto
+element.style.cursor = "wait";			// Rueda
+element.style.cursor = "zoom-in";		// Lupa +
+element.style.cursor = "zoom-out";		// Lupa -
+element.style.cursor = 'url("cursor.png")';			// Favicon de URL
+
+// Línea exterior
+
+element.style.outline
+element.style.outline = "solid";
+element.style.outline = "10px solid black";
+
+// Ancho de Línea exterior
+
+element.style.outlineWidth
+element.style.outlineWidth = "medium|thin|thick";
+element.style.outlineWidth = "10px";
+element.style.outlineWidth = "2em";
+element.style.outlineWidth = "1.5rem";
+
+// Estilo de Línea exterior
+
+element.style.outlineStyle
+element.style.outlineStyle = "none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset";
+
+// Color de Línea exterior
+
+element.style.outlineColor
+element.style.outlineColor = "red";
+element.style.outlineColor = "#ABCDEF";
+element.style.outlineColor = "#ABCDEF00";
+element.style.outlineColor = "rgb(100, 150, 250)";
+element.style.outlineColor = "rgba(100, 150, 250, 0.5)";
+element.style.outlineColor = "hsl(210, 60%, 70%)";
+element.style.outlineColor = "hsla(210, 60%, 70%, 0.5)";
+
+// Espacio adicional de Línea exterior
+
+element.style.outlineOffset
+element.style.outlineOffset = "10px";
+element.style.outlineOffset = "2em";
+element.style.outlineOffset = "1.5rem";
+
+// Transformación
+
+element.style.transform
+element.style.transform = "none";						// Ninguno
+element.style.transform = "translate(x, y)";			// Mover en ejes X e Y
+element.style.transform = "translate3d(x, y, z)";		// Mover en los ejes X, Y y Z
+element.style.transform = "translateX(x)";				// Mover en el eje X
+element.style.transform = "translateY(y)";				// Mover en el eje Y
+element.style.transform = "translateZ(z)";				// Mover en el eje Z
+element.style.transform = "scale(x, y)";				// Escalar en los ejes X e Y
+element.style.transform = "scale3d(x, y, z)";			// Escalar en los ejes X, Y y Z
+element.style.transform = "scaleX(x)";					// Escalar en el eje X
+element.style.transform = "scaleY(y)";					// Escalar en el eje Y
+element.style.transform = "scaleZ(z)";					// Escalar en el eje Z
+element.style.transform = "rotate(angle)";				// Rotar en el plano 2D
+element.style.transform = "rotate3d(x, y, z, angle)";	// Rotar en los ejes X, Y y Z
+element.style.transform = "rotateX(angle)";				// Rotar en el eje X
+element.style.transform = "rotateY(angle)";				// Rotar en el eje Y
+element.style.transform = "rotateZ(angle)";				// Rotar en el eje Z
+element.style.transform = "skew(x-angle, y-angle)";		// Inclinar en los ejes X e Y
+element.style.transform = "skewX(angle)";				// Inclinar en el eje X
+element.style.transform = "skewY(angle)";				// Inclinar en el eje Y
+element.style.transform = "perspective(n)";				// Profundidad de perspectiva 3D
+
+element.style.transform = "translate(20px, 30px)";
+element.style.transform = "translate3d(10px, 20px, 30px)";
+element.style.transform = "translateX(50px)";
+element.style.transform = "translateY(50px)";
+element.style.transform = "translateZ(50px)";
+element.style.transform = "scale(2, 5)";
+element.style.transform = "scale3d(3, 2, 5)";
+element.style.transform = "scaleX(5)";
+element.style.transform = "scaleY(5)";
+element.style.transform = "scaleZ(5)";
+element.style.transform = "rotate(30deg)";
+element.style.transform = "rotate3d(2, 3, 3, 30deg)";
+element.style.transform = "rotateX(30deg)";
+element.style.transform = "rotateY(30deg)";
+element.style.transform = "rotateZ(30deg)";
+element.style.transform = "skew(30deg, 80deg)";
+element.style.transform = "skewX(30deg)";
+element.style.transform = "skewY(30deg)";
+element.style.transform = "perspective(500px)";
+
+// Origen de Transformación
+
+element.style.transformOrigin
+element.style.transformOrigin = "ejeX ejeY ejeZ";
+element.style.transformOrigin = "left|center|right left|center|right 0";
+element.style.transformOrigin = "20px 40px";
+element.style.transformOrigin = "50% 50% 5";
+
+// Estilo de Transformación
+
+element.style.transformStyle
+element.style.transformStyle = "flat|preserve-3d";
+
+// Transición
+
+element.style.transition
+element.style.transition = "propiedad duracion funcion delay, ...";
+element.style.transition = "width 1s linear 2s, height 2s ease, color 0.2s";
+
+// Propiedad de Transición
+
+element.style.transitionProperty
+element.style.transitionProperty = "none|all";
+element.style.transitionProperty = width, height, color;
+
+// Duración de Transición
+
+element.style.transitionDuration
+element.style.transitionDuration = "3s";
+
+// Función de Transición
+
+element.style.transitionTimingFunction
+element.style.transitionTimingFunction = "linear|ease|ease-in|ease-out|ease-in-out|step-start|step-end|steps(int,start|end)|cubic-bezier(n,n,n,n)";
+
+// Delay de Transición
+
+element.style.transitionDelay
+element.style.transitionDelay = "3s";
+
+// Animación
+
+element.style.animation
+element.style.animation = "nombre duracion funcion delay iteraciones direccion aparienciaInactiva estado";
+
+// Nombre de Animación
+
+element.style.animationName
+element.style.animationName = "animacion";
+element.style.animationName = "none";
+
+// Duración de Animación
+
+element.style.animationDuration
+element.style.animationDuration = "3s";
+
+// Función de Animación
+
+element.style.animationTimingFunction
+element.style.animationTimingFunction = "linear|ease|ease-in|ease-out|ease-in-out|step-start|step-end|steps(int,start|end)|cubic-bezier(n,n,n,n)";
+
+// Delay de Animación
+
+element.style.animationDelay
+element.style.animationDelay = "3s";
+
+// Iteraciones de Animación
+
+element.style.animationIterationCount
+element.style.animationIterationCount = 5;
+element.style.animationIterationCount = infinite;
+
+// Dirección de Animación
+
+element.style.animationDirection
+element.style.animationDirection = "normal|reverse|alternate|alternate-reverse";
+
+// Apariencia inactiva de Animación
+
+element.style.animationFillMode
+element.style.animationFillMode = "none|forwards|backwards|both";
+
+// Estado de Animación
+
+element.style.animationPlayState
+element.style.animationPlayState = "paused|running";
