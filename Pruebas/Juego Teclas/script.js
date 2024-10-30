@@ -1,4 +1,4 @@
-const caracteres = "abcdefghijklmnñopqrstuvwxyz0123456789";
+const caracteres = "0123456789";
 const tecla = document.getElementById("tecla");
 const contador = document.getElementById("contador");
 
