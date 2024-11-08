@@ -1,5 +1,5 @@
 ============ LISTA DE CONCEPTOS JAVASCRIPT ============
-Ver. 29.10.2024
+Ver. 07.11.2024
 
 
 
@@ -787,6 +787,22 @@ let {atributo1} = objeto;
 
 let {atributo1: variable} = objeto;
 
+// Función en el contexto de objeto y con parámetros fijados opcionalmente
+
+funcion.bind(objeto, ...params)
+
+// Ejecutar funcion en el contexto de objeto
+
+funcion.call(objeto);
+
+
+
+>>> MODO ESTRICTO <<<
+
+// Habilitar modo estricto de JavaScript
+
+"use strict";
+
 
 
 >>> CLASES Y OBJETOS <<<
@@ -862,11 +878,26 @@ class Objeto {
 // Todos los atributos que tengan setter se modificarán mediante él para establecer los valores de los mismos atributos privados.
 // "objeto.atributo" invoca al getter
 // "objeto.atrituto = valor" invoca al setter
-// Se debe usar "this.atributo = atributo" en el constructor, para invocar al setter
 
 class Objeto {
+	#atributo;
 	constructor(atributo){
-		this.atributo = atributo;
+		this.#atributo = atributo;
+	}
+	get atributo(){
+		return this.#atributo;
+	}
+	set atributo(atributo){
+		this.#atributo = atributo;
+	}
+}
+
+// Usando "_" se especifica que la propiedad es falsamente privada -> se sigue pudiendo acceder pero no se debería usar. En su lugar, se debe acceder sin "_".
+
+class Objeto {
+	_atributo;
+	constructor(atributo){
+		this._atributo = atributo;
 	}
 	get atributo(){
 		return this._atributo;
@@ -884,8 +915,9 @@ class Objeto {
 // super() es el constructor del padre y super es el objeto padre
 
 class Padre {
+	#atributo1;
 	constructor(atributo1){
-		this.atributo1 = atributo1;
+		this.#atributo1 = atributo1;
 	}
 	metodo(){
 		console.log("Metodo");
@@ -893,9 +925,10 @@ class Padre {
 }
 
 class Hijo extends Padre {
+	#atributo2;
 	constructor(atributo1, atributo2){
 		super(atributo1);
-		this.atributo2 = atributo2;
+		this.#atributo2 = atributo2;
 	}
 	metodoHijo(){
 		console.log("Metodo del hijo");
@@ -1097,7 +1130,7 @@ document.getElementsByTagName("etiqueta");
 
 document.querySelector("selector") 
 
-// Seleccionar elementos por selector CSS (Lista de Nodos; la variable )
+// Seleccionar elementos por selector CSS (Lista de Nodos)
 
 document.querySelectorAll("selector")
 
@@ -1249,7 +1282,7 @@ element.addEventListener("evento", event => {
 
 >>> ELEMENTOS HTML ESPECÍFICOS <<<
 
-// Las siguiente propiedades por cada tipo de elemento son unas cuantas, seguramente tenga muchas dejadas
+// Las siguiente propiedades por cada tipo de elemento son unas cuantas, seguramente falten muchas
 
 // PROPIEDADES DE ELEMENTOS DE ENTRADA (<input>, <select>, <textarea>)
 
