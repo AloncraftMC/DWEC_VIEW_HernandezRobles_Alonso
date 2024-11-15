@@ -1,6 +1,6 @@
 # LISTA DE CONCEPTOS JAVASCRIPT
 > Alonso Hernández Robles 2º DAW
-> Ver. 15.11.2024 (_Ahora en Markdown!_)
+> Ver. 15/11/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -13,6 +13,7 @@ de
 párrafo
 */
 ```
+
 ---
 
 ## Mensajes
