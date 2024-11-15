@@ -133,26 +133,201 @@ console.log(ejercicio10.name ? ejercicio10.name : "No definida");
 
 //Exercise 11: Create an object that contains information about a company and use optional chaining to access the company's address, displaying a message in the console if the address is not defined.
 
+class Company {
+    #address;
+    constructor(address){
+        this.#address = address;
+    }
+    get address(){
+        return this.#address ? this.#address : "No está definido";
+    }
+    set address(address){
+        this.#address = address;
+    }
+};
 
+const ejercicio11 = new Company();
+console.log(ejercicio11.address);
 
 //Exercise 12: Define an object representing a book with a review property that can be null. Use optional chaining to display the review in the console only if it exists.
+
+// Acabo de entender que optional chaining es ?. y yo haciendo los ejercicios distinto
 
 //Getters and Setters
 
 //Exercise 13: Create an object representing an employee with properties name and salary. Define a getter for salary that returns the salary in currency format and a setter that validates if the salary is a positive number.
 
+class Employee {
+    #name;
+    #salary;
+    constructor(name, salary){
+        this.#name = name;
+        this.#salary = salary;
+    };
+    get salary(){
+        return this.#salary.toFixed(2);
+    }
+    set salary(salary){
+        if(salary >= 0) this.#salary = salary;
+    }
+}
+
 //Exercise 14: Define an object representing a circle with a radius property. Create a getter that calculates and returns the area of the circle and a setter that validates the value of the radius.
+
+class Circle{
+    #radius;
+    get area(){
+        return Math.PI * this.#radius ** 2;
+    }
+    set radius(radius){
+        return this.#radius;
+    }
+}
 
 //Exercise 15: Create an object representing a student with properties name and grades. Define a getter that returns the average grade and a setter that adds a new grade.
 
+class Student{
+    #name;
+    #grades = [];
+    get averageGrade() {
+        return this.#grades.reduce((media, nota) => media += nota) / this.#grades.length; 
+    }
+    set newGrade(grade){
+        this.#grades.push(grade);
+    }
+}
+
+const estudiante = new Student();
+estudiante.newGrade = 4;
+estudiante.newGrade = 6.5;
+console.log(estudiante.averageGrade);
+
 //Exercise 16: Define an object representing a product with properties name, price, and discount. Create a getter that returns the final price after the discount and a setter that validates that the price and discount are positive.
+
+class Product {
+
+    #name;
+    #price;
+    #discount; // %
+    
+    get finalPrice(){
+        return this.#price * (1 - 0.01 * this.#discount);
+    }
+
+    set price(price){
+        if(price > 0) this.#price = price;
+    }
+
+    set discount(discount){
+        if(discount > 0 && discount < 100) this.#discount = discount;
+    }
+
+}
 
 //Prototypical Inheritance and Method Overriding
 
 //Exercise 17: Create an object animal with a method makeSound. Then, create a dog object that inherits from animal and overrides the makeSound method to return "Woof".
 
+class Animal {
+    constructor(){
+        
+    }
+    makeSound() {
+        console.log("aniLAL");
+    }
+}
+
+class Dog extends Animal {
+    constructor(){
+        super();
+    }
+    makeSound(){
+        console.log("Woof");
+    }
+}
+
+Dog.prototype.makeSound();
+
 //Exercise 18: Define a vehicle object with a type property and an info method. Create a motorcycle object that inherits from vehicle and overrides the info method to include specific information about the motorcycle.
+
+class Vehicle {
+    #type;
+    constructor(type){
+        this.#type = type;
+    }
+    get info(){
+        return "Tipo: " + this.#type;
+    }
+}
+
+class Motorcycle extends Vehicle {
+    constructor(type){
+        super(type);
+    }
+    get info(){
+        return super.info + " y es una moto";
+    }
+}
+
+const moto = new Motorcycle("vespa");
+
+console.log(moto.info);
 
 //Exercise 19: Create a base person object with properties name and age. Then, create a teacher object that inherits from person and adds a subject property, overriding the method that presents the information.
 
+class Person {
+    #name;
+    #age;
+    constructor(name, age){
+        this.#name = name;
+        this.#age = age;
+    }
+    get info() {
+        return "Nombre: " + this.#name + "\nEdad: " + this.#age;
+    }
+}
+
+class Teacher extends Person {
+    #subject;
+    constructor(name, age, subject){
+        super(name, age);
+        this.#subject = subject;
+    }
+    get info() {
+        return super.info + "\nAsignatura: " + this.#subject;
+    }
+}
+
+const profe = new Teacher("Alejandro Viana Ríos", 37, "sistemas");
+console.log(profe.info);
+
 //Exercise 20: Define a book object with a description method. Then, create a novel object that inherits from book and overrides the description method to include additional information specific to a novel.
+
+class Book {
+
+    #description;
+
+    constructor(description){
+        this.#description = description;
+    }
+
+    get description() {
+        return this.#description;
+    }
+
+}
+
+class Novel extends Book {
+
+    constructor(description){
+        super(description);
+    }
+
+    get description() {
+        return super.description + " y es una novela";
+    }
+
+}
+
+const novela = new Novel("Esta es la descripción magnífica xd LOL");
+console.log(novela.description);
