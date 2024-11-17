@@ -284,8 +284,11 @@ variable **= valor;
 ### Operadores Lógicos
 
 `&&` AND
+
 `||` OR
+
 `!` NOT
+
 `??` OR pero sin aplicar lógica (`0` es `true`)
 
 ---
