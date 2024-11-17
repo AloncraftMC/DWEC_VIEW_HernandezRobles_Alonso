@@ -1226,8 +1226,8 @@ class Objeto {
 
 ### Herencia
 
-- La clase hija tiene las propiedades de la clase padre
-- `super()` es el constructor del padre y `super` es el objeto padre
+- La clase hija tiene las propiedades de la clase padre.
+- `super()` es el constructor del padre y `super` es el objeto padre.
 
 ```
 class Padre {
@@ -1262,7 +1262,7 @@ Crear objeto fecha de hoy
 let fecha = new Date();
 ```
 
-Crear objeto fecha con milisegundos desde `01/01/1970 01:00`
+Crear objeto fecha con milisegundos, empezando desde `01/01/1970 01:00`
 
 ```
 let fecha = new Date(1000000000000);
@@ -1343,8 +1343,7 @@ clearTimeout(id);
 
 ## Importación de Módulos
 
-- Para importar módulos, debe hacerse en un servidor y el script principal tiene que tener en HTML:
-<script type="module" src="main.js"></script>
+- Para importar módulos, debe hacerse en un servidor y el script principal tiene que tener en HTML: `<script type="module" src="main.js"></script>`
 
 Importar elementos de otro script
 
