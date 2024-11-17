@@ -297,7 +297,7 @@ variable **= valor;
 
 ### Condicional `if else`
 
-Si se da condición, realizar instrucción
+Si se da `condición`, realizar `instrucción`
 
 ```
 if(condición) {
@@ -306,7 +306,7 @@ if(condición) {
 if(condición) instruccion();
 ```
 
-Si se da condición, realizar `1`, si no, `2`.
+Si se da `condición`, realizar `1`, si no, `2`.
 
 ```
 if(condición){
@@ -333,7 +333,7 @@ if(condición1){
 
 ### Condicional `switch`
 
-Realizar instrucción dependiendo del valor de variable
+Realizar instrucción dependiendo del valor de `variable`
 
 ```
 switch(variable){
@@ -357,7 +357,7 @@ switch(variable){
 
 ### Bucle `while`
 
-Repetir instrucción mientras se cumpla condición
+Repetir `instrucción` mientras se cumpla `condición`
 
 ```
 while(condición) {
@@ -367,7 +367,7 @@ while(condición) {
 
 ### Bucle `do while`
 
-Realizar instrucción y repetir mientras se cumpla condición
+Realizar `instrucción` y repetir mientras se cumpla `condición`
 
 ```
 do{
@@ -377,7 +377,7 @@ do{
 
 ### Bucle `for`
 
-Realizar inicialización y repetir instrucción mientras se cumpla condición, y realizar iteración
+Realizar `inicialización` y repetir `instrucción` mientras se cumpla `condición`, y realizar `iteración`
 
 ```
 for(inicialización, condición, iteración){
