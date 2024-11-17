@@ -537,7 +537,7 @@ Generar nuevo array a partir de original (lee `elemento`, `indice` y `array` en 
 array.map((elemento, indice, array) => Instrucciones);
 ```
 
-Generar nuevo array a partir de original (lee elemento, indice y array en ese orden) de sólo los elementos que cumplan condición devuelta en las instrucciones
+Generar nuevo array a partir de original (lee `elemento`, `indice` y `array` en ese orden) de sólo los elementos que cumplan condición devuelta en las instrucciones
 
 ```
 array.filter((elemento, indice, array) => Instrucciones);
