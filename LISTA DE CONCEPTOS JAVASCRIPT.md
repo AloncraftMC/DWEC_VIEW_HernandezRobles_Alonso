@@ -202,10 +202,15 @@ Boolean(miVariable);
 ### Operadores Aritméticos
 
 `+`	Suma
+
 `-` Resta
+
 `*` Multiplicación
+
 `/` División
+
 `%` Módulo
+
 `**` Potencia
 
 Incremento anterior
