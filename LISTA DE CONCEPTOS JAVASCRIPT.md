@@ -280,7 +280,7 @@ variable **= valor;
 
 ## Condicionales
 
-### Condicionales `if else`
+### Condicional `if else`
 
 Si se da condición, realizar instrucción
 
