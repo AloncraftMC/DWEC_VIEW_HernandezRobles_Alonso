@@ -266,12 +266,19 @@ variable **= valor;
 ### Operadores Relacionales
 
 `==` Igual (valores)
+
 `===` Estrictamente igual (valores y tipo)
+
 `!=` Distinto (valores)
+
 `!==` Estrictamente Distinto (valores y tipo)
+
 `>` Mayor
+
 `>=` Mayor o igual
+
 `<==>` Menor
+
 `<=>=` Menor o igual
 
 ### Operadores Lógicos
