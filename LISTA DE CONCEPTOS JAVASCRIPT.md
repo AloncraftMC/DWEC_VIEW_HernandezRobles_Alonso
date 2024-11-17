@@ -933,7 +933,7 @@ Máximo de un array
 Math.max(array)
 ```
 
-Número aleatorio entre 0 y 1
+Número aleatorio entre `0` y `1`
 
 ```
 Math.random()
