@@ -1227,7 +1227,7 @@ class Objeto {
 ### Herencia
 
 - La clase hija tiene las propiedades de la clase padre
-`super()` es el constructor del padre y `super` es el objeto padre
+- `super()` es el constructor del padre y `super` es el objeto padre
 
 ```
 class Padre {
