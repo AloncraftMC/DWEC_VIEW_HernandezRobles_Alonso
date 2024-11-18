@@ -1,6 +1,6 @@
 # LISTA DE CONCEPTOS JAVASCRIPT
 > Alonso Hernández Robles 2º DAW
-> Ver. 17/11/2024 (_Ahora en Markdown!_)
+> Ver. 18/11/2024 (_Ahora en Markdown!_)
 
 ---
 
