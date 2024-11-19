@@ -54,6 +54,14 @@ Pedir string al usuario con mensaje
 prompt("Ingresa:");
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const edad = prompt("Ingresa tu edad:");
+```
+</details>
+
 Pedir string al usuario con mensaje y con placeholder
 
 ```js
@@ -65,6 +73,14 @@ Mostrar pop-up de confirmación (Aceptar / Cancelar)
 ```js
 confirm("¿Aceptas o cancelas?");
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const confirmacion = confirm("¿Entrar con estos datos?");
+```
+</details>
 
 Mostrar alerta con mensaje
 
@@ -125,27 +141,44 @@ variable = true;
 
 ## Tipos de Datos
 
-Número (Entero / Decimal)
+`number`
 
 ```js
-12
-3.14
+12		// Entero
+3.14		// Decimal
+Infinity	// Infinito (+)
+-Infinity	// Infinito (-)
+NaN		// Not a Number
 ```
 
-Cadena
+`string`
 
 ```js
 "Hola Mundo"
+'Hola Mundo'
+`Hola, ${variable}`
 ```
 
-Booleano
+`boolean`
 
 ```js
 true
 false
 ```
 
-Declarar objeto literal
+`undefined`
+
+```js
+undefined
+```
+
+`null`
+
+```js
+null
+```
+
+`object`
 
 ```js
 let usuario = {
@@ -155,6 +188,10 @@ let usuario = {
 };
 ```
 
+```js
+let array = [1, 2, 3];
+```
+
 Acceder a atributo de objeto
 
 ```js
@@ -162,11 +199,39 @@ usuario.nombre
 usuario.edad
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const vacio = {};
+const usuario = {
+	nombre: "Jose",
+	edad: 20
+};
+
+console.log(usuario.nombre);	// Imprime "Jose"
+console.log(usuario.edad);	// Imprime 20
+```
+</details>
+
 Tipo de dato de una variable
 
 ```js
 typeof miVariable
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+console.log(typeof 10);		// Imprime "number"
+console.log(typeof "a");	// Imprime "string"
+console.log(typeof true);	// Imprime "boolean"
+console.log(typeof this);	// Imprime "object"
+console.log(typeof prompt);	// Imprime "function"
+console.log(typeof desconocido)	// Imprime "undefined"
+```
+</details>
 
 Número con `5` decimales
 
@@ -184,17 +249,78 @@ Valor en string de una variable
 String(miVariable);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+console.log(String(123));		// "123"
+console.log(String(3.14));		// "3.14"
+console.log(String(NaN));		// "NaN"
+console.log(String(Infinity));		// "Infinity"
+
+console.log(String(true));		// "true"
+console.log(String(false));		// "false"
+
+console.log(String(null));		// "null"
+console.log(String(undefined));		// "undefined"
+
+console.log(String({}));		// "[object Object]"
+console.log(String([]));		// ""
+console.log(String([1, 2, 3]));		// "1,2,3"
+console.log(String(function() {}));	// "function() {}"
+```
+</details>
+
 Valor en número de una variable
 
 ```js
 Number(miVariable);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+console.log(Number("42"));	// 42
+console.log(Number("42.5"));	// 42.5
+console.log(Number("abc"));	// NaN
+
+console.log(Number(true));	// 1
+console.log(Number(false));	// 0
+
+console.log(Number(null));	// 0
+console.log(Number(undefined));	// NaN
+
+console.log(Number({}));	// NaN
+console.log(Number([]));	// 0
+console.log(Number([10]));	// 10
+```
+</details>
+
 Valor en booleano de una variable
 
 ```js
 Boolean(miVariable);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+console.log(Boolean(0));		// false
+console.log(Boolean(""));		// false
+console.log(Boolean(null));		// false
+console.log(Boolean(undefined));	// false
+console.log(Boolean(NaN));		// false
+
+console.log(Boolean(1));		// true
+console.log(Boolean(-42));		// true
+console.log(Boolean("Hello"));		// true
+console.log(Boolean([]));		// true (un array vacío)
+console.log(Boolean({}));		// true (un objeto vacío)
+console.log(Boolean(() => {}));		// true (una función)
+```
+</details>
 
 ---
 
@@ -278,7 +404,7 @@ variable **= valor;
 
 `>=` Mayor o igual
 
-`<==>` Menor
+`<` Menor
 
 `<=` Menor o igual
 
@@ -307,6 +433,27 @@ if(condición) {
 if(condición) instruccion();
 ```
 
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+const edad = 18;
+
+if(edad >= 18) {
+	console.log("Eres mayor de edad.");
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const usuarioActivo = true;
+if(usuarioActivo) console.log("Usuario activo.");
+```
+</details>
+
 Si se da `condición`, realizar `1`, si no, `2`.
 
 ```js
@@ -317,6 +464,42 @@ if(condición){
 }
 condición ? instruccion1() : instruccion2();
 ```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+const hora = 10;
+
+if(hora < 12) {
+	console.log("Buenos días");	// Si la hora es antes de las 12
+} else {
+	console.log("Buenas tardes");	// Si la hora es 12 o después
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const usuarioAutenticado = false;
+
+if(usuarioAutenticado) {
+	console.log("Acceso concedido");	// Si el usuario está autenticado
+} else {
+	console.log("Acceso denegado");		// Si el usuario no está autenticado
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 3</summary>
+
+```js
+console.log(esAdmin ? "Bienvenido al sistema" : "Acceso denegado");
+```
+</details>
 
 Múltiple condición
 
@@ -331,6 +514,40 @@ if(condición1){
 	// Resto
 }
 ```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+const hora = 14;
+
+if(hora < 12) {
+	console.log("Buenos días");	// Si la hora es antes de las 12
+} else if(hora < 18) {
+	console.log("Buenas tardes");	// Si la hora es entre las 12 y las 18
+} else {
+	console.log("Buenas noches");	// Si la hora es después de las 18
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const puntos = 85;
+
+if(puntos >= 90) {
+	console.log("Excelente");	// Si los puntos son 90 o más
+} else if(puntos >= 70) {
+	console.log("Bueno");		// Si los puntos son 70 o más pero menos de 90
+} else if(puntos >= 50) {
+	console.log("Regular");		// Si los puntos son 50 o más pero menos de 70
+} else {
+	console.log("Insuficiente");	// Si los puntos son menos de 50
+}
+```
+</details>
 
 ### Condicional `switch`
 
@@ -352,6 +569,50 @@ switch(variable){
 }
 ```
 
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+let color = "rojo";
+
+switch(color) {
+	case "azul":
+		console.log("Color azul");
+		break;
+	case "rojo":
+		console.log("Color rojo");
+		break;
+	case "verde":
+		console.log("Color verde");
+		break;
+	default:
+		console.log("Color desconocido");
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+let edad = 25;
+
+switch(edad) {
+	case 18:
+		console.log("Tienes 18 años.");
+		break;
+	case 25:
+		console.log("Tienes 25 años.");
+		break;
+	case 30:
+		console.log("Tienes 30 años.");
+		break;
+	default:
+		console.log("Edad no específica.");
+}
+```
+</details>
+
 ---
 
 ## Bucles
@@ -366,6 +627,19 @@ while(condición) {
 }
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+let contador = 1;
+
+while(contador <= 5) {
+	console.log("Contador:" + contador + "\n");
+	contador++;	// Aumenta el contador en cada iteración
+}
+```
+</details>
+
 ### Bucle `do while`
 
 Realizar `instrucción` y repetir mientras se cumpla `condición`
@@ -375,6 +649,19 @@ do{
 	// Instrucción
 }while(condición);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+let contador = 1;
+
+do {
+	console.log("Contador:" + contador + "\n");
+	contador++;	// Aumenta el contador en cada iteración
+}while(contador <= 5);
+```
+</details>
 
 ### Bucle `for`
 
@@ -386,10 +673,31 @@ for(inicialización, condición, iteración){
 }
 ```
 
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+for(let i = 0; i < 5; i++) {
+	console.log(i + "\n");
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+for(let i = 10; i >= 0; i--) {
+	console.log(i + "\n");
+}
+```
+</details>
+
 Bucle For-Each `of` (Valores de un iterable)
 
 ```js
 let iterable = [1, 2, 3, 4, 5];
+
 for(let elemento of iterable){
 	console.log(elemento);
 }
@@ -402,6 +710,7 @@ let objeto = {
 	nombre: "Pepe",
 	edad: 20
 };
+
 for(let elemento in objeto){
 	console.log(elemento, objeto[elemento]);
 }
@@ -417,6 +726,22 @@ while(condición){
 }
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+let numero = 10;
+
+while(numero > 0) {
+	if(numero == 5) {
+		break;	// Sale del bucle cuando numero es igual a 5
+	}
+	console.log("Número: " + numero + "\n");
+	numero--;
+}
+```
+</details>
+
 Ejecutar siguiente iteración del bucle
 
 ```js
@@ -424,6 +749,22 @@ while(condición){
 	continue;
 }
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+let numero = 10;
+
+while(numero > 0) {
+	numero--;
+	if(numero % 2 == 0) {
+		continue;	// Salta la iteración cuando numero es par
+	}
+	echo "Número impar: " + numero + "\n";
+}
+```
+</details>
 
 ---
 
@@ -860,114 +1201,12 @@ Función autoejecutable
 
 ---
 
-## Clase `Math`
+## Modo `strict`
 
-Constante $\pi$
-
-```js
-Math.PI
-```
-
-Constante $e$
+Habilitar modo estricto de JavaScript
 
 ```js
-Math.E
-```
-
-Redondeo de número
-
-```js
-Math.round(numero)
-```
-
-Techo de número
-
-```js
-Math.ceil(numero)
-```
-
-Suelo de número
-
-```js
-Math.floor(numero)
-```
-
-Truncamiento de número
-
-```js
-Math.trunc(numero)
-```
-
-Valor absoluto
-
-```js
-Math.abs(numero)
-```
-
-Raíz cuadrada
-
-```js
-Math.sqrt(numero)
-```
-
-Raíz cúbica
-
-```js
-Math.cbrt(numero)
-```
-
-Potencia
-
-```js
-Math.pow(base, exponente)
-```
-
-Mínimo de un array
-
-```js
-Math.min(array)
-```
-
-Máximo de un array
-
-```js
-Math.max(array)
-```
-
-Número aleatorio entre `0` y `1`
-
-```js
-Math.random()
-```
-
-Seno
-
-```js
-Math.sin(numero)
-```
-
-Coseno
-
-```js
-Math.cos(numero)
-```
-
-Tangente
-
-```js
-Math.tan(numero)
-```
-
-Logaritmo natural
-
-```js
-Math.log(numero)
-```
-
-Logaritmo decimal
-
-```js
-Math.log10(numero)
+"use strict";
 ```
 
 ---
@@ -1091,12 +1330,135 @@ funcion.call(objeto);
 
 ---
 
-## Modo `strict`
+## Clase `Number`
 
-Habilitar modo estricto de JavaScript
+Declarar número con constructor
 
 ```js
-"use strict";
+let numero = new Number(10);
+```
+
+Propiedades de clase `Number`
+
+| Propiedad | Descripción | `console.log(Number.propiedad);` |
+| - | - | - |
+| `Number.MAX_VALUE` | Número máximo representable en JavaScript | `1.7976931348623157e+308` |
+| `Number.MIN_VALUE` | Número positivo más pequeño representable en JavaScript | `5e-324` |
+| `Number.NaN` | Not a Number | `NaN` |
+| `Number.POSITIVE_INFINITY` | Infinito Positivo | `Infinity` |
+| `Number.NEGATIVE_INFINITY` | Infinito Negativo | `-Infinity` |
+| `Number.MAX_SAFE_INTEGER` | Entero máximo seguro que se puede representar en JavaScript sin pérdida de precisión. | `9007199254740991` |
+
+---
+
+## Clase `Math`
+
+Constante $\pi$
+
+```js
+Math.PI
+```
+
+Constante $e$
+
+```js
+Math.E
+```
+
+Redondeo de número
+
+```js
+Math.round(numero)
+```
+
+Techo de número
+
+```js
+Math.ceil(numero)
+```
+
+Suelo de número
+
+```js
+Math.floor(numero)
+```
+
+Truncamiento de número
+
+```js
+Math.trunc(numero)
+```
+
+Valor absoluto
+
+```js
+Math.abs(numero)
+```
+
+Raíz cuadrada
+
+```js
+Math.sqrt(numero)
+```
+
+Raíz cúbica
+
+```js
+Math.cbrt(numero)
+```
+
+Potencia
+
+```js
+Math.pow(base, exponente)
+```
+
+Mínimo de un array
+
+```js
+Math.min(array)
+```
+
+Máximo de un array
+
+```js
+Math.max(array)
+```
+
+Número aleatorio entre `0` y `1`
+
+```js
+Math.random()
+```
+
+Seno
+
+```js
+Math.sin(numero)
+```
+
+Coseno
+
+```js
+Math.cos(numero)
+```
+
+Tangente
+
+```js
+Math.tan(numero)
+```
+
+Logaritmo natural
+
+```js
+Math.log(numero)
+```
+
+Logaritmo decimal
+
+```js
+Math.log10(numero)
 ```
 
 ---

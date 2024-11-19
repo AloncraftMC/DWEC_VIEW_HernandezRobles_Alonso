@@ -1,6 +1,7 @@
-const element = document.getElementById("element");
-const h1 = document.getElementById("h1");
+const usuario = {
+	nombre: "Jose",
+	edad: 20
+};
 
-document.addEventListener("wheel", event => {
-    h1.textContent = "HICISTE ALGO"
-});
+console.log(usuario.nombre);	// Imprime "Jose"
+console.log(usuario.edad);	// Imprime 20
