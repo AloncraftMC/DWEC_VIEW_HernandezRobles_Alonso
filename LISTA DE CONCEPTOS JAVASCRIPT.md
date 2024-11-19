@@ -1,6 +1,6 @@
 # LISTA DE CONCEPTOS JAVASCRIPT
 > Alonso Hernández Robles 2º DAW
-> Ver. 18/11/2024 (_Ahora en Markdown!_)
+> Ver. 19/11/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -181,7 +181,7 @@ null
 `object`
 
 ```js
-let usuario = {
+{
 	nombre: "Eduardo",
 	edad: 25,
 	casado: true
@@ -189,7 +189,13 @@ let usuario = {
 ```
 
 ```js
-let array = [1, 2, 3];
+[1, 2, 3];
+```
+
+`bigint`
+
+```js
+10n
 ```
 
 Acceder a atributo de objeto
@@ -230,14 +236,9 @@ console.log(typeof true);	// Imprime "boolean"
 console.log(typeof this);	// Imprime "object"
 console.log(typeof prompt);	// Imprime "function"
 console.log(typeof desconocido)	// Imprime "undefined"
+console.log(typeof 10n);	// Imprime "bigint"
 ```
 </details>
-
-Número con `5` decimales
-
-```js
-numero.toFixed(5)
-```
 
 ---
 
@@ -1098,22 +1099,6 @@ array.join(subcadena)
 
 ---
 
-## Conversión Estándar JSON
-
-String de `objeto`
-
-```js
-JSON.stringify(objeto)
-```
-
-Objeto de `string`
-
-```js
-JSON.parse(string)
-```
-
----
-
 ## Funciones
 
 Crear función
@@ -1338,9 +1323,117 @@ Declarar número con constructor
 let numero = new Number(10);
 ```
 
-Propiedades de clase `Number`
+Valor primitivo de objeto `Number`
 
-| Propiedad | Descripción | `console.log(Number.propiedad);` |
+```js
+numero.valueOf()
+```
+
+Número con `5` decimales
+
+```js
+numero.toFixed(5)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+let numero = 123.456;
+console.log(numero.toFixed(2));	// "123.46"
+```
+</details>
+
+Número con `5` dígitos de precisión
+
+```js
+numero.toPrecision(5)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+let numero = 123.456;
+console.log(numero.toPrecision(4));	// "123.5"
+```
+</details>
+
+Valor exponencial de número
+
+```js
+numero.toExponential()
+numero.toExponential(precisión)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+let num = 12345;
+
+console.log(numero.toExponential());	// "1.2345e+4"
+console.log(numero.toExponential(2));	// "1.23e+4"
+```
+</details>
+
+String de número (y conversión de bases)
+
+```js
+numero.toString()
+numero.toString(2)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+let numero = 42;
+
+console.log(numero.toString());	// "42"
+console.log(numero.toString(16));	// "2a" (hexadecimal)
+```
+</details>
+
+¿Es finito el número?
+
+```js
+Number.isFinite(10);
+```
+
+¿Es entero el número?
+
+```js
+Number.isInteger(10);
+```
+
+¿Es `NaN` el número?
+
+```js
+Number.isNaN(10);
+```
+
+¿Es un entero seguro? (Da `false` para decimales y números enormes)
+
+```js
+Number.isSafeInteger(1.2);
+```
+
+Convertir a entero
+
+```js
+Number.parseInt(numero);
+```
+
+Convertir a decimal
+
+```js
+Number.parseFloat(numero);
+```
+
+Valores especiales de clase `Number`
+
+| Valor | Descripción | `console.log(Number.VALOR);` |
 | - | - | - |
 | `Number.MAX_VALUE` | Número máximo representable en JavaScript | `1.7976931348623157e+308` |
 | `Number.MIN_VALUE` | Número positivo más pequeño representable en JavaScript | `5e-324` |
@@ -1348,6 +1441,40 @@ Propiedades de clase `Number`
 | `Number.POSITIVE_INFINITY` | Infinito Positivo | `Infinity` |
 | `Number.NEGATIVE_INFINITY` | Infinito Negativo | `-Infinity` |
 | `Number.MAX_SAFE_INTEGER` | Entero máximo seguro que se puede representar en JavaScript sin pérdida de precisión. | `9007199254740991` |
+| `Number.MIN_SAFE_INTEGER` | Entero mínimo seguro que se puede representar en JavaScript sin pérdida de precisión. | `9007199254740991` |
+
+---
+
+## Clase `BigInt`
+
+Declarar entero grande
+
+```js
+let grande = 10n;
+```
+
+Declarar entero grande con constructor
+
+```js
+let grande = BigInt(10);
+```
+
+String de entero grande (y conversión de bases)
+
+```js
+grande.toString()
+grande.toString(2)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+let grande = 42;
+console.log(grande.toString());		// "42"
+console.log(grande.toString(16));	// "2a" (hexadecimal)
+```
+</details>
 
 ---
 
@@ -1459,6 +1586,22 @@ Logaritmo decimal
 
 ```js
 Math.log10(numero)
+```
+
+---
+
+## Clase `JSON`
+
+String de `objeto`
+
+```js
+JSON.stringify(objeto)
+```
+
+Objeto de `string`
+
+```js
+JSON.parse(string)
 ```
 
 ---
