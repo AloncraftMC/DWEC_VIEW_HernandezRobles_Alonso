@@ -1,6 +1,6 @@
 # LISTA DE CONCEPTOS JAVASCRIPT
 > Alonso Hernández Robles 2º DAW
-> Ver. 19/11/2024 (_Ahora en Markdown!_)
+> Ver. 20/11/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -635,9 +635,19 @@ while(condición) {
 let contador = 1;
 
 while(contador <= 5) {
-	console.log("Contador:" + contador + "\n");
+	console.log(contador);
 	contador++;	// Aumenta el contador en cada iteración
 }
+```
+
+**Salida**
+
+```
+1
+2
+3
+4
+5
 ```
 </details>
 
@@ -658,9 +668,19 @@ do{
 let contador = 1;
 
 do {
-	console.log("Contador:" + contador + "\n");
+	console.log(contador);
 	contador++;	// Aumenta el contador en cada iteración
 }while(contador <= 5);
+```
+
+**Salida**
+
+```
+1
+2
+3
+4
+5
 ```
 </details>
 
@@ -679,8 +699,18 @@ for(inicialización, condición, iteración){
 
 ```js
 for(let i = 0; i < 5; i++) {
-	console.log(i + "\n");
+	console.log(i);
 }
+```
+
+**Salida**
+
+```
+0
+1
+2
+3
+4
 ```
 </details>
 
@@ -688,26 +718,63 @@ for(let i = 0; i < 5; i++) {
 	<summary>Ejemplo 2</summary>
 
 ```js
-for(let i = 10; i >= 0; i--) {
-	console.log(i + "\n");
+for(let i = 3; i > 0; i--) {
+	console.log(i);
 }
+```
+
+**Salida**
+
+```
+3
+2
+1
 ```
 </details>
 
 Bucle For-Each `of` (Valores de un iterable)
 
 ```js
-let iterable = [1, 2, 3, 4, 5];
+for(let elemento of iterable){
+	// Instrucción
+}
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const iterable = [1, 2, 3, 4, 5];
 
 for(let elemento of iterable){
 	console.log(elemento);
 }
 ```
 
+**Salida**
+
+```js
+1
+2
+3
+4
+5
+```
+</details>
+
 Bucle For-Each `in` (Claves de un objeto, iterable o no)
 
 ```js
-let objeto = {
+for(let elemento in objeto){
+	// Instrucción
+}
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const objeto = {
 	nombre: "Pepe",
 	edad: 20
 };
@@ -716,6 +783,14 @@ for(let elemento in objeto){
 	console.log(elemento, objeto[elemento]);
 }
 ```
+
+**Salida**
+
+```js
+nombre Pepe
+edad 20
+```
+</details>
 
 ### `break` y `continue`
 
@@ -737,7 +812,7 @@ while(numero > 0) {
 	if(numero == 5) {
 		break;	// Sale del bucle cuando numero es igual a 5
 	}
-	console.log("Número: " + numero + "\n");
+	console.log(numero);
 	numero--;
 }
 ```
@@ -784,11 +859,32 @@ array[3]
 array.at(3)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const array = ["a", "b", "c", "d"];
+
+console.log(array[2]);	// Imprime 'c'
+```
+</details>
+
 Acceder a elemento por posición de array unidimensional empezando por el final
 
 ```js
 array.at(-1)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const array = ["a", "b", "c", "d"];
+
+console.log(array.at(-1));	// Imprime 'd'
+console.log(array.at(-2));	// Imprime 'c'
+```
+</details>
 
 Declarar array multidimensional
 
@@ -802,6 +898,20 @@ Acceder a elemento por posición de array multidimensional
 array[5][2]
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+let array = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+console.log(array[1][2]);	// Imprime 6
+```
+</details>
+
 Declarar array unidimensional de tamaño `10` con constructor
 
 ```js
@@ -814,11 +924,28 @@ Tamaño de array
 array.length
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const miArray = [1, 2, 3, 4];
+console.log(miArray.length);	// Imprime 4
+```
+</details>
+
 (Sacar) primer elemento
 
 ```js
 array.shift();
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Meter elemento como primero
 
@@ -826,11 +953,27 @@ Meter elemento como primero
 array.unshift(elemento);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 (Sacar) último elemento
 
 ```js
 array.pop();
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Meter elemento como último
 
@@ -838,11 +981,27 @@ Meter elemento como último
 array.push(elemento);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 Índice de la primera ocurrencia de elemento (devuelve `-1` si no hay)
 
 ```js
 array.indexOf(elemento)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Ordenar array
 
@@ -850,11 +1009,27 @@ Ordenar array
 array.sort();
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 Ordenar array siguiendo un criterio
 
 ```js
 array.sort((elemento1, elemento2) => Instrucciones);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Poner array al revés
 
@@ -862,11 +1037,27 @@ Poner array al revés
 array.reverse();
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 Desglose de valores de un array
 
 ```js
 ...array
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Recorrer array (lee `elemento`, `indice` y `array` en ese orden) y aplicar instrucciones a cada elemento
 
@@ -874,11 +1065,27 @@ Recorrer array (lee `elemento`, `indice` y `array` en ese orden) y aplicar instr
 array.forEach((elemento, indice, array) => Instrucciones);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 Generar nuevo array a partir de original (lee `elemento`, `indice` y `array` en ese orden) con instrucciones aplicadas a cada elemento
 
 ```js
 array.map((elemento, indice, array) => Instrucciones);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Generar nuevo array a partir de original (lee `elemento`, `indice` y `array` en ese orden) con sólo los elementos que cumplan condición devuelta en las instrucciones
 
@@ -886,17 +1093,41 @@ Generar nuevo array a partir de original (lee `elemento`, `indice` y `array` en 
 array.filter((elemento, indice, array) => Instrucciones);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 Recorrer array (lee `acumulador`, `elemento`, `indice` y `array` en ese orden) iterando sobre un acumulador y devolver valor especificado en las instrucciones
 
 ```js
 array.reduce((acumulador, elemento, indice, array) => Instrucciones, valorInicialAcumulador);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 ¿Es la variable un array?
 
 ```js
 Array.isArray(variable)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Convertir a array
 
@@ -906,11 +1137,27 @@ Array.from(listaDeNodos)
 Array.from(conjunto)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 ¿Contiene un elemento el array?
 
 ```js
 array.includes(elemento)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Extraer de un array los elementos en un rango (y sustituirlos por otros si hay. Funciona como añadir elementos a partir de inicio si `cantidad` es `0`)
 
@@ -919,11 +1166,27 @@ array.splice(inicio, cantidad)
 array.splice(inicio, cantidad, ...reemplazos)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 Elementos en un rango de un array
 
 ```js
 array.slice(inicio, fin)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Array en cadena de texto
 
@@ -931,11 +1194,27 @@ Array en cadena de texto
 array.toString()
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 Devolver primera ocurrencia de elemento en array por condición
 
 ```js
 array.find((elemento, indice, array) => Instrucciones);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Posición de primera ocurrencia de elemento en array que cumpla condición
 
@@ -943,11 +1222,27 @@ Posición de primera ocurrencia de elemento en array que cumpla condición
 array.findIndex((elemento, indice, array) => Instrucciones)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 Posición de última ocurrencia de elemento en array que cumpla condición
 
 ```js
 array.findLastIndex((elemento, indice, array) => Instrucciones)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Array con otro array concatenado
 
@@ -955,11 +1250,27 @@ Array con otro array concatenado
 array.concat(otroArray);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 Dividir en array una cadena por elementos entre `separador`
 
 ```js
 cadena.split(separador)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Crear cadena con strings de un array, separadas por una coma
 
@@ -967,11 +1278,27 @@ Crear cadena con strings de un array, separadas por una coma
 array.join()
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 Crear cadena con strings de un array, separadas por subcadena (`a`, `b`, `c` pasa a ser `abc`)
 
 ```js
 array.join(subcadena)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Llenar un array de valores
 
@@ -979,11 +1306,27 @@ Llenar un array de valores
 array.fill(valor);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 Llenar un array de valores a partir de una posición
 
 ```js
 array.fill(valor, inicio);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 Llenar un array de valores sólo un rango (fin excluyente)
 
@@ -991,11 +1334,27 @@ Llenar un array de valores sólo un rango (fin excluyente)
 array.fill(valor, inicio, fin);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
 Desesctructuración de array en variables
 
 ```js
 let [a, b, c] = [1, 2, 3];
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
 
 ---
 
@@ -1196,7 +1555,36 @@ Habilitar modo estricto de JavaScript
 
 ---
 
-## Clase `Object`
+## Clase `Object` y Objetos
+
+Acceder a propiedades del objeto
+
+```js
+objeto.atributo
+objeto["atributo"]
+```
+
+Añadir propiedad a objeto existente
+
+```js
+objeto.nueva = valor;
+objeto["nueva"] = valor;
+objeto.metodoNuevo = () => {...};
+objeto["metodoNuevo"] = () => {...};
+```
+
+Añadir propiedad al prototipo del objeto
+
+```js
+Objeto.prototype.nueva = valor;
+Objeto.prototype.metodoNuevo = valor;
+```
+
+Acceder a propiedad con encadenamiento opcional (No lanza errores)
+
+```js
+objeto?.propiedad
+```
 
 Array de propiedades del objeto
 
@@ -1216,7 +1604,7 @@ Array de entradas del objeto
 Object.entries(objeto)
 ```
 
-Definir propiedad nueva de `objeto` especificando nombre y valor, si se pueden cambiar sus valores, iterable o no y configurable o no
+Definir nueva propiedad de `objeto` especificando nombre y valor, editable o no, iterable o no y/o configurable o no
 
 ```js
 Object.defineProperty(objeto, "propiedad", {
@@ -1227,31 +1615,31 @@ Object.defineProperty(objeto, "propiedad", {
 });
 ```
 
-Congelar objeto (No se pueden crear, eliminar o modificar sus propiedades)
+Congelar `objeto` (No se pueden crear, eliminar o modificar sus propiedades)
 
 ```js
 Object.freeze(objeto);
 ```
 
-Sellar objeto (No se pueden crear o eliminar propiedades nuevas)
+Sellar `objeto` (No se pueden crear o eliminar propiedades nuevas)
 
 ```js
 Object.seal(objeto);
 ```
 
-Preveer objeto de extenderse (No se pueden crear propiedades nuevas)
+Preveer `objeto` de extenderse (No se pueden crear propiedades nuevas)
 
 ```js
 Object.preventExtensions(objeto);
 ```
 
-Agregar a objeto propiedades de objetos sobreescribiendo las existentes
+Agregar a `objeto` propiedades de `objetos` sobreescribiendo las ya existentes
 
 ```js
 Object.assign(objeto, ...objetos)
 ```
 
-Referencia a objeto, con propiedades adicionales opcionales de otros objetos
+Referencia a `objeto`, con propiedades adicionales opcionales de `objetos`
 
 ```js
 Object.create(objeto, ...objetos)
@@ -1270,7 +1658,7 @@ objeto.hasOwnProperty("propiedad")
 "propiedad" in objeto
 ```
 
-Prototipo de objeto
+Prototipo de `objeto`
 
 ```js
 Object.getPrototypeOf(objeto)
@@ -1283,25 +1671,25 @@ Eliminar propiedad
 delete objeto.propiedad;
 ```
 
-Copia del objeto
+Copia de `objeto`
 
 ```js
 structuredClone(objeto)
 ```
 
-Desestructuración de objeto (sus propiedades) en variable del mismo nombre
+Desestructuración de `objeto` (sus propiedades) en variable del mismo nombre
 
 ```js
 let {atributo1} = objeto;
 ```
 
-Desestructuración de objeto (sus propiedades) en variable
+Desestructuración de `objeto` (sus propiedades) en variable
 
 ```js
 let {atributo1: variable} = objeto;
 ```
 
-Función en el contexto de objeto y con parámetros fijados opcionalmente
+Función en el contexto de `objeto` y con parámetros fijados opcionalmente
 
 ```js
 funcion.bind(objeto, ...params)
@@ -1633,7 +2021,7 @@ function Objeto(atributo1, atributo2) {
 let objeto = new Objeto(valor1, valor2);
 ```
 
-Declarar objeto con clase 😜👌
+Declarar clase y un objeto
 
 ```js
 class Objeto {
@@ -1649,29 +2037,6 @@ class Objeto {
 let objeto = new Objeto(valor1, valor2);
 ```
 
-Acceder a propiedades del objeto
-
-```js
-objeto.atributo
-objeto["atributo"]
-```
-
-Añadir propiedad a objeto existente
-
-```js
-objeto.nueva = valor;
-objeto["nueva"] = valor;
-objeto.metodoNuevo = () => {...};
-objeto["metodoNuevo"] = () => {...};
-```
-
-Añadir propiedad a la clase del objeto
-
-```js
-Objeto.prototype.nueva = valor;
-Objeto.prototype.metodoNuevo = valor;
-```
-
 Propiedades Estáticas
 
 ```js
@@ -1682,12 +2047,6 @@ class Objeto {
 	}
 	static mostrarCantidad = () => console.log(Objeto.cantidad);
 }
-```
-
-Acceder a propiedad con encadenamiento opcional (No lanza errores)
-
-```js
-objeto?.propiedad
 ```
 
 ### Getters y Setters

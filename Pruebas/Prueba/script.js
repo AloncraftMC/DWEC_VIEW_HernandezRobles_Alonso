@@ -1,2 +1,3 @@
-let numero;
-console.log(numero.toFixed(2));
+const array = ["a", "b", "c", "d"];
+
+console.log(array.at(-1));
