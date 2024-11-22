@@ -1,3 +1,6 @@
-const array = ["a", "b", "c", "d"];
+const string = "manzana,banana,kiwi";
+const array = string.split(",");
 
-console.log(array.at(-1));
+for(let elemento of array){
+	console.log(elemento)
+}

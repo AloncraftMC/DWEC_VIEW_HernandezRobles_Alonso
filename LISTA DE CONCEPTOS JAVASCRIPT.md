@@ -1,6 +1,6 @@
 # LISTA DE CONCEPTOS JAVASCRIPT
 > Alonso Hernández Robles 2º DAW
-> Ver. 20/11/2024 (_Ahora en Markdown!_)
+> Ver. 22/11/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -943,7 +943,25 @@ array.shift();
 	<summary>Ejemplo</summary>
 
 ```js
+let array = [1, 2, 3, 4, 5];
+const primerElemento = array.shift();
 
+console.log("Elemento eliminado: " + primerElemento);
+console.log("Array:");
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+Elemento eliminado: 1
+Array:
+2
+3
+4
+5
 ```
 </details>
 
@@ -952,12 +970,26 @@ Meter elemento como primero
 ```js
 array.unshift(elemento);
 ```
-
 <details>
 	<summary>Ejemplo</summary>
 
 ```js
+let array = [2, 3, 4];
+array.unshift(0, 1);
 
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+0
+1
+2
+3
+4
 ```
 </details>
 
@@ -971,7 +1003,25 @@ array.pop();
 	<summary>Ejemplo</summary>
 
 ```js
+let array = [1, 2, 3, 4, 5];
+const ultimoElemento = array.pop();
 
+console.log("Elemento eliminado: " + ultimoElemento);
+console.log("Array:");
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+Elemento eliminado: 5
+Array:
+1
+2
+3
+4
 ```
 </details>
 
@@ -985,7 +1035,21 @@ array.push(elemento);
 	<summary>Ejemplo</summary>
 
 ```js
+let array = [1, 2, 3];
+array.push(4, 5);
 
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+```
+1
+2
+3
+4
+5
 ```
 </details>
 
@@ -999,11 +1063,14 @@ array.indexOf(elemento)
 	<summary>Ejemplo</summary>
 
 ```js
+let array = ["manzana", "banana", "cereza"];
+const clave = array.indexOf("banana");
 
+console.log("La clave de 'banana' es: " + clave);	// Imprime 1
 ```
 </details>
 
-Ordenar array
+Ordenar array original alfabéticamente
 
 ```js
 array.sort();
@@ -1013,11 +1080,23 @@ array.sort();
 	<summary>Ejemplo</summary>
 
 ```js
+let array = ["pepe", "maribel", "zanita"];
+array.sort();
 
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+```
+maribel
+pepe
+zanita
 ```
 </details>
 
-Ordenar array siguiendo un criterio
+Ordenar array original siguiendo un criterio
 
 ```js
 array.sort((elemento1, elemento2) => Instrucciones);
@@ -1027,7 +1106,22 @@ array.sort((elemento1, elemento2) => Instrucciones);
 	<summary>Ejemplo</summary>
 
 ```js
+let array = ["manzana", "kiwi", "banana", "cereza", "uva"];
+array.sort((a, b) => {a.length - b.length});
 
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+uva
+kiwi
+banana
+cereza
+manzana
 ```
 </details>
 
@@ -1038,10 +1132,25 @@ array.reverse();
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo </summary>
 
 ```js
+let array = [1, 2, 3, 4, 5];
+let invertido = array.reverse();
 
+for(let elemento of invertido){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+5
+4
+3
+2
+1
 ```
 </details>
 
@@ -1055,7 +1164,14 @@ Desglose de valores de un array
 	<summary>Ejemplo</summary>
 
 ```js
+function mostrar(...valores){
+	for(let valor of valores){
+		console.log(valor);
+	}
+}
 
+const numeros = [1, 2, 3, 4, 5];
+mostrar(...numeros);	// mostrar(1, 2, 3, 4, 5);
 ```
 </details>
 
@@ -1066,10 +1182,47 @@ array.forEach((elemento, indice, array) => Instrucciones);
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```js
+let numeros = [1, 2, 3, 4, 5];
+numeros.forEach(numero => console.log(numero));
+```
 
+**Salida**
+
+```
+1
+2
+3
+4
+5
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+let numeros = [1, 2, 3, 4, 5];
+
+numeros.forEach((numero, indice, numeros) => {
+	numeros[indice] *= 2;
+});
+
+for(let numero of numeros){
+	console.log(numero);
+}
+```
+
+**Salida**
+
+```
+2
+4
+6
+8
+10
 ```
 </details>
 
@@ -1080,10 +1233,51 @@ array.map((elemento, indice, array) => Instrucciones);
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```js
+const numeros = [1, 2, 3, 4, 5];
+const cuadrados = numeros.map(numero => numero ** 2);
 
+for(let elemento of cuadrados){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+1
+4
+9
+16
+25
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+let personas = [
+    { nombre: "Juan", edad: 25 },
+    { nombre: "Ana", edad: 30 },
+    { nombre: "Luis", edad: 22 }
+];
+
+let nombres = personas.map(persona => persona.nombre);
+
+for(let nombre of nombres){
+	console.log(nombre);
+}
+```
+
+**Salida**
+
+```
+Juan
+Ana
+Luis
 ```
 </details>
 
@@ -1097,7 +1291,20 @@ array.filter((elemento, indice, array) => Instrucciones);
 	<summary>Ejemplo</summary>
 
 ```js
+const numeros = [0, 1, 2, 3, 4];
+const pares = numeros.filter(numero => numero % 2 == 0);
 
+for(let elemento of pares){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+0
+2
+4
 ```
 </details>
 
@@ -1111,7 +1318,14 @@ array.reduce((acumulador, elemento, indice, array) => Instrucciones, valorInicia
 	<summary>Ejemplo</summary>
 
 ```js
+const numeros = [1, 2, 3, 4, 5];
 
+const suma = numeros.reduce((acumulador, numero) => {
+	acumulador += numero;
+	return acumulador;
+}, 0);
+
+console.log(suma);	// Imprime 15
 ```
 </details>
 
@@ -1125,23 +1339,67 @@ Array.isArray(variable)
 	<summary>Ejemplo</summary>
 
 ```js
+const array = [1, 2, 3];
+const objeto = {
+	nombre: "Pepe",
+	edad: 20
+}
 
+console.log(Array.isArray(array));	// true
+console.log(Array.isArray(objeto));	// false
 ```
 </details>
 
-Convertir a array
+Convertir a array (con transformación opcional)
 
 ```js
-Array.from(coleccion)
-Array.from(listaDeNodos)
-Array.from(conjunto)
+Array.from(objeto)
+Array.from(objeto, instrucciones)
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```js
+const palabra = "Hola";
+const caracteres = Array.from(palabra);
 
+for(let caracter of caracteres){
+	console.log(caracter)
+}
+```
+
+**Salida**
+```
+H
+o
+l
+a
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const persona = {
+	nombre: "Pepe",
+	edad: 20
+}
+
+const info = Array.from(Object.entries(persona), ([clave, valor]) => {
+    return clave + ": " + valor + "\n";
+});
+
+for(let elemento of info){
+    console.log(elemento);
+}
+```
+
+**Salida**
+```
+nombre: Pepe
+edad: 20
 ```
 </details>
 
@@ -1155,7 +1413,10 @@ array.includes(elemento)
 	<summary>Ejemplo</summary>
 
 ```js
+const array = [1, 2, 3, 4, 5];
+const valor = 3;
 
+console.log(array.includes(valor));	// true
 ```
 </details>
 
@@ -1167,28 +1428,127 @@ array.splice(inicio, cantidad, ...reemplazos)
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```js
+const array = ["manzana", "banana", "cereza", "ciruela"];
+array.splice(1, 2);
 
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+manzana
+ciruela
 ```
 </details>
 
-Elementos en un rango de un array
+<details>
+	<summary>Ejemplo 2</summary>
 
 ```js
+const array = ["manzana", "banana", "cereza", "ciruela"];
+array.splice(1, 2, "pera", "kiwi");
+
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+manzana
+pera
+kiwi
+ciruela
+```
+</details>
+
+<details>
+	<summary>Ejemplo 3</summary>
+
+```js
+const array = ["manzana", "banana", "cereza", "ciruela"];
+const eliminados = array.splice(-3, 2);
+
+console.log("Eliminados: ");
+for(let elemento of eliminados){
+	console.log(elemento);
+}
+
+console.log("\nOriginales: ");
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+Eliminados: 
+banana
+cereza
+
+Originales:
+manzana
+ciruela
+```
+</details>
+
+Elementos en un rango de un array (opcionalmente fin incluido)
+
+```js
+array.slice(inicio)
 array.slice(inicio, fin)
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```js
+const array = ["manzana", "banana", "cereza", "ciruela"];
+const porcion = array.slice(1);
 
+for(let elemento of porcion){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+banana
+cereza
+ciruela
 ```
 </details>
 
-Array en cadena de texto
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const array = ["manzana", "banana", "cereza", "ciruela"];
+const porcion = array.slice(1, 3);
+
+for(let elemento of porcion){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+banana
+cereza
+```
+</details>
+
+Cadena de elementos de un array, separados por una coma
 
 ```js
 array.toString()
@@ -1198,11 +1558,12 @@ array.toString()
 	<summary>Ejemplo</summary>
 
 ```js
-
+let numeros = [1, 2, 3, 4];
+console.log(numeros.toString());	// Imprime "1,2,3,4"
 ```
 </details>
 
-Devolver primera ocurrencia de elemento en array por condición
+Devolver primera ocurrencia de elemento en array por condición (si no hay devuelve `undefined`)
 
 ```js
 array.find((elemento, indice, array) => Instrucciones);
@@ -1212,7 +1573,10 @@ array.find((elemento, indice, array) => Instrucciones);
 	<summary>Ejemplo</summary>
 
 ```js
+let numeros = [1, 2, 3, 4, 5];
+let encontrado = numeros.find(numero => numero > 3);
 
+console.log(encontrado);	// Imprime 4
 ```
 </details>
 
@@ -1247,14 +1611,52 @@ array.findLastIndex((elemento, indice, array) => Instrucciones)
 Array con otro array concatenado
 
 ```js
-array.concat(otroArray);
+array.concat(...arrays);
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```js
+const array1 = ["manzana", "banana"];
+const array2 = ["cereza", "ciruela"];
+const fusion = array1.concat(array2);
 
+for(let elemento of fusion){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+manzana
+banana
+cereza
+ciruela
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const array1 = ["manzana"];
+const array2 = ["banana"];
+const array3 = ["cereza"];
+const fusion = array1.concat(array2, array3);
+
+for(let elemento of fusion){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+manzana
+banana
+cereza
 ```
 </details>
 
@@ -1268,7 +1670,20 @@ cadena.split(separador)
 	<summary>Ejemplo</summary>
 
 ```js
+const string = "manzana,banana,kiwi";
+const array = string.split(",");
 
+for(let elemento of array){
+	console.log(elemento)
+}
+```
+
+**Salida**
+
+```
+manzana
+banana
+kiwi
 ```
 </details>
 
@@ -1282,7 +1697,10 @@ array.join()
 	<summary>Ejemplo</summary>
 
 ```js
+const array = ["manzana", "banana", "kiwi"];
+const string = array.join(",");
 
+console.log(string);	// Imprime "manzana,banana,kiwi"
 ```
 </details>
 
@@ -1352,7 +1770,12 @@ let [a, b, c] = [1, 2, 3];
 	<summary>Ejemplo</summary>
 
 ```js
+const [a, b, c, d] = [1, 2, 3, 4];
 
+console.log(a)	// Imprime 1
+console.log(b)	// Imprime 2
+console.log(c)	// Imprime 3
+console.log(d)	// Imprime 4
 ```
 </details>
 
