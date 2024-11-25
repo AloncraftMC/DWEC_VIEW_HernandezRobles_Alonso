@@ -1,6 +1,6 @@
 # LISTA DE CONCEPTOS JAVASCRIPT
 > Alonso Hernández Robles 2º DAW
-> Ver. 22/11/2024 (_Ahora en Markdown!_)
+> Ver. 25/11/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -903,9 +903,9 @@ array[5][2]
 
 ```js
 let array = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9]
+	[1, 2, 3],
+	[4, 5, 6],
+	[7, 8, 9]
 ];
 
 console.log(array[1][2]);	// Imprime 6
@@ -1452,7 +1452,7 @@ ciruela
 
 ```js
 const array = ["manzana", "banana", "cereza", "ciruela"];
-array.splice(1, 2, "pera", "kiwi");
+array.splice(1, 2, "pera", "kiwi", "naranja");
 
 for(let elemento of array){
 	console.log(elemento);
@@ -1465,6 +1465,7 @@ for(let elemento of array){
 manzana
 pera
 kiwi
+naranja
 ciruela
 ```
 </details>
@@ -1497,6 +1498,29 @@ cereza
 Originales:
 manzana
 ciruela
+```
+</details>
+
+<details>
+	<summary>Ejemplo 4</summary>
+
+```js
+const array = ["manzana", "banana", "cereza"];
+const eliminados = array.splice(1, 0, "naranja", "kiwi");
+
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+manzana
+naranja
+kiwi
+banana
+cereza
 ```
 </details>
 
@@ -1563,7 +1587,7 @@ console.log(numeros.toString());	// Imprime "1,2,3,4"
 ```
 </details>
 
-Devolver primera ocurrencia de elemento en array por condición (si no hay devuelve `undefined`)
+Primer elemento en array que cumple condición (si no hay devuelve `undefined`)
 
 ```js
 array.find((elemento, indice, array) => Instrucciones);
@@ -1580,7 +1604,7 @@ console.log(encontrado);	// Imprime 4
 ```
 </details>
 
-Posición de primera ocurrencia de elemento en array que cumpla condición
+Posición de primera ocurrencia de elemento en array que cumpla condición (si no hay devuelve `-1`)
 
 ```js
 array.findIndex((elemento, indice, array) => Instrucciones)
@@ -1590,11 +1614,14 @@ array.findIndex((elemento, indice, array) => Instrucciones)
 	<summary>Ejemplo</summary>
 
 ```js
+const numeros = [4, 9, 16, 25];
+const indice = numeros.findIndex(numero => numero > 10);
 
+console.log(indice);	// Imprime 2
 ```
 </details>
 
-Posición de última ocurrencia de elemento en array que cumpla condición
+Posición de última ocurrencia de elemento en array que cumpla condición (si no hay devuelve `-1`)
 
 ```js
 array.findLastIndex((elemento, indice, array) => Instrucciones)
@@ -1604,7 +1631,10 @@ array.findLastIndex((elemento, indice, array) => Instrucciones)
 	<summary>Ejemplo</summary>
 
 ```js
+const numeros = [4, 9, 16, 25];
+const indice = numeros.findLastIndex(numero => numero < 10);
 
+console.log(indice);	// Imprime 1
 ```
 </details>
 
@@ -1698,13 +1728,13 @@ array.join()
 
 ```js
 const array = ["manzana", "banana", "kiwi"];
-const string = array.join(",");
+const string = array.join();
 
 console.log(string);	// Imprime "manzana,banana,kiwi"
 ```
 </details>
 
-Crear cadena con strings de un array, separadas por subcadena (`a`, `b`, `c` pasa a ser `abc`)
+Crear cadena con strings de un array, separadas por subcadena
 
 ```js
 array.join(subcadena)
@@ -1714,7 +1744,10 @@ array.join(subcadena)
 	<summary>Ejemplo</summary>
 
 ```js
+const array = ["manzana", "banana", "kiwi"];
+const string = array.join(" - ");
 
+console.log(string);	// Imprime "manzana - banana - kiwi"
 ```
 </details>
 
@@ -1728,7 +1761,20 @@ array.fill(valor);
 	<summary>Ejemplo</summary>
 
 ```js
+const array = new Array(3);
+array.fill(10);
 
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+10
+10
+10
 ```
 </details>
 
@@ -1742,7 +1788,22 @@ array.fill(valor, inicio);
 	<summary>Ejemplo</summary>
 
 ```js
+const array = [1, 2, 3, 4, 5];
+array.fill(0, 2);
 
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+1
+2
+0
+0
+0
 ```
 </details>
 
@@ -1756,7 +1817,22 @@ array.fill(valor, inicio, fin);
 	<summary>Ejemplo</summary>
 
 ```js
+const array = [1, 2, 3, 4, 5];
+array.fill("x", 1, 4);
 
+for(let elemento of array){
+	console.log(elemento);
+}
+```
+
+**Salida**
+
+```
+1
+x
+x
+x
+5
 ```
 </details>
 
@@ -1789,23 +1865,65 @@ Tamaño de cadena
 cadena.length
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hola Mundo";
+console.log(string.length);	// Imprime 10
+```
+</details>
+
 Carácter en posición específica
 
 ```js
 cadena.charAt(posición)
 ```
 
-Posición de la primera ocurrencia de cadena
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "abcd";
+console.log(string.charAt(2));	// Imprime 'c'
+```
+</details>
+
+Posición de la primera ocurrencia de `subcadena`
 
 ```js
 cadena.indexOf(cadena)
 ```
 
-Posición de la última ocurrencia de cadena
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "manzana";
+
+console.log(string.indexOf("a"));	// Imprime 1
+console.log(string.indexOf("n"));	// Imprime 2
+console.log(string.indexOf("x"));	// Imprime -1
+```
+</details>
+
+Posición de la última ocurrencia de `subcadena`
 
 ```js
 cadena.lastIndexOf(cadena)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "manzana";
+
+console.log(string.lastIndexOf("a"));	// Imprime 6
+console.log(string.lastIndexOf("n"));	// Imprime 5
+console.log(string.lastIndexOf("x"));	// Imprime -1
+```
+</details>
 
 Cadena con espacios regulados
 
@@ -1813,11 +1931,14 @@ Cadena con espacios regulados
 cadena.trim()
 ```
 
-Cadena en mayúscula
+<details>
+	<summary>Ejemplo</summary>
 
 ```js
-cadena.toUpperCase()
+const texto = "   Hola mundo   ";
+console.log(texto.trim());	// Imprime "Hola mundo"
 ```
+</details>
 
 Cadena en minúscula
 
@@ -1825,11 +1946,44 @@ Cadena en minúscula
 cadena.toLowerCase()
 ```
 
-Cadena concatenada repetidamente `5` veces
+<details>
+	<summary>Ejemplo</summary>
 
 ```js
-cadena.repeat(5)
+const string = "Hola Mundo";
+console.log(string.toUpperCase());	// Imprime "hola mundo"
 ```
+</details>
+
+Cadena en mayúscula
+
+```js
+cadena.toUpperCase()
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hola Mundo";
+console.log(string.toUpperCase());	// Imprime "HOLA MUNDO"
+```
+</details>
+
+Cadena concatenada repetidamente `n` veces
+
+```js
+cadena.repeat(n)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hola";
+console.log(string.repeat(3));	// Imprime "HolaHolaHola"
+```
+</details>
 
 ¿La cadena empieza con una cadena?
 
@@ -1837,11 +1991,37 @@ cadena.repeat(5)
 cadena.startsWith(otra);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string1 = "Hola Mundo";
+const string2 = "Hola";
+const string3 = "Mundo";
+
+console.log(string1.startsWith(string2) ? "Sí" : "No");	// Imprime "Sí", porque "Hola Mundo" empieza con "Hola"
+console.log(string1.startsWith(string3) ? "Sí" : "No");	// Imprime "No", porque "Hola Mundo" no empieza con "Mundo"
+```
+</details>
+
 ¿La cadena termina con una cadena?
 
 ```js
 cadena.endsWith(otra);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string1 = "Hola Mundo";
+const string2 = "Hola";
+const string3 = "Mundo";
+
+console.log(string1.endsWith(string2) ? "Sí" : "No");	// Imprime "No", porque "Hola Mundo" no termina con "Hola"
+console.log(string1.endsWith(string3) ? "Sí" : "No");	// Imprime "Sí", porque "Hola Mundo" termina con "Mundo"
+```
+</details>
 
 ¿La cadena contiene una cadena?
 
@@ -1849,17 +2029,96 @@ cadena.endsWith(otra);
 cadena.includes(otra);
 ```
 
-Cadena con las `subcadena1` reemplazadas por `subcadena2`
+<details>
+	<summary>Ejemplo</summary>
 
 ```js
-cadena.replaceAll(cadena1, cadena2)
-```
+const string1 = "Hola Mundo";
+const string2 = "Mundo";
 
-Subcadena entre la posición `1` (incluyente) y `2` (excluyente) de una cadena
+console.log(string1.includes(string2) ? "Sí contiene" : "No contiene");	// Imprime "Sí contiene"
+
+const string3 = "JS es raro";
+const string4 = "Java";
+
+console.log(string3.includes(string4) ? "Sí contiene" : "No contiene");	// Imprime "No contiene"
+```
+</details>
+
+Cadena con la primera ocurrencia de `subcadena1` reemplazada por `subcadena2`
 
 ```js
-cadena.slice(1, 2)
+cadena.replace(subcadena1, subcadena2)
 ```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+const string = "Hola gente";
+const nuevo = string.replace("gente", "amigos");
+
+console.log(nuevo);	// Imprime "Hola amigos"
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const string = "Hay lentejas y comeré lentejas";
+const nuevo = string.replace("lentejas", "pasta");
+
+console.log(nuevo);	// Imprime "Hay pasta y comeré lentejas"
+```
+</details>
+
+Cadena con todas las `subcadena1` reemplazadas por `subcadena2`
+
+```js
+cadena.replaceAll(subcadena1, subcadena2)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hay lentejas y comeré lentejas";
+const nuevo = string.replaceAll("lentejas", "pasta");
+
+console.log(nuevo);	// Imprime "Hay pasta y comeré pasta"
+```
+</details>
+
+Subcadena a partir de la posición `n` (incluyente)
+
+```js
+cadena.slice(n)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hola mundo";
+console.log(string.slice(5));	// Imprime "mundo"
+```
+</details>
+
+Subcadena entre la posición `n` (incluyente) y `m` (excluyente) de una cadena
+
+```js
+cadena.slice(n, m)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hola mundo";
+console.log(string.slice(2, 4));	// Imprime "la"
+```
+</details>
 
 Dividir en array una cadena por elementos entre `separador`
 
@@ -1867,17 +2126,60 @@ Dividir en array una cadena por elementos entre `separador`
 cadena.split(separador)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "manzana,banana,kiwi";
+const array = string.split(",");
+
+for(let elemento of array){
+	console.log(elemento)
+}
+```
+
+**Salida**
+
+```
+manzana
+banana
+kiwi
+```
+</details>
+
 Crear cadena con strings de un array, separadas por una coma
 
 ```js
 array.join()
 ```
 
-Crear cadena con strings de un array, separadas por subcadena (`a`, `b`, `c` pasa a ser `abc`)
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const array = ["manzana", "banana", "kiwi"];
+const string = array.join();
+
+console.log(string);	// Imprime "manzana,banana,kiwi"
+```
+</details>
+
+Crear cadena con strings de un array, separadas por subcadena
 
 ```js
 array.join(subcadena)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const array = ["manzana", "banana", "kiwi"];
+const string = array.join(" - ");
+
+console.log(string);	// Imprime "manzana - banana - kiwi"
+```
+</details>
 
 ---
 
@@ -1987,6 +2289,20 @@ objeto.atributo
 objeto["atributo"]
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+let objeto = {
+	atributo1: "valor 1",
+	atributo2: "valor 2"
+};
+
+console.log(objeto.atributo1);		// Imprime "valor 1"
+console.log(objeto["atributo2"]);	// Imprime "valor 2"
+```
+</details>
+
 Añadir propiedad a objeto existente
 
 ```js
@@ -1996,90 +2312,24 @@ objeto.metodoNuevo = () => {...};
 objeto["metodoNuevo"] = () => {...};
 ```
 
-Añadir propiedad al prototipo del objeto
+<details>
+	<summary>Ejemplo</summary>
 
 ```js
-Objeto.prototype.nueva = valor;
-Objeto.prototype.metodoNuevo = valor;
+let objeto = {
+	atributo: "valor",
+	metodo(){
+		console.log("Esto es el método");
+	}
+};
+
+objeto.atributo = "Otro valor";
+objeto.metodo = () => console.log("El método ha cambiado");
+
+console.log(objeto.atributo);	// Imprime "Otro valor"
+objeto.metodo();		// Imprime "El método ha cambiado"
 ```
-
-Acceder a propiedad con encadenamiento opcional (No lanza errores)
-
-```js
-objeto?.propiedad
-```
-
-Array de propiedades del objeto
-
-```js
-Object.keys(objeto)
-```
-
-Array de valores del objeto
-
-```js
-Object.values(objeto)
-```
-
-Array de entradas del objeto
-
-```js
-Object.entries(objeto)
-```
-
-Definir nueva propiedad de `objeto` especificando nombre y valor, editable o no, iterable o no y/o configurable o no
-
-```js
-Object.defineProperty(objeto, "propiedad", {
-	value: "valor",
-	writable: booleano,
-	enumerable: booleano,
-	configurable: booleano
-});
-```
-
-Congelar `objeto` (No se pueden crear, eliminar o modificar sus propiedades)
-
-```js
-Object.freeze(objeto);
-```
-
-Sellar `objeto` (No se pueden crear o eliminar propiedades nuevas)
-
-```js
-Object.seal(objeto);
-```
-
-Preveer `objeto` de extenderse (No se pueden crear propiedades nuevas)
-
-```js
-Object.preventExtensions(objeto);
-```
-
-Agregar a `objeto` propiedades de `objetos` sobreescribiendo las ya existentes
-
-```js
-Object.assign(objeto, ...objetos)
-```
-
-Referencia a `objeto`, con propiedades adicionales opcionales de `objetos`
-
-```js
-Object.create(objeto, ...objetos)
-```
-
-¿El objeto tiene la propiedad no heredada?
-
-```js
-Object.hasOwn(objeto, "propiedad")
-objeto.hasOwnProperty("propiedad")
-```
-
-¿El objeto tiene la propiedad?
-
-```js
-"propiedad" in objeto
-```
+</details>
 
 Prototipo de `objeto`
 
@@ -2088,41 +2338,686 @@ Object.getPrototypeOf(objeto)
 Objeto.prototype
 ```
 
+Añadir propiedad al prototipo del objeto
+
+```js
+Objeto.prototype.nueva = valor;
+Objeto.prototype.metodoNuevo = valor;
+
+Object.getPrototypeOf(objeto).nueva = valor;
+Object.getPrototypeOf(objeto).metodoNuevo = valor;
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+function Objeto(){
+	atributo1 = "valor por defecto";
+	metodo1 = () => console.log("Método por defecto");
+}
+
+const objeto = new Objeto();
+
+Objeto.prototype.atributo2 = "nuevo atributo";
+Object.getPrototypeOf(objeto).metodo2 = () => console.log("El nuevo método");
+
+console.log(objeto.atributo2);	// Imprime "nuevo atributo"
+objeto.metodo2();		// Imprime "El nuevo método"
+```
+</details>
+
+Acceder a propiedad con encadenamiento opcional (No lanza errores)
+
+```js
+objeto?.propiedad
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+
+```
+</details>
+
+Array de propiedades del objeto
+
+```js
+Object.keys(objeto)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const objeto = {
+	propiedad1: "valor1",
+	propiedad2: "valor2"
+};
+
+for(let propiedad of Object.keys(objeto)){
+	console.log(propiedad);
+}
+```
+
+**Salida**
+
+```
+propiedad1
+propiedad2
+```
+</details>
+
+Array de valores del objeto
+
+```js
+Object.values(objeto)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const objeto = {
+	propiedad1: "valor1",
+	propiedad2: "valor2"
+};
+
+for(let valor of Object.values(objeto)){
+	console.log(valor);
+}
+```
+
+**Salida**
+
+```
+valor1
+valor2
+```
+</details>
+
+Array de entradas del objeto
+
+```js
+Object.entries(objeto)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const objeto = {
+	propiedad1: "valor1",
+	propiedad2: "valor2"
+};
+
+for(let entrada of Object.entries(objeto)){
+	console.log(entrada[0] + ": " + entrada[1]);
+}
+```
+
+**Salida**
+
+```
+propiedad1: valor1
+propiedad2: valor2
+```
+</details>
+
 Eliminar propiedad
 
 ```js
 delete objeto.propiedad;
 ```
 
-Copia de `objeto`
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const objeto = {
+	propiedad: "valor"
+};
+
+delete objeto.propiedad;
+console.log(objeto.propiedad);	// Imprime undefined
+```
+</details>
+
+Definir nueva propiedad de `objeto` especificando nombre, y opcionalmente valor, si es editable o no, iterable o no, configurable o no, getter y/o setter.
+
+```js
+Object.defineProperty(objeto, "propiedad", {
+	value: "valor",
+	writable: booleano,
+	enumerable: booleano,
+	configurable: booleano,
+	get() {
+		return this._propiedad;
+	},
+	set(propiedad) {
+		this._propiedad = propiedad;
+	}
+});
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+const objeto = {
+	propiedad1: "valor1"
+};
+
+Object.defineProperty(objeto, "propiedad2", {
+	value: "valor2",
+	writable: true,
+	enumerable: true,
+	configurable: true
+});
+
+console.log(objeto.propiedad2);	// Imprime "valor2"
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const persona = {
+	nombre: "Alonso"
+};
+
+Object.defineProperty(persona, "edad", {
+	value: 20,
+	writable: false,	// No se puede modificar
+	enumerable: true,
+	configurable: true
+});
+
+console.log(persona.edad);	// Imprime 20
+persona.edad = 25;		// No tiene efecto
+console.log(persona.edad);	// Imprime 20
+```
+</details>
+
+<details>
+	<summary>Ejemplo 3</summary>
+
+```js
+const libro = {
+	titulo: "El Quijote",
+	año: 1600
+};
+
+Object.defineProperty(libro, "autor", {
+	value: "Miguelón",
+	writable: true,
+	enumerable: false,	// No aparecerá en bucles o al listar propiedades
+	configurable: true
+});
+
+for(let propiedad of Object.keys(libro)){
+	console.log(propiedad);
+}
+```
+
+**Salida**
+
+```
+titulo
+año
+```
+</details>
+
+<details>
+	<summary>Ejemplo 4</summary>
+
+```js
+const vehiculo = {
+	marca: "Skoda"
+};
+
+Object.defineProperty(vehiculo, "modelo", {
+	value: "Fabia",
+	writable: true,
+	enumerable: true,
+	configurable: false	// No se puede eliminar
+});
+
+console.log("Intento de eliminar:");
+delete vehiculo.modelo;
+console.log(vehiculo.modelo);
+```
+
+**Salida**
+
+```
+Fabia
+```
+</details>
+
+<details>
+	<summary>Ejemplo 5</summary>
+
+```js
+const objeto = {
+	_propiedad: "valor"
+};
+
+Object.defineProperty(objeto, "propiedad", {
+	value: "valor",
+	get() {
+		return this._propiedad;
+	},
+	set(propiedad) {
+		this._propiedad = propiedad;
+	}
+});
+
+objeto.propiedad = "nuevo valor";
+console.log(objeto.propiedad);	// Imprime "nuevo valor"
+```
+</details>
+
+Congelar `objeto` (No se pueden crear, eliminar o modificar sus propiedades)
+
+```js
+Object.freeze(objeto);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const objeto = {
+	propiedad: "valor"
+};
+
+Object.freeze(objeto);
+
+objeto.nueva = "nueva propiedad";
+objeto.propiedad = "nuevo valor";
+delete objeto.propiedad;
+
+console.log(objeto.propiedad);	// Imprime "valor"
+console.log(objeto.nueva);	// Imprime undefined
+```
+</details>
+
+Sellar `objeto` (No se pueden crear o eliminar propiedades)
+
+```js
+Object.seal(objeto);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const objeto = {
+	propiedad: "valor"
+};
+
+Object.seal(objeto);
+
+objeto.nueva = "nueva propiedad";
+objeto.propiedad = "nuevo valor";
+delete objeto.propiedad;
+
+console.log(objeto.propiedad);	// Imprime undefined
+console.log(objeto.nueva);	// Imprime undefined
+```
+</details>
+
+Preveer `objeto` de extenderse (No se pueden crear propiedades nuevas)
+
+```js
+Object.preventExtensions(objeto);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const objeto = {
+	propiedad: "valor"
+};
+
+Object.preventExtensions(objeto);
+
+objeto.nueva = "nueva propiedad";
+objeto.propiedad = "nuevo valor";
+delete objeto.propiedad;
+
+console.log(objeto.propiedad);	// Imprime undefined
+console.log(objeto.nueva);	// Imprime undefined
+```
+</details>
+
+Agregar a `objeto` propiedades de `objetos` sobreescribiendo las ya existentes
+
+```js
+Object.assign(objeto, ...objetos)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const objeto1 = {
+	propiedad1: "valor1"
+};
+
+const objeto2 = {
+	propiedad2: "valor2 antiguo"
+};
+
+const objeto3 = {
+	propiedad2: "valor2 nuevo",
+	propiedad3: "valor3"
+};
+
+Object.assign(objeto1, objeto2, objeto3);
+
+for(let propiedad in objeto1){
+	console.log(propiedad + ": " + objeto1[propiedad]);
+}
+```
+
+**Salida**
+
+```
+propiedad1: valor1
+propiedad2: valor2 nuevo
+propiedad3: valor3
+```
+</details>
+
+Nuevo objeto a partir de prototipo (se usa `objeto` como el prototipo en este caso), con propiedades adicionales opcionales
+
+```js
+Object.create(objeto)
+Object.create(objeto, {...propiedades})
+Object.create(objeto, {
+	propiedad1: {
+		value: "valor",
+		writable: true,
+		enumerable: true,
+		configurable: true
+	},
+	propiedad2: {
+		// ...
+	}
+})
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+const objeto = {
+	propiedad: "valor",
+	metodo: () => console.log("Método")
+};
+
+const nuevo = Object.create(objeto);
+
+console.log(nuevo.propiedad);	// Imprime "valor"
+nuevo.metodo();			// Imprime "Método"
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const objeto = {
+	propiedad: "valor"
+};
+
+const nuevo = Object.create(objeto, {
+	otra: {
+		value: "otro valor",
+		writable: true,
+		enumerable: true,
+		configurable: true
+	},
+	otroMetodo: {
+		value: function(){
+			console.log("Otro método");
+		}
+	}
+});
+
+console.log(nuevo.propiedad);	// Imprime "valor"
+console.log(nuevo.otra);	// Imprime "otro valor"
+nuevo.otroMetodo();		// Imprime "Otro método"
+```
+</details>
+
+¿El objeto tiene la propiedad no heredada?
+
+```js
+Object.hasOwn(objeto, "propiedad")
+objeto.hasOwnProperty("propiedad")
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const objeto = {
+	propiedad1: "valor1"
+};
+
+console.log(objeto.hasOwnProperty("propiedad1"));	// true
+console.log(Object.hasOwn(objeto, "propiedad1"));	// true
+
+console.log(objeto.hasOwnProperty("toString"));	// false (no es no heredado)
+console.log(Object.hasOwn(objeto, "toString"));	// false (no es no heredado)
+```
+</details>
+
+¿El objeto tiene la propiedad?
+
+```js
+"propiedad" in objeto
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const persona = {
+	nombre: "Alonso"
+}
+
+console.log("nombre" in persona);	// true
+console.log("edad" in persona);	// false
+```
+</details>
+
+Copia anidada de `objeto`
 
 ```js
 structuredClone(objeto)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const objeto = {
+	propiedad: "valor"
+}
+
+const copia = structuredClone(objeto);
+
+console.log(copia.propiedad);	// Imprime "valor"
+```
+</details>
+
 Desestructuración de `objeto` (sus propiedades) en variable del mismo nombre
 
 ```js
-let {atributo1} = objeto;
+let {propiedad} = objeto;
 ```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+const objeto = {
+	atributo1: "valor 1",
+	atributo2: "valor 2"
+}
+
+const {atributo1} = objeto;
+console.log(atributo1);	// Imprime "valor 1"
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const objeto = {
+	atributo1: "valor 1",
+	atributo2: "valor 2"
+}
+
+const {atributo1, atributo2, atributo3} = objeto;
+console.log(atributo1);	// Imprime "valor 1"
+console.log(atributo2);	// Imprime "valor 2"
+console.log(atributo3);	// Imprime undefined
+```
+</details>
 
 Desestructuración de `objeto` (sus propiedades) en variable
 
 ```js
-let {atributo1: variable} = objeto;
+let {propiedad: variable} = objeto;
 ```
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const persona = {
+	atributo1: "Alonso",
+	atributo2: 20,
+	atributo3: "masculino"
+};
+
+const {atributo1: nombre, atributo2: edad, atributo3: sexo} = persona;
+
+console.log(nombre);	// Imprime "Alonso"
+console.log(edad);	// Imprime 20
+console.log(sexo);	// Imprime "masculino"
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const persona = {
+	atributo1: "Alonso",
+	atributo2: 20,
+	atributo3: "masculino"
+};
+
+const {atributo1: nombre, atributo2: edad, atributo3, atributo4} = persona;
+
+console.log(atributo1);	// Imprime "Alonso"
+console.log(atributo2);	// Imprime 20
+console.log(atributo3);	// Imprime "masculino"
+console.log(atributo4);	// Imprime undefined
+```
+</details>
 
 Función en el contexto de `objeto` y con parámetros fijados opcionalmente
 
 ```js
+funcion.bind(objeto)
 funcion.bind(objeto, ...params)
 ```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+function saludar() {
+	console.log("Soy " + this.nombre);
+}
+
+const persona = {
+	nombre: "Juan"
+};
+
+const saludarJuan = saludar.bind(persona);	// Devuelve una nueva función
+saludarJuan();					// Imprime "Soy Juan"
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+function saludar(hora) {
+	console.log("Soy " + this.nombre);
+	console.log("Son las " + hora);
+}
+
+const persona = {
+	nombre: "Juan"
+};
+
+const saludarJuanNoche = saludar.bind(persona, "3 AM");	// Devuelve una nueva función
+saludarJuanNoche();						// Imprime "Soy Juan" "Son las 3 AM"
+```
+</details>
 
 Ejecutar `funcion` en el contexto de `objeto`
 
 ```js
 funcion.call(objeto);
+funcion.call(objeto, ...params);
 ```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+function saludar() {
+	console.log("Soy " + this.nombre);
+}
+
+const persona = {
+	nombre: "Juan"
+};
+
+saludar.call(persona);	// Imprime "Soy Juan"
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+function saludar(hora) {
+	console.log("Soy " + this.nombre);
+	console.log("Son las " + hora);
+}
+
+const persona = {
+	nombre: "Juan"
+};
+
+saludar.call(persona, "3 AM");	// Imprime "Soy Juan" "Son las 3 AM"
+```
+</details>
 
 ---
 
@@ -2140,10 +3035,10 @@ Valor primitivo de objeto `Number`
 numero.valueOf()
 ```
 
-Número con `5` decimales
+Número con `n` decimales
 
 ```js
-numero.toFixed(5)
+numero.toFixed(n)
 ```
 
 <details>
@@ -2155,10 +3050,10 @@ console.log(numero.toFixed(2));	// "123.46"
 ```
 </details>
 
-Número con `5` dígitos de precisión
+Número con `n` dígitos de precisión
 
 ```js
-numero.toPrecision(5)
+numero.toPrecision(n)
 ```
 
 <details>
@@ -2192,7 +3087,7 @@ String de número (y conversión de bases)
 
 ```js
 numero.toString()
-numero.toString(2)
+numero.toString(base)
 ```
 
 <details>
@@ -2209,25 +3104,25 @@ console.log(numero.toString(16));	// "2a" (hexadecimal)
 ¿Es finito el número?
 
 ```js
-Number.isFinite(10);
+Number.isFinite(numero);
 ```
 
 ¿Es entero el número?
 
 ```js
-Number.isInteger(10);
+Number.isInteger(numero);
 ```
 
 ¿Es `NaN` el número?
 
 ```js
-Number.isNaN(10);
+Number.isNaN(numero);
 ```
 
 ¿Es un entero seguro? (Da `false` para decimales y números enormes)
 
 ```js
-Number.isSafeInteger(1.2);
+Number.isSafeInteger(numero);
 ```
 
 Convertir a entero
@@ -2274,7 +3169,7 @@ String de entero grande (y conversión de bases)
 
 ```js
 grande.toString()
-grande.toString(2)
+grande.toString(base)
 ```
 
 <details>
@@ -2631,7 +3526,7 @@ clearTimeout(id);
 
 ## Importación de Módulos
 
-- Para importar módulos, debe hacerse en un servidor y el script principal tiene que tener en HTML:
+- Para importar módulos (otros scripts), debe hacerse en un servidor y el script principal tiene que tener en HTML:
 ```html
 <script type="module" src="main.js"></script>
 ```
