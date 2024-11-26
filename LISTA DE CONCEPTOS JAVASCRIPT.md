@@ -1,6 +1,6 @@
 # LISTA DE CONCEPTOS JAVASCRIPT
 > Alonso Hernández Robles 2º DAW
-> Ver. 25/11/2024 (_Ahora en Markdown!_)
+> Ver. 26/11/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -1958,332 +1958,6 @@ console.log(d)	// Imprime 4
 
 ---
 
-## Strings
-
-Tamaño de cadena
-
-```js
-cadena.length
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string = "Hola Mundo";
-console.log(string.length);	// Imprime 10
-```
-</details>
-
-Carácter en posición específica
-
-```js
-cadena.charAt(posición)
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string = "abcd";
-console.log(string.charAt(2));	// Imprime 'c'
-```
-</details>
-
-Posición de la primera ocurrencia de `subcadena`
-
-```js
-cadena.indexOf(cadena)
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string = "manzana";
-
-console.log(string.indexOf("a"));	// Imprime 1
-console.log(string.indexOf("n"));	// Imprime 2
-console.log(string.indexOf("x"));	// Imprime -1
-```
-</details>
-
-Posición de la última ocurrencia de `subcadena`
-
-```js
-cadena.lastIndexOf(cadena)
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string = "manzana";
-
-console.log(string.lastIndexOf("a"));	// Imprime 6
-console.log(string.lastIndexOf("n"));	// Imprime 5
-console.log(string.lastIndexOf("x"));	// Imprime -1
-```
-</details>
-
-Cadena con espacios regulados
-
-```js
-cadena.trim()
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const texto = "   Hola mundo   ";
-console.log(texto.trim());	// Imprime "Hola mundo"
-```
-</details>
-
-Cadena en minúscula
-
-```js
-cadena.toLowerCase()
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string = "Hola Mundo";
-console.log(string.toUpperCase());	// Imprime "hola mundo"
-```
-</details>
-
-Cadena en mayúscula
-
-```js
-cadena.toUpperCase()
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string = "Hola Mundo";
-console.log(string.toUpperCase());	// Imprime "HOLA MUNDO"
-```
-</details>
-
-Cadena concatenada repetidamente `n` veces
-
-```js
-cadena.repeat(n)
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string = "Hola";
-console.log(string.repeat(3));	// Imprime "HolaHolaHola"
-```
-</details>
-
-¿La cadena empieza con una cadena?
-
-```js
-cadena.startsWith(otra);
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string1 = "Hola Mundo";
-const string2 = "Hola";
-const string3 = "Mundo";
-
-console.log(string1.startsWith(string2) ? "Sí" : "No");	// Imprime "Sí", porque "Hola Mundo" empieza con "Hola"
-console.log(string1.startsWith(string3) ? "Sí" : "No");	// Imprime "No", porque "Hola Mundo" no empieza con "Mundo"
-```
-</details>
-
-¿La cadena termina con una cadena?
-
-```js
-cadena.endsWith(otra);
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string1 = "Hola Mundo";
-const string2 = "Hola";
-const string3 = "Mundo";
-
-console.log(string1.endsWith(string2) ? "Sí" : "No");	// Imprime "No", porque "Hola Mundo" no termina con "Hola"
-console.log(string1.endsWith(string3) ? "Sí" : "No");	// Imprime "Sí", porque "Hola Mundo" termina con "Mundo"
-```
-</details>
-
-¿La cadena contiene una cadena?
-
-```js
-cadena.includes(otra);
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string1 = "Hola Mundo";
-const string2 = "Mundo";
-
-console.log(string1.includes(string2) ? "Sí contiene" : "No contiene");	// Imprime "Sí contiene"
-
-const string3 = "JS es raro";
-const string4 = "Java";
-
-console.log(string3.includes(string4) ? "Sí contiene" : "No contiene");	// Imprime "No contiene"
-```
-</details>
-
-Cadena con la primera ocurrencia de `subcadena1` reemplazada por `subcadena2`
-
-```js
-cadena.replace(subcadena1, subcadena2)
-```
-
-<details>
-	<summary>Ejemplo 1</summary>
-
-```js
-const string = "Hola gente";
-const nuevo = string.replace("gente", "amigos");
-
-console.log(nuevo);	// Imprime "Hola amigos"
-```
-</details>
-
-<details>
-	<summary>Ejemplo 2</summary>
-
-```js
-const string = "Hay lentejas y comeré lentejas";
-const nuevo = string.replace("lentejas", "pasta");
-
-console.log(nuevo);	// Imprime "Hay pasta y comeré lentejas"
-```
-</details>
-
-Cadena con todas las `subcadena1` reemplazadas por `subcadena2`
-
-```js
-cadena.replaceAll(subcadena1, subcadena2)
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string = "Hay lentejas y comeré lentejas";
-const nuevo = string.replaceAll("lentejas", "pasta");
-
-console.log(nuevo);	// Imprime "Hay pasta y comeré pasta"
-```
-</details>
-
-Subcadena a partir de la posición `n` (incluyente)
-
-```js
-cadena.slice(n)
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string = "Hola mundo";
-console.log(string.slice(5));	// Imprime "mundo"
-```
-</details>
-
-Subcadena entre la posición `n` (incluyente) y `m` (excluyente) de una cadena
-
-```js
-cadena.slice(n, m)
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string = "Hola mundo";
-console.log(string.slice(2, 4));	// Imprime "la"
-```
-</details>
-
-Dividir en array una cadena por elementos entre `separador`
-
-```js
-cadena.split(separador)
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const string = "manzana,banana,kiwi";
-const array = string.split(",");
-
-for(let elemento of array){
-	console.log(elemento)
-}
-```
-
-**Salida**
-
-```
-manzana
-banana
-kiwi
-```
-</details>
-
-Crear cadena con strings de un array, separadas por una coma
-
-```js
-array.join()
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const array = ["manzana", "banana", "kiwi"];
-const string = array.join();
-
-console.log(string);	// Imprime "manzana,banana,kiwi"
-```
-</details>
-
-Crear cadena con strings de un array, separadas por subcadena
-
-```js
-array.join(subcadena)
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```js
-const array = ["manzana", "banana", "kiwi"];
-const string = array.join(" - ");
-
-console.log(string);	// Imprime "manzana - banana - kiwi"
-```
-</details>
-
----
-
 ## Clase `Object`
 
 Acceder a propiedades del objeto
@@ -3709,15 +3383,17 @@ Patrón que contenga un número o minúscula o mayúscula
 
 ### Anexo 4. Apéndice de Metacaracteres y Equivalencias
 
-| Expresión | Descripción                  | Equivalencia          |
-|-----------|------------------------------|-----------------------|
-| `\d`      | Dígito                       | `[0-9]`               |
-| `\D`      | No dígito                    | `[^0-9]`              |
-| `\w`      | Carácter Alfanumérico        | `[A-Za-z0-9]`         |
-| `\W`      | Carácter No Alfanumérico     | `[^A-Za-z0-9]`        |
-| `\s`      | Espacio Invisible            | `[ \t\n\r\f\v]`       |
-| `\S`      | Carácter No Invisible        | `[^ \t\n\r\f\v]`      |
-| `.`       | Comodín (Excepto `\n`)       | No tiene              |
+| Expresión | Descripción                  | Equivalencia                        |
+|-----------|------------------------------|-------------------------------------|
+| `\d`      | Dígito                       | `[0-9]`                             |
+| `\D`      | No dígito                    | `[^0-9]`                            |
+| `\w`      | Carácter Alfanumérico        | `[A-Za-z0-9]`                       |
+| `\W`      | Carácter No Alfanumérico     | `[^A-Za-z0-9]`                      |
+| `\s`      | Espacio Invisible            | `[ \t\n\r\f\v]`                     |
+| `\S`      | Carácter No Invisible        | `[^ \t\n\r\f\v]`                    |
+| `\b`      | Límite de Palabra            | Posición entre palabra y no palabra |
+| `\B`      | No Límite de Palabra         | Posición dentro de una palabra      |
+| `.`       | Comodín (Excepto `\n`)       | No tiene                            |
 
 ### Anexo 5. Flags (Modificadores)
 
@@ -3733,6 +3409,336 @@ Patrón que contenga un número o minúscula o mayúscula
 ---
 
 ## Clase `String`
+
+Crear cadena literal
+
+```js
+const cadena1 = "cadena";
+const cadena2 = 'cadena';
+const cadena3 = `cadena`;
+```
+
+Tamaño de cadena
+
+```js
+cadena.length
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hola Mundo";
+console.log(string.length);	// Imprime 10
+```
+</details>
+
+Carácter en posición específica
+
+```js
+cadena.charAt(posición)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "abcd";
+console.log(string.charAt(2));	// Imprime 'c'
+```
+</details>
+
+Posición de la primera ocurrencia de `subcadena`
+
+```js
+cadena.indexOf(cadena)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "manzana";
+
+console.log(string.indexOf("a"));	// Imprime 1
+console.log(string.indexOf("n"));	// Imprime 2
+console.log(string.indexOf("x"));	// Imprime -1
+```
+</details>
+
+Posición de la última ocurrencia de `subcadena`
+
+```js
+cadena.lastIndexOf(cadena)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "manzana";
+
+console.log(string.lastIndexOf("a"));	// Imprime 6
+console.log(string.lastIndexOf("n"));	// Imprime 5
+console.log(string.lastIndexOf("x"));	// Imprime -1
+```
+</details>
+
+Cadena con espacios regulados
+
+```js
+cadena.trim()
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const texto = "   Hola mundo   ";
+console.log(texto.trim());	// Imprime "Hola mundo"
+```
+</details>
+
+Cadena en minúscula
+
+```js
+cadena.toLowerCase()
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hola Mundo";
+console.log(string.toUpperCase());	// Imprime "hola mundo"
+```
+</details>
+
+Cadena en mayúscula
+
+```js
+cadena.toUpperCase()
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hola Mundo";
+console.log(string.toUpperCase());	// Imprime "HOLA MUNDO"
+```
+</details>
+
+Cadena concatenada repetidamente `n` veces
+
+```js
+cadena.repeat(n)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hola";
+console.log(string.repeat(3));	// Imprime "HolaHolaHola"
+```
+</details>
+
+¿La cadena empieza con una cadena?
+
+```js
+cadena.startsWith(otra);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string1 = "Hola Mundo";
+const string2 = "Hola";
+const string3 = "Mundo";
+
+console.log(string1.startsWith(string2) ? "Sí" : "No");	// Imprime "Sí", porque "Hola Mundo" empieza con "Hola"
+console.log(string1.startsWith(string3) ? "Sí" : "No");	// Imprime "No", porque "Hola Mundo" no empieza con "Mundo"
+```
+</details>
+
+¿La cadena termina con una cadena?
+
+```js
+cadena.endsWith(otra);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string1 = "Hola Mundo";
+const string2 = "Hola";
+const string3 = "Mundo";
+
+console.log(string1.endsWith(string2) ? "Sí" : "No");	// Imprime "No", porque "Hola Mundo" no termina con "Hola"
+console.log(string1.endsWith(string3) ? "Sí" : "No");	// Imprime "Sí", porque "Hola Mundo" termina con "Mundo"
+```
+</details>
+
+¿La cadena contiene una cadena?
+
+```js
+cadena.includes(otra);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string1 = "Hola Mundo";
+const string2 = "Mundo";
+
+console.log(string1.includes(string2) ? "Sí contiene" : "No contiene");	// Imprime "Sí contiene"
+
+const string3 = "JS es raro";
+const string4 = "Java";
+
+console.log(string3.includes(string4) ? "Sí contiene" : "No contiene");	// Imprime "No contiene"
+```
+</details>
+
+Cadena con la primera ocurrencia de `subcadena1` reemplazada por `subcadena2`
+
+```js
+cadena.replace(subcadena1, subcadena2)
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+const string = "Hola gente";
+const nuevo = string.replace("gente", "amigos");
+
+console.log(nuevo);	// Imprime "Hola amigos"
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const string = "Hay lentejas y comeré lentejas";
+const nuevo = string.replace("lentejas", "pasta");
+
+console.log(nuevo);	// Imprime "Hay pasta y comeré lentejas"
+```
+</details>
+
+Cadena con todas las `subcadena1` reemplazadas por `subcadena2`
+
+```js
+cadena.replaceAll(subcadena1, subcadena2)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hay lentejas y comeré lentejas";
+const nuevo = string.replaceAll("lentejas", "pasta");
+
+console.log(nuevo);	// Imprime "Hay pasta y comeré pasta"
+```
+</details>
+
+Subcadena a partir de la posición `n` (incluyente)
+
+```js
+cadena.slice(n)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hola mundo";
+console.log(string.slice(5));	// Imprime "mundo"
+```
+</details>
+
+Subcadena entre la posición `n` (incluyente) y `m` (excluyente) de una cadena
+
+```js
+cadena.slice(n, m)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "Hola mundo";
+console.log(string.slice(2, 4));	// Imprime "la"
+```
+</details>
+
+Dividir en array una cadena por elementos entre `separador`
+
+```js
+cadena.split(separador)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "manzana,banana,kiwi";
+const array = string.split(",");
+
+for(let elemento of array){
+	console.log(elemento)
+}
+```
+
+**Salida**
+
+```
+manzana
+banana
+kiwi
+```
+</details>
+
+Crear cadena con strings de un array, separadas por una coma
+
+```js
+array.join()
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const array = ["manzana", "banana", "kiwi"];
+const string = array.join();
+
+console.log(string);	// Imprime "manzana,banana,kiwi"
+```
+</details>
+
+Crear cadena con strings de un array, separadas por subcadena
+
+```js
+array.join(subcadena)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const array = ["manzana", "banana", "kiwi"];
+const string = array.join(" - ");
+
+console.log(string);	// Imprime "manzana - banana - kiwi"
+```
+</details>
 
 ---
 
