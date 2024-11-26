@@ -196,6 +196,7 @@ null
 
 ```js
 10n
+9007199254740991n
 ```
 
 Acceder a atributo de objeto
