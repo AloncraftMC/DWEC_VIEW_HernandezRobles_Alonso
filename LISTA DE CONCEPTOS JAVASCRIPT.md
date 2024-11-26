@@ -754,7 +754,7 @@ for(let elemento of iterable){
 
 **Salida**
 
-```js
+```
 1
 2
 3
@@ -787,7 +787,7 @@ for(let elemento in objeto){
 
 **Salida**
 
-```js
+```
 nombre Pepe
 edad 20
 ```
@@ -1187,6 +1187,7 @@ for(let elemento of array){
 ```
 
 **Salida**
+
 ```
 maribel
 pepe
@@ -1468,6 +1469,7 @@ for(let caracter of caracteres){
 ```
 
 **Salida**
+
 ```
 H
 o
@@ -1495,6 +1497,7 @@ for(let elemento of info){
 ```
 
 **Salida**
+
 ```
 nombre: Pepe
 edad: 20
