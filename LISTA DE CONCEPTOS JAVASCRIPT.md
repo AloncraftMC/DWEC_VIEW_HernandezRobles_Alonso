@@ -2905,7 +2905,7 @@ let {propiedad: variable} = objeto;
 ```
 
 <details>
-	<summary>Ejemplo 2</summary>
+	<summary>Ejemplo 1</summary>
 
 ```js
 const persona = {
