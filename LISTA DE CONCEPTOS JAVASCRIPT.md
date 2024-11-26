@@ -3231,7 +3231,7 @@ console.log(Number.parseInt("10", 16));	// 16
 ```
 </details>
 
-Convertir a decimal (y conversión de bases)
+Convertir a decimal
 
 ```js
 Number.parseFloat(numero);
