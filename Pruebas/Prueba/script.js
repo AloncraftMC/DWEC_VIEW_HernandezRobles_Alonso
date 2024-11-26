@@ -1,1 +1,1 @@
-const regex = /\b
+const regex = /\

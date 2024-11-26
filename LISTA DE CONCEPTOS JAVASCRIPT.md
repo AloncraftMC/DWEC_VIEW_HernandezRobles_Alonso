@@ -1,4 +1,4 @@
-# LISTA DE CONCEPTOS JAVASCRIPT
+# $\Huge{\text{Lista de Conceptos JavaScript}}$
 > Alonso Hernández Robles 2º DAW
 > Ver. 26/11/2024 (_Ahora en Markdown!_)
 
@@ -3417,6 +3417,27 @@ const cadena1 = "cadena";
 const cadena2 = 'cadena';
 const cadena3 = `cadena`;
 ```
+
+Crear cadena con constructor
+
+```js
+const cadena = new String("cadena");
+```
+
+Valor de cadena
+
+```js
+cadena.valueOf()
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const cadena = new String("cadena");
+console.log(cadena.valueOf());	// Imprime "cadena"
+```
+</details>
 
 Tamaño de cadena
 
