@@ -1,4 +1,4 @@
-# $\text{Lista de Conceptos JavaScript}$
+# $\Huge{\text{Lista de Conceptos JavaScript}}$
 > Alonso Hernández Robles 2º DAW
 > Ver. 26/11/2024 (_Ahora en Markdown!_)
 
@@ -3469,7 +3469,7 @@ console.log(string.charAt(2));	// Imprime 'c'
 ```
 </details>
 
-Posición de la primera ocurrencia de `subcadena`
+Posición de la primera ocurrencia de `subcadena` (devuelve `-1` si no encuentra)
 
 ```js
 cadena.indexOf(cadena)
@@ -3487,7 +3487,7 @@ console.log(string.indexOf("x"));	// Imprime -1
 ```
 </details>
 
-Posición de la última ocurrencia de `subcadena`
+Posición de la última ocurrencia de `subcadena` (devuelve `-1` si no encuentra)
 
 ```js
 cadena.lastIndexOf(cadena)
@@ -3502,6 +3502,23 @@ const string = "manzana";
 console.log(string.lastIndexOf("a"));	// Imprime 6
 console.log(string.lastIndexOf("n"));	// Imprime 5
 console.log(string.lastIndexOf("x"));	// Imprime -1
+```
+</details>
+
+Posición de la primera ocurrencia de expresión regular (devuelve `-1` si no encuentra)
+
+```js
+cadena.search(regex)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const cadena = "Hoy es un buen día";
+
+console.log(cadena.search(/buen/));	// Imprime 10
+console.log(cadena.search(/mal/));	// Imprime -1
 ```
 </details>
 
@@ -3547,6 +3564,34 @@ cadena.toUpperCase()
 ```js
 const string = "Hola Mundo";
 console.log(string.toUpperCase());	// Imprime "HOLA MUNDO"
+```
+</details>
+
+Cadenas concatenadas
+
+```js
+cadena.concat(...cadenas)
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+const cadena = "Hola ";
+const nueva = cadena.concat("mundo");
+
+console.log(nueva);	// Imprime "Hola mundo"
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const cadena = "Hola ";
+const nueva = cadena.concat("mundo", " cruel");
+
+console.log(nueva);	// Imprime "Hola mundo cruel"
 ```
 </details>
 
@@ -3625,10 +3670,11 @@ console.log(string3.includes(string4) ? "Sí contiene" : "No contiene");	// Impr
 ```
 </details>
 
-Cadena con la primera ocurrencia de `subcadena1` reemplazada por `subcadena2`
+Cadena con la primera ocurrencia de `subcadena1` o expresión regular reemplazada por `subcadena2`
 
 ```js
 cadena.replace(subcadena1, subcadena2)
+cadena.replace(regex, subcadena2)
 ```
 
 <details>
@@ -3653,20 +3699,43 @@ console.log(nuevo);	// Imprime "Hay pasta y comeré lentejas"
 ```
 </details>
 
-Cadena con todas las `subcadena1` reemplazadas por `subcadena2`
+<details>
+	<summary>Ejemplo 3</summary>
+
+```js
+const string = "no puedo correr";
+const nuevo = string.replace(/no/, "");
+
+console.log(nuevo);	// Imprime " puedo correr"
+```
+</details>
+
+Cadena con todas las ocurrencias de `subcadena1` o `regex` reemplazadas por `subcadena2`
 
 ```js
 cadena.replaceAll(subcadena1, subcadena2)
+cadena.replaceAll(regex/g, subcadena2)
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```js
 const string = "Hay lentejas y comeré lentejas";
 const nuevo = string.replaceAll("lentejas", "pasta");
 
 console.log(nuevo);	// Imprime "Hay pasta y comeré pasta"
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const string = "no puedo correr, no puedo comer, no puedo hacer cosas";
+const nuevo = string.replaceAll(/no[ ]*/g, "");
+
+console.log(nuevo);	// Imprime "puedo correr, puedo comer, puedo hacer cosas"
 ```
 </details>
 
@@ -3700,6 +3769,67 @@ console.log(string.slice(2, 4));	// Imprime "la"
 ```
 </details>
 
+Cadena rellenada hasta el principio, de una subcadena repetidamente
+
+```js
+cadena.padStart(longitud, subcadena)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const cadena = "hola";
+console.log(cadena.padStart(10, "X")); // Imprime "XXXXXXhola"
+```
+</details>
+
+Cadena rellenada desde el final, de una subcadena repetidamente
+
+```js
+cadena.padEnd(longitud, subcadena)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const cadena = "hola";
+console.log(cadena.padEnd(10, "X")); // Imprime "holaXXXXXX"
+```
+</details>
+
+Subcadena desde `inicio` hasta `fin`
+
+```js
+cadena.substring(inicio, fin)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const cadena = "Esto es una frase";
+console.log(cadena.substring(5, 11));	// Imprime "es una"
+```
+</details>
+
+Array con coincidencia(s) de expresión regular en cadena
+
+```js
+cadena.match(regex)
+cadena.match(regex/g)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const cadena = "Hoy es un buen día";
+console.log(cadena.match(/es/g));
+```
+</details>
+
 Dividir en array una cadena por elementos entre `separador`
 
 ```js
@@ -3714,7 +3844,7 @@ const string = "manzana,banana,kiwi";
 const array = string.split(",");
 
 for(let elemento of array){
-	console.log(elemento)
+	console.log(elemento);
 }
 ```
 
@@ -3764,6 +3894,72 @@ console.log(string);	// Imprime "manzana - banana - kiwi"
 ---
 
 ## Clase `Date`
+
+Crear objeto fecha de hoy
+
+```js
+const fecha = new Date();
+```
+
+Crear objeto fecha con milisegundos, empezando desde `01/01/1970 01:00`
+
+```js
+const fecha = new Date(1000000000000);
+```
+
+Crear objeto fecha especificada
+
+```js
+const fecha = new Date("2024-01-01");
+```
+
+Año
+
+```js
+fecha.getFullYear()
+fecha.setFullYear(año)
+```
+
+Mes (número)
+
+```js
+fecha.getMonth()
+fecha.setMonth(mes)
+```
+
+Día (número)
+
+```js
+fecha.getDate()
+fecha.setDate(día);
+```
+
+Día (semana)
+
+```js
+fecha.getDay()
+```
+
+Hora
+
+```js
+fecha.getHours()
+fecha.setHours(hora);
+```
+
+Minutos
+
+```js
+fecha.getMinutes()
+fecha.setMinutes(minutos);
+```
+
+Segundos
+
+```js
+fecha.getSeconds()
+fecha.setSeconds(segundos);
+```
 
 ---
 
@@ -3952,8 +4148,6 @@ class Hijo extends Padre {
 ```
 
 ---
-
-## Fechas
 
 Crear objeto fecha de hoy
 
