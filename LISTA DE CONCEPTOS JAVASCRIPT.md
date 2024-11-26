@@ -844,7 +844,104 @@ while(numero > 0) {
 
 ---
 
-## Arrays
+## Funciones
+
+Crear función
+
+```js
+function miFuncion() {
+	// Instrucciones
+}
+
+function miFuncion(variable1, variable2) {
+	// Instrucciones
+	return variable3;
+}
+
+let miFuncion = function() {
+	// Instrucciones
+}
+```
+
+Crear función con valor por defecto en parámetro
+
+```js
+function miFuncion(valor = 2) {
+	// Instrucciones
+}
+```
+
+Crear función anónima
+
+```js
+let funcion = () => {
+	// Instrucciones
+}
+
+let suma = (a, b) => {
+	return a + b;
+}
+```
+
+Función con número variable de argumentos (Es un iterable, agrupación de elementos)
+
+```js
+function sumarTodo(...numeros){
+	let suma = 0;
+	for(let numero of numeros){
+		suma += numero;
+	}
+	return suma;
+}
+```
+
+Objeto `arguments` (debe usarse dentro de un ámbito con parámetros)
+
+```js
+function miFuncion(arg1, arg2){
+	console.log(arguments);
+}
+```
+
+Ejecutar función
+
+```js
+miFuncion();
+miFuncion(variable1, variable2);
+```
+
+Función anidada
+
+```js
+function externa() {
+	function interna() {
+		// Instrucciones
+	}
+	interna();
+}
+```
+
+Función autoejecutable
+
+```js
+(function () {
+	// Instrucción
+}) ();
+```
+
+---
+
+## Modo `strict`
+
+Habilitar modo estricto de JavaScript
+
+```js
+"use strict";
+```
+
+---
+
+## Clase `Array`
 
 Declarar array unidimensional
 
@@ -2183,104 +2280,7 @@ console.log(string);	// Imprime "manzana - banana - kiwi"
 
 ---
 
-## Funciones
-
-Crear función
-
-```js
-function miFuncion() {
-	// Instrucciones
-}
-
-function miFuncion(variable1, variable2) {
-	// Instrucciones
-	return variable3;
-}
-
-let miFuncion = function() {
-	// Instrucciones
-}
-```
-
-Crear función con valor por defecto en parámetro
-
-```js
-function miFuncion(valor = 2) {
-	// Instrucciones
-}
-```
-
-Crear función anónima
-
-```js
-let funcion = () => {
-	// Instrucciones
-}
-
-let suma = (a, b) => {
-	return a + b;
-}
-```
-
-Función con número variable de argumentos (Es un iterable, agrupación de elementos)
-
-```js
-function sumarTodo(...numeros){
-	let suma = 0;
-	for(let numero of numeros){
-		suma += numero;
-	}
-	return suma;
-}
-```
-
-Objeto `arguments` (debe usarse dentro de un ámbito con parámetros)
-
-```js
-function miFuncion(arg1, arg2){
-	console.log(arguments);
-}
-```
-
-Ejecutar función
-
-```js
-miFuncion();
-miFuncion(variable1, variable2);
-```
-
-Función anidada
-
-```js
-function externa() {
-	function interna() {
-		// Instrucciones
-	}
-	interna();
-}
-```
-
-Función autoejecutable
-
-```js
-(function () {
-	// Instrucción
-}) ();
-```
-
----
-
-## Modo `strict`
-
-Habilitar modo estricto de JavaScript
-
-```js
-"use strict";
-```
-
----
-
-## Clase `Object` y Objetos
+## Clase `Object`
 
 Acceder a propiedades del objeto
 
@@ -3029,11 +3029,33 @@ Declarar número con constructor
 let numero = new Number(10);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const numero1 = new Number(10);		// 10
+const numero2 = new Number("14");	// 14
+const numero3 = new Number(true);	// 1
+const numero4 = new Number(null);	// 0
+const numero5 = new Number("hola");	// NaN
+const numero6 = new Number(undefined);	// NaN
+```
+</details>
+
 Valor primitivo de objeto `Number`
 
 ```js
 numero.valueOf()
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const numero = new Number(5);
+console.log(numero.valueOf());	// Imprime 5
+```
+</details>
 
 Número con `n` decimales
 
@@ -3107,11 +3129,37 @@ console.log(numero.toString(16));	// "2a" (hexadecimal)
 Number.isFinite(numero);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+console.log(Number.isFinite(42));	// true
+console.log(Number.isFinite(Infinity));	// false
+console.log(Number.isFinite("123"));	// false
+console.log(Number.isFinite(NaN));	// false
+console.log(Number.isFinite(null));	// false
+```
+</details>
+
 ¿Es entero el número?
 
 ```js
 Number.isInteger(numero);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+console.log(Number.isInteger(42));		// true
+console.log(Number.isInteger(42.0));		// true
+console.log(Number.isInteger(42.5));		// false
+console.log(Number.isInteger("42"));		// false
+console.log(Number.isInteger(NaN));		// false
+console.log(Number.isInteger(Infinity));	// false
+console.log(Number.isInteger(-Infinity));	// false
+```
+</details>
 
 ¿Es `NaN` el número?
 
@@ -3119,23 +3167,85 @@ Number.isInteger(numero);
 Number.isNaN(numero);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+console.log(Number.isNaN(NaN));		// true
+console.log(Number.isNaN("hola"));	// false
+console.log(Number.isNaN(undefined));	// false
+console.log(Number.isNaN(null));	// false
+console.log(Number.isNaN(true));	// false
+```
+</details>
+
 ¿Es un entero seguro? (Da `false` para decimales y números enormes)
 
 ```js
 Number.isSafeInteger(numero);
 ```
 
-Convertir a entero
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+console.log(Number.isSafeInteger(42));			// true
+console.log(Number.isSafeInteger(3.14));		// false
+console.log(Number.isSafeInteger(9007199254740991));	// true
+console.log(Number.isSafeInteger(9007199254740992));	// false
+console.log(Number.isSafeInteger("42"));		// false
+console.log(Number.isSafeInteger(NaN));			// false
+console.log(Number.isSafeInteger(Infinity));		// false
+```
+</details>
+
+Convertir a entero (y conversión de bases)
 
 ```js
 Number.parseInt(numero);
+Number.parseInt(numero, base);
 ```
 
-Convertir a decimal
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+console.log(Number.parseInt("42"));	// 42
+console.log(Number.parseInt("3.14"));	// 3
+console.log(Number.parseInt("Hello"));	// NaN
+console.log(Number.parseInt("42px"));	// 42
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+console.log(Number.parseInt("10", 2));	// 2
+console.log(Number.parseInt("10", 8));	// 8
+console.log(Number.parseInt("10", 16));	// 16
+```
+</details>
+
+Convertir a decimal (y conversión de bases)
 
 ```js
 Number.parseFloat(numero);
+Number.parseFloat(numero, base);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+console.log(Number.parseFloat("3.14"));		// 3.14
+console.log(Number.parseFloat("42"));		// 42
+console.log(Number.parseFloat("0.001"));	// 0.001
+console.log(Number.parseFloat(".5"));		// 0.5
+console.log(Number.parseFloat("3.14abc"));	// 3.14
+console.log(Number.parseFloat("abc"));		// NaN
+```
+</details>
 
 Valores especiales de clase `Number`
 
@@ -3157,12 +3267,14 @@ Declarar entero grande
 
 ```js
 let grande = 10n;
+let grande = 9007199254740991n;
 ```
 
 Declarar entero grande con constructor
 
 ```js
 let grande = BigInt(10);
+let grande = BigInt(9007199254740991);
 ```
 
 String de entero grande (y conversión de bases)
@@ -3186,17 +3298,61 @@ console.log(grande.toString(16));	// "2a" (hexadecimal)
 
 ## Clase `Math`
 
-Constante $\pi$
+Constante $\\pi$
 
 ```js
 Math.PI
 ```
+$$\pi \approx 3.141592653589793$$
 
 Constante $e$
 
 ```js
 Math.E
 ```
+$$e \approx 2.718281828459045$$
+
+Constante $\ln(10)$
+
+```js
+Math.LN10
+```
+$$\ln(10) \approx 2.302585092994046$$
+
+Constante $\ln(2)$
+
+```js
+Math.LN2
+```
+$$\ln(2) \approx 0.6931471805599453$$
+
+Constante $\log_{10}(e)$
+
+```js
+Math.LOG10E
+```
+$$\log_{10}(e) \approx 0.4342944819032518$$
+
+Constante $\log_{2}(e)$
+
+```js
+Math.LOG2E
+```
+$$\log_{2}(e) \approx 1.4426950408889634$$
+
+Constante $\sqrt{2}$
+
+```js
+Math.SQRT2
+```
+$$\sqrt{2} \approx 1.4142135623730951$$
+
+Constante $\frac{1}{\sqrt{2}}$
+
+```js
+Math.SQRT1_2
+```
+$$\frac{1}{\sqrt{2}} \approx 0.7071067811865476$$
 
 Redondeo de número
 
@@ -3296,6 +3452,18 @@ Math.log10(numero)
 
 ---
 
+## Clase `RegExp`
+
+---
+
+## Clase `String`
+
+---
+
+## Clase `Date`
+
+---
+
 ## Clase `JSON`
 
 String de `objeto`
@@ -3304,11 +3472,56 @@ String de `objeto`
 JSON.stringify(objeto)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const persona = {
+	nombre: "Alonso",
+	edad: 20,
+	ciudad: "Madrid"
+};
+
+const string = JSON.stringify(persona);
+console.log(string);	// Imprime "{"nombre":"Alonso","edad":20,"ciudad":"Madrid"}"
+```
+</details>
+
 Objeto de `string`
 
 ```js
 JSON.parse(string)
 ```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+const string = '{"nombre":"Alonso","edad":20,"ciudad":"Madrid"}';
+const objeto = JSON.parse(string);
+
+for(let propiedad in objeto){
+	console.log(propiedad + ": " + objeto[propiedad]);
+}
+```
+
+**Salida**
+
+```
+nombre: Alonso
+edad: 20
+ciudad: Madrid
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const string = "x";
+const objeto = JSON.parse(string);	// Error
+```
+</details>
 
 ---
 
