@@ -3458,6 +3458,278 @@ Math.log10(numero)
 
 ## Clase `RegExp`
 
+Expresión regular literal
+
+```js
+const regex = /patron/;
+```
+
+```js
+const regex = /patron/flags;
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const regex1 = /0/;
+const regex2 = /a/y;
+```
+</details>
+
+Expresión regular con constructor
+
+```js
+const regex = new RegExp("patron");
+```
+
+```js
+const regex = new RegExp("patron", "flags");
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const regex1 = new RegExp("0");
+const regex2 = new RegExp("a", "i");
+```
+</details>
+
+¿Variable cumple con expresión regular?
+
+```js
+regex.test(cadena)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const texto = "Hola Mundo!";
+const regex1 = /u/;
+const regex2 = /[a-z]/;
+
+console.log(regex1.test(texto));	// true
+console.log(regex2.test(texto));	// true
+```
+</details>
+
+Array de coincidencias (se incrementa `lastIndex` cada vez, y devuelve `null` cuando `lastIndex` llega al final)
+
+```js
+regex.exec(cadena)
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```js
+const texto = "abc123";
+const regex = /\d/g;
+
+console.log(regex.exec(texto)[0]);	// Imprime 1
+console.log(regex.exec(texto)[0]);	// Imprime 2
+console.log(regex.exec(texto)[0]);	// Imprime 3
+console.log(regex.exec(texto));	// Imprime null
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```js
+const texto = "abababa";
+const regex = /a/g;
+
+while ((resultado = regex.exec(texto)) !== null) {
+	console.log("Encontrado" + resultado[0] + " en índice " + regex.lastIndex - 1);
+}
+```
+
+**Salida**
+
+```
+Encontrado 'a' en índice 0
+Encontrado 'a' en índice 2
+Encontrado 'a' en índice 4
+Encontrado 'a' en índice 6
+```
+</details>
+
+Último índice encontrado (se incrementa por cada vez que `exec()` se ejecuta)
+
+```js
+regex.lastIndex
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = "hello hello";
+const regex = /hello/y;
+
+regex.lastIndex = 0;
+console.log(regex.exec(string));	// ["hello"]
+
+regex.lastIndex = 6;
+console.log(regex.exec(string));	// ["hello"]
+
+regex.lastIndex = 5;
+console.log(regex.exec(string));	// Imprime null
+```
+</details>
+
+Patrón que contenga la letra `a`
+
+```js
+/a/
+```
+
+Patrón que contenga la letra `a` o `b`
+
+```js
+/a|b/
+```
+
+Patrón que contenga una letra de `a`, `b` o `c`
+
+```js
+/[abc]/
+```
+
+Patrón que sea solamente un número
+
+```js
+/^[0-9]$/
+```
+
+Patrón que sean solamente `3` números
+
+```js
+/^[0-9]{3}$/
+```
+
+Patrón que contenga `3` números
+
+```js
+/[0-9]{3}/
+```
+
+Patrón que empiece por `3` números
+
+```js
+/^[0-9]{3}/
+```
+
+Patrón que acabe por `3` números
+
+```js
+/[0-9]{3}$/
+```
+
+Patrón que contenga mayúsculas
+
+```js
+/[A-Z]/
+```
+
+Patrón que contenga minúsculas
+
+```js
+/[a-z]/
+```
+
+Patrón que no contenga minúsculas
+
+```js
+/[^a-z]/
+```
+
+Patrón que contenga `3` o más minúsculas
+
+```js
+/[a-z]{3,}/
+```
+
+Patrón que contenga `1` o más minúsculas
+
+```js
+/[a-z]+/
+```
+
+Patrón que contenga `0` o más minúsculas
+
+```js
+/[a-z]*/
+```
+
+Patrón que contenga `0` o `1` minúscula
+
+```js
+/[a-z]?/
+```
+
+Patrón que contenga un número o minúscula o mayúscula
+
+```js
+/[0-9A-Za-z]/
+```
+
+### Anexo 1. Literales y Conjuntos específicos y de Rango
+
+| Expresión         | Descripción                   |
+|-------------------|-------------------------------|
+| `a`               | Literal                       |
+| `[abc]`           | Conjunto específico           |
+| `[A-Z]`           | Conjunto de Rango             |
+| `[A-Za-z0-9]`     | Conjunto Agrupado de Rango    |
+| `[A-Zabc]`        | Conjunto Agrupado Mixto       |
+
+### Anexo 2. Delimitación de cadena
+
+| Expresión | Descripción |
+|-----------|-------------|
+| `^`       | Inicio      |
+| `$`       | Fin         |
+| `\|`      | OR          |
+| `[^...]`  | NOT         |
+
+### Anexo 3. Apéndice de Cuantificadores
+
+| Expresión   | Descripción            |
+|-------------|------------------------|
+| `?`         | `0` o `1` veces        |
+| `*`         | `0` o más veces        |
+| `+`         | `1` o más veces        |
+| `{5}`       | `5` veces              |
+| `{3,}`      | Más de `3` veces       |
+| `{3,9}`     | Entre `3` y `9` veces  |
+
+### Anexo 4. Apéndice de Metacaracteres y Equivalencias
+
+| Expresión | Descripción                  | Equivalencia          |
+|-----------|------------------------------|-----------------------|
+| `\d`      | Dígito                       | `[0-9]`               |
+| `\D`      | No dígito                    | `[^0-9]`              |
+| `\w`      | Carácter Alfanumérico        | `[A-Za-z0-9]`         |
+| `\W`      | Carácter No Alfanumérico     | `[^A-Za-z0-9]`        |
+| `\s`      | Espacio Invisible            | `[ \t\n\r\f\v]`       |
+| `\S`      | Carácter No Invisible        | `[^ \t\n\r\f\v]`      |
+| `.`       | Comodín (Excepto `\n`)       | No tiene              |
+
+### Anexo 5. Flags (Modificadores)
+
+| Modificador | Descripción |
+|-------------|----------------|
+| `g` | Búsqueda global (No se detiene tras primera ocurrencia) |
+| `i` | Búsqueda insensible a mayúsculas / minúsculas |
+| `m` | Búsqueda multilínea |
+| `s` | Permite que `.` incluya saltos de línea |
+| `u` | Habilita unicode |
+| `y` | Búsqueda desde `lastIndex` |
+
 ---
 
 ## Clase `String`
