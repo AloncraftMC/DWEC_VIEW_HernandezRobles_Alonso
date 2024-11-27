@@ -3170,7 +3170,7 @@ const regex2 = new RegExp("a", "i");
 ```
 </details>
 
-¿Variable cumple con expresión regular?
+¿Cadena cumple con expresión regular?
 
 ```js
 regex.test(cadena)
@@ -3188,6 +3188,13 @@ console.log(regex1.test(texto));	// true
 console.log(regex2.test(texto));	// true
 ```
 </details>
+
+Array con coincidencia(s) de expresión regular en cadena
+
+```js
+cadena.match(regex)
+cadena.match(regex/g)
+```
 
 Array de coincidencias (se incrementa `lastIndex` cada vez, y devuelve `null` cuando `lastIndex` llega al final)
 
