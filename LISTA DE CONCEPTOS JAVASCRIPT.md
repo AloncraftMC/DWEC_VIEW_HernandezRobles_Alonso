@@ -3196,6 +3196,15 @@ cadena.match(regex)
 cadena.match(regex/g)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const cadena = "Hoy es un buen día";
+console.log(cadena.match(/es/g));
+```
+</details>
+
 Array de coincidencias (se incrementa `lastIndex` cada vez, y devuelve `null` cuando `lastIndex` llega al final)
 
 ```js
