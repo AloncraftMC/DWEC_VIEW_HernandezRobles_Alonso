@@ -1,6 +1,6 @@
-# $\Huge{\text{Lista de Conceptos JavaScript}}$
+# Lista de Conceptos JavaScript
 > Alonso Hernández Robles 2º DAW
-> Ver. 26/11/2024 (_Ahora en Markdown!_)
+> Ver. 27/11/2024 (_Ahora en Markdown!_)
 
 ---
 
