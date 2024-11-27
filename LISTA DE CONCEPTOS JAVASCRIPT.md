@@ -4067,7 +4067,7 @@ function Objeto(atributo1, atributo2) {
 let objeto = new Objeto(valor1, valor2);
 ```
 
-Declarar clase y un objeto
+Declarar clase e instanciar objeto
 
 ```js
 class Objeto {

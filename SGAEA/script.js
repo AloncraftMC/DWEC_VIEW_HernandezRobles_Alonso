@@ -33,7 +33,47 @@ class Estudiante{
         this.#edad = edad;
         this.#direccion = direccion;
 
-        if(nombre)
+        this.#nombre = (nombre.match(/[a-zA-Z ]+/)) ? nombre : "Nuevo estudiante";
+
+    }
+
+    get id(){
+        return this.#id;
+    }
+
+}
+
+class ListaEstudiantes{
+
+    #lista;
+
+    constructor(estudiantes){
+
+        this.#lista = [];
+        this.#lista.push(...estudiantes);
+
+    }
+
+    añadirEstudiante(estudiante){
+        this.#lista.push(estudiante);
+    }
+
+    eliminarEstudiante(id){
+        
+        this.#lista = this.#lista.filter(estudiante => estudiante.id)
+
+    }
+
+}
+
+class Asignatura{
+
+    #nombre;
+    #calificaciones;
+
+    constructor(nombre){
+        
+        this.#nombre = (nombre.match(/[a-zA-Z[I|V|X|L|C|D|M] ]+/)) ? nombre : "Nueva asignatura";
 
     }
 
