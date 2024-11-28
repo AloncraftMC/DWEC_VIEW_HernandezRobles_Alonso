@@ -12,7 +12,7 @@ class Direccion{
         this.#calle = calle;
         this.#numero = numero;
         this.#piso = piso;
-        this.#codigoPostal = codigoPostal;
+        this.#codigoPostal = (new String(codigoPostal).match(/^[0-9]{5}$/)) ? codigoPostal : "00000";
         this.#provincia = provincia;
         this.#localidad = localidad;
 
@@ -98,7 +98,7 @@ class Estudiante{
 
     get registros(){
 
-        if(this.#registros.length == 0) return "No hay registros.";
+        if(this.#registros.length == 0) return "No existen registros.";
         
         return this.#registros.reduce((resultado, registro) => {
             resultado += registro[0].nombre + "; " + registro[1] + "; " + registro[2] + "\n";
@@ -137,7 +137,7 @@ class Estudiante{
     calificacionAsignatura(asignatura){
 
         for (let asig of this.#asignaturas) {
-            if (asig[0].nombre === asignatura.nombre) return asig[1];
+            if (asig[0].nombre == asignatura.nombre) return asig[1];
         }
 
         throw new Error("El alumno no está cursando la asignatura.");
@@ -388,15 +388,17 @@ listaAsignaturas.añadirAsignatura(new Asignatura("EIE"));
 while(true){
 
     console.clear();
-    console.log("< Sistema de Gestión Académica >");
+    console.log("< Sistema de Gestión Académica (SGAEA) >");
     console.log("1. Crear...");
     console.log("2. Eliminar...");
     console.log("3. Matricular...");
     console.log("4. Desmatricular...");
-    console.log("5. Calificar...");
-    console.log("6. Buscar...");
-    console.log("7. Mostrar Reporte");
-    console.log("8. Registro de Auditoría");
+    console.log("5. Registro de Auditoría");
+    console.log("6. Calificar...");
+    console.log("7. Buscar...");
+    console.log("8. Calcular Promedio...");
+    console.log("9. Mostrar Reporte");
+    
 
     eleccion = Number.parseInt(window.prompt("Elección:"));
 
@@ -518,7 +520,7 @@ while(true){
                         }else{
 
                             console.clear();
-                            console.log("< Dirección >");
+                            console.log("< Crear Estudiante - Establecer Dirección >");
                             
                             do{
 
@@ -657,7 +659,7 @@ while(true){
 
                 if(listaDirecciones.length == 0 && listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
                     
-                    window.alert("No hay ningun dato registrado.");
+                    window.alert("No existe ningún dato registrado.");
                     break;
 
                 }
@@ -708,7 +710,7 @@ while(true){
                         listaDirecciones = listaDirecciones.filter((d, indice) => indice != eleccion - 1);
 
                         console.clear();
-                        console.log("< Lista de Direcciones >");
+                        console.log("< Eliminar Dirección - Cambios Guardados >");
                         
                         for(let direccion of listaDirecciones){
 
@@ -764,7 +766,7 @@ while(true){
                             listaEstudiantes.eliminarEstudiante("E".concat(eleccion));
 
                             console.clear();
-                            console.log("< Lista de Estudiantes >");
+                            console.log("< Eliminar Estudiante - Cambios Guardados >");
                             
                             for(let estudiante of listaEstudiantes.lista){
 
@@ -827,7 +829,7 @@ while(true){
                             listaAsignaturas.eliminarAsignatura(listaAsignaturas.lista[eleccion - 1].nombre);
 
                             console.clear();
-                            console.log("< Lista de Asignaturas >");
+                            console.log("< Eliminar Asignatura - Cambios Guardados >");
 
                             for(let asignatura of listaAsignaturas.lista){
 
@@ -873,18 +875,53 @@ while(true){
 
         case 5:
 
+            do{
+
+                console.clear();
+                console.log("< Registro de Auditoría - Seleccionar Estudiante >");
+                                
+                for(let estudiante of listaEstudiantes.lista){
+
+                    console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString);
+
+                }
+
+                console.log("0. Volver");
+
+                do{
+
+                    eleccion = Number.parseInt(window.prompt("Escoja un estudiante:"));
+                    if(Number.isNaN(eleccion)) eleccion = -1;
+
+                }while(eleccion < 0 || eleccion > listaEstudiantes.lista.length);
+
+                if(eleccion == 0) break;
+
+                const estudiante = listaEstudiantes.lista[eleccion - 1];
+
+                console.clear();
+                console.log("< Registro de Auditoría - " + estudiante.nombre + " >");
+                console.log(estudiante.registros);
+                window.alert("Acepte para volver.");
+
+            }while(eleccion != 0);
+
+            break;
+
+        case 6:
+
             if(listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
-                window.alert("No hay ningún dato registrado.");
+                window.alert("No existen datos registrados.");
                 break;
             }
 
             if(listaEstudiantes.lista.length == 0){
-                window.alert("No hay ningún estudiante registrado.");
+                window.alert("No existen estudiantes registrados.");
                 break;
             }
 
             if(listaAsignaturas.lista.length == 0){
-                window.alert("No hay ninguna asignatura registrada.");
+                window.alert("No existen asignaturas registradas.");
                 break;
             }
 
@@ -933,7 +970,10 @@ while(true){
 
                     }while(eleccion < 0 || eleccion > listaAsignaturas.lista.length)
 
-                    if(eleccion == 0) break;
+                    if(eleccion == 0){
+                        eleccion = -1;
+                        break;
+                    }
             
                     const asignatura = listaAsignaturas.lista[eleccion - 1];
 
@@ -969,11 +1009,19 @@ while(true){
             
             break;
 
-        case 6:
+        case 7:
+
+
+        
+            break;
+
+        case 8:
+
+
 
             break;
 
-        case 7:
+        case 9:
 
             console.clear();
             console.log("< Reporte de Estudiantes (" + listaEstudiantes.lista.length + ") >");
@@ -981,42 +1029,7 @@ while(true){
             window.alert("Acepte para volver.");
 
             break;
-
-        case 8:
-
-            do{
-
-                console.clear();
-                console.log("< Registro de Auditoría - Seleccionar Estudiante >");
-                                
-                for(let estudiante of listaEstudiantes.lista){
-
-                    console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString);
-
-                }
-
-                console.log("0. Volver");
-
-                do{
-
-                    eleccion = Number.parseInt(window.prompt("Escoja un estudiante:"));
-                    if(Number.isNaN(eleccion)) eleccion = -1;
-
-                }while(eleccion < 0 || eleccion > listaEstudiantes.lista.length);
-
-                if(eleccion == 0) break;
-
-                const estudiante = listaEstudiantes.lista[eleccion - 1];
-
-                console.clear();
-                console.log("< Registro de Auditoría - " + estudiante.nombre + " >");
-                console.log(estudiante.registros);
-                window.alert("Acepte para volver.");
-
-            }while(eleccion != 0);
-
-            break;
-
+        
     }
 
 }
