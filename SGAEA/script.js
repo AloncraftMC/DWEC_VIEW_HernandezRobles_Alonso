@@ -233,7 +233,7 @@ class ListaEstudiantes{
 
     get reporte(){
 
-        let resultado = "<=== ESTUDIANTES (" + this.#lista.length + ") ===>\n";
+        let resultado = "";
 
         for(let estudiante of this.#lista){
 
@@ -262,18 +262,11 @@ class ListaEstudiantes{
 
     }
 
-    #ordenarEstudiantes(){
-
-        
-
-    }
-
     añadirEstudiante(estudiante){
 
         if(this.#lista.filter(e => e.id == estudiante.id).length != 0) throw new Error("Ya existe el estudiante.");
         this.#lista.push(estudiante);
-
-        this.#ordenarEstudiantes();
+        this.#lista.sort((e1, e2) => parseInt(e1.id.slice(1)) - parseInt(e2.id.slice(1)));
 
     }
 
@@ -395,7 +388,7 @@ listaAsignaturas.añadirAsignatura(new Asignatura("EIE"));
 while(true){
 
     console.clear();
-    console.log("< Sistema de Gestión Académico >");
+    console.log("< Sistema de Gestión Académica >");
     console.log("1. Crear...");
     console.log("2. Eliminar...");
     console.log("3. Matricular...");
@@ -498,7 +491,7 @@ while(true){
                         if(listaEstudiantes.lista.length > 0 && window.confirm("¿Desea elegir una dirección ya creada?")){
 
                             console.clear();
-                            console.log("< Lista de Direcciones >");
+                            console.log("< Crear Estudiante - Seleccionar Dirección >");
 
                             for(let direccion of listaDirecciones){
 
@@ -983,6 +976,7 @@ while(true){
         case 7:
 
             console.clear();
+            console.log("< Reporte de Estudiantes (" + listaEstudiantes.lista.length + ") >");
             console.log(listaEstudiantes.reporte);
             window.alert("Acepte para volver.");
 
