@@ -1,6 +1,6 @@
 # Lista de Conceptos JavaScript
 > Alonso Hernández Robles 2º DAW
-> Ver. 27/11/2024 (_Ahora en Markdown!_)
+> Ver. 28/11/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -950,6 +950,12 @@ Declarar array unidimensional
 let array = [0, 1, 2, "Casa", "Pelota", false];
 ```
 
+Declarar array unidimensional de tamaño `10` con constructor
+
+```js
+let array = new Array(10);
+```
+
 Acceder a elemento por posición de array unidimensional
 
 ```js
@@ -1009,12 +1015,6 @@ let array = [
 console.log(array[1][2]);	// Imprime 6
 ```
 </details>
-
-Declarar array unidimensional de tamaño `10` con constructor
-
-```js
-let array = new Array(10);
-```
 
 Tamaño de array
 
