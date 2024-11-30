@@ -96,25 +96,51 @@ class Estudiante{
         return this.#direccion;
     }
 
+    get asignaturas(){
+        return [...this.#asignaturas];
+    }
+
     get registros(){
 
         if(this.#registros.length == 0) return "No existen registros.";
+
+        let resultado = "";
+
+        for(let registro of this.#registros){
+
+            const asignatura = registro[0];
+            let fecha = registro[1];
+            const tipo = registro[2];
+
+            const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+            const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            const diaSemana = diasSemana[fecha.getDay()];
+            const dia = fecha.getDate();
+            const mes = meses[fecha.getMonth()]; 
+            const anio = fecha.getFullYear();
+            const horas = String(fecha.getHours()).padStart(2, '0');
+            const minutos = String(fecha.getMinutes()).padStart(2, '0');
+            const segundos = String(fecha.getSeconds()).padStart(2, '0');
+
+            fecha = diaSemana + ", " + dia + " de " + mes + " de " + anio + " a las " + horas + ":" + minutos + ":" + segundos;
+
+            resultado += "| " + asignatura + " | " + fecha + " | " + tipo + " |\n";
+
+        }
         
-        return this.#registros.reduce((resultado, registro) => {
-            resultado += registro[0].nombre + "; " + registro[1] + "; " + registro[2] + "\n";
-            return resultado;
-        }, "");
+        return resultado;
 
     }
 
     get promedio(){
 
-        if(this.#asignaturas.length == 0) return 0;
-
-        return this.#asignaturas.reduce((suma, asignatura) => {
-            suma += asignatura[1];
-            return suma;
-        }, 0) / this.#asignaturas.length;
+        const asignaturasCalificadas = this.#asignaturas.filter(a => typeof a[1] != "string");
+        
+        if(asignaturasCalificadas.length == 0) return "Sin evaluar";
+        
+        let resultado = asignaturasCalificadas.reduce((suma, asignatura) => suma += asignatura[1], 0) / asignaturasCalificadas.length;
+        
+        return Number(resultado).toFixed(2);
 
     }
 
@@ -150,7 +176,7 @@ class Estudiante{
 
             if(!this.#asignaturas.map(a => a[0].nombre).includes(asignatura.nombre)){
 
-                this.#asignaturas.push([asignatura, null]);
+                this.#asignaturas.push([asignatura, "Sin evaluar"]);
                 this.#registros.push([asignatura.nombre, new Date(), "Matriculación"]);
 
             }
@@ -179,12 +205,12 @@ class Estudiante{
         if(!this.#asignaturas.map(a => a[0].nombre).includes(asignatura.nombre)) throw new Error("El estudiante no está cursando la asignatura.");
 
         if(nota < 0 || nota > 10) throw new Error("La nota debe estar entre 0 y 10.");
-        
+
         for (let asig of this.#asignaturas) {
 
-            if (asig[0].nombre === asignatura.nombre) {
+            if (asig[0].nombre == asignatura.nombre) {
 
-                asig[1] = nota;
+                asig[1] = parseFloat(nota);
                 asignatura.añadirCalificacion(nota);
                 return;
 
@@ -251,10 +277,12 @@ class ListaEstudiantes{
             resultado += "\tLocalidad: " + estudiante.direccion.localidad + "\n";
             resultado += "\n--------------------------\n\n";
             resultado += "[CALIFICACIONES]\n";
-            for(let asignatura of estudiante.listaAsignaturas){
-                resultado += asignatura[0].nombre + ": " + asignatura[1] + "\n";
+            for(let asignatura of estudiante.asignaturas){
+                resultado += asignatura[0].nombre + ": ";
+                resultado += (typeof asignatura[1] == "string") ? asignatura[1] : Number(asignatura[1]).toFixed(2);
+                resultado += "\n";
             }
-            resultado += "PROMEDIO: " + estudiante.promedio.toFixed(2) + "\n";
+            resultado += "PROMEDIO: " + estudiante.promedio + "\n";
 
         }
 
@@ -304,6 +332,10 @@ class Asignatura{
             return suma;
         }, 0) / this.#calificaciones.length;
 
+    }
+
+    get toString(){
+        return this.#nombre;
     }
 
     añadirCalificacion(calificacion){
@@ -383,6 +415,9 @@ listaAsignaturas.añadirAsignatura(new Asignatura("DEAW"));
 listaAsignaturas.añadirAsignatura(new Asignatura("DIW"));
 listaAsignaturas.añadirAsignatura(new Asignatura("EIE"));
 
+listaEstudiantes.lista[0].matricular(listaAsignaturas.lista[1]);
+listaEstudiantes.lista[0].matricular(listaAsignaturas.lista[3]);
+
 //
 
 while(true){
@@ -399,7 +434,6 @@ while(true){
     console.log("8. Calcular Promedio...");
     console.log("9. Mostrar Reporte");
     
-
     eleccion = Number.parseInt(window.prompt("Elección:"));
 
     switch(eleccion){
@@ -806,7 +840,7 @@ while(true){
                         
                         for(let asignatura of listaAsignaturas.lista){
 
-                            console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.nombre);
+                            console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.toString);
 
                         }
 
@@ -826,7 +860,7 @@ while(true){
 
                         try{
 
-                            listaAsignaturas.eliminarAsignatura(listaAsignaturas.lista[eleccion - 1].nombre);
+                            listaAsignaturas.eliminarAsignatura(listaAsignaturas.lista[eleccion - 1].toString);
 
                             console.clear();
                             console.log("< Eliminar Asignatura - Cambios Guardados >");
@@ -840,7 +874,7 @@ while(true){
         
                                 }
 
-                                console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.nombre);
+                                console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.toString);
     
                             }
 
@@ -863,13 +897,126 @@ while(true){
 
         case 3:
 
+            do{
 
+                console.clear();
+                console.log("< Matricular - Seleccionar Estudiante >");
+
+                for(let estudiante of listaEstudiantes.lista){
+
+                    if(estudiante.asignaturas.length != listaAsignaturas.lista.length){
+
+                        console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString);
+
+                    }else{
+                        
+                        console.log("%c" + (listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "text-decoration: line-through;");
+
+                    }
+
+                }
+
+                console.log("0. Volver");
+
+                do{
+
+                    eleccion = Number.parseInt(window.prompt("Escoja un estudiante:"));
+                    if(Number.isNaN(eleccion)) eleccion = -1;
+
+                }while(eleccion < 0 || eleccion > listaEstudiantes.lista.length);
+
+                if(eleccion == 0) break;
+
+                const estudiante = listaEstudiantes.lista[eleccion - 1];
+
+                if(estudiante.asignaturas.length == listaAsignaturas.lista.length){
+
+                    window.alert("El estudiante ya está cursando todas las asignaturas.");
+                    eleccion = -1;
+                    continue;
+
+                }
+
+                let asignaturasSeleccionadas = [];
+                let volverMenuEstudiantes = false;
+                
+                let asignaturasMatriculadas = estudiante.asignaturas.map(a => a[0].nombre);
+                let asignaturasDisponibles = listaAsignaturas.lista.filter(a => !asignaturasMatriculadas.includes(a.nombre));
+
+                do{
+
+                    console.clear();
+                    console.log("< Matricular - Seleccionar Asignaturas >");
+                    
+                    let textoSeleccionadas = "Seleccionadas (" + asignaturasSeleccionadas.length + ")";
+                    if(asignaturasSeleccionadas.length > 0) textoSeleccionadas += ": " + asignaturasSeleccionadas.map(a => a.nombre).join(", ");
+                    console.log(textoSeleccionadas);
+                    
+                    for(let asignatura of asignaturasDisponibles){
+
+                        const seleccionada = asignaturasSeleccionadas.includes(asignatura) ? "X" : " ";
+                        console.log("[" + seleccionada + "] " + (asignaturasDisponibles.indexOf(asignatura) + 1) + ". " + asignatura.toString);
+
+                    }
+
+                    console.log("0. Volver");
+
+                    eleccion = window.prompt("Escoja una o más asignaturas:\n(Pulse solamente Enter para finalizar)");
+                    eleccion = Number.parseInt(eleccion);
+                    if(Number.isNaN(eleccion)) eleccion = -1;
+
+                    if(eleccion == 0){
+
+                        volverMenuEstudiantes = true;
+                        eleccion = -1;
+                        break;
+
+                    }else if(eleccion > 0 && eleccion <= asignaturasDisponibles.length){
+
+                        const asignatura = asignaturasDisponibles[eleccion - 1];
+
+                        if(asignaturasSeleccionadas.includes(asignatura)){
+
+                            asignaturasSeleccionadas = asignaturasSeleccionadas.filter(a => a != asignatura);
+
+                        }else{
+
+                            asignaturasSeleccionadas.push(asignatura);
+
+                        }
+
+                    }else{
+
+                        if(asignaturasSeleccionadas.length > 0 && !volverMenuEstudiantes){
+                    
+                            estudiante.matricular(...asignaturasSeleccionadas);
+        
+                            console.clear();
+                            console.log("< Matricular - Matrícula Terminada >");
+                            console.log("Estudiante: " + estudiante.toString);
+                            console.log("Asignaturas: " + asignaturasSeleccionadas.map(a => a.toString).join(", "));
+                            window.alert("Estudiante matriculado correctamente");
+    
+                            eleccion = 0;
+                            break;
+        
+                        }else{
+
+                            window.alert("Debe seleccionar al menos una asignatura.");
+
+                        }
+
+                    }
+
+                }while(true);
+
+            }while(eleccion < 0 || eleccion > listaEstudiantes.lista.length);
 
             break;
 
         case 4:
 
-            
+
 
             break;
 
@@ -955,9 +1102,9 @@ while(true){
                     console.log("< Calificar - Seleccionar Asignatura >");
                     console.log("Estudiante: " + estudiante.toString);
                                     
-                    for(let asignatura of listaAsignaturas.lista){
+                    for(let asignatura of estudiante.asignaturas){
 
-                        console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.nombre);
+                        console.log((estudiante.asignaturas.indexOf(asignatura) + 1) + ". " + asignatura[0].toString);
 
                     }
 
@@ -968,33 +1115,33 @@ while(true){
                         eleccion = Number.parseInt(window.prompt("Escoja una asignatura:"));
                         if(Number.isNaN(eleccion)) eleccion = -1;
 
-                    }while(eleccion < 0 || eleccion > listaAsignaturas.lista.length)
+                    }while(eleccion < 0 || eleccion > estudiante.asignaturas.length)
 
                     if(eleccion == 0){
                         eleccion = -1;
                         break;
                     }
             
-                    const asignatura = listaAsignaturas.lista[eleccion - 1];
+                    const asignatura = estudiante.asignaturas[eleccion - 1][0];
 
                     console.clear();
                     console.log("< Calificar - Poner Nota >");
                     console.log("Estudiante: " + estudiante.toString);
-                    console.log("Asignatura: " + asignatura.nombre);
+                    console.log("Asignatura: " + asignatura.toString);
 
                     do{
 
-                        eleccion = Number.parseInt(window.prompt("Nota:"));
+                        eleccion = Number.parseFloat(window.prompt("Nota:")).toFixed(2);
                         if(Number.isNaN(eleccion)) eleccion = -1;
 
                     }while(eleccion < 0 || eleccion > 10);
 
                     const nota = eleccion;
-                    console.log("Nota: " + nota);
 
                     try{
 
                         estudiante.calificar(asignatura, nota);
+                        console.log("Nota: " + nota);
                         window.alert("Estudiante calificado correctamente.");
 
                     }catch(error){
@@ -1003,7 +1150,7 @@ while(true){
 
                     }
 
-                }while(eleccion < 0 || eleccion > listaAsignaturas.lista.length);
+                }while(eleccion < 0 || eleccion > estudiante.asignaturas.length);
 
             }while(eleccion < 0 || eleccion > listaEstudiantes.lista.length);
             
