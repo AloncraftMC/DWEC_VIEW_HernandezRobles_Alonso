@@ -1283,7 +1283,9 @@ while(true){
                     console.log("Seleccionar Asignaturas 📚", "subtitulo");
                     
                     let textoSeleccionadas = "Seleccionadas (" + asignaturasSeleccionadas.length + ")";
+
                     if(asignaturasSeleccionadas.length > 0) textoSeleccionadas += ": " + asignaturasSeleccionadas.map(a => a.nombre).join(", ");
+                    
                     console.log(textoSeleccionadas);
                     
                     for(let asignatura of estudiante.asignaturas){
@@ -1539,7 +1541,7 @@ while(true){
                 break;
             }
 
-            
+
         
             break;
 
