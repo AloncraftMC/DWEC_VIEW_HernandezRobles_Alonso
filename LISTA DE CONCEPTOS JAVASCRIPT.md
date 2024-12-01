@@ -1428,6 +1428,48 @@ console.log(suma);	// Imprime 15
 ```
 </details>
 
+¿Cumplen todos los elementos del array la condición devuelta en las instrucciones? (Recorre `elemento`, `indice` y `array` en ese orden)
+
+```js
+array.every((elemento, indice, array) => Instrucciones);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const numeros = [1, 2, 3, 4, 5];
+
+const todosPositivos = numeros.every(numero => numero > 0);
+const todosPares = numeros.every(numero => numero % 2 == 0);
+
+console.log(todosPositivos);	// true
+console.log(todosPares);	// false
+```
+</details>
+
+¿Cumplen algún elemento del array la condición devuelta en las instrucciones? (Recorre `elemento`, `indice` y `array` en ese orden)
+
+```js
+array.some((elemento, indice, array) => Instrucciones);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const numeros = [1, 2, 3, 4, 5];
+
+const hayNegativos = numeros.every(numero => numero < 0);
+const hayPares = numeros.every(numero => numero % 2 == 0);
+const hayImpares = numeros.some(numero => numero % 2 != 0);
+
+console.log(hayNegativos);	// false
+console.log(hayPares);		// true
+console.log(hayImpares);	// true
+```
+</details>
+
 ¿Es la variable un array?
 
 ```js
