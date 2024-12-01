@@ -643,7 +643,7 @@ while(true){
 
                         let direccion;
 
-                        if(listaEstudiantes.lista.length > 0 && window.confirm("¿Desea elegir una dirección ya creada?")){
+                        if(listaDirecciones.length > 0 && window.confirm("¿Desea elegir una dirección ya creada?")){
 
                             console.clear();
                             console.log("Crear Estudiante ➕👨‍🎓", "titulo");
