@@ -1,3 +1,79 @@
+const defaultConsoleLog = console.log;
+console.log = (texto, estilos = "", otrosEstilos = "") => {
+    
+    texto = "%c" + texto;
+
+    switch(estilos){
+
+        case "boton":
+            estilos = "padding: 10px;";
+            estilos += "border: 5px solid gray;";
+            estilos += "border-radius: 10px;";
+            estilos += "background-color: white;";
+            estilos += "color: black;";
+            estilos += "font-size: 20px;";
+            estilos += "margin: 5px;";
+            break;
+
+        case "titulo":
+            estilos = "font-size: 50px;";
+            estilos += "margin: 5px;";
+            break;
+
+        case "subtitulo":
+            estilos = "font-size: 30px;"
+            estilos += "color: #BBBBBB;";
+            estilos += "padding: 2px;";
+            break;
+
+        default:
+            estilos += "font-size: 20px;";
+            estilos += "padding: 10px;";
+            break;
+
+    }
+
+    estilos += "font-family: 'Rubik', sans-serif;" + otrosEstilos;
+    defaultConsoleLog.call(console, texto, estilos);
+
+};
+
+const defaultConsoleGroupCollapsed = console.groupCollapsed;
+console.groupCollapsed = (texto, estilos = "") => {
+    
+    texto = "%c" + texto;
+
+    switch(estilos){
+
+        case "boton":
+            estilos = "padding: 10px;";
+            estilos += "border: 5px solid gray;";
+            estilos += "border-radius: 10px;";
+            estilos += "background-color: white;";
+            estilos += "color: black;";
+            estilos += "font-size: 30px;";
+            estilos += "margin: 5px;";
+            break;
+
+        case "subtitulo":
+            estilos = "font-size: 30px;"
+            estilos += "padding: 10px;";
+            break;
+
+        default:
+            estilos += "font-size: 20px;";
+            estilos += "padding: 10px;";
+            break;
+
+    }
+
+    estilos += "font-family: 'Rubik', sans-serif; font-weight: normal;";
+    defaultConsoleGroupCollapsed.call(console, texto, estilos);
+
+};
+
+/////////////////////////////////////////////////////////////////////
+
 class Direccion{
 
     #calle;
@@ -104,7 +180,7 @@ class Estudiante{
 
         if(this.#registros.length == 0) return "No existen registros.";
 
-        let resultado = "";
+        let resultado = [];
 
         for(let registro of this.#registros){
 
@@ -124,7 +200,7 @@ class Estudiante{
 
             fecha = diaSemana + ", " + dia + " de " + mes + " de " + anio + " a las " + horas + ":" + minutos + ":" + segundos;
 
-            resultado += "| " + asignatura + " | " + fecha + " | " + tipo + " |\n";
+            resultado.push("[\t" + tipo + "\t|\t" + asignatura + "\t|\t" + fecha + "\t]");
 
         }
         
@@ -257,42 +333,40 @@ class ListaEstudiantes{
 
     }
 
-    get reporte(){
-
-        let resultado = "";
+    mostrarReporte(){
 
         for(let estudiante of this.#lista){
 
-            resultado += "\n==========================\n\n";
-            resultado += "[DATOS PERSONALES]\n";
-            resultado += "ID: " + estudiante.id + "\n";
-            resultado += "Nombre: " + estudiante.nombre + "\n";
-            resultado += "Edad: " + estudiante.edad + "\n";
-            resultado += "Dirección: \n";
-            resultado += "\tCalle: " + estudiante.direccion.calle + "\n";
-            resultado += "\tNúmero: " + estudiante.direccion.numero + "\n";
-            resultado += "\tPiso: " + estudiante.direccion.piso + "\n";
-            resultado += "\tCódigo Postal: " + estudiante.direccion.codigoPostal + "\n";
-            resultado += "\tProvincia: " + estudiante.direccion.provincia + "\n";
-            resultado += "\tLocalidad: " + estudiante.direccion.localidad + "\n";
-            resultado += "\n--------------------------\n\n";
-            resultado += "[CALIFICACIONES]\n";
-            for(let asignatura of estudiante.asignaturas){
-                resultado += asignatura[0].nombre + ": ";
-                resultado += (typeof asignatura[1] == "string") ? asignatura[1] : Number(asignatura[1]).toFixed(2);
-                resultado += "\n";
-            }
-            resultado += "PROMEDIO: " + estudiante.promedio + "\n";
+            console.groupCollapsed("[" + estudiante.id + "] " + estudiante.nombre, "boton");
+                console.groupCollapsed("Datos Personales", "subtitulo");
+                    console.log("Nombre: " + estudiante.nombre);
+                    console.log("Edad: " + estudiante.edad);
+                    console.groupCollapsed("Dirección");
+                        console.log("Calle: " + estudiante.direccion.calle);
+                        console.log("Número: " + estudiante.direccion.numero);
+                        console.log("Piso: " + estudiante.direccion.piso);
+                        console.log("Código Postal: " + estudiante.direccion.codigoPostal);
+                        console.log("Provincia: " + estudiante.direccion.provincia);
+                        console.log("Localidad: " + estudiante.direccion.localidad);
+                    console.groupEnd();
+                console.groupEnd();
+                console.groupCollapsed("Calificaciones", "subtitulo");
+                    for(let asignatura of estudiante.asignaturas){
+                        const notaAsignatura = (typeof asignatura[1] == "string") ? asignatura[1] : Number(asignatura[1]).toFixed(2);
+                        console.log(asignatura[0].nombre + ": " + notaAsignatura);
+                    }
+                    console.log("Promedio: " + estudiante.promedio, "font-weight: bold;");
+                console.groupEnd();
+            console.groupEnd();
 
         }
-
-        return resultado;
 
     }
 
     añadirEstudiante(estudiante){
 
-        if(this.#lista.filter(e => e.id == estudiante.id).length != 0) throw new Error("Ya existe el estudiante.");
+        // if(this.#lista.filter(e => e.id == estudiante.id).length != 0) throw new Error("Ya existe el estudiante.");
+
         this.#lista.push(estudiante);
         this.#lista.sort((e1, e2) => parseInt(e1.id.slice(1)) - parseInt(e2.id.slice(1)));
 
@@ -393,21 +467,21 @@ class ListaAsignaturas{
 const listaEstudiantes = new ListaEstudiantes();
 const listaAsignaturas = new ListaAsignaturas();
 let listaDirecciones = [];
-
 let eleccion;
-console.clear();
 
-//
+/*
 
-listaDirecciones.push(new Direccion("Afán de Ribera", 15, "2ºA", 18005, "Granada", "Granada"));
-listaDirecciones.push(new Direccion("Aliatar", 17, "Piso Bajo", 18110, "Granada", "Híjar"));
-listaDirecciones.push(new Direccion("Cock and Ball", "s/n", "100º", 99999, "Madrid", "Valdemoro"));
-listaDirecciones.push(new Direccion("Los gitanos", 0, "Piso Bajo", 18000, "Granada", "La Joya"));
+listaDirecciones.push(new Direccion("C/ Afán de Ribera", 15, "2ºA", 18005, "Granada", "Granada"));
+listaDirecciones.push(new Direccion("C/ Aliatar", 17, "Piso Bajo", 18110, "Granada", "Híjar"));
+listaDirecciones.push(new Direccion("C/ Canalejas", 5, "2ºB", 23790, "Jaén", "Porcuna"));
+listaDirecciones.push(new Direccion("C/ Paraguay", 1, "Piso Bajo", 18210, "Granada", "Peligros"));
+listaDirecciones.push(new Direccion("C/ Málaga", 23, "5ºC", 29770, "Málaga", "Torrox"));
 
-listaEstudiantes.añadirEstudiante(new Estudiante("Alonso", 20, listaDirecciones[0]));
-listaEstudiantes.añadirEstudiante(new Estudiante("Álex", 21, listaDirecciones[1]));
-listaEstudiantes.añadirEstudiante(new Estudiante("Nachete Madridista", 15, listaDirecciones[2]));
-listaEstudiantes.añadirEstudiante(new Estudiante("Armando", 26, listaDirecciones[3]));
+listaEstudiantes.añadirEstudiante(new Estudiante("Alonso Hernández Robles", 21, listaDirecciones[0]));
+listaEstudiantes.añadirEstudiante(new Estudiante("Álex Galán Varo", 20, listaDirecciones[1]));
+listaEstudiantes.añadirEstudiante(new Estudiante("Ana Quero de La Rosa", 19, listaDirecciones[2]));
+listaEstudiantes.añadirEstudiante(new Estudiante("Adrián Martín Vázquez", 19, listaDirecciones[3]));
+listaEstudiantes.añadirEstudiante(new Estudiante("Javier Escobar Caseros", 22, listaDirecciones[4]));
 
 listaAsignaturas.añadirAsignatura(new Asignatura("DWEC"));
 listaAsignaturas.añadirAsignatura(new Asignatura("DWES"));
@@ -415,27 +489,38 @@ listaAsignaturas.añadirAsignatura(new Asignatura("DEAW"));
 listaAsignaturas.añadirAsignatura(new Asignatura("DIW"));
 listaAsignaturas.añadirAsignatura(new Asignatura("EIE"));
 
+listaEstudiantes.lista[0].matricular(listaAsignaturas.lista[0]);
 listaEstudiantes.lista[0].matricular(listaAsignaturas.lista[1]);
+listaEstudiantes.lista[0].matricular(listaAsignaturas.lista[2]);
 listaEstudiantes.lista[0].matricular(listaAsignaturas.lista[3]);
+listaEstudiantes.lista[0].matricular(listaAsignaturas.lista[4]);
 
-//
+listaEstudiantes.lista[1].matricular(listaAsignaturas.lista[0]);
+listaEstudiantes.lista[1].matricular(listaAsignaturas.lista[1]);
+listaEstudiantes.lista[1].matricular(listaAsignaturas.lista[3]);
 
+listaEstudiantes.lista[2].matricular(listaAsignaturas.lista[2]);
+listaEstudiantes.lista[2].matricular(listaAsignaturas.lista[3]);
+
+listaEstudiantes.lista[3].matricular(listaAsignaturas.lista[2]);
+listaEstudiantes.lista[3].matricular(listaAsignaturas.lista[4]);
+*/
 while(true){
 
     console.clear();
-    console.log("< Sistema de Gestión Académica (SGAEA) >");
-    console.log("1. Crear...");
-    console.log("2. Eliminar...");
-    console.log("3. Matricular...");
-    console.log("4. Desmatricular...");
-    console.log("5. Registro de Auditoría");
-    console.log("6. Calificar...");
-    console.log("7. Buscar...");
-    console.log("8. Calcular Promedio...");
-    console.log("9. Mostrar Reporte");
-    
+    console.log("SGAEA", "titulo");
+    console.log("(Sistema de Gestión Académica de Estudiantes y Asignaturas)", "subtitulo");
+    console.log("1. ➕ Crear...", "boton");
+    console.log("2. ➖ Eliminar...", "boton");
+    console.log("3. ✍ Matricular...", "boton");
+    console.log("4. 📤 Desmatricular...", "boton");
+    console.log("5. 📋 Registro de Auditoría", "boton");
+    console.log("6. 🔢 Calificar...", "boton");
+    console.log("7. 🔎 Buscar...", "boton");
+    console.log("8. 💰 Calcular Promedio...", "boton");
+    console.log("9. 🧾 Mostrar Reporte", "boton");
     eleccion = Number.parseInt(window.prompt("Elección:"));
-
+    
     switch(eleccion){
 
         case 1:
@@ -443,11 +528,11 @@ while(true){
             do{
 
                 console.clear();
-                console.log("< Crear >");
-                console.log("1. Dirección");
-                console.log("2. Estudiante");
-                console.log("3. Asignatura");
-                console.log("0. Volver");
+                console.log("Crear ➕", "titulo");
+                console.log("1. 🏠 Dirección", "boton");
+                console.log("2. 👨‍🎓 Estudiante", "boton");
+                console.log("3. 📕 Asignatura", "boton");
+                console.log("0. ⏪ Volver", "boton");
 
                 eleccion = Number.parseInt(window.prompt("Elección:"));
                 console.clear();
@@ -456,7 +541,8 @@ while(true){
 
                     case 1:
 
-                        console.log("< Crear Dirección >");
+                        console.log("Crear Dirección ➕🏠", "titulo");
+                        console.log("Calle: ");
                         
                         do{
 
@@ -465,7 +551,10 @@ while(true){
                         }while(!eleccion || eleccion.trim() === "");
 
                         const calle = eleccion;
+                        console.clear();
+                        console.log("Crear Dirección ➕🏠", "titulo");
                         console.log("Calle: " + calle);
+                        console.log("Número: ");
 
                         do{
 
@@ -474,7 +563,11 @@ while(true){
                         }while(!eleccion || eleccion.trim() === "");
 
                         const numero = eleccion;
+                        console.clear();
+                        console.log("Crear Dirección ➕🏠", "titulo");
+                        console.log("Calle: " + calle);
                         console.log("Número: " + numero);
+                        console.log("Piso: ");
 
                         do{
 
@@ -483,7 +576,12 @@ while(true){
                         }while(!eleccion || eleccion.trim() === "");
 
                         const piso = eleccion;
+                        console.clear();
+                        console.log("Crear Dirección ➕🏠", "titulo");
+                        console.log("Calle: " + calle);
+                        console.log("Número: " + numero);
                         console.log("Piso: " + piso);
+                        console.log("Código Postal: ");
 
                         do{
 
@@ -492,7 +590,13 @@ while(true){
                         }while(!eleccion || eleccion.trim() === "");
 
                         const codigoPostal = eleccion;
+                        console.clear();
+                        console.log("Crear Dirección ➕🏠", "titulo");
+                        console.log("Calle: " + calle);
+                        console.log("Número: " + numero);
+                        console.log("Piso: " + piso);
                         console.log("Código Postal: " + codigoPostal);
+                        console.log("Provincia: ");
 
                         do{
 
@@ -501,7 +605,14 @@ while(true){
                         }while(!eleccion || eleccion.trim() === "");
 
                         const provincia = eleccion;
+                        console.clear();
+                        console.log("Crear Dirección ➕🏠", "titulo");
+                        console.log("Calle: " + calle);
+                        console.log("Número: " + numero);
+                        console.log("Piso: " + piso);
+                        console.log("Código Postal: " + codigoPostal);
                         console.log("Provincia: " + provincia);
+                        console.log("Localidad: ");
 
                         do{
 
@@ -510,6 +621,14 @@ while(true){
                         }while(!eleccion || eleccion.trim() === "");
 
                         const localidad = eleccion;
+                        console.clear();
+                        console.log("Crear Dirección ➕🏠", "titulo");
+                        console.log("Dirección Creada ✅", "subtitulo");
+                        console.log("Calle: " + calle);
+                        console.log("Número: " + numero);
+                        console.log("Piso: " + piso);
+                        console.log("Código Postal: " + codigoPostal);
+                        console.log("Provincia: " + provincia);
                         console.log("Localidad: " + localidad);
 
                         window.alert("Dirección creada correctamente.");
@@ -520,22 +639,23 @@ while(true){
 
                     case 2:
 
-                        console.log("< Crear Estudiante >");
+                        console.log("Crear Estudiante ➕👨‍🎓", "titulo");
 
                         let direccion;
 
                         if(listaEstudiantes.lista.length > 0 && window.confirm("¿Desea elegir una dirección ya creada?")){
 
                             console.clear();
-                            console.log("< Crear Estudiante - Seleccionar Dirección >");
+                            console.log("Crear Estudiante ➕👨‍🎓", "titulo");
+                            console.log("Seleccionar Dirección 🏠", "subtitulo");
 
                             for(let direccion of listaDirecciones){
 
-                                console.log((listaDirecciones.indexOf(direccion) + 1) + ". " + direccion.toString);
+                                console.log((listaDirecciones.indexOf(direccion) + 1) + ". " + direccion.toString, "boton");
 
                             }
 
-                            console.log("0. Volver");
+                            console.log("0. ⏪ Volver", "boton");
 
                             do{
 
@@ -554,7 +674,9 @@ while(true){
                         }else{
 
                             console.clear();
-                            console.log("< Crear Estudiante - Establecer Dirección >");
+                            console.log("Crear Estudiante ➕👨‍🎓", "titulo");
+                            console.log("Establecer Dirección 🏠", "subtitulo");
+                            console.log("Calle: ");
                             
                             do{
 
@@ -563,7 +685,11 @@ while(true){
                             }while(!eleccion || eleccion.trim() === "");
 
                             const calle = eleccion;
+                            console.clear();
+                            console.log("Crear Estudiante ➕👨‍🎓", "titulo");
+                            console.log("Establecer Dirección 🏠", "subtitulo");
                             console.log("Calle: " + calle);
+                            console.log("Número: ");
     
                             do{
 
@@ -572,7 +698,12 @@ while(true){
                             }while(!eleccion || eleccion.trim() === "");
 
                             const numero = eleccion;
+                            console.clear();
+                            console.log("Crear Estudiante ➕👨‍🎓", "titulo");
+                            console.log("Establecer Dirección 🏠", "subtitulo");
+                            console.log("Calle: " + calle);
                             console.log("Número: " + numero);
+                            console.log("Piso: ");
     
                             do{
 
@@ -581,7 +712,13 @@ while(true){
                             }while(!eleccion || eleccion.trim() === "");
 
                             const piso = eleccion;
+                            console.clear();
+                            console.log("Crear Estudiante ➕👨‍🎓", "titulo");
+                            console.log("Establecer Dirección 🏠", "subtitulo");
+                            console.log("Calle: " + calle);
+                            console.log("Número: " + numero);
                             console.log("Piso: " + piso);
+                            console.log("Código Postal: ");
     
                             do{
 
@@ -590,7 +727,14 @@ while(true){
                             }while(!eleccion || eleccion.trim() === "");
 
                             const codigoPostal = eleccion;
+                            console.clear();
+                            console.log("Crear Estudiante ➕👨‍🎓", "titulo");
+                            console.log("Establecer Dirección 🏠", "subtitulo");
+                            console.log("Calle: " + calle);
+                            console.log("Número: " + numero);
+                            console.log("Piso: " + piso);
                             console.log("Código Postal: " + codigoPostal);
+                            console.log("Provincia: ");
     
                             do{
 
@@ -599,7 +743,15 @@ while(true){
                             }while(!eleccion || eleccion.trim() === "");
 
                             const provincia = eleccion;
+                            console.clear();
+                            console.log("Crear Estudiante ➕👨‍🎓", "titulo");
+                            console.log("Establecer Dirección 🏠", "subtitulo");
+                            console.log("Calle: " + calle);
+                            console.log("Número: " + numero);
+                            console.log("Piso: " + piso);
+                            console.log("Código Postal: " + codigoPostal);
                             console.log("Provincia: " + provincia);
+                            console.log("Localidad: ");
     
                             do{
 
@@ -608,16 +760,40 @@ while(true){
                             }while(!eleccion || eleccion.trim() === "");
 
                             const localidad = eleccion;
+                            console.clear();
+                            console.log("Crear Estudiante ➕👨‍🎓", "titulo");
+                            console.log("Dirección Establecida ✅", "subtitulo");
+                            console.log("Calle: " + calle);
+                            console.log("Número: " + numero);
+                            console.log("Piso: " + piso);
+                            console.log("Código Postal: " + codigoPostal);
+                            console.log("Provincia: " + provincia);
                             console.log("Localidad: " + localidad);
 
                             direccion = new Direccion(calle, numero, piso, codigoPostal, provincia, localidad);
 
-                            if(window.confirm("¿Desea guardar esta dirección?")) listaDirecciones.push(direccion);
+                            if(window.confirm("¿Desea guardar esta dirección?")){
+                                
+                                listaDirecciones.push(direccion);
+
+                                console.clear();
+                                console.log("Crear Estudiante ➕👨‍🎓", "titulo");
+                                console.log("Dirección Guardada ✅", "subtitulo");
+                                console.log("Calle: " + calle);
+                                console.log("Número: " + numero);
+                                console.log("Piso: " + piso);
+                                console.log("Código Postal: " + codigoPostal);
+                                console.log("Provincia: " + provincia);
+                                console.log("Localidad: " + localidad);
+                                window.alert("Dirección guardada correctamente.");
+
+                            }
 
                         }
 
                         console.clear();
-                        console.log("< Crear Estudiante >");
+                        console.log("Crear Estudiante ➕👨‍🎓", "titulo");
+                        console.log("Nombre: ");
 
                         do{
 
@@ -626,7 +802,10 @@ while(true){
                         }while(!eleccion || eleccion.trim() === "");
 
                         const nombreEstudiante = eleccion;
+                        console.clear();
+                        console.log("Crear Estudiante ➕👨‍🎓", "titulo");
                         console.log("Nombre: " + nombreEstudiante);
+                        console.log("Edad: ");
 
                         do{
 
@@ -636,27 +815,36 @@ while(true){
                         }while(eleccion < 0);
 
                         let edad = eleccion;
-                        console.log("Edad: " + edad);
+                        console.clear();
+                        console.log("Crear Estudiante ➕👨‍🎓", "titulo");
+                        
 
-                        console.log("Dirección: " + direccion.toString);
-
-                        try{
+                        // try{
 
                             listaEstudiantes.añadirEstudiante(new Estudiante(nombreEstudiante, edad, direccion));
+                            console.log("Estudiante Creado ✅", "subtitulo");
+                            console.log("Nombre: " + nombreEstudiante);
+                            console.log("Edad: " + edad);
+                            console.log("Dirección: " + direccion.toString);
                             window.alert("Estudiante creado correctamente.");
 
-                        }catch(error){
+                        /*}catch(error){
 
+                            console.log("Estudiante No Creado ❌", "subtitulo");
+                            console.log("Nombre: " + nombreEstudiante);
+                            console.log("Edad: " + edad);
+                            console.log("Dirección: " + direccion.toString);
                             window.alert(error);
 
-                        }
+                        }*/
 
                         eleccion = 0;
                         break;
 
                     case 3:
 
-                        console.log("< Crear Asignatura >");
+                        console.log("Crear Asignatura ➕📕", "titulo");
+                        console.log("Nombre: ");
 
                         do{
 
@@ -665,15 +853,20 @@ while(true){
                         }while(!eleccion || eleccion.trim() === "");
 
                         const nombreAsignatura = eleccion;
-                        console.log("Nombre: " + nombreAsignatura);
+                        console.clear();
+                        console.log("Crear Asignatura ➕📕", "titulo");
 
                         try{
 
                             listaAsignaturas.añadirAsignatura(new Asignatura(nombreAsignatura));
+                            console.log("Asignatura Creada ✅", "subtitulo");
+                            console.log("Nombre: " + nombreAsignatura);
                             window.alert("Asignatura creada correctamente.");
 
                         }catch(error){
 
+                            console.log("Asignatura No Creada ❌", "subtitulo");
+                            console.log("Nombre: " + nombreAsignatura);
                             window.alert(error);
 
                         }
@@ -693,17 +886,17 @@ while(true){
 
                 if(listaDirecciones.length == 0 && listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
                     
-                    window.alert("No existe ningún dato registrado.");
+                    window.alert("No existen datos registrados.");
                     break;
 
                 }
 
                 console.clear();
-                console.log("< Eliminar >");
-                console.log("1. Dirección");
-                console.log("2. Estudiante");
-                console.log("3. Asignatura");
-                console.log("0. Volver");
+                console.log("Eliminar ➖", "titulo");
+                console.log("1. 🏠 Dirección", "boton");
+                console.log("2. 👨‍🎓 Estudiante", "boton");
+                console.log("3. 📕 Asignatura", "boton");
+                console.log("0. ⏪ Volver", "boton");
 
                 eleccion = Number.parseInt(window.prompt("Elección:"));
 
@@ -713,21 +906,21 @@ while(true){
 
                         if(listaDirecciones.length == 0){
 
-                            window.alert("No existen direcciones.");
+                            window.alert("No existen direcciones registradas.");
                             break;
 
                         }
 
                         console.clear();
-                        console.log("< Eliminar Dirección >");
+                        console.log("Eliminar Dirección ➖🏠", "titulo");
                         
                         for(let direccion of listaDirecciones){
 
-                            console.log((listaDirecciones.indexOf(direccion) + 1) + ". " + direccion.toString);
+                            console.log((listaDirecciones.indexOf(direccion) + 1) + ". " + direccion.toString, "boton");
 
                         }
 
-                        console.log("0. Volver");
+                        console.log("0. ⏪ Volver", "boton");
 
                         do{
 
@@ -744,18 +937,19 @@ while(true){
                         listaDirecciones = listaDirecciones.filter((d, indice) => indice != eleccion - 1);
 
                         console.clear();
-                        console.log("< Eliminar Dirección - Cambios Guardados >");
+                        console.log("Eliminar Dirección ➖🏠", "titulo");
+                        console.log("Dirección Eliminada ✅", "subtitulo");
                         
                         for(let direccion of listaDirecciones){
 
                             if(listaDirecciones.length == 0){
 
-                                console.log("No existen direcciones.");
+                                console.log("No existen direcciones registradas.");
                                 break;
     
                             }
 
-                            console.log((listaDirecciones.indexOf(direccion) + 1) + ". " + direccion.toString);
+                            console.log((listaDirecciones.indexOf(direccion) + 1) + ". " + direccion.toString, "boton");
 
                         }
 
@@ -767,21 +961,21 @@ while(true){
 
                         if(listaEstudiantes.lista.length == 0){
 
-                            window.alert("No existen estudiantes.");
+                            window.alert("No existen estudiantes registrados.");
                             break;
 
                         }
 
                         console.clear();
-                        console.log("< Eliminar Estudiante >");
+                        console.log("Eliminar Estudiante ➖👨‍🎓", "titulo");
                         
                         for(let estudiante of listaEstudiantes.lista){
 
-                            console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString);
+                            console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton");
 
                         }
 
-                        console.log("0. Volver");
+                        console.log("0. ⏪ Volver", "boton");
 
                         do{
 
@@ -800,18 +994,19 @@ while(true){
                             listaEstudiantes.eliminarEstudiante("E".concat(eleccion));
 
                             console.clear();
-                            console.log("< Eliminar Estudiante - Cambios Guardados >");
+                            console.log("Eliminar Estudiante ➖👨‍🎓", "titulo");
+                            console.log("Estudiante Eliminado ✅", "subtitulo");
                             
                             for(let estudiante of listaEstudiantes.lista){
 
                                 if(listaEstudiantes.lista.length == 0){
 
-                                    console.log("No existen estudiantes.");
+                                    console.log("No existen estudiantes registrados.");
                                     break;
         
                                 }
 
-                                console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString);
+                                console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton");
     
                             }
 
@@ -830,21 +1025,21 @@ while(true){
 
                         if(listaAsignaturas.lista.length == 0){
 
-                            window.alert("No existen asignaturas.");
+                            window.alert("No existen asignaturas registradas.");
                             break;
 
                         }
 
                         console.clear();
-                        console.log("< Eliminar Asignatura >");
+                        console.log("Eliminar Asignatura ➖📕", "titulo");
                         
                         for(let asignatura of listaAsignaturas.lista){
 
-                            console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.toString);
+                            console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.toString, "boton");
 
                         }
 
-                        console.log("0. Volver");
+                        console.log("0. ⏪ Volver", "boton");
 
                         do{
 
@@ -863,18 +1058,19 @@ while(true){
                             listaAsignaturas.eliminarAsignatura(listaAsignaturas.lista[eleccion - 1].toString);
 
                             console.clear();
-                            console.log("< Eliminar Asignatura - Cambios Guardados >");
+                            console.log("Eliminar Asignatura ➖📕", "titulo");
+                            console.log("Asignatura Eliminada ✅", "subtitulo");
 
                             for(let asignatura of listaAsignaturas.lista){
 
                                 if(listaAsignaturas.lista.length == 0){
 
-                                    console.log("No existen asignaturas.");
+                                    console.log("No existen asignaturas registradas.");
                                     break;
         
                                 }
 
-                                console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.toString);
+                                console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.toString, "boton");
     
                             }
 
@@ -897,26 +1093,42 @@ while(true){
 
         case 3:
 
+            if(listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
+                window.alert("No existen datos registrados.");
+                break;
+            }
+
+            if(listaEstudiantes.lista.length == 0){
+                window.alert("No existen estudiantes registrados.");
+                break;
+            }
+
+            if(listaAsignaturas.lista.length == 0){
+                window.alert("No existen asignaturas registradas.");
+                break;
+            }
+
             do{
 
                 console.clear();
-                console.log("< Matricular - Seleccionar Estudiante >");
+                console.log("Matricular ✍", "titulo");
+                console.log("Seleccionar Estudiante 👨‍🎓", "subtitulo");
 
                 for(let estudiante of listaEstudiantes.lista){
 
                     if(estudiante.asignaturas.length != listaAsignaturas.lista.length){
 
-                        console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString);
+                        console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton");
 
                     }else{
                         
-                        console.log("%c" + (listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "text-decoration: line-through;");
+                        console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton", "text-decoration: line-through;");
 
                     }
 
                 }
 
-                console.log("0. Volver");
+                console.log("0. ⏪ Volver", "boton");
 
                 do{
 
@@ -946,7 +1158,9 @@ while(true){
                 do{
 
                     console.clear();
-                    console.log("< Matricular - Seleccionar Asignaturas >");
+                    console.log("Matricular ✍", "titulo");
+                    console.log("Estudiante: " + estudiante.toString);
+                    console.log("Seleccionar Asignaturas 📚", "subtitulo");
                     
                     let textoSeleccionadas = "Seleccionadas (" + asignaturasSeleccionadas.length + ")";
                     if(asignaturasSeleccionadas.length > 0) textoSeleccionadas += ": " + asignaturasSeleccionadas.map(a => a.nombre).join(", ");
@@ -954,12 +1168,12 @@ while(true){
                     
                     for(let asignatura of asignaturasDisponibles){
 
-                        const seleccionada = asignaturasSeleccionadas.includes(asignatura) ? "X" : " ";
-                        console.log("[" + seleccionada + "] " + (asignaturasDisponibles.indexOf(asignatura) + 1) + ". " + asignatura.toString);
+                        const seleccionada = asignaturasSeleccionadas.includes(asignatura) ? "❎" : "⬛";
+                        console.log(seleccionada + " " + (asignaturasDisponibles.indexOf(asignatura) + 1) + ". " + asignatura.toString, "boton");
 
                     }
 
-                    console.log("0. Volver");
+                    console.log("0. ⏪ Volver", "boton");
 
                     eleccion = window.prompt("Escoja una o más asignaturas:\n(Pulse solamente Enter para finalizar)");
                     eleccion = Number.parseInt(eleccion);
@@ -992,9 +1206,10 @@ while(true){
                             estudiante.matricular(...asignaturasSeleccionadas);
         
                             console.clear();
-                            console.log("< Matricular - Matrícula Terminada >");
+                            console.log("Matricular ✍", "titulo");
+                            console.log("Matrícula Terminada ✅", "subtitulo");
                             console.log("Estudiante: " + estudiante.toString);
-                            console.log("Asignaturas: " + asignaturasSeleccionadas.map(a => a.toString).join(", "));
+                            console.log("Asignaturas (" + asignaturasSeleccionadas.length + "): " + asignaturasSeleccionadas.map(a => a.toString).join(", "));
                             window.alert("Estudiante matriculado correctamente");
     
                             eleccion = 0;
@@ -1016,24 +1231,154 @@ while(true){
 
         case 4:
 
+            let listaMatriculados = listaEstudiantes.lista.filter(e => e.asignaturas.length > 0);
 
+            if(listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
+                window.alert("No existen datos registrados.");
+                break;
+            }
+
+            if(listaEstudiantes.lista.length == 0){
+                window.alert("No existen estudiantes registrados.");
+                break;
+            }
+
+            if(listaAsignaturas.lista.length == 0){
+                window.alert("No existen asignaturas registradas.");
+                break;
+            }
+
+            do{
+
+                console.clear();
+                console.log("Desmatricular 📤", "titulo");
+                console.log("Seleccionar Estudiante 👨‍🎓", "subtitulo");
+
+                for(let estudiante of listaMatriculados){
+
+                    console.log((listaMatriculados.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton");
+
+                }
+
+                console.log("0. ⏪ Volver", "boton");
+
+                do{
+
+                    eleccion = Number.parseInt(window.prompt("Escoja un estudiante:"));
+                    if(Number.isNaN(eleccion)) eleccion = -1;
+
+                }while(eleccion < 0 || eleccion > listaMatriculados.length);
+
+                if(eleccion == 0) break;
+
+                const estudiante = listaMatriculados[eleccion - 1];
+
+                let asignaturasSeleccionadas = [];
+                let volverMenuEstudiantes = false;
+                
+                do{
+
+                    console.clear();
+                    console.log("Desmatricular 📤", "titulo");
+                    console.log("Seleccionar Asignaturas 📚", "subtitulo");
+                    
+                    let textoSeleccionadas = "Seleccionadas (" + asignaturasSeleccionadas.length + ")";
+                    if(asignaturasSeleccionadas.length > 0) textoSeleccionadas += ": " + asignaturasSeleccionadas.map(a => a.nombre).join(", ");
+                    console.log(textoSeleccionadas);
+                    
+                    for(let asignatura of estudiante.asignaturas){
+
+                        const seleccionada = asignaturasSeleccionadas.includes(asignatura[0]) ? "❎" : "⬛";
+                        console.log(seleccionada + " " + (estudiante.asignaturas.indexOf(asignatura) + 1) + ". " + asignatura[0].toString, "boton");
+
+                    }
+
+                    console.log("0. ⏪ Volver", "boton");
+
+                    eleccion = window.prompt("Escoja una o más asignaturas:\n(Pulse solamente Enter para finalizar)");
+                    eleccion = Number.parseInt(eleccion);
+                    if(Number.isNaN(eleccion)) eleccion = -1;
+
+                    if(eleccion == 0){
+
+                        volverMenuEstudiantes = true;
+                        eleccion = -1;
+                        break;
+
+                    }else if(eleccion > 0 && eleccion <= estudiante.asignaturas.length){
+
+                        const asignatura = estudiante.asignaturas[eleccion - 1][0];
+
+                        if(asignaturasSeleccionadas.includes(asignatura)){
+
+                            asignaturasSeleccionadas = asignaturasSeleccionadas.filter(a => a != asignatura);
+
+                        }else{
+
+                            asignaturasSeleccionadas.push(asignatura);
+
+                        }
+
+                    }else{
+
+                        if(asignaturasSeleccionadas.length > 0 && !volverMenuEstudiantes){
+                    
+                            estudiante.desmatricular(...asignaturasSeleccionadas);
+        
+                            console.clear();
+                            console.log("Desmatricular 📤", "titulo");
+                            console.log("Desmatrícula Terminada ✅", "subtitulo");
+                            console.log("Estudiante: " + estudiante.toString);
+                            console.log("Asignaturas (" + asignaturasSeleccionadas.length + "): " + asignaturasSeleccionadas.map(a => a.toString).join(", "));
+                            window.alert("Estudiante desmatriculado correctamente.");
+
+                            eleccion = 0;
+                            break;
+        
+                        }else{
+
+                            window.alert("Debe seleccionar al menos una asignatura.");
+
+                        }
+
+                    }
+
+                }while(true);
+
+            }while(eleccion < 0 || eleccion > listaMatriculados.length);
 
             break;
 
         case 5:
 
+            if(listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
+                window.alert("No existen datos registrados.");
+                break;
+            }
+
+            if(listaEstudiantes.lista.length == 0){
+                window.alert("No existen estudiantes registrados.");
+                break;
+            }
+
+            if(listaAsignaturas.lista.length == 0){
+                window.alert("No existen asignaturas registradas.");
+                break;
+            }
+
             do{
 
                 console.clear();
-                console.log("< Registro de Auditoría - Seleccionar Estudiante >");
+                console.log("Registro de Auditoría 📋", "titulo");
+                console.log("Seleccionar Estudiante 👨‍🎓", "subtitulo");
                                 
                 for(let estudiante of listaEstudiantes.lista){
 
-                    console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString);
+                    console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton");
 
                 }
 
-                console.log("0. Volver");
+                console.log("0. ⏪ Volver", "boton");
 
                 do{
 
@@ -1047,8 +1392,20 @@ while(true){
                 const estudiante = listaEstudiantes.lista[eleccion - 1];
 
                 console.clear();
-                console.log("< Registro de Auditoría - " + estudiante.nombre + " >");
-                console.log(estudiante.registros);
+                console.log("Registro de Auditoría 📋", "titulo");
+                console.log(estudiante.nombre + " 👨‍🎓", "subtitulo");
+                
+                for(let registro of estudiante.registros){
+
+                    let estilo = "border-radius: 5px;";
+                    estilo += "margin: 5px;";
+                    estilo += "border: 2px solid lightgray;";
+                    estilo += "background-color: black;";
+                    estilo += "color: white;";
+                    console.log(registro, estilo, "font-family: 'consolas', 'sans-serif';");
+
+                }
+
                 window.alert("Acepte para volver.");
 
             }while(eleccion != 0);
@@ -1075,15 +1432,16 @@ while(true){
             do{
 
                 console.clear();
-                console.log("< Calificar - Seleccionar Estudiante >");
+                console.log("Calificar 🔢", "titulo");
+                console.log("Seleccionar Estudiante 👨‍🎓", "subtitulo");
                                 
                 for(let estudiante of listaEstudiantes.lista){
 
-                    console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString);
+                    console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton");
 
                 }
 
-                console.log("0. Volver");
+                console.log("0. ⏪ Volver", "boton");
 
                 do{
 
@@ -1099,16 +1457,17 @@ while(true){
                 do{
 
                     console.clear();
-                    console.log("< Calificar - Seleccionar Asignatura >");
+                    console.log("Calificar 🔢", "titulo");
                     console.log("Estudiante: " + estudiante.toString);
+                    console.log("Seleccionar Asignatura 📕", "subtitulo");
                                     
                     for(let asignatura of estudiante.asignaturas){
 
-                        console.log((estudiante.asignaturas.indexOf(asignatura) + 1) + ". " + asignatura[0].toString);
+                        console.log((estudiante.asignaturas.indexOf(asignatura) + 1) + ". " + asignatura[0].toString, "boton");
 
                     }
 
-                    console.log("0. Volver");
+                    console.log("0. ⏪ Volver", "boton");
 
                     do{
 
@@ -1125,9 +1484,11 @@ while(true){
                     const asignatura = estudiante.asignaturas[eleccion - 1][0];
 
                     console.clear();
-                    console.log("< Calificar - Poner Nota >");
+                    console.log("Calificar 🔢", "titulo");
+                    console.log("Poner Nota ✍", "subtitulo");
                     console.log("Estudiante: " + estudiante.toString);
                     console.log("Asignatura: " + asignatura.toString);
+                    console.log("Nota: ");
 
                     do{
 
@@ -1141,6 +1502,11 @@ while(true){
                     try{
 
                         estudiante.calificar(asignatura, nota);
+                        console.clear();
+                        console.log("Calificar 🔢", "titulo");
+                        console.log("Estudiante Calificado ✅", "subtitulo");
+                        console.log("Estudiante: " + estudiante.toString);
+                        console.log("Asignatura: " + asignatura.toString);
                         console.log("Nota: " + nota);
                         window.alert("Estudiante calificado correctamente.");
 
@@ -1158,11 +1524,41 @@ while(true){
 
         case 7:
 
+            if(listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
+                window.alert("No existen datos registrados.");
+                break;
+            }
 
+            if(listaEstudiantes.lista.length == 0){
+                window.alert("No existen estudiantes registrados.");
+                break;
+            }
+
+            if(listaAsignaturas.lista.length == 0){
+                window.alert("No existen asignaturas registradas.");
+                break;
+            }
+
+            
         
             break;
 
         case 8:
+
+            if(listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
+                window.alert("No existen datos registrados.");
+                break;
+            }
+
+            if(listaEstudiantes.lista.length == 0){
+                window.alert("No existen estudiantes registrados.");
+                break;
+            }
+
+            if(listaAsignaturas.lista.length == 0){
+                window.alert("No existen asignaturas registradas.");
+                break;
+            }
 
 
 
@@ -1170,9 +1566,14 @@ while(true){
 
         case 9:
 
+            if(listaEstudiantes.lista.length == 0){
+                window.alert("No existen estudiantes registrados.");
+                break;
+            }
+
             console.clear();
-            console.log("< Reporte de Estudiantes (" + listaEstudiantes.lista.length + ") >");
-            console.log(listaEstudiantes.reporte);
+            console.log("Reporte de Estudiantes (" + listaEstudiantes.lista.length + ") 🧾", "titulo");
+            listaEstudiantes.mostrarReporte();
             window.alert("Acepte para volver.");
 
             break;
