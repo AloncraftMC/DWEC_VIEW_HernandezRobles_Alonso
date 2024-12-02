@@ -67,7 +67,7 @@ class Direccion{
  * 
  * - asignaturas: Array (matriz) de asignaturas de las cuales el estudiante está matriculado. Cada elemento
  *      es un Array con dos posiciones. La primera ([0]) es la instancia en sí del objeto Asignatura.
- *      La segunda ([1]) es la calificación de dicha asignatura que tiene el estudiante. Su getter devuelve
+ *      La segunda ([1]) es la calificación que tiene el estudiante en dicha asignatura. Su getter devuelve
  *      una copia del Array y no la referencia.
  * 
  * - registros: Array (matriz) de registros de las matrículas y desmatrículas que se han aplicado al
