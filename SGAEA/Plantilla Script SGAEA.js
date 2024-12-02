@@ -4,7 +4,7 @@
  | Alonso Hernández Robles 2º DAW AULA                                                           |
  |                                                                                               |
  | Github Pages: https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/index.html |
- | (Necesario abrir la consola de las DevTools antes de cargar la página)                        |
+ | (Es necesario abrir la consola de las DevTools antes de cargar la página)                     |
  ╰-----------------------------------------------------------------------------------------------╯
  */
 
@@ -116,43 +116,7 @@ class Estudiante{
 }
 
 /**
- * 2.3. Clase ListaEstudiantes
- * 
- * Atributos:
- * 
- * - lista: Array de objetos Estudiante. Su getter devuelve una copia del Array y no la referencia.
- * 
- * Métodos:
- * 
- * + constructor(...estudiantes): Inicializa vacío el Array lista y añade los estudiantes mediante el método
- *      añadirEstudiante().
- * 
- * + get promedioGeneral(): Number del promedio de los promedios de todos los estudiantes del Array lista.
- *      Devuelve el String "Sin evaluar" si ningún promedio es un número.
- * 
- * + mostrarReporte(): Muestra mediante console.log(), console.groupCollapsed() y console.groupEnd() el reporte
- *      con la información de todos los estudiantes del Array lista. console.log() muestra por
- *      consola un mensaje. console.groupCollapsed() muestra por consola un mensaje cómo título de una
- *      carpeta colapsada de los mensajes que vayan a continuación. console.groupEnd() indica el final de
- *      dicha carpeta de mensajes.
- * 
- * + añadirEstudiante(estudiante): Si no existe el estudiante dentro del Array lista, lo añade y ordena dicho
- *      Array según los números de las ids de los estudiantes. De lo contrario, devuelve un Error.
- * 
- * + eliminarEstudiante(id): Elimina del Array lista el estudiante cuya id sea la misma que id y elimina el
- *      número ocupado de dicha id mediante el método estático eliminarNumeroOcupado().
- * 
- * + busquedaEstudiantes(exp): Array de los objetos Estudiante cuyos nombres incluyen el String exp.
- */
-
-class ListaEstudiantes{
-
-    
-
-}
-
-/**
- * 2.4. Clase Asignatura
+ * 2.3. Clase Asignatura
  * 
  * Atributos:
  * 
@@ -186,27 +150,77 @@ class Asignatura{
 }
 
 /**
- * 2.5. Clase ListaAsignaturas
+ * 2.4. Clase Lista
  * 
  * Atributos:
  * 
- * - lista: Array de objetos Asignatura. Su getter devuelve una copia del Array y no la referencia.
+ * - listaRef: Array de objetos. Su getter devuelve la referencia original al Array. También tiene setter.
+ *      Orientado para ser usado en la definición de las clases hijas ListaEstudiantes y ListaAsignaturas.
  * 
  * Métodos:
  * 
- * + constructor(...asignatura): Inicializa vacío el Array lista y añade las asignaturas mediante el método
+ * + constructor(): Inicializa vacío el Array listaRef.
+ * 
+ * + get lista(): Array de objetos. Devuelve una copia del Array listaRef y no la referencia.
+ *      Orientado para ser usado en la creación y uso de objetos ListaEstudiantes y/o ListaAsignaturas.
+ */
+
+class Lista{
+
+    
+
+}
+
+/**
+ * 2.5. Clase ListaEstudiantes
+ * 
+ * Métodos:
+ * 
+ * + constructor(...estudiantes): Llama al constructor padre y añade los estudiantes mediante el método
+ *      añadirEstudiante().
+ * 
+ * + get promedioGeneral(): Number del promedio de los promedios de todos los estudiantes del Array listaRef.
+ *      Devuelve el String "Sin evaluar" si ningún promedio es un número.
+ * 
+ * + mostrarReporte(): Muestra mediante console.log(), console.groupCollapsed() y console.groupEnd() el reporte
+ *      con la información de todos los estudiantes del Array listaRef. console.log() muestra por
+ *      consola un mensaje. console.groupCollapsed() muestra por consola un mensaje cómo título de una
+ *      carpeta colapsada de los mensajes que vayan a continuación. console.groupEnd() indica el final de
+ *      dicha carpeta de mensajes.
+ * 
+ * + añadirEstudiante(estudiante): Si no existe el estudiante dentro del Array listaRef, lo añade y ordena dicho
+ *      Array según los números de las ids de los estudiantes. De lo contrario, devuelve un Error.
+ * 
+ * + eliminarEstudiante(id): Elimina del Array listaRef el estudiante cuya id sea la misma que id y elimina el
+ *      número ocupado de dicha id mediante el método estático eliminarNumeroOcupado().
+ * 
+ * + busquedaEstudiantes(exp): Array de los objetos Estudiante cuyos nombres incluyen el String exp.
+ */
+
+class ListaEstudiantes extends Lista{
+
+    
+
+}
+
+/**
+ * 2.6. Clase ListaAsignaturas
+ * 
+ * Métodos:
+ * 
+ * + constructor(...asignatura): Llama al constructor padre y añade las asignaturas mediante el método
  *      añadirAsignatura().
  * 
- * + añadirAsignatura(asignatura): Si no existe la asignatura dentro del Array lista, la añade. De lo
+ * + añadirAsignatura(asignatura): Si no existe la asignatura dentro del Array listaRef, la añade. De lo
  *      contrario, devuelve un Error.
  * 
- * + eliminarAsignatura(nombre): Si existe una asignatura cuyo nombre coincide con alguno de los nombres de
- *      las asignaturas del Array lista, elimina de dicho Array dicha asignatura. De lo contrario, devuelve un Error.
+ * + eliminarAsignatura(nombre): Si existe una asignatura cuyo nombre coincide con alguno de los nombres de las
+ *      asignaturas del Array listaRef, elimina de dicho Array dicha asignatura. De lo contrario, devuelve un Error.
  * 
  * + busquedaAsignaturas(exp): Array de los objetos Asignatura cuyos nombres incluyen el String exp.
  */
 
-class ListaAsignaturas{
+class ListaAsignaturas extends Lista{
 
     
 

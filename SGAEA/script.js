@@ -1,10 +1,10 @@
-/*
+/** 
  ╭-----------------------------------------------------------------------------------------------╮
  | SGAEA - Sistema de Gestión Académica de Estudiantes y Asignaturas                             |
  | Alonso Hernández Robles 2º DAW AULA                                                           |
  |                                                                                               |
  | Github Pages: https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/index.html |
- | (Necesario abrir la consola de las DevTools antes de cargar la página)                        |
+ | (Es necesario abrir la consola de las DevTools antes de cargar la página)                     |
  ╰-----------------------------------------------------------------------------------------------╯
  */
 
@@ -165,8 +165,9 @@ class Direccion{
  * 
  * Atributos:
  * 
- * - id: String indentificador único del estudiante. Será "E" seguido del número siguiente posible en el
- *      atributo estático numerosOcupados, y será calculado en el constructor. Tiene getter.
+ * - id: String indentificador único del estudiante. Será "E" seguido del número siguiente posible que no esté
+ *      ocupado. Los números ocupados estarán almacenados en el atributo estático numerosOcupados, y será
+ *      calculado en el constructor. Volviendo al id, tiene getter.
  * 
  * - nombre: String del nombre del estudiante. Sólo puede contener letras y espacios. De lo contrario, se
  *      inicializará como "Estudiante". Tiene getter.
@@ -178,7 +179,7 @@ class Direccion{
  * 
  * - asignaturas: Array (matriz) de asignaturas de las cuales el estudiante está matriculado. Cada elemento
  *      es un Array con dos posiciones. La primera ([0]) es la instancia en sí del objeto Asignatura.
- *      La segunda ([1]) es la calificación de dicha asignatura que tiene el estudiante. Su getter devuelve
+ *      La segunda ([1]) es la calificación que tiene el estudiante en dicha asignatura. Su getter devuelve
  *      una copia del Array y no la referencia.
  * 
  * - registros: Array (matriz) de registros de las matrículas y desmatrículas que se han aplicado al
@@ -187,7 +188,7 @@ class Direccion{
  *      es un String del tipo de trámite ("Matrícula" o "Desmatrícula"). Su getter devuelve un Array de
  *      Strings con la información de cada registro.
  * 
- * - numerosOcupados (estático): Array de números de las ids usadas por los estudiantes creados en ese
+ * - numerosOcupados (estático): Array de los números de las ids usadas por los estudiantes creados en ese
  *      momento. Se actualizará dinámicamente en la creación y eliminación de estudiantes. No tiene getter.
  * 
  * Métodos:
@@ -204,11 +205,12 @@ class Direccion{
  * + get toString(): String con el id, nombre y edad del estudiante.
  * 
  * + matricular(...asignaturas): Introduce en el Array asignaturas Arrays de dos posiciones, tantos
- *      como asignaturas hayan, y en la primera posición ([0]) de cada uno de estos, cada una de las instancias
- *      de dichas asignaturas. Introduce un nuevo registro generado en el Array registros.
+ *      como asignaturas haya, y en la primera posición ([0]) de cada uno de estos, cada una de las instancias
+ *      de dichas asignaturas. Introduce un nuevo registro generado en el Array registros por cada una de las asignaturas.
  * 
  * + desmatricular(...asignaturas): Elimina del Array asignaturas las asignaturas cuyo nombre coincida
- *      con los nombres de asignaturas e introduce un nuevo registro generado en el Array registros.
+ *      con los nombres de ...asignaturas e introduce un nuevo registro generado en el Array registros por cada
+ *      asignatura de la cual se ha desmatriculado el estudiante.
  * 
  * + calificar(asignatura, nota): Si la asignatura está presente en el Array asignaturas y la nota es un
  *      número entre 0 y 10 (incluidos), busca el Array que contiene la asignatura dentro del Array asignaturas
@@ -374,42 +376,148 @@ class Estudiante{
 }
 
 /**
- * 2.3. Clase ListaEstudiantes
+ * 2.3. Clase Asignatura
  * 
  * Atributos:
  * 
- * - lista: Array de objetos Estudiante. Su getter devuelve una copia del Array y no la referencia.
+ * - nombre: String del nombre de la asignatura. Sólo puede contener letras y espacios. De lo contrario, se
+ *      inicializará como "Asignatura". Tiene getter.
+ * 
+ * - calificaciones: Array de números de las calificaciones de todos los estudiantes en la asignatura. No tiene getter.
  * 
  * Métodos:
  * 
- * + constructor(...estudiantes): Inicializa vacío el Array lista y añade los estudiantes mediante el método
+ * + constructor(nombre): Si el nombre contiene caracteres que no sean letras o espacios, se
+ *      establece como "Asignatura". De lo contrario, se establece como tal. Se inicializa vacío el Array
+ *      calificaciones.
+ * 
+ * + get promedio(): Number del promedio de los números del Array calificaciones. Devuelve el String
+ *      "Sin evaluar" si dicho array está vacío.
+ * 
+ * + get toString(): Devuelve el nombre de la asignatura (Ya que el objeto Asignatura no contiene más
+ *      atributos sobre la información de la instancia, el método es idéntico a get nombre(), pero se declarará
+ *      y usará con propósitos semánticos);
+ * 
+ * + añadirCalificacion(calificacion): Añade calificacion al Array calificaciones.
+ * 
+ * + eliminarCalificacion(calificacion): Elimina una ocurrencia cualquiera de calificacion en el Array calificaciones.
+ */
+
+class Asignatura{
+
+    #nombre;
+    #calificaciones;
+
+    constructor(nombre){
+        
+        this.#nombre = (nombre.match(/^[a-zA-ZáéíóúüÁÉÍÓÚÜ ]+$/)) ? nombre : "Asignatura";
+        this.#calificaciones = [];
+
+    }
+
+    get nombre(){
+        return this.#nombre;
+    }
+
+    get promedio(){
+
+        if(this.#calificaciones.length == 0) return "Sin evaluar";
+        
+        const resultado = this.#calificaciones.reduce((suma, calificacion) => suma += Number.parseFloat(calificacion), 0) / this.#calificaciones.length;
+    
+        return Number(resultado).toFixed(2);
+
+    }
+
+    get toString(){
+        return this.#nombre;
+    }
+
+    añadirCalificacion(calificacion){
+        this.#calificaciones.push(calificacion);
+    }
+
+    eliminarCalificacion(calificacion){
+
+        const indiceCalificacion = this.#calificaciones.indexOf(calificacion);
+
+        if(indiceCalificacion == -1) throw new Error("Ningún estudiante ha sacado dicha calificación.");
+
+        this.#calificaciones.splice(indiceCalificacion, 1);
+
+    }
+
+}
+
+/**
+ * 2.4. Clase Lista
+ * 
+ * Atributos:
+ * 
+ * - listaRef: Array de objetos. Su getter devuelve la referencia original al Array. También tiene setter.
+ *      Orientado para ser usado en la definición de las clases hijas ListaEstudiantes y ListaAsignaturas.
+ * 
+ * Métodos:
+ * 
+ * + constructor(): Inicializa vacío el Array listaRef.
+ * 
+ * + get lista(): Array de objetos. Devuelve una copia del Array listaRef y no la referencia.
+ *      Orientado para ser usado en la creación y uso de objetos ListaEstudiantes y/o ListaAsignaturas.
+ */
+
+class Lista{
+
+    #listaRef;
+
+    constructor(){
+        this.#listaRef = [];
+    }
+
+    get lista(){
+        return [...this.#listaRef];
+    }
+
+    get listaRef(){
+        return this.#listaRef;
+    }
+
+    set listaRef(listaRef){
+        this.#listaRef = listaRef;
+    }
+
+}
+
+/**
+ * 2.5. Clase ListaEstudiantes
+ * 
+ * Métodos:
+ * 
+ * + constructor(...estudiantes): Llama al constructor padre y añade los estudiantes mediante el método
  *      añadirEstudiante().
  * 
- * + get promedioGeneral(): Number del promedio de los promedios de todos los estudiantes del Array lista.
+ * + get promedioGeneral(): Number del promedio de los promedios de todos los estudiantes del Array listaRef.
  *      Devuelve el String "Sin evaluar" si ningún promedio es un número.
  * 
  * + mostrarReporte(): Muestra mediante console.log(), console.groupCollapsed() y console.groupEnd() el reporte
- *      con la información de todos los estudiantes del Array lista. console.log() muestra por
+ *      con la información de todos los estudiantes del Array listaRef. console.log() muestra por
  *      consola un mensaje. console.groupCollapsed() muestra por consola un mensaje cómo título de una
  *      carpeta colapsada de los mensajes que vayan a continuación. console.groupEnd() indica el final de
  *      dicha carpeta de mensajes.
  * 
- * + añadirEstudiante(estudiante): Si no existe el estudiante dentro del Array lista, lo añade y ordena dicho
+ * + añadirEstudiante(estudiante): Si no existe el estudiante dentro del Array listaRef, lo añade y ordena dicho
  *      Array según los números de las ids de los estudiantes. De lo contrario, devuelve un Error.
  * 
- * + eliminarEstudiante(id): Elimina del Array lista el estudiante cuya id sea la misma que id y elimina el
+ * + eliminarEstudiante(id): Elimina del Array listaRef el estudiante cuya id sea la misma que id y elimina el
  *      número ocupado de dicha id mediante el método estático eliminarNumeroOcupado().
  * 
  * + busquedaEstudiantes(exp): Array de los objetos Estudiante cuyos nombres incluyen el String exp.
  */
 
-class ListaEstudiantes{
-
-    #lista;
+class ListaEstudiantes extends Lista{
 
     constructor(...estudiantes){
 
-        this.#lista = [];
+        super();
         
         for(const estudiante of estudiantes){
 
@@ -419,13 +527,9 @@ class ListaEstudiantes{
 
     }
 
-    get lista(){
-        return [...this.#lista];
-    }
-
     get promedioGeneral(){
 
-        const estudiantesCalificados = this.#lista.filter(e => !isNaN(Number(e.promedio)));
+        const estudiantesCalificados = this.listaRef.filter(e => !isNaN(Number(e.promedio)));
         
         if(estudiantesCalificados.length == 0) return "Sin evaluar";
         
@@ -437,7 +541,7 @@ class ListaEstudiantes{
 
     mostrarReporte(){
 
-        for(const estudiante of this.#lista){
+        for(const estudiante of this.listaRef){
 
             console.groupCollapsed("[" + estudiante.id + "] " + estudiante.nombre, "boton");
 
@@ -480,130 +584,50 @@ class ListaEstudiantes{
 
     añadirEstudiante(estudiante){
 
-        if(this.#lista.filter(e => e.id == estudiante.id).length != 0) throw new Error("Ya existe el estudiante.");
+        if(this.listaRef.filter(e => e.id == estudiante.id).length != 0) throw new Error("Ya existe el estudiante.");
 
-        this.#lista.push(estudiante);
-        this.#lista.sort((e1, e2) => parseInt(e1.id.slice(1)) - parseInt(e2.id.slice(1)));
+        this.listaRef.push(estudiante);
+        this.listaRef.sort((e1, e2) => parseInt(e1.id.slice(1)) - parseInt(e2.id.slice(1)));
 
     }
 
     eliminarEstudiante(id){
         
-        if(this.#lista.filter(e => e.id != id).length == this.#lista.length) throw new Error("El estudiante no se encuentra en la lista.");
+        if(this.listaRef.filter(e => e.id != id).length == this.listaRef.length) throw new Error("El estudiante no se encuentra en la lista.");
         
-        this.#lista = this.#lista.filter(e => e.id != id);
+        this.listaRef = this.listaRef.filter(e => e.id != id);
         Estudiante.eliminarNumeroOcupado(id.slice(1));
 
     }
 
     busquedaEstudiantes(exp){
-        return this.#lista.filter(e => e.nombre.toLowerCase().includes(exp.toLowerCase()));
+        return this.listaRef.filter(e => e.nombre.toLowerCase().includes(exp.toLowerCase()));
     }
 
 }
 
 /**
- * 2.4. Clase Asignatura
- * 
- * Atributos:
- * 
- * - nombre: String del nombre de la asignatura. Sólo puede contener letras y espacios. De lo contrario, se
- *      inicializará como "Asignatura". Tiene getter.
- * 
- * - calificaciones: Array de números de las calificaciones de todos los estudiantes en la asignatura. No tiene getter.
+ * 2.6. Clase ListaAsignaturas
  * 
  * Métodos:
  * 
- * + constructor(nombre): Si el nombre contiene caracteres que no sean letras o espacios, se
- *      establece como "Asignatura". De lo contrario, se establece como tal. Se inicializa vacío el Array
- *      calificaciones.
- * 
- * + get promedio(): Number del promedio de los números del Array calificaciones. Devuelve el String
- *      "Sin evaluar" si dicho array está vacío.
- * 
- * + get toString(): Devuelve el nombre de la asignatura (Ya que el objeto Asignatura no contiene más
- *      atributos sobre la información de la instancia, el método es idéntico a get nombre(), pero se declarará
- *      y usará con propósitos semánticos);
- * 
- * + añadirCalificacion(calificacion): Añade calificacion al Array calificaciones.
- * 
- * + eliminarCalificacion(calificacion): Elimina una ocurrencia cualquiera de calificacion en el Array calificaciones.
- */
-
-class Asignatura{
-
-    #nombre;
-    #calificaciones;
-
-    constructor(nombre){
-        
-        this.#nombre = (nombre.match(/[a-zA-ZáéíóúüÁÉÍÓÚÜ  ]+/)) ? nombre : "Asignatura";
-        this.#calificaciones = [];
-
-    }
-
-    get nombre(){
-        return this.#nombre;
-    }
-
-    get promedio(){
-
-        if(this.#calificaciones.length == 0) return "Sin evaluar";
-        
-        const resultado = this.#calificaciones.reduce((suma, calificacion) => suma += Number.parseFloat(calificacion), 0) / this.#calificaciones.length;
-    
-        return Number(resultado).toFixed(2);
-
-    }
-
-    get toString(){
-        return this.#nombre;
-    }
-
-    añadirCalificacion(calificacion){
-        this.#calificaciones.push(calificacion);
-    }
-
-    eliminarCalificacion(calificacion){
-
-        const indiceCalificacion = this.#calificaciones.indexOf(calificacion);
-
-        if(indiceCalificacion == -1) throw new Error("Ningún estudiante ha sacado dicha calificación.");
-
-        this.#calificaciones.splice(indiceCalificacion, 1);
-
-    }
-
-}
-
-/**
- * 2.5. Clase ListaAsignaturas
- * 
- * Atributos:
- * 
- * - lista: Array de objetos Asignatura. Su getter devuelve una copia del Array y no la referencia.
- * 
- * Métodos:
- * 
- * + constructor(...asignatura): Inicializa vacío el Array lista y añade las asignaturas mediante el método
+ * + constructor(...asignatura): Llama al constructor padre y añade las asignaturas mediante el método
  *      añadirAsignatura().
  * 
- * + añadirAsignatura(asignatura): Si no existe la asignatura dentro del Array lista, la añade. De lo
+ * + añadirAsignatura(asignatura): Si no existe la asignatura dentro del Array listaRef, la añade. De lo
  *      contrario, devuelve un Error.
  * 
- * + eliminarAsignatura(nombre): Si existe una asignatura cuyo nombre es nombre en el Array lista, elimina
- *      de dicho Array dicha asignatura. De lo contrario, devuelve un Error.
+ * + eliminarAsignatura(nombre): Si existe una asignatura cuyo nombre coincide con alguno de los nombres de las
+ *      asignaturas del Array listaRef, elimina de dicho Array dicha asignatura. De lo contrario, devuelve un Error.
  * 
  * + busquedaAsignaturas(exp): Array de los objetos Asignatura cuyos nombres incluyen el String exp.
  */
 
-class ListaAsignaturas{
-
-    #lista;
+class ListaAsignaturas extends Lista{
 
     constructor(...asignaturas){
 
-        this.#lista = [];
+        super();
         
         for(const asignatura of asignaturas){
 
@@ -613,28 +637,24 @@ class ListaAsignaturas{
 
     }
 
-    get lista(){
-        return [...this.#lista];
-    }
-
     añadirAsignatura(asignatura){
 
-        if(this.#lista.filter(a => a.nombre == asignatura.nombre).length != 0) throw new Error("Ya existe la asignatura.");
+        if(this.listaRef.filter(a => a.nombre == asignatura.nombre).length != 0) throw new Error("Ya existe la asignatura.");
 
-        this.#lista.push(asignatura);
+        this.listaRef.push(asignatura);
 
     }
 
     eliminarAsignatura(nombre){
 
-        if(this.#lista.filter(a => a.nombre == nombre).length == 0) throw new Error("La asignatura no se encuentra en la lista.");
+        if(this.listaRef.filter(a => a.nombre == nombre).length == 0) throw new Error("La asignatura no se encuentra en la lista.");
 
-        this.#lista = this.#lista.filter(a => a.nombre != nombre);
+        this.listaRef = this.listaRef.filter(a => a.nombre != nombre);
 
     }
 
     busquedaAsignaturas(exp){
-        return this.#lista.filter(a => a.nombre.toLowerCase().includes(exp.toLowerCase()));
+        return this.listaRef.filter(a => a.nombre.toLowerCase().includes(exp.toLowerCase()));
     }
 
 }
@@ -1963,7 +1983,7 @@ while(true){
 
                             eleccion = window.prompt("Introduzca el nombre del estudiante:");
 
-                        }while(!eleccion && eleccion.trim() != "");
+                        }while(!eleccion || eleccion.trim() == "" || !eleccion.match(/^[a-zA-ZáéíóúüÁÉÍÓÚÜ ]+$/));
 
                         const resultadosEstudiantes = listaEstudiantes.busquedaEstudiantes(eleccion);
 
@@ -2012,7 +2032,7 @@ while(true){
 
                             eleccion = window.prompt("Introduzca el nombre de la asignatura:");
 
-                        }while(!eleccion && eleccion.trim() != "");
+                        }while(!eleccion || eleccion.trim() == "" || !eleccion.match(/^[a-zA-ZáéíóúüÁÉÍÓÚÜ ]+$/));
 
                         const resultadosAsignaturas = listaAsignaturas.busquedaAsignaturas(eleccion);
 
