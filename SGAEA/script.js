@@ -107,7 +107,7 @@ console.groupCollapsed = (texto, estilos = "") => {
  * 
  * La clase Direccion tiene los atributos calle, numero, piso, codigoPostal, provincia y localidad, todos son
  * tipo String y tienen getter. En el constructor se valida el código postal (5 números). Si no es válido, se
- * establecerá como "00000". Contiene un getter toString() que muestra todas las propiedades.
+ * establecerá como "00000". Contiene un toString() que muestra todas las propiedades.
  */
 
 class Direccion{
@@ -154,7 +154,7 @@ class Direccion{
         return this.#localidad;
     }
 
-    get toString(){
+    toString(){
         return this.#calle + " " + this.#numero + ", " + this.#piso + " - " + this.#codigoPostal + " " + this.#localidad + " (" + this.#provincia + ")";
     }
 
@@ -202,7 +202,7 @@ class Direccion{
  * + get promedio(): Number del promedio de la nota de cada asignatura del estudiante. Devuelve el String
  *      "Sin evaluar" si ninguna nota es un número.
  * 
- * + get toString(): String con el id, nombre y edad del estudiante.
+ * + toString(): String con el id, nombre y edad del estudiante.
  * 
  * + matricular(...asignaturas): Introduce en el Array asignaturas Arrays de dos posiciones, tantos
  *      como asignaturas haya, y en la primera posición ([0]) de cada uno de estos, cada una de las instancias
@@ -315,7 +315,7 @@ class Estudiante{
 
     }
 
-    get toString(){
+    toString(){
         return "[" + this.#id + "] " + this.#nombre + ", " + this.#edad;
     }
 
@@ -394,7 +394,7 @@ class Estudiante{
  * + get promedio(): Number del promedio de los números del Array calificaciones. Devuelve el String
  *      "Sin evaluar" si dicho array está vacío.
  * 
- * + get toString(): Devuelve el nombre de la asignatura (Ya que el objeto Asignatura no contiene más
+ * + toString(): Devuelve el nombre de la asignatura (Ya que el objeto Asignatura no contiene más
  *      atributos sobre la información de la instancia, el método es idéntico a get nombre(), pero se declarará
  *      y usará con propósitos semánticos);
  * 
@@ -429,7 +429,7 @@ class Asignatura{
 
     }
 
-    get toString(){
+    toString(){
         return this.#nombre;
     }
 
@@ -889,7 +889,7 @@ while(true){
 
                             for(const dir of listaDirecciones){
 
-                                console.log((listaDirecciones.indexOf(dir) + 1) + ". " + dir.toString, "boton");
+                                console.log((listaDirecciones.indexOf(dir) + 1) + ". " + dir.toString(), "boton");
 
                             }
 
@@ -1073,7 +1073,7 @@ while(true){
                             console.log("Estudiante Creado ✅", "subtitulo");
                             console.log("Nombre: " + nombreEstudiante);
                             console.log("Edad: " + edad);
-                            console.log("Dirección: " + direccion.toString);
+                            console.log("Dirección: " + direccion.toString());
 
                             window.alert("Estudiante creado correctamente.");
 
@@ -1082,7 +1082,7 @@ while(true){
                             console.log("Estudiante No Creado ❌", "subtitulo");
                             console.log("Nombre: " + nombreEstudiante);
                             console.log("Edad: " + edad);
-                            console.log("Dirección: " + direccion.toString);
+                            console.log("Dirección: " + direccion.toString());
 
                             window.alert(error);
 
@@ -1190,7 +1190,7 @@ while(true){
                         
                         for(const direccion of listaDirecciones){
 
-                            console.log((listaDirecciones.indexOf(direccion) + 1) + ". " + direccion.toString, "boton");
+                            console.log((listaDirecciones.indexOf(direccion) + 1) + ". " + direccion.toString(), "boton");
 
                         }
 
@@ -1224,7 +1224,7 @@ while(true){
     
                             }
 
-                            console.log((listaDirecciones.indexOf(direccion) + 1) + ". " + direccion.toString, "boton");
+                            console.log((listaDirecciones.indexOf(direccion) + 1) + ". " + direccion.toString(), "boton");
 
                         }
 
@@ -1254,7 +1254,7 @@ while(true){
                         
                         for(const estudiante of listaEstudiantes.lista){
 
-                            console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton");
+                            console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString(), "boton");
 
                         }
 
@@ -1290,7 +1290,7 @@ while(true){
         
                                 }
 
-                                console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton");
+                                console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString(), "boton");
     
                             }
 
@@ -1325,7 +1325,7 @@ while(true){
                         
                         for(const asignatura of listaAsignaturas.lista){
 
-                            console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.toString, "boton");
+                            console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.toString(), "boton");
 
                         }
 
@@ -1346,7 +1346,7 @@ while(true){
 
                         try{
 
-                            listaAsignaturas.eliminarAsignatura(listaAsignaturas.lista[eleccion - 1].toString);
+                            listaAsignaturas.eliminarAsignatura(listaAsignaturas.lista[eleccion - 1].toString());
 
                             console.clear();
                             console.log("Eliminar Asignatura ➖📕", "titulo");
@@ -1361,7 +1361,7 @@ while(true){
         
                                 }
 
-                                console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.toString, "boton");
+                                console.log((listaAsignaturas.lista.indexOf(asignatura) + 1) + ". " + asignatura.toString(), "boton");
     
                             }
 
@@ -1419,11 +1419,11 @@ while(true){
 
                     if(estudiante.asignaturas.length != listaAsignaturas.lista.length){
 
-                        console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton");
+                        console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString(), "boton");
 
                     }else{
                         
-                        console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton", "text-decoration: line-through;");
+                        console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString(), "boton", "text-decoration: line-through;");
 
                     }
 
@@ -1461,7 +1461,7 @@ while(true){
 
                     console.clear();
                     console.log("Matricular ✍", "titulo");
-                    console.log("Estudiante: " + estudiante.toString);
+                    console.log("Estudiante: " + estudiante.toString());
                     console.log("Seleccionar Asignaturas 📚", "subtitulo");
                     
                     let textoSeleccionadas = "Seleccionadas (" + asignaturasSeleccionadas.length + ")";
@@ -1473,7 +1473,7 @@ while(true){
                     for(const asignatura of asignaturasDisponibles){
 
                         const seleccionada = asignaturasSeleccionadas.includes(asignatura) ? "❎" : "⬛";
-                        console.log(seleccionada + " " + (asignaturasDisponibles.indexOf(asignatura) + 1) + ". " + asignatura.toString, "boton");
+                        console.log(seleccionada + " " + (asignaturasDisponibles.indexOf(asignatura) + 1) + ". " + asignatura.toString(), "boton");
 
                     }
 
@@ -1513,8 +1513,8 @@ while(true){
                             console.clear();
                             console.log("Matricular ✍", "titulo");
                             console.log("Matrícula Terminada ✅", "subtitulo");
-                            console.log("Estudiante: " + estudiante.toString);
-                            console.log("Asignaturas (" + asignaturasSeleccionadas.length + "): " + asignaturasSeleccionadas.map(a => a.toString).join(", "));
+                            console.log("Estudiante: " + estudiante.toString());
+                            console.log("Asignaturas (" + asignaturasSeleccionadas.length + "): " + asignaturasSeleccionadas.map(a => a.toString()).join(", "));
                             
                             window.alert("Estudiante matriculado correctamente");
     
@@ -1578,7 +1578,7 @@ while(true){
 
                 for(const estudiante of listaMatriculados){
 
-                    console.log((listaMatriculados.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton");
+                    console.log((listaMatriculados.indexOf(estudiante) + 1) + ". " + estudiante.toString(), "boton");
 
                 }
 
@@ -1614,7 +1614,7 @@ while(true){
                     for(const asignatura of estudiante.asignaturas){
 
                         const seleccionada = asignaturasSeleccionadas.includes(asignatura[0]) ? "❎" : "⬛";
-                        console.log(seleccionada + " " + (estudiante.asignaturas.indexOf(asignatura) + 1) + ". " + asignatura[0].toString, "boton");
+                        console.log(seleccionada + " " + (estudiante.asignaturas.indexOf(asignatura) + 1) + ". " + asignatura[0].toString(), "boton");
 
                     }
 
@@ -1654,8 +1654,8 @@ while(true){
                             console.clear();
                             console.log("Desmatricular 📤", "titulo");
                             console.log("Desmatrícula Terminada ✅", "subtitulo");
-                            console.log("Estudiante: " + estudiante.toString);
-                            console.log("Asignaturas (" + asignaturasSeleccionadas.length + "): " + asignaturasSeleccionadas.map(a => a.toString).join(", "));
+                            console.log("Estudiante: " + estudiante.toString());
+                            console.log("Asignaturas (" + asignaturasSeleccionadas.length + "): " + asignaturasSeleccionadas.map(a => a.toString()).join(", "));
                             
                             window.alert("Estudiante desmatriculado correctamente.");
 
@@ -1709,7 +1709,7 @@ while(true){
                                 
                 for(const estudiante of listaEstudiantes.lista){
 
-                    console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton");
+                    console.log((listaEstudiantes.lista.indexOf(estudiante) + 1) + ". " + estudiante.toString(), "boton");
 
                 }
 
@@ -1802,7 +1802,7 @@ while(true){
                                 
                 for(const estudiante of matriculados){
 
-                    console.log((matriculados.indexOf(estudiante) + 1) + ". " + estudiante.toString, "boton");
+                    console.log((matriculados.indexOf(estudiante) + 1) + ". " + estudiante.toString(), "boton");
 
                 }
 
@@ -1824,12 +1824,12 @@ while(true){
 
                     console.clear();
                     console.log("Calificar 🔢", "titulo");
-                    console.log("Estudiante: " + estudiante.toString);
+                    console.log("Estudiante: " + estudiante.toString());
                     console.log("Seleccionar Asignatura 📕", "subtitulo");
                                     
                     for(const asignatura of estudiante.asignaturas){
 
-                        let resultado = (estudiante.asignaturas.indexOf(asignatura) + 1) + ". " + asignatura[0].toString;
+                        let resultado = (estudiante.asignaturas.indexOf(asignatura) + 1) + ". " + asignatura[0].toString();
                         
                         if(typeof asignatura[1] != "string") resultado += " (" + asignatura[1].toFixed(2) + ")";
                         console.log(resultado, "boton");
@@ -1872,8 +1872,8 @@ while(true){
                     console.clear();
                     console.log("Calificar 🔢", "titulo");
                     console.log("Poner Nota ✍", "subtitulo");
-                    console.log("Estudiante: " + estudiante.toString);
-                    console.log("Asignatura: " + asignatura.toString);
+                    console.log("Estudiante: " + estudiante.toString());
+                    console.log("Asignatura: " + asignatura.toString());
                     console.log("Nota: ");
 
                     do{
@@ -1903,8 +1903,8 @@ while(true){
                         console.clear();
                         console.log("Calificar 🔢", "titulo");
                         console.log("Estudiante Calificado ✅", "subtitulo");
-                        console.log("Estudiante: " + estudiante.toString);
-                        console.log("Asignatura: " + asignatura.toString);
+                        console.log("Estudiante: " + estudiante.toString());
+                        console.log("Asignatura: " + asignatura.toString());
                         console.log("Nota: " + nota);
 
                         window.alert("Estudiante calificado correctamente.");
@@ -1975,7 +1975,7 @@ while(true){
 
                         for(const estudiante of listaEstudiantes.lista){
 
-                            console.log(estudiante.toString, "boton");
+                            console.log(estudiante.toString(), "boton");
 
                         }
 
@@ -2000,7 +2000,7 @@ while(true){
 
                         for(const estudiante of resultadosEstudiantes){
 
-                            console.log(estudiante.toString, "boton");
+                            console.log(estudiante.toString(), "boton");
 
                         }
 
@@ -2024,7 +2024,7 @@ while(true){
 
                         for(const estudiante of listaAsignaturas.lista){
 
-                            console.log(asignatura.toString, "boton");
+                            console.log(asignatura.toString(), "boton");
 
                         }
 
@@ -2049,7 +2049,7 @@ while(true){
 
                         for(const estudiante of resultadosAsignaturas){
 
-                            console.log(estudiante.toString, "boton");
+                            console.log(estudiante.toString(), "boton");
 
                         }
 

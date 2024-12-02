@@ -39,7 +39,7 @@
  * 
  * La clase Direccion tiene los atributos calle, numero, piso, codigoPostal, provincia y localidad, todos son
  * tipo String y tienen getter. En el constructor se valida el código postal (5 números). Si no es válido, se
- * establecerá como "00000". Contiene un getter toString() que muestra todas las propiedades.
+ * establecerá como "00000". Contiene un toString() que muestra todas las propiedades.
  */
 
 class Direccion{
@@ -90,7 +90,7 @@ class Direccion{
  * + get promedio(): Number del promedio de la nota de cada asignatura del estudiante. Devuelve el String
  *      "Sin evaluar" si ninguna nota es un número.
  * 
- * + get toString(): String con el id, nombre y edad del estudiante.
+ * + toString(): String con el id, nombre y edad del estudiante.
  * 
  * + matricular(...asignaturas): Introduce en el Array asignaturas Arrays de dos posiciones, tantos
  *      como asignaturas haya, y en la primera posición ([0]) de cada uno de estos, cada una de las instancias
@@ -134,7 +134,7 @@ class Estudiante{
  * + get promedio(): Number del promedio de los números del Array calificaciones. Devuelve el String
  *      "Sin evaluar" si dicho array está vacío.
  * 
- * + get toString(): Devuelve el nombre de la asignatura (Ya que el objeto Asignatura no contiene más
+ * + toString(): Devuelve el nombre de la asignatura (Ya que el objeto Asignatura no contiene más
  *      atributos sobre la información de la instancia, el método es idéntico a get nombre(), pero se declarará
  *      y usará con propósitos semánticos);
  * 
