@@ -97,7 +97,8 @@ class Direccion{
  *      de dichas asignaturas. Introduce un nuevo registro generado en el Array registros por cada una de las asignaturas.
  * 
  * + desmatricular(...asignaturas): Elimina del Array asignaturas las asignaturas cuyo nombre coincida
- *      con los nombres de asignaturas e introduce un nuevo registro generado en el Array registros.
+ *      con los nombres de ...asignaturas e introduce un nuevo registro generado en el Array registros por cada
+ *      asignatura de la cual se ha desmatriculado el estudiante.
  * 
  * + calificar(asignatura, nota): Si la asignatura está presente en el Array asignaturas y la nota es un
  *      número entre 0 y 10 (incluidos), busca el Array que contiene la asignatura dentro del Array asignaturas
