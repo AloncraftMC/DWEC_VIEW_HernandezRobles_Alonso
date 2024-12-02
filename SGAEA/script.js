@@ -106,7 +106,7 @@ console.groupCollapsed = (texto, estilos = "") => {
  * 2.1. Clase Direccion
  * 
  * La clase Direccion tiene los atributos calle, numero, piso, codigoPostal, provincia y localidad, todos son
- * tipo String y contienen getter. En el constructor se valida el código postal. Si no es válido, se
+ * tipo String y tienen getter. En el constructor se valida el código postal (5 números). Si no es válido, se
  * establecerá como "00000". Contiene un getter toString() que muestra todas las propiedades.
  */
 
@@ -166,15 +166,15 @@ class Direccion{
  * Atributos:
  * 
  * - id: String indentificador único del estudiante. Será "E" seguido del número siguiente posible en el
- *      atributo estático numerosOcupados. Contiene getter.
+ *      atributo estático numerosOcupados, y será calculado en el constructor. Tiene getter.
  * 
  * - nombre: String del nombre del estudiante. Sólo puede contener letras y espacios. De lo contrario, se
- *      inicializará como "Estudiante". Contiene getter.
+ *      inicializará como "Estudiante". Tiene getter.
  * 
  * - edad: Number de edad del estudiante. Sólo puede ser positiva. De lo contrario, se inicializará como 0.
- *      Contiene getter.
+ *      Tiene getter.
  * 
- * - direccion: Objeto Direccion con campos de la dirección del estudiante. Contiene getter.
+ * - direccion: Objeto Direccion con campos de la dirección del estudiante. Tiene getter.
  * 
  * - asignaturas: Array (matriz) de asignaturas de las cuales el estudiante está matriculado. Cada elemento
  *      es un Array con dos posiciones. La primera ([0]) es la instancia en sí del objeto Asignatura.
@@ -188,35 +188,35 @@ class Direccion{
  *      Strings con la información de cada registro.
  * 
  * - numerosOcupados (estático): Array de números de las ids usadas por los estudiantes creados en ese
- *      momento. Se actualizará dinámicamente en la creación y eliminación de estudiantes.
+ *      momento. Se actualizará dinámicamente en la creación y eliminación de estudiantes. No tiene getter.
  * 
  * Métodos:
  * 
- * - constructor(nombre, edad, direccion): Calcula el número de la id, lo añade al Array estático
- *      numerosOcupados, y establece la id como el String "E" concatenado de dicho número. Si el nombre es
- *      null o contiene caracteres que no sean letras o espacios, se establece como "Estudiante". De lo
- *      contrario, se establece como tal. Si la edad es un número negativo, se establece como 0.
+ * + constructor(nombre, edad, direccion): Calcula el número de la id, empezando por 1 hasta que encuentre un número
+ *      no ocupado, lo añade al Array estático numerosOcupados, y establece la id como el String "E" concatenado de
+ *      dicho número. Si el nombre es null o contiene caracteres que no sean letras o espacios, se establece como
+ *      "Estudiante". De lo contrario, se establece como tal. Si la edad es un número negativo, se establece como 0.
  *      De lo contrario, se establece como tal. Se inicializan vacíos los Arrays asignaturas y registros.
  * 
- * - get promedio(): Number del promedio de la nota de cada asignatura del estudiante. Devuelve el String
+ * + get promedio(): Number del promedio de la nota de cada asignatura del estudiante. Devuelve el String
  *      "Sin evaluar" si ninguna nota es un número.
  * 
- * - get toString(): String con el id, nombre y edad del estudiante.
+ * + get toString(): String con el id, nombre y edad del estudiante.
  * 
- * - matricular(...asignaturas): Introduce en el Array asignaturas Arrays de dos posiciones, tantos
+ * + matricular(...asignaturas): Introduce en el Array asignaturas Arrays de dos posiciones, tantos
  *      como asignaturas hayan, y en la primera posición ([0]) de cada uno de estos, cada una de las instancias
  *      de dichas asignaturas. Introduce un nuevo registro generado en el Array registros.
  * 
- * - desmatricular(...asignaturas): Elimina del Array asignaturas las asignaturas cuyo nombre coincida
+ * + desmatricular(...asignaturas): Elimina del Array asignaturas las asignaturas cuyo nombre coincida
  *      con los nombres de asignaturas e introduce un nuevo registro generado en el Array registros.
  * 
- * - calificar(asignatura, nota): Si la asignatura está presente en el Array asignaturas y la nota es un
+ * + calificar(asignatura, nota): Si la asignatura está presente en el Array asignaturas y la nota es un
  *      número entre 0 y 10 (incluidos), busca el Array que contiene la asignatura dentro del Array asignaturas
  *      y establece en la segunda posición ([1]) la nota. Además añade dicha calificación a la lista de
  *      calificaciones de la asignatura mediante el método añadirCalificacion(). De lo contrario,
  *      devuelve un Error correspondiente.
  * 
- * - eliminarNumeroOcupado(numero) (estático): Elimina numero del Array estático numerosOcupados.
+ * + eliminarNumeroOcupado(numero) (estático): Elimina numero del Array estático numerosOcupados.
  */
 
 class Estudiante{
@@ -382,25 +382,25 @@ class Estudiante{
  * 
  * Métodos:
  * 
- * - constructor(...estudiantes): Inicializa vacío el Array lista y añade los estudiantes mediante el método
+ * + constructor(...estudiantes): Inicializa vacío el Array lista y añade los estudiantes mediante el método
  *      añadirEstudiante().
  * 
- * - get promedioGeneral(): Number del promedio de los promedios de todos los estudiantes del Array lista.
+ * + get promedioGeneral(): Number del promedio de los promedios de todos los estudiantes del Array lista.
  *      Devuelve el String "Sin evaluar" si ningún promedio es un número.
  * 
- * - mostrarReporte(): Muestra mediante console.log(), console.groupCollapsed() y console.groupEnd() el reporte
+ * + mostrarReporte(): Muestra mediante console.log(), console.groupCollapsed() y console.groupEnd() el reporte
  *      con la información de todos los estudiantes del Array lista. console.log() muestra por
  *      consola un mensaje. console.groupCollapsed() muestra por consola un mensaje cómo título de una
  *      carpeta colapsada de los mensajes que vayan a continuación. console.groupEnd() indica el final de
  *      dicha carpeta de mensajes.
  * 
- * - añadirEstudiante(estudiante): Si no existe el estudiante dentro del Array lista, lo añade y ordena dicho
+ * + añadirEstudiante(estudiante): Si no existe el estudiante dentro del Array lista, lo añade y ordena dicho
  *      Array según los números de las ids de los estudiantes. De lo contrario, devuelve un Error.
  * 
- * - eliminarEstudiante(id): Elimina del Array lista el estudiante cuya id sea la misma que id y elimina el
+ * + eliminarEstudiante(id): Elimina del Array lista el estudiante cuya id sea la misma que id y elimina el
  *      número ocupado de dicha id mediante el método estático eliminarNumeroOcupado().
  * 
- * - busquedaEstudiantes(exp): Array de los objetos Estudiante cuyos nombres incluyen el String exp.
+ * + busquedaEstudiantes(exp): Array de los objetos Estudiante cuyos nombres incluyen el String exp.
  */
 
 class ListaEstudiantes{
@@ -508,26 +508,26 @@ class ListaEstudiantes{
  * Atributos:
  * 
  * - nombre: String del nombre de la asignatura. Sólo puede contener letras y espacios. De lo contrario, se
- *      inicializará como "Asignatura". Contiene getter.
+ *      inicializará como "Asignatura". Tiene getter.
  * 
- * - calificaciones: Array de números de las calificaciones de todos los estudiantes en la asignatura.
+ * - calificaciones: Array de números de las calificaciones de todos los estudiantes en la asignatura. No tiene getter.
  * 
  * Métodos:
  * 
- * - constructor(nombre): Si el nombre contiene caracteres que no sean letras o espacios, se
+ * + constructor(nombre): Si el nombre contiene caracteres que no sean letras o espacios, se
  *      establece como "Asignatura". De lo contrario, se establece como tal. Se inicializa vacío el Array
  *      calificaciones.
  * 
- * - get promedio(): Number del promedio de los números del Array calificaciones. Devuelve el String
+ * + get promedio(): Number del promedio de los números del Array calificaciones. Devuelve el String
  *      "Sin evaluar" si dicho array está vacío.
  * 
- * - get toString(): Devuelve el nombre de la asignatura (Ya que el objeto Asignatura no contiene más
+ * + get toString(): Devuelve el nombre de la asignatura (Ya que el objeto Asignatura no contiene más
  *      atributos sobre la información de la instancia, el método es idéntico a get nombre(), pero se declarará
  *      y usará con propósitos semánticos);
  * 
- * - añadirCalificacion(calificacion): Añade calificacion al Array calificaciones.
+ * + añadirCalificacion(calificacion): Añade calificacion al Array calificaciones.
  * 
- * - eliminarCalificacion(calificacion): Elimina una ocurrencia de calificacion en el Array calificaciones.
+ * + eliminarCalificacion(calificacion): Elimina una ocurrencia cualquiera de calificacion en el Array calificaciones.
  */
 
 class Asignatura{
@@ -585,16 +585,16 @@ class Asignatura{
  * 
  * Métodos:
  * 
- * - constructor(...asignatura): Inicializa vacío el Array lista y añade las asignaturas mediante el método
+ * + constructor(...asignatura): Inicializa vacío el Array lista y añade las asignaturas mediante el método
  *      añadirAsignatura().
  * 
- * - añadirAsignatura(asignatura): Si no existe la asignatura dentro del Array lista, la añade. De lo
+ * + añadirAsignatura(asignatura): Si no existe la asignatura dentro del Array lista, la añade. De lo
  *      contrario, devuelve un Error.
  * 
- * - eliminarAsignatura(nombre): Si existe una asignatura cuyo nombre es nombre en el Array lista, elimina
+ * + eliminarAsignatura(nombre): Si existe una asignatura cuyo nombre es nombre en el Array lista, elimina
  *      de dicho Array dicha asignatura. De lo contrario, devuelve un Error.
  * 
- * - busquedaAsignaturas(exp): Array de los objetos Asignatura cuyos nombres incluyen el String exp.
+ * + busquedaAsignaturas(exp): Array de los objetos Asignatura cuyos nombres incluyen el String exp.
  */
 
 class ListaAsignaturas{
@@ -1943,6 +1943,7 @@ while(true){
                     /**
                      * 3.7.1. Buscar Estudiantes
                      * 
+                     * Al principio, se muestran todos los estudiantes de listaEstudiantes.
                      * Se introduce un texto y se muestran las coincidencias de los estudiantes cuyo nombre
                      * incluya dicho texto.
                      */
@@ -1990,7 +1991,8 @@ while(true){
 
                     /**
                      * 3.7.2. Buscar Asignaturas
-                     * 
+                     *
+                     * Al principio, se muestran todos las asignaturas de listaAsignaturas.
                      * Se introduce un texto y se muestran las coincidencias de las asignaturas cuyo nombre
                      * incluya dicho texto.
                      */
