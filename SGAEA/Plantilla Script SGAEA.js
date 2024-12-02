@@ -93,7 +93,7 @@ class Direccion{
  * + get toString(): String con el id, nombre y edad del estudiante.
  * 
  * + matricular(...asignaturas): Introduce en el Array asignaturas Arrays de dos posiciones, tantos
- *      como asignaturas hayan, y en la primera posición ([0]) de cada uno de estos, cada una de las instancias
+ *      como asignaturas haya, y en la primera posición ([0]) de cada uno de estos, cada una de las instancias
  *      de dichas asignaturas. Introduce un nuevo registro generado en el Array registros.
  * 
  * + desmatricular(...asignaturas): Elimina del Array asignaturas las asignaturas cuyo nombre coincida
