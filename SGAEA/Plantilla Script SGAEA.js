@@ -94,7 +94,7 @@ class Direccion{
  * 
  * + matricular(...asignaturas): Introduce en el Array asignaturas Arrays de dos posiciones, tantos
  *      como asignaturas haya, y en la primera posición ([0]) de cada uno de estos, cada una de las instancias
- *      de dichas asignaturas. Introduce un nuevo registro generado en el Array registros.
+ *      de dichas asignaturas. Introduce un nuevo registro generado en el Array registros por cada una de las asignaturas.
  * 
  * + desmatricular(...asignaturas): Elimina del Array asignaturas las asignaturas cuyo nombre coincida
  *      con los nombres de asignaturas e introduce un nuevo registro generado en el Array registros.
