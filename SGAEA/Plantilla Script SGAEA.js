@@ -76,7 +76,7 @@ class Direccion{
  *      es un String del tipo de trámite ("Matrícula" o "Desmatrícula"). Su getter devuelve un Array de
  *      Strings con la información de cada registro.
  * 
- * - numerosOcupados (estático): Array de números de las ids usadas por los estudiantes creados en ese
+ * - numerosOcupados (estático): Array de los números de las ids usadas por los estudiantes creados en ese
  *      momento. Se actualizará dinámicamente en la creación y eliminación de estudiantes. No tiene getter.
  * 
  * Métodos:
