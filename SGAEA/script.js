@@ -1950,13 +1950,19 @@ while(true){
                     case 1:
 
                         console.log("Buscar Estudiantes 🔎🎓", "titulo");
-                        console.log("Nombre: ");
+                        console.log("Lista de Estudiantes", "subtitulo");
+
+                        for(const estudiante of listaEstudiantes.lista){
+
+                            console.log(estudiante.toString, "boton");
+
+                        }
 
                         do{
 
                             eleccion = window.prompt("Introduzca el nombre del estudiante:");
 
-                        }while(!eleccion || eleccion.trim() === "");
+                        }while(!eleccion && eleccion.trim() != "");
 
                         const resultadosEstudiantes = listaEstudiantes.busquedaEstudiantes(eleccion);
 
@@ -1992,13 +1998,19 @@ while(true){
                     case 2:
 
                         console.log("Buscar Asignaturas 🔎📚", "titulo");
-                        console.log("Nombre: ");
+                        console.log("Lista de Asignaturas", "subtitulo");
+
+                        for(const estudiante of listaAsignaturas.lista){
+
+                            console.log(asignatura.toString, "boton");
+
+                        }
 
                         do{
 
                             eleccion = window.prompt("Introduzca el nombre de la asignatura:");
 
-                        }while(!eleccion || eleccion.trim() === "");
+                        }while(!eleccion && eleccion.trim() != "");
 
                         const resultadosAsignaturas = listaAsignaturas.busquedaAsignaturas(eleccion);
 
