@@ -1,4 +1,4 @@
-/*
+/**
  ╭-----------------------------------------------------------------------------------------------╮
  | SGAEA - Sistema de Gestión Académica de Estudiantes y Asignaturas                             |
  | Alonso Hernández Robles 2º DAW AULA                                                           |
@@ -6,6 +6,10 @@
  | Github Pages: https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/index.html |
  | (Necesario abrir la consola de las DevTools antes de cargar la página)                        |
  ╰-----------------------------------------------------------------------------------------------╯
+ */
+
+/** Nota: Todo lo que no suene familiar, como console.groupCollapsed(), se puede obviar sin problema.
+  * Sobre todo el Punto 1, a continuación mostrado.
  */
 
 /**
