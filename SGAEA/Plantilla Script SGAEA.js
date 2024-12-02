@@ -53,8 +53,9 @@ class Direccion{
  * 
  * Atributos:
  * 
- * - id: String indentificador único del estudiante. Será "E" seguido del número siguiente posible en el
- *      atributo estático numerosOcupados, y será calculado en el constructor. Tiene getter.
+ * - id: String indentificador único del estudiante. Será "E" seguido del número siguiente posible que no esté
+ *      ocupado. Los números ocupados estarán almacenados en el atributo estático numerosOcupados, y será
+ *      calculado en el constructor. Volviendo al id, tiene getter.
  * 
  * - nombre: String del nombre del estudiante. Sólo puede contener letras y espacios. De lo contrario, se
  *      inicializará como "Estudiante". Tiene getter.
