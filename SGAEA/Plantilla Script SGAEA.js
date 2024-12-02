@@ -200,8 +200,8 @@ class Asignatura{
  * + añadirAsignatura(asignatura): Si no existe la asignatura dentro del Array lista, la añade. De lo
  *      contrario, devuelve un Error.
  * 
- * + eliminarAsignatura(nombre): Si existe una asignatura cuyo nombre es nombre en el Array lista, elimina
- *      de dicho Array dicha asignatura. De lo contrario, devuelve un Error.
+ * + eliminarAsignatura(nombre): Si existe una asignatura cuyo nombre coincide con alguno de los nombres de
+ *      las asignaturas del Array lista, elimina de dicho Array dicha asignatura. De lo contrario, devuelve un Error.
  * 
  * + busquedaAsignaturas(exp): Array de los objetos Asignatura cuyos nombres incluyen el String exp.
  */
