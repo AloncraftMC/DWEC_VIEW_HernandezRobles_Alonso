@@ -1,4 +1,4 @@
-# SGAEA
+# SGAEA - Sistema de Gestión Académica de Estudiantes y Asignaturas
 ## ¡LÉEME ANTES DE USAR!
 
 Para ver funcionar el script, necesitas iniciar la pestaña con la consola ya mostrándose.
