@@ -1,7 +1,8 @@
 # SGAEA - Sistema de Gestión Académica de Estudiantes y Asignaturas
 ## ¡LÉEME ANTES DE USAR!
 
-> ### https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso/tree/master/SGAEA
+> GitHub: https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso/tree/master/SGAEA
+> GitHub Pages: https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/index.html
 
 Para ver funcionar el script, necesitas iniciar la pestaña con la consola ya mostrándose.
 
