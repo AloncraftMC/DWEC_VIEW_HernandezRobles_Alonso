@@ -3953,10 +3953,17 @@ console.log(string);	// Imprime "manzana - banana - kiwi"
 
 ## Clase `Date`
 
+Fecha de hoy
+
+```js
+Date.now()
+```
+
 Crear objeto fecha de hoy
 
 ```js
 const fecha = new Date();
+const fecha = Date.now();
 ```
 
 Crear objeto fecha con milisegundos, empezando desde `01/01/1970 01:00`
@@ -3968,21 +3975,35 @@ const fecha = new Date(1000000000000);
 Crear objeto fecha especificada
 
 ```js
-const fecha = new Date("2024-01-01");
+const fecha = new Date("2024-12-01");
+const fecha = new Date("2024-12-01T09:30:00");
+
+const fecha = new Date(2024, 11, 1);
+const fecha = new Date(2024, 11, 1, 9, 30, 0);
 ```
+
+Formatos de fecha
+
+| Método | Formato | Ejemplo |
+|-|-|-|
+| `fecha.toString()` | Legible | `"Wed Dec 04 2024 14:35:00 GMT+0100 (CET)"` |
+| `fecha.toISOString()` | ISO 8601 (UTC) | `"2024-12-04T13:35:00.000Z"` |
+| `fecha.toLocaleDateString()` | Fecha Local | `"04/12/2024"` |
+| `fecha.toLocaleTimeString()` | Hora Local | `"14:35:00"` |
+| `fecha.toUTCString()` | UTC Legible | `"Wed, 04 Dec 2024 13:35:00 GMT"` |
 
 Año
 
 ```js
 fecha.getFullYear()
-fecha.setFullYear(año)
+fecha.setFullYear(año);
 ```
 
 Mes (número)
 
 ```js
 fecha.getMonth()
-fecha.setMonth(mes)
+fecha.setMonth(mes);
 ```
 
 Día (número)
@@ -4017,6 +4038,13 @@ Segundos
 ```js
 fecha.getSeconds()
 fecha.setSeconds(segundos);
+```
+
+Miliegundos
+
+```js
+fecha.getMilliseconds()
+fecha.setMilliseconds(milisegundos);
 ```
 
 ---
@@ -4077,6 +4105,29 @@ ciudad: Madrid
 ```js
 const string = "x";
 const objeto = JSON.parse(string);	// Error
+```
+</details>
+
+Objeto de `string` manejando clave y valor
+
+```js
+JSON.parse(string, (clave, valor) => {
+	// Instrucciones
+})
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```js
+const string = '{"nombre": "Alonso", "edad": 20}';
+
+const objeto = JSON.parse(string, (clave, value) => {
+	if (clave == "edad") return value + 1;
+	return value;
+});
+
+console.log(objeto.edad);	// Imprime 21
 ```
 </details>
 
@@ -4203,74 +4254,6 @@ class Hijo extends Padre {
 		console.log("Metodo del hijo");
 	}
 }
-```
-
----
-
-Crear objeto fecha de hoy
-
-```js
-let fecha = new Date();
-```
-
-Crear objeto fecha con milisegundos, empezando desde `01/01/1970 01:00`
-
-```js
-let fecha = new Date(1000000000000);
-```
-
-Crear objeto fecha especificada
-
-```js
-let fecha = new Date("2024-01-01");
-```
-
-Año
-
-```js
-fecha.getFullYear()
-fecha.setFullYear(año)
-```
-
-Mes (número)
-
-```js
-fecha.getMonth()
-fecha.setMonth(mes)
-```
-
-Día (número)
-
-```js
-fecha.getDate()
-fecha.setDate(día);
-```
-
-Día (semana)
-
-```js
-fecha.getDay()
-```
-
-Hora
-
-```js
-fecha.getHours()
-fecha.setHours(hora);
-```
-
-Minutos
-
-```js
-fecha.getMinutes()
-fecha.setMinutes(minutos);
-```
-
-Segundos
-
-```js
-fecha.getSeconds()
-fecha.setSeconds(segundos);
 ```
 
 ---
