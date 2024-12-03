@@ -234,6 +234,8 @@ class ListaAsignaturas extends Lista{
  * 
  * Extra: Se inicializan y añaden 5 direcciones, 5 estudiantes y 5 asignaturas.
  *        Se matriculan a algunos estudiantes de algunas asignaturas.
+ *        Se desmatriculan a algunos estudiantes de algunas asignaturas.
+ *        Se califican a algunos estudiantes en algunas asignaturas.
  * 
  * Por siempre, se preguntará la elección principal de la acción a realizar.
  * La variable eleccion será la variable que siempre obtenga el valor de window.prompt().

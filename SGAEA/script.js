@@ -667,6 +667,8 @@ class ListaAsignaturas extends Lista{
  * 
  * Extra: Se inicializan y añaden 5 direcciones, 5 estudiantes y 5 asignaturas.
  *        Se matriculan a algunos estudiantes de algunas asignaturas.
+ *        Se desmatriculan a algunos estudiantes de algunas asignaturas.
+ *        Se califican a algunos estudiantes en algunas asignaturas.
  * 
  * Por siempre, se preguntará la elección principal de la acción a realizar.
  * La variable eleccion será la variable que siempre obtenga el valor de window.prompt().
@@ -677,11 +679,15 @@ const listaAsignaturas = new ListaAsignaturas();
 let listaDirecciones = [];
 let eleccion;
 
+// Creación de Direcciones
+
 listaDirecciones.push(new Direccion("C/ Afán de Ribera", 15, "2ºA", 18005, "Granada", "Granada"));
 listaDirecciones.push(new Direccion("C/ Aliatar", 17, "Piso Bajo", 18110, "Granada", "Híjar"));
 listaDirecciones.push(new Direccion("C/ Canalejas", 5, "2ºB", 23790, "Jaén", "Porcuna"));
 listaDirecciones.push(new Direccion("C/ Paraguay", 1, "Piso Bajo", 18210, "Granada", "Peligros"));
 listaDirecciones.push(new Direccion("C/ Málaga", 23, "5ºC", 29770, "Málaga", "Torrox"));
+
+// Creación de Estudiantes
 
 listaEstudiantes.añadirEstudiante(new Estudiante("Alonso Hernández Robles", 21, listaDirecciones[0]));
 listaEstudiantes.añadirEstudiante(new Estudiante("Álex Galán Varo", 20, listaDirecciones[1]));
@@ -689,11 +695,15 @@ listaEstudiantes.añadirEstudiante(new Estudiante("Ana Quero de La Rosa", 19, li
 listaEstudiantes.añadirEstudiante(new Estudiante("Adrián Martín Vázquez", 19, listaDirecciones[3]));
 listaEstudiantes.añadirEstudiante(new Estudiante("Javier Escobar Vela", 22, listaDirecciones[4]));
 
+// Creación de Asignaturas
+
 listaAsignaturas.añadirAsignatura(new Asignatura("DWEC"));
 listaAsignaturas.añadirAsignatura(new Asignatura("DWES"));
 listaAsignaturas.añadirAsignatura(new Asignatura("DEAW"));
 listaAsignaturas.añadirAsignatura(new Asignatura("DIW"));
 listaAsignaturas.añadirAsignatura(new Asignatura("EIE"));
+
+// Matriculación de Estudiantes
 
 listaEstudiantes.lista[0].matricular(listaAsignaturas.lista[0]);
 listaEstudiantes.lista[0].matricular(listaAsignaturas.lista[1]);
@@ -703,13 +713,36 @@ listaEstudiantes.lista[0].matricular(listaAsignaturas.lista[4]);
 
 listaEstudiantes.lista[1].matricular(listaAsignaturas.lista[0]);
 listaEstudiantes.lista[1].matricular(listaAsignaturas.lista[1]);
+listaEstudiantes.lista[1].matricular(listaAsignaturas.lista[2]);
 listaEstudiantes.lista[1].matricular(listaAsignaturas.lista[3]);
 
+listaEstudiantes.lista[2].matricular(listaAsignaturas.lista[1]);
 listaEstudiantes.lista[2].matricular(listaAsignaturas.lista[2]);
 listaEstudiantes.lista[2].matricular(listaAsignaturas.lista[3]);
 
 listaEstudiantes.lista[3].matricular(listaAsignaturas.lista[2]);
+listaEstudiantes.lista[3].matricular(listaAsignaturas.lista[3]);
 listaEstudiantes.lista[3].matricular(listaAsignaturas.lista[4]);
+
+// Desmatriculaciones de Estudiantes
+
+listaEstudiantes.lista[0].desmatricular(listaAsignaturas.lista[4]);
+listaEstudiantes.lista[1].desmatricular(listaAsignaturas.lista[2]);
+listaEstudiantes.lista[2].desmatricular(listaAsignaturas.lista[1]);
+listaEstudiantes.lista[3].desmatricular(listaAsignaturas.lista[3]);
+
+// Calificación de Estudiantes
+
+listaEstudiantes.lista[0].calificar(listaAsignaturas.lista[0], 10);
+listaEstudiantes.lista[0].calificar(listaAsignaturas.lista[1], 9.3);
+listaEstudiantes.lista[0].calificar(listaAsignaturas.lista[3], 9);
+
+listaEstudiantes.lista[1].calificar(listaAsignaturas.lista[1], 9.4);
+
+listaEstudiantes.lista[2].calificar(listaAsignaturas.lista[2], 8.3);
+listaEstudiantes.lista[2].calificar(listaAsignaturas.lista[3], 8.85);
+
+// Bucle while
 
 while(true){
 
