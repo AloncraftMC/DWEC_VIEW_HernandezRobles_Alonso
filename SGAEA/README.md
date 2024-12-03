@@ -1,6 +1,8 @@
 # SGAEA - Sistema de Gestión Académica de Estudiantes y Asignaturas
 ## ¡LÉEME ANTES DE USAR!
 
+###### https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso/tree/master/SGAEA
+
 Para ver funcionar el script, necesitas iniciar la pestaña con la consola ya mostrándose.
 
 Es decir, abre la consola, y después ve a la URL de `index.html`. La consola seguirá ahí, pero el código se ejecutará.
