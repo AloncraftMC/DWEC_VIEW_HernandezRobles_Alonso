@@ -1,6 +1,6 @@
 # Lista de Conceptos JavaScript
 > Alonso Hernández Robles 2º DAW
-> Ver. 28/11/2024 (_Ahora en Markdown!_)
+> Ver. 03/12/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -1460,11 +1460,11 @@ array.some((elemento, indice, array) => Instrucciones);
 ```js
 const numeros = [1, 2, 3, 4, 5];
 
-const hayNegativos = numeros.every(numero => numero < 0);
-const hayPares = numeros.every(numero => numero % 2 == 0);
+const todosNegativos = numeros.every(numero => numero < 0);
+const hayPares = numeros.some(numero => numero % 2 == 0);
 const hayImpares = numeros.some(numero => numero % 2 != 0);
 
-console.log(hayNegativos);	// false
+console.log(todosNegativos);	// false
 console.log(hayPares);		// true
 console.log(hayImpares);	// true
 ```
