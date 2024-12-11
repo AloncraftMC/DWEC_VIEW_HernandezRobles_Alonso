@@ -2074,7 +2074,7 @@ while(true){
                         console.log("Buscar Asignaturas 🔎📚", "titulo");
                         console.log("Lista de Asignaturas", "subtitulo");
 
-                        for(const estudiante of listaAsignaturas.lista){
+                        for(const asignatura of listaAsignaturas.lista){
 
                             console.log(asignatura.toString(), "boton");
 
