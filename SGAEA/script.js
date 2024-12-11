@@ -1872,6 +1872,8 @@ while(true){
                     console.log("0. ⏪ Volver", "boton");
 
                     let valorNota;
+                    let sobreescritura = false;
+                    let asignatura;
 
                     do{
 
@@ -1887,7 +1889,26 @@ while(true){
 
                             if(typeof valorNota != "string"){
 
-                                if(!window.confirm("¿Seguro que quiere sobreescribir la nota anterior (" + valorNota.toFixed(2) + ")?")) eleccion = -1;
+                                if(window.confirm("¿Seguro que quiere sobreescribir la nota anterior (" + valorNota.toFixed(2) + ")?")){
+                                
+                                    sobreescritura = true;
+                                    asignatura = estudiante.asignaturas[eleccion - 1][0];
+                                    
+                                    try{
+
+                                        asignatura.eliminarCalificacion(valorNota);
+
+                                    }catch(error){
+
+                                        window.alert(error);
+
+                                    }
+                                
+                                }else{
+                                 
+                                    eleccion = -1;
+                                
+                                }
 
                             }
 
@@ -1900,7 +1921,7 @@ while(true){
                         break;
                     }
 
-                    const asignatura = estudiante.asignaturas[eleccion - 1][0];
+                    if(!sobreescritura) asignatura = estudiante.asignaturas[eleccion - 1][0];
 
                     console.clear();
                     console.log("Calificar 🔢", "titulo");
@@ -1928,8 +1949,6 @@ while(true){
                     const nota = eleccion;
 
                     try{
-
-                        if(typeof valorNota != "string") asignatura.eliminarCalificacion(valorNota.toFixed(2));
 
                         estudiante.calificar(asignatura, nota);
 
