@@ -278,24 +278,13 @@ class Estudiante{
         const resultado = [];
 
         for(const registro of this.#registros){
-
+            
             const asignatura = registro[0];
-            const fecha = registro[1];
+            const fecha = registro[1].toLocaleDateString("es-ES", {weekday: "long", year: "numeric", month: "short", day: "numeric"});
+            const hora = registro[1].toLocaleTimeString("es-ES");
             const tipo = registro[2];
 
-            const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
-            const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-            const diaSemana = diasSemana[fecha.getDay()];
-            const dia = fecha.getDate();
-            const mes = meses[fecha.getMonth()]; 
-            const anio = fecha.getFullYear();
-            const horas = String(fecha.getHours()).padStart(2, '0');
-            const minutos = String(fecha.getMinutes()).padStart(2, '0');
-            const segundos = String(fecha.getSeconds()).padStart(2, '0');
-
-            const fechaEspañol = diaSemana + ", " + dia + " de " + mes + " de " + anio + " a las " + horas + ":" + minutos + ":" + segundos;
-
-            resultado.push("[\t" + tipo + "\t|\t" + asignatura + "\t|\t" + fechaEspañol + "\t]");
+            resultado.push("[\t" + tipo + "\t|\t" + asignatura + "\t|\t" + fecha + " a las " + hora + "\t]");
 
         }
         
@@ -323,7 +312,7 @@ class Estudiante{
 
         for(const asignatura of asignaturas){
 
-            if(!this.#asignaturas.map(a => a[0].nombre).includes(asignatura.nombre)){
+            if(this.#asignaturas.filter(a => a[0].nombre == asignatura.nombre).length == 0){
 
                 this.#asignaturas.push([asignatura, "Sin evaluar"]);
                 this.#registros.push([asignatura.nombre, new Date(), "Matriculación"]);
