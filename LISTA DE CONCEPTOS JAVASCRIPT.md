@@ -4230,6 +4230,8 @@ class Objeto {
 
 ### Herencia
 
+- En JavaScript, la herencia múltiple no es soportada (sólo es posible heredar de una clase).
+
 - La clase hija tiene las propiedades de la clase padre.
 - `super()` es el constructor del padre y `super` es el objeto padre.
 
@@ -4306,14 +4308,30 @@ try{
 }catch(error){
 	// Manejo de errores
 }finally{
-	// Código final
+	// Código final (opcional)
 }
+```
+
+Lanzar un error predefinido
+
+```js
+throw error;
 ```
 
 Lanzar un error personalizado
 
 ```js
 throw new Error("Mensaje de error");
+```
+
+Lanzar un error personalizado de algunos tipos predefinidos:
+
+```js
+throw new SyntaxError("Error de Sintaxis");			// Ej: console.log(;
+throw new ReferenceError("Error de Referencia");	// Ej: console.log(noDefinida);
+throw new TypeError("Error de Tipo");				// Ej: numero.toUpperCase();
+throw new RangeError("Error de Rango");				// Ej: array[-1]
+... 
 ```
 
 Mensaje del error
@@ -4326,6 +4344,12 @@ Tipo del error
 
 ```js
 error.name
+```
+
+Pila del error
+
+```js
+error.stack
 ```
 
 ---
