@@ -3,7 +3,7 @@
 
 > GitHub: https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso/tree/master/SGAEA
 >
-> GitHub Pages: https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/index.html
+> GitHub Pages: https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/Original%20(1ª%20Evaluación)/index.html
 
 Para ver funcionar el script, necesitas iniciar la pestaña con la consola ya mostrándose.
 
