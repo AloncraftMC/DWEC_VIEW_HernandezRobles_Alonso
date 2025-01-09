@@ -338,7 +338,7 @@ class Estudiante{
 
     }
 
-    calificar(asignatura, nota){
+    calificar(asignatura, nota){ 
 
         if(!this.#asignaturas.map(a => a[0].nombre).includes(asignatura.nombre)) throw new Error("El estudiante no está cursando la asignatura.");
 
