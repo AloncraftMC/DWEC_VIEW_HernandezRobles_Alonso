@@ -1,11 +1,11 @@
 /** 
- ╭-----------------------------------------------------------------------------------------------╮
- | SGAEA - Sistema de Gestión Académica de Estudiantes y Asignaturas                             |
- | Alonso Hernández Robles 2º DAW AULA                                                           |
- |                                                                                               |
- | Github Pages: https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/index.html |
- | (Es necesario abrir la consola de las DevTools antes de cargar la página)                     |
- ╰-----------------------------------------------------------------------------------------------╯
+ ╭--------------------------------------------------------------------------------------------------------------------------------------╮
+ | SGAEA - Sistema de Gestión Académica de Estudiantes y Asignaturas                                                                    |
+ | Alonso Hernández Robles 2º DAW AULA                                                                                                  |
+ |                                                                                                                                      |
+ | Github Pages: https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/Original%20(1%C2%AA%20Evaluaci%C3%B3n)/index.html |
+ | (Es necesario abrir la consola de las DevTools antes de cargar la página)                                                            |
+ ╰--------------------------------------------------------------------------------------------------------------------------------------╯
  */
 
 /**
