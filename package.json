@@ -1,0 +1,26 @@
+{
+  "name": "desarrollo-web-cliente",
+  "version": "1.0.0",
+  "description": "Esta es la descripción",
+  "main": "index.js",
+  "scripts": {
+    "doc": "jsdoc SGAEA/Tarea_4_3/script.js -d  SGAEA/Tarea_4_3/docs -p",
+    "docPruebas": "jsdoc Pruebas/Prueba/script.js -d Pruebas/Prueba/docs -p",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso.git"
+  },
+  "author": "AloncraftMC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso/issues"
+  },
+  "homepage": "https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso#readme",
+  "devDependencies": {
+    "jsdoc": "^4.0.4",
+    "jsdoc-to-markdown": "^9.1.1",
+    "minami": "^1.2.3"
+  }
+}

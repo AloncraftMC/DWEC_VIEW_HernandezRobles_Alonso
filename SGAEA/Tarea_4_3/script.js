@@ -1,3 +1,9 @@
+/**
+ * @file script.js
+ * @author Alonso Hernández Robles
+ * @fileoverview Tarea 4.3. Documentación de SGAEA usando JSDoc.
+ */
+
 /** 
  ╭--------------------------------------------------------------------------------------------------------------------------------------╮
  | SGAEA - Sistema de Gestión Académica de Estudiantes y Asignaturas                                                                    |
@@ -21,6 +27,8 @@
  */
 
 /**
+ * @global
+ * @constant
  * @type {Function}
  * @description Función original de console.log().
  */
@@ -66,6 +74,8 @@ console.log = (texto, estilos = "", otrosEstilos = "") => {
 };
 
 /**
+ * @global
+ * @constant
  * @type {Function}
  * @description Función original de console.groupCollapsed().
  */
@@ -248,6 +258,8 @@ class Direccion{
     }
 
     /**
+     * @function
+     * @override
      * @returns {String} Dirección completa.
      * @description Devuelve la dirección completa.
      * @example "C/ Rara 12, 3ºA - 18015 Granada (Granada)"
@@ -496,6 +508,8 @@ class Estudiante{
     }
 
     /**
+     * @function
+     * @override
      * @returns {String} Id, nombre y edad del estudiante.
      * @description Devuelve el id, nombre y edad del estudiante.
      * @example "[E1] Alonso Hernández Robles, 20"
@@ -505,6 +519,7 @@ class Estudiante{
     }
 
     /**
+     * @function
      * @param  {...Asignatura} asignaturas Asignaturas a matricular
      * @description Matricula al estudiante de las asignaturas proporcionadas.
      * @see #asignaturas
@@ -526,6 +541,7 @@ class Estudiante{
     }
 
     /**
+     * @function
      * @param  {...Asignatura} asignaturas Asignaturas a desmatricular
      * @description Desmatricula al estudiante de las asignaturas proporcionadas.
      * @see #asignaturas
@@ -547,6 +563,7 @@ class Estudiante{
     }
 
     /**
+     * @function
      * @param {Asignatura} asignatura Asignatura a calificar
      * @param {Number} nota Nota a asignar
      * @throws {Error} Si la asignatura no está en el Array #asignaturas.
@@ -575,6 +592,7 @@ class Estudiante{
     }
 
     /**
+     * @function
      * @param {Number} numero Número de la id a eliminar
      * @static
      * @description Elimina un número de la lista de números ocupados.
@@ -638,7 +656,7 @@ class Asignatura{
      * @constructor
      * @param {String} nombre Nombre de la asignatura
      * @description Si el nombre contiene caracteres que no sean letras o espacios, se establece como "Asignatura". De lo contrario, se establece como tal. Se inicializa vacío el Array #calificaciones.
-     * @see #nombres
+     * @see #nombre
      * @see #calificaciones
      */
     constructor(nombre){
@@ -673,14 +691,18 @@ class Asignatura{
     }
 
     /**
+     * @function
+     * @override
      * @returns {String} Nombre de la asignatura.
      * @description Devuelve el nombre de la asignatura (Ya que el objeto Asignatura no contiene más atributos sobre la información de la instancia, el método es idéntico a get nombre(), pero se declarará y usará con propósitos semánticos).
+     * @example "DWEC"
      */
     toString(){
         return this.#nombre;
     }
 
     /**
+     * @function
      * @param {Number} calificacion Calificación a añadir
      * @description Añade una calificación a la asignatura.
      * @see #calificaciones
@@ -690,6 +712,7 @@ class Asignatura{
     }
 
     /**
+     * @function
      * @param {Number} calificacion Calificación a eliminar
      * @throws {Error} Si la calificación no está en el Array #calificaciones.
      * @description Elimina una ocurrencia cualquiera de calificacion en el Array #calificaciones.
@@ -838,6 +861,7 @@ class ListaEstudiantes extends Lista{
     }
     
     /**
+     * @function
      * @description Muestra, mediante console.log(), console.groupCollapsed() y console.groupEnd(), el reporte con la información de todos los estudiantes del Array listaRef. console.log() muestra por consola un mensaje. console.groupCollapsed() muestra por consola un mensaje cómo título de una carpeta colapsada de los mensajes que vayan a continuación. console.groupEnd() indica el final de dicha carpeta de mensajes.
      * @see #listaRef
      */
@@ -885,6 +909,7 @@ class ListaEstudiantes extends Lista{
     }
 
     /**
+     * @function
      * @param {Estudiante} estudiante Estudiante a añadir
      * @throws {Error} Si el estudiante ya está en el Array listaRef.
      * @description Añade un estudiante a la lista. Ordena el Array según los números de las ids de los estudiantes.
@@ -900,6 +925,7 @@ class ListaEstudiantes extends Lista{
     }
 
     /**
+     * @function
      * @param {String} id Id del estudiante a eliminar
      * @throws {Error} Si el estudiante no está en el Array listaRef.
      * @description Elimina un estudiante de la lista y elimina el número ocupado de la id del estudiante.
@@ -915,6 +941,7 @@ class ListaEstudiantes extends Lista{
     }
 
     /**
+     * @function
      * @param {String} exp Expresión a buscar
      * @returns {Estudiante[]} Estudiantes cuyos nombres incluyen el String exp.
      * @description Busca estudiantes cuyos nombres incluyen el String exp.
@@ -969,6 +996,7 @@ class ListaAsignaturas extends Lista{
     }
 
     /**
+     * @function
      * @param {Asignatura} asignatura Asignatura a añadir
      * @throws {Error} Si la asignatura ya está en el Array listaRef.
      * @description Añade una asignatura a la lista.
@@ -983,6 +1011,7 @@ class ListaAsignaturas extends Lista{
     }
 
     /**
+     * @function
      * @param {String} nombre Nombre de la asignatura a eliminar
      * @throws {Error} Si la asignatura no está en el Array listaRef.
      * @description Elimina una asignatura de la lista.
@@ -997,6 +1026,7 @@ class ListaAsignaturas extends Lista{
     }
 
     /**
+     * @function
      * @param {String} exp Expresión a buscar
      * @returns {Asignatura[]} Asignaturas cuyos nombres incluyen el String exp.
      * @description Busca asignaturas cuyos nombres incluyen el String exp.
@@ -1024,6 +1054,8 @@ class ListaAsignaturas extends Lista{
  */
 
 /**
+ * @global
+ * @constant
  * @type {ListaEstudiantes} 
  * @description Lista de estudiantes.
  * @see ListaEstudiantes
@@ -1031,6 +1063,8 @@ class ListaAsignaturas extends Lista{
 const listaEstudiantes = new ListaEstudiantes();
 
 /**
+ * @global
+ * @constant
  * @type {ListaAsignaturas} 
  * @description Lista de asignaturas.
  * @see ListaAsignaturas
@@ -1038,6 +1072,7 @@ const listaEstudiantes = new ListaEstudiantes();
 const listaAsignaturas = new ListaAsignaturas();
 
 /**
+ * @global
  * @type {Direccion[]}
  * @description Lista de direcciones.
  * @see Direccion
@@ -1045,6 +1080,7 @@ const listaAsignaturas = new ListaAsignaturas();
 let listaDirecciones = [];
 
 /**
+ * @global
  * @type {Number}
  * @description Elección de la acción a realizar.
  */
