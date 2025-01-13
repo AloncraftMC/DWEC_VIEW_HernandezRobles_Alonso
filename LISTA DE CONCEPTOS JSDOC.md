@@ -1,4 +1,4 @@
-# Lista de Conceptos JavaScript
+# Lista de Conceptos JSDoc
 > Alonso Hernández Robles 2º DAW
 > Ver. 12/01/2025
 
