@@ -4328,7 +4328,7 @@ Lanzar un error personalizado de algunos tipos predefinidos:
 
 ```js
 throw new SyntaxError("Error de Sintaxis");			// Ej: console.log(;
-throw new ReferenceError("Error de Referencia");	// Ej: console.log(noDefinida);
+throw new ReferenceError("Error de Referencia");		// Ej: console.log(noDefinida);
 throw new TypeError("Error de Tipo");				// Ej: numero.toUpperCase();
 throw new RangeError("Error de Rango");				// Ej: array[-1]
 ... 
