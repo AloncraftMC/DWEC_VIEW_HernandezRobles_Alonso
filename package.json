@@ -21,6 +21,7 @@
   "devDependencies": {
     "jsdoc": "^4.0.4",
     "jsdoc-to-markdown": "^9.1.1",
-    "minami": "^1.2.3"
+    "minami": "^1.2.3",
+    "taffydb": "^2.7.3"
   }
 }

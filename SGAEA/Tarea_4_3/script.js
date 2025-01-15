@@ -1,7 +1,7 @@
 /**
  * @file script.js
  * @author Alonso Hernández Robles
- * @fileoverview Tarea 4.3. Documentación de SGAEA usando JSDoc.
+ * @fileoverview ##### **Tarea 4.3**. Documentación de SGAEA usando JSDoc.
  */
 
 /** 
@@ -30,7 +30,7 @@
  * @global
  * @constant
  * @type {Function}
- * @description Función original de console.log().
+ * @description **Función original** de `console.log()`.
  */
 const defaultConsoleLog = console.log;
 
@@ -77,7 +77,7 @@ console.log = (texto, estilos = "", otrosEstilos = "") => {
  * @global
  * @constant
  * @type {Function}
- * @description Función original de console.groupCollapsed().
+ * @description **Función original** de `console.groupCollapsed()`.
  */
 const defaultConsoleGroupCollapsed = console.groupCollapsed;
 
@@ -130,49 +130,49 @@ console.groupCollapsed = (texto, estilos = "") => {
 
 /**
  * @class
- * @classdesc Representa una dirección de un estudiante.
+ * @classdesc Representa una **dirección** de un estudiante.
  */
 class Direccion{
 
     /**
      * @type {String}
      * @private
-     * @description Calle de la dirección. Tiene getter.
+     * @description **Calle** de la dirección. Tiene getter.
      */
     #calle;
 
     /**
      * @type {String}
      * @private
-     * @description Número de la dirección. Tiene getter.
+     * @description **Número** de la dirección. Tiene getter.
      */
     #numero;
 
     /**
      * @type {String}
      * @private
-     * @description Piso de la dirección. Tiene getter.
+     * @description **Piso** de la dirección. Tiene getter.
      */
     #piso;
 
     /**
      * @type {String}
      * @private
-     * @description Código postal de la dirección. Tiene getter.
+     * @description **Código postal** de la dirección. Tiene getter.
      */
     #codigoPostal;
 
     /**
      * @type {String}
      * @private
-     * @description Provincia de la dirección. Tiene getter.
+     * @description **Provincia** de la dirección. Tiene getter.
      */
     #provincia;
 
     /**
      * @type {String}
      * @private
-     * @description Localidad de la dirección. Tiene getter.
+     * @description **Localidad** de la dirección. Tiene getter.
      */
     #localidad;
 
@@ -184,7 +184,9 @@ class Direccion{
      * @param {String} codigoPostal Código postal de la dirección
      * @param {String} provincia Provincia de la dirección
      * @param {String} localidad Localidad de la dirección
-     * @description Crea una dirección con los datos proporcionados. Se valida el código postal (5 números). Si no es válido, se establecerá como "00000".
+     * @description Crea una **dirección** con los datos proporcionados.
+     * - Se valida el código postal (5 números).
+     * - Si no es válido, se establecerá como `"00000"`.
      * @see #calle
      * @see #numero
      * @see #piso
@@ -333,49 +335,62 @@ class Direccion{
 
 /**
  * @class
- * @classdesc Representa un estudiante.
+ * @classdesc Representa un **estudiante**.
  */
 class Estudiante{
 
     /**
      * @type {String}
      * @private
-     * @description Identificador único del estudiante. Será "E" seguido del número siguiente posible que no esté ocupado. Los números ocupados estarán almacenados en el atributo estático #numerosOcupados, y será calculado en el constructor. Volviendo al id, tiene getter.
+     * @description **Identificador** único del estudiante. Tiene getter.
+     * - Será `"E"` seguido del número siguiente posible que no esté ocupado.
+     * - Los números ocupados estarán almacenados en el atributo estático `#numerosOcupados`, y será calculado en el constructor.
      */
     #id;
 
     /**
      * @type {String}
      * @private
-     * @description Nombre del estudiante. Sólo puede contener letras y espacios. De lo contrario, se inicializará como "Estudiante". Tiene getter.
+     * @description **Nombre** del estudiante. Tiene getter.
+     * - Sólo puede contener letras y espacios. De lo contrario, se inicializará como `"Estudiante"`.
      */
     #nombre;
 
     /**
      * @type {Number}
      * @private
-     * @description Edad del estudiante. Sólo puede ser positiva. De lo contrario, se inicializará como 0. Tiene getter.
+     * @description **Edad** del estudiante. Tiene getter.
+     * - Sólo puede ser positiva. De lo contrario, se inicializará como `0`.
      */
     #edad;
 
     /**
      * @type {Direccion}
      * @private
-     * @description Dirección del estudiante. Tiene getter.
+     * @description **Dirección** del estudiante. Tiene getter.
      */
     #direccion;
 
     /**
-     * @type {Asignatura[]}
+     * @type {Array[]}
      * @private
-     * @description Asignaturas de las cuales el estudiante está matriculado. Cada elemento es un Array con dos posiciones. La primera ([0]) es la instancia en sí del objeto Asignatura. La segunda ([1]) es la calificación que tiene el estudiante en dicha asignatura. Su getter devuelve una copia del Array y no la referencia.
+     * @description **Asignaturas** de las cuales el estudiante está matriculado y sus correspondientes **calificaciones**.
+     * - Cada elemento es un Array con dos posiciones.
+     *      - La primera (`[0]`) es la instancia en sí del objeto `Asignatura`.
+     *      - La segunda (`[1]`) es la calificación que tiene el estudiante en dicha asignatura.
+     * - Su getter devuelve una copia del Array y no la referencia.
      */
     #asignaturas;
 
     /**
      * @type {String[]}
      * @private
-     * @description Registros de matriculaciones y desmatriculaciones que se han aplicado al estudiante. Cada elemento es un Array con tres posiciones. La primera ([0]) es un String del nombre de la asignatura. La segunda ([1]) es la fecha y hora en la cual se hizo el trámite. La tercera ([2]) es un String del tipo de trámite ("Matriculación" o "Desmatriculación"). Su getter devuelve un Array de Strings con la información de cada registro.
+     * @description **Registros** de matriculaciones y desmatriculaciones que se han aplicado al estudiante.
+     * - Cada elemento es un Array con tres posiciones.
+     *      - La primera (`[0]`) es un String del nombre de la asignatura.
+     *      - La segunda (`[1]`) es la fecha y hora en la cual se hizo el trámite.
+     *      - La tercera (`[2]`) es un String del tipo de trámite (`"Matriculación"` o `"Desmatriculación"`).
+     * - Su getter devuelve un Array de Strings con la información de cada registro.
      */
     #registros;
     
@@ -383,7 +398,8 @@ class Estudiante{
      * @type {Number[]}
      * @private
      * @static
-     * @description Números de las ids usadas por los estudiantes creados en ese momento. Se actualizará dinámicamente en la creación y eliminación de estudiantes. No tiene getter.
+     * @description **Números** de las ids usadas por los estudiantes creados en ese momento. No tiene getter.
+     * - Se actualizará dinámicamente en la creación y eliminación de estudiantes.
      */
     static #numerosOcupados = [];
 
@@ -392,7 +408,11 @@ class Estudiante{
      * @param {String} nombre Nombre del estudiante
      * @param {String} edad Edad del estudiante
      * @param {Direccion} direccion Dirección del estudiante
-     * @description Calcula el número de la id, empezando por 1 hasta que encuentre un número no ocupado, lo añade al Array estático #numerosOcupados, y establece la id como el String "E" concatenado de dicho número. Si el nombre es null o contiene caracteres que no sean letras o espacios, se establece como "Estudiante". De lo contrario, se establece como tal. Si la edad es un número negativo, se establece como 0. De lo contrario, se establece como tal. Se inicializan vacíos los Arrays #asignaturas y #registros.
+     * @description Crea un **estudiante** con los datos proporcionados.
+     * - Calcula el número de la id, empezando por `1` hasta que encuentre un número no ocupado, lo añade al Array estático `#numerosOcupados`, y establece la id como el String `"E"` concatenado de dicho número.
+     * - Si el nombre es `null` o contiene caracteres que no sean letras o espacios, se establece como `"Estudiante"`. De lo contrario, se establece como tal.
+     * - Si la edad es un número negativo, se establece como `0`. De lo contrario, se establece como tal.
+     * - Se inicializan vacíos los Arrays `#asignaturas` y `#registros`.
      * @see #id
      * @see #nombre
      * @see #edad
@@ -458,8 +478,8 @@ class Estudiante{
     }
 
     /**
-     * @type {Asignatura[]}
-     * @description Getter de las asignaturas del estudiante.
+     * @type {Array[]}
+     * @description Getter de las asignaturas del estudiante con sus correspondientes calificaciones.
      * @see #asignaturas
      */
     get asignaturas(){
@@ -492,7 +512,7 @@ class Estudiante{
 
     /**
      * @type {String | Number}
-     * @description Promedio de las calificaciones de las asignaturas del estudiante.
+     * @description **Promedio** de las calificaciones de las asignaturas del estudiante.
      * @see #asignaturas
      */
     get promedio(){
@@ -521,7 +541,7 @@ class Estudiante{
     /**
      * @function
      * @param  {...Asignatura} asignaturas Asignaturas a matricular
-     * @description Matricula al estudiante de las asignaturas proporcionadas.
+     * @description **Matricula** al estudiante de las asignaturas proporcionadas y genera un registro con dicha información.
      * @see #asignaturas
      * @see #registros
      */
@@ -543,7 +563,7 @@ class Estudiante{
     /**
      * @function
      * @param  {...Asignatura} asignaturas Asignaturas a desmatricular
-     * @description Desmatricula al estudiante de las asignaturas proporcionadas.
+     * @description **Desmatricula** al estudiante de las asignaturas proporcionadas y genera un registro con dicha información.
      * @see #asignaturas
      * @see #registros
      */
@@ -566,9 +586,9 @@ class Estudiante{
      * @function
      * @param {Asignatura} asignatura Asignatura a calificar
      * @param {Number} nota Nota a asignar
-     * @throws {Error} Si la asignatura no está en el Array #asignaturas.
-     * @throws {Error} Si la nota no está entre 0 y 10.
-     * @description Califica al estudiante en la asignatura proporcionada con la nota proporcionada.
+     * @throws {Error} Si la asignatura no está en el Array `#asignaturas`.
+     * @throws {Error} Si la nota no está entre `0` y `10`.
+     * @description **Califica** al estudiante en la asignatura proporcionada con la nota proporcionada.
      * @see #asignaturas
      */
     calificar(asignatura, nota){
@@ -595,7 +615,7 @@ class Estudiante{
      * @function
      * @param {Number} numero Número de la id a eliminar
      * @static
-     * @description Elimina un número de la lista de números ocupados.
+     * @description **Elimina** un número de la lista de números ocupados.
      * @see #numerosOcupados
      */
     static eliminarNumeroOcupado(numero){
@@ -634,28 +654,31 @@ class Estudiante{
 
 /**
  * @class
- * @classdesc Representa una asignatura.
+ * @classdesc Representa una **asignatura**.
  */
 class Asignatura{
 
     /**
      * @type {String}
      * @private
-     * @description Nombre de la asignatura. Sólo puede contener letras y espacios. De lo contrario, se inicializará como "Asignatura". Tiene getter.
+     * @description **Nombre** de la asignatura. Tiene getter.
+     * - Sólo puede contener letras y espacios. De lo contrario, se inicializará como `"Asignatura"`.
      */
     #nombre;
 
     /**
      * @type {Number[]}
      * @private
-     * @description Calificaciones de los estudiantes en la asignatura. No tiene getter.
+     * @description **Calificaciones** de los estudiantes en la asignatura. No tiene getter.
      */
     #calificaciones;
 
     /**
      * @constructor
      * @param {String} nombre Nombre de la asignatura
-     * @description Si el nombre contiene caracteres que no sean letras o espacios, se establece como "Asignatura". De lo contrario, se establece como tal. Se inicializa vacío el Array #calificaciones.
+     * @description Crea una **asignatura** con los datos proporcionados.
+     * - Si el nombre contiene caracteres que no sean letras o espacios, se establece como `"Asignatura"`. De lo contrario, se establece como tal.
+     * - Se inicializa vacío el Array `#calificaciones`.
      * @see #nombre
      * @see #calificaciones
      */
@@ -677,7 +700,8 @@ class Asignatura{
 
     /**
      * @type {Number}
-     * @description Promedio de las calificaciones de los estudiantes en la asignatura. Devuelve "Sin evaluar" si no hay calificaciones.
+     * @description **Promedio** de las calificaciones de los estudiantes en la asignatura.
+     * - Devuelve `"Sin evaluar"` si no hay calificaciones.
      * @see #calificaciones
      */
     get promedio(){
@@ -694,7 +718,8 @@ class Asignatura{
      * @function
      * @override
      * @returns {String} Nombre de la asignatura.
-     * @description Devuelve el nombre de la asignatura (Ya que el objeto Asignatura no contiene más atributos sobre la información de la instancia, el método es idéntico a get nombre(), pero se declarará y usará con propósitos semánticos).
+     * @description Devuelve el nombre de la asignatura.
+     * > Ya que el objeto Asignatura no contiene más atributos sobre la información de la instancia, el método es idéntico a `get nombre()`, pero se declarará y usará con propósitos semánticos.
      * @example "DWEC"
      */
     toString(){
@@ -704,7 +729,8 @@ class Asignatura{
     /**
      * @function
      * @param {Number} calificacion Calificación a añadir
-     * @description Añade una calificación a la asignatura.
+     * @description **Añade** una calificación a la asignatura.
+     * > Saber a qué estudiante está correspondida la calificación no es relevante, para ello dicha información ya se encuentra almacenada dentro de la propiedad privada [`#asignaturas`](Estudiante.html#asignaturas) de la clase [`Estudiante`](Estudiante.html).
      * @see #calificaciones
      */
     añadirCalificacion(calificacion){
@@ -715,7 +741,8 @@ class Asignatura{
      * @function
      * @param {Number} calificacion Calificación a eliminar
      * @throws {Error} Si la calificación no está en el Array #calificaciones.
-     * @description Elimina una ocurrencia cualquiera de calificacion en el Array #calificaciones.
+     * @description **Elimina** una ocurrencia cualquiera de `calificacion` en el Array `#calificaciones`.
+     * > Saber a qué estudiante está correspondida la calificación no es relevante, para ello dicha información ya se encuentra almacenada dentro de la propiedad privada [`#asignaturas`](Estudiante.html#asignaturas) de la clase [`Estudiante`](Estudiante.html).
      * @see #calificaciones
      */
     eliminarCalificacion(calificacion){
@@ -748,20 +775,23 @@ class Asignatura{
 
 /**
  * @class
- * @classdesc Representa una lista de objetos.
+ * @classdesc Representa una **lista** de objetos.
  */
 class Lista{
 
     /**
      * @type {Object[]}
      * @private
-     * @description Array de objetos. Su getter devuelve la referencia original al Array. También tiene setter. Orientado para ser usado en la definición de las clases hijas ListaEstudiantes y ListaAsignaturas.
+     * @description Array de objetos.
+     * - Su getter devuelve la referencia original al Array. También tiene setter.
+     * > Orientado para ser usado en la definición de las clases hijas [`ListaEstudiantes`](ListaEstudiantes.html) y [`ListaAsignaturas`](ListaAsignaturas.html).
      */
     #listaRef;
 
     /**
      * @constructor
-     * @description Inicializa vacío el Array #listaRef.
+     * @description Crea una **lista**.
+     * - Inicializa vacío el Array `#listaRef`.
      * @see #listaRef
      */
     constructor(){
@@ -770,7 +800,9 @@ class Lista{
 
     /**
      * @type {Object[]}
-     * @description Array de objetos. Devuelve una copia del Array #listaRef y no la referencia. Orientado para ser usado en la creación y uso de objetos ListaEstudiantes y/o ListaAsignaturas.
+     * @description Array de objetos.
+     * - Devuelve una copia del Array `#listaRef` y no la referencia.
+     * > Orientado para ser usado en la creación y uso de objetos [`ListaEstudiantes`](ListaEstudiantes.html) y/o [`ListaAsignaturas`](ListaAsignaturas.html).
      * @see #listaRef
      */
     get lista(){
@@ -779,7 +811,7 @@ class Lista{
 
     /**
      * @type {Object[]}
-     * @description Getter del Array #listaRef.
+     * @description Getter del Array `#listaRef`.
      * @see #listaRef
      */
     get listaRef(){
@@ -820,7 +852,7 @@ class Lista{
 
 /**
  * @class
- * @classdesc Representa una lista de estudiantes.
+ * @classdesc Representa una **lista de estudiantes**.
  * @extends Lista
  * @see Lista
  */
@@ -829,7 +861,8 @@ class ListaEstudiantes extends Lista{
     /**
      * @constructor
      * @param {...Estudiante} estudiantes Estudiantes a añadir
-     * @description Llama al constructor padre y añade los estudiantes mediante el método añadirEstudiante().
+     * @description Crea una **lista de estudiantes**.
+     * - Llama al constructor padre y añade los estudiantes mediante el método `añadirEstudiante()`.
      */
     constructor(...estudiantes){
 
@@ -845,7 +878,8 @@ class ListaEstudiantes extends Lista{
 
     /**
      * @type {String | Number}
-     * @description Promedio general de los promedios de los estudiantes. Devuelve "Sin evaluar" si ningún promedio es un número.
+     * @description **Promedio general**, de los promedios de los estudiantes.
+     * - Devuelve `"Sin evaluar"` si ningún promedio es un número.
      * @see #listaRef
      */
     get promedioGeneral(){
@@ -862,7 +896,13 @@ class ListaEstudiantes extends Lista{
     
     /**
      * @function
-     * @description Muestra, mediante console.log(), console.groupCollapsed() y console.groupEnd(), el reporte con la información de todos los estudiantes del Array listaRef. console.log() muestra por consola un mensaje. console.groupCollapsed() muestra por consola un mensaje cómo título de una carpeta colapsada de los mensajes que vayan a continuación. console.groupEnd() indica el final de dicha carpeta de mensajes.
+     * @description **Muestra**, mediante `console.log()`, `console.groupCollapsed()` y `console.groupEnd()`, el reporte con la información de todos los estudiantes del Array `listaRef`.
+     * 
+     * > `console.log()` muestra por consola un mensaje.
+     * >
+     * > `console.groupCollapsed()` muestra por consola un mensaje cómo título de una carpeta colapsada de los mensajes que vayan a continuación.
+     * >
+     * > `console.groupEnd()` indica el final de dicha carpeta de mensajes.
      * @see #listaRef
      */
     mostrarReporte(){
@@ -911,8 +951,9 @@ class ListaEstudiantes extends Lista{
     /**
      * @function
      * @param {Estudiante} estudiante Estudiante a añadir
-     * @throws {Error} Si el estudiante ya está en el Array listaRef.
-     * @description Añade un estudiante a la lista. Ordena el Array según los números de las ids de los estudiantes.
+     * @throws {Error} Si el estudiante ya está en el Array `listaRef`.
+     * @description **Añade** un estudiante a la lista.
+     * - Ordena el Array según los números de las ids de los estudiantes.
      * @see #listaRef
      */
     añadirEstudiante(estudiante){
@@ -927,8 +968,9 @@ class ListaEstudiantes extends Lista{
     /**
      * @function
      * @param {String} id Id del estudiante a eliminar
-     * @throws {Error} Si el estudiante no está en el Array listaRef.
-     * @description Elimina un estudiante de la lista y elimina el número ocupado de la id del estudiante.
+     * @throws {Error} Si el estudiante no está en el Array `listaRef`.
+     * @description **Elimina** un estudiante de la lista.
+     * - Elimina el número ocupado de la id del estudiante.
      * @see #listaRef
      */
     eliminarEstudiante(id){
@@ -943,8 +985,8 @@ class ListaEstudiantes extends Lista{
     /**
      * @function
      * @param {String} exp Expresión a buscar
-     * @returns {Estudiante[]} Estudiantes cuyos nombres incluyen el String exp.
-     * @description Busca estudiantes cuyos nombres incluyen el String exp.
+     * @returns {Estudiante[]} Estudiantes cuyos nombres incluyen el String `exp`.
+     * @description **Busca** estudiantes cuyos nombres incluyen el String `exp`.
      * @see #listaRef
      */
     busquedaEstudiantes(exp){
@@ -972,7 +1014,7 @@ class ListaEstudiantes extends Lista{
 
 /**
  * @class
- * @classdesc Representa una lista de asignaturas.
+ * @classdesc Representa una **lista de asignaturas**.
  * @extends Lista
  * @see Lista
  */
@@ -981,7 +1023,8 @@ class ListaAsignaturas extends Lista{
     /**
      * @constructor
      * @param {...Asignatura} asignaturas Asignaturas a añadir
-     * @description Llama al constructor padre y añade las asignaturas mediante el método añadirAsignatura(). 
+     * @description Crea una **lista de asignaturas**.
+     * - Llama al constructor padre y añade las asignaturas mediante el método `añadirAsignatura()`.
      */
     constructor(...asignaturas){
 
@@ -998,8 +1041,8 @@ class ListaAsignaturas extends Lista{
     /**
      * @function
      * @param {Asignatura} asignatura Asignatura a añadir
-     * @throws {Error} Si la asignatura ya está en el Array listaRef.
-     * @description Añade una asignatura a la lista.
+     * @throws {Error} Si la asignatura ya está en el Array `listaRef`.
+     * @description **Añade** una asignatura a la lista.
      * @see #listaRef
      */
     añadirAsignatura(asignatura){
@@ -1013,8 +1056,8 @@ class ListaAsignaturas extends Lista{
     /**
      * @function
      * @param {String} nombre Nombre de la asignatura a eliminar
-     * @throws {Error} Si la asignatura no está en el Array listaRef.
-     * @description Elimina una asignatura de la lista.
+     * @throws {Error} Si la asignatura no está en el Array `listaRef`.
+     * @description **Elimina** una asignatura de la lista.
      * @see #listaRef
      */
     eliminarAsignatura(nombre){
@@ -1028,8 +1071,8 @@ class ListaAsignaturas extends Lista{
     /**
      * @function
      * @param {String} exp Expresión a buscar
-     * @returns {Asignatura[]} Asignaturas cuyos nombres incluyen el String exp.
-     * @description Busca asignaturas cuyos nombres incluyen el String exp.
+     * @returns {Asignatura[]} Asignaturas cuyos nombres incluyen el String `exp`.
+     * @description **Busca** asignaturas cuyos nombres incluyen el String `exp`.
      * @see #listaRef
      */
     busquedaAsignaturas(exp){
@@ -1057,7 +1100,7 @@ class ListaAsignaturas extends Lista{
  * @global
  * @constant
  * @type {ListaEstudiantes} 
- * @description Lista de estudiantes.
+ * @description **Lista** de **estudiantes**.
  * @see ListaEstudiantes
  */
 const listaEstudiantes = new ListaEstudiantes();
@@ -1066,7 +1109,7 @@ const listaEstudiantes = new ListaEstudiantes();
  * @global
  * @constant
  * @type {ListaAsignaturas} 
- * @description Lista de asignaturas.
+ * @description **Lista** de **asignaturas**.
  * @see ListaAsignaturas
  */
 const listaAsignaturas = new ListaAsignaturas();
@@ -1074,7 +1117,7 @@ const listaAsignaturas = new ListaAsignaturas();
 /**
  * @global
  * @type {Direccion[]}
- * @description Lista de direcciones.
+ * @description Lista de **direcciones**.
  * @see Direccion
  */
 let listaDirecciones = [];
@@ -1082,7 +1125,7 @@ let listaDirecciones = [];
 /**
  * @global
  * @type {Number}
- * @description Elección de la acción a realizar.
+ * @description **Elección** de la acción a realizar.
  */
 let eleccion;
 
