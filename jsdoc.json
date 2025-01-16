@@ -3,13 +3,21 @@
         "allowUnknownTags": true
     },
     "source": {
-        "include": ["SGAEA/Tarea_4_3/script.js"],
+        "include": [
+            "SGAEA/Tarea_4_4/main.js",
+            "SGAEA/Tarea_4_4/direccion.js",
+            "SGAEA/Tarea_4_4/estudiante.js",
+            "SGAEA/Tarea_4_4/asignatura.js",
+            "SGAEA/Tarea_4_4/lista.js",
+            "SGAEA/Tarea_4_4/listaEstudiantes.js",
+            "SGAEA/Tarea_4_4/listaAsignaturas.js"
+        ],
         "exclude": ["node_modules"]
     },
     "plugins": ["node_modules/jsdoc/plugins/markdown"],
     "opts": {
         "template": "node_modules/minami",
-        "destination": "SGAEA/Tarea_4_3/docs",
+        "destination": "SGAEA/Tarea_4_4/docs",
         "recurse": true
     }
 }

@@ -1,48 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>script.js - Documentation</title>
-
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
-</head>
-<body>
-
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Asignatura.html">Asignatura</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Asignatura.html#a%25C3%25B1adirCalificacion">añadirCalificacion</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Asignatura.html#eliminarCalificacion">eliminarCalificacion</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Asignatura.html#toString">toString</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Direccion.html">Direccion</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Direccion.html#toString">toString</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Estudiante.html">Estudiante</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Estudiante.html#calificar">calificar</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Estudiante.html#desmatricular">desmatricular</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Estudiante.html#matricular">matricular</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Estudiante.html#toString">toString</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Estudiante.html#.eliminarNumeroOcupado">eliminarNumeroOcupado</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Lista.html">Lista</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ListaAsignaturas.html">ListaAsignaturas</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaAsignaturas.html#a%25C3%25B1adirAsignatura">añadirAsignatura</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaAsignaturas.html#busquedaAsignaturas">busquedaAsignaturas</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaAsignaturas.html#eliminarAsignatura">eliminarAsignatura</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ListaEstudiantes.html">ListaEstudiantes</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaEstudiantes.html#a%25C3%25B1adirEstudiante">añadirEstudiante</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaEstudiantes.html#busquedaEstudiantes">busquedaEstudiantes</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaEstudiantes.html#eliminarEstudiante">eliminarEstudiante</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaEstudiantes.html#mostrarReporte">mostrarReporte</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#defaultConsoleGroupCollapsed">defaultConsoleGroupCollapsed</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#defaultConsoleLog">defaultConsoleLog</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#eleccion">eleccion</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#listaAsignaturas">listaAsignaturas</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#listaDirecciones">listaDirecciones</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#listaEstudiantes">listaEstudiantes</a></span></li>
-</nav>
-
-<div id="main">
-    
-    <h1 class="page-title">script.js</h1>
-    
-
-    
-
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @file script.js
+/**
+ * @file main.js
  * @author Alonso Hernández Robles
- * @fileoverview ##### **Tarea 4.3**. Documentación de SGAEA usando JSDoc.
+ * @fileoverview Programa Principal de SGAEA. _(Tarea 4.4)_
  */
 
 /** 
@@ -62,9 +21,9 @@
  * 
  * console.log() hace uso de estilos asemejados a botones, títulos y subtítulos.
  * console.groupCollapsed() hace uso de estilos asemejados a botones y subtítulos.
- * Este método muestra los elementos console.log() que tenga anidados dentro, similar a un &lt;details>.
+ * Este método muestra los elementos console.log() que tenga anidados dentro, similar a un <details>.
  * 
- * Por defecto, los métodos mostrarán un texto con la fuente 'Rubik', importada desde la etiqueta &lt;style> de index.html.
+ * Por defecto, los métodos mostrarán un texto con la fuente 'Rubik', importada desde la etiqueta <style> de index.html.
  */
 
 /**
@@ -158,969 +117,15 @@ console.groupCollapsed = (texto, estilos = "") => {
 /**
  * 2. Definición de Clases
  * 
- * En esta parte se definen las clases Direccion, Estudiante, Asignatura, ListaEstudiantes y ListaAsignaturas.
+ * En esta parte se importan las clases Direccion, Estudiante, Asignatura, ListaEstudiantes y ListaAsignaturas.
+ * Todas las clases están en sus respecitivos archivos.
  */
 
-/**
- * 2.1. Clase Direccion
- * 
- * La clase Direccion tiene los atributos calle, numero, piso, codigoPostal, provincia y localidad, todos son
- * tipo String y tienen getter. En el constructor se valida el código postal (5 números). Si no es válido, se
- * establecerá como "00000". Contiene un toString() que muestra todas las propiedades.
- */
-
-/**
- * @class
- * @classdesc Representa una **dirección** de un estudiante.
- */
-class Direccion{
-
-    /**
-     * @type {String}
-     * @private
-     * @description **Calle** de la dirección. Tiene getter.
-     */
-    #calle;
-
-    /**
-     * @type {String}
-     * @private
-     * @description **Número** de la dirección. Tiene getter.
-     */
-    #numero;
-
-    /**
-     * @type {String}
-     * @private
-     * @description **Piso** de la dirección. Tiene getter.
-     */
-    #piso;
-
-    /**
-     * @type {String}
-     * @private
-     * @description **Código postal** de la dirección. Tiene getter.
-     */
-    #codigoPostal;
-
-    /**
-     * @type {String}
-     * @private
-     * @description **Provincia** de la dirección. Tiene getter.
-     */
-    #provincia;
-
-    /**
-     * @type {String}
-     * @private
-     * @description **Localidad** de la dirección. Tiene getter.
-     */
-    #localidad;
-
-    /**
-     * @constructor
-     * @param {String} calle Calle de la dirección
-     * @param {String} numero Número de la dirección
-     * @param {String} piso Piso de la dirección
-     * @param {String} codigoPostal Código postal de la dirección
-     * @param {String} provincia Provincia de la dirección
-     * @param {String} localidad Localidad de la dirección
-     * @description Crea una **dirección** con los datos proporcionados.
-     * - Se valida el código postal (5 números).
-     * - Si no es válido, se establecerá como `"00000"`.
-     * @see #calle
-     * @see #numero
-     * @see #piso
-     * @see #codigoPostal
-     * @see #provincia
-     * @see #localidad
-     */
-    constructor(calle, numero, piso, codigoPostal, provincia, localidad){
-
-        this.#calle = calle;
-        this.#numero = numero;
-        this.#piso = piso;
-        this.#codigoPostal = (new String(codigoPostal).match(/^[0-9]{5}$/)) ? codigoPostal : "00000";
-        this.#provincia = provincia;
-        this.#localidad = localidad;
-
-    }
-
-    /**
-     * @type {String}
-     * @description Getter de la calle de la dirección.
-     * @see #calle
-     */
-    get calle(){
-        return this.#calle;
-    }
-
-    /**
-     * @type {String}
-     * @description Getter del número de la dirección.
-     * @see #numero
-     */
-    get numero(){
-        return this.#numero;
-    }
-
-    /**
-     * @type {String}
-     * @description Getter del piso de la dirección.
-     * @see #piso
-     */
-    get piso(){
-        return this.#piso;
-    }
-
-    /**
-     * @type {String}
-     * @description Getter del código postal de la dirección.
-     * @see #codigoPostal
-     */
-    get codigoPostal(){
-        return this.#codigoPostal;
-    }
-
-    /**
-     * @type {String}
-     * @description Getter de la provincia de la dirección.
-     * @see #provincia
-     */
-    get provincia(){
-        return this.#provincia;
-    }
-
-    /**
-     * @type {String}
-     * @description Getter de la localidad de la dirección.
-     * @see #localidad
-     */
-    get localidad(){
-        return this.#localidad;
-    }
-
-    /**
-     * @function
-     * @override
-     * @returns {String} Dirección completa.
-     * @description Devuelve la dirección completa.
-     * @example "C/ Rara 12, 3ºA - 18015 Granada (Granada)"
-     */
-    toString(){
-        return this.#calle + " " + this.#numero + ", " + this.#piso + " - " + this.#codigoPostal + " " + this.#localidad + " (" + this.#provincia + ")";
-    }
-
-}
-
-/**
- * 2.2. Clase Estudiante
- * 
- * Atributos:
- * 
- * - id: String identificador único del estudiante. Será "E" seguido del número siguiente posible que no esté
- *      ocupado. Los números ocupados estarán almacenados en el atributo estático numerosOcupados, y será
- *      calculado en el constructor. Volviendo al id, tiene getter.
- * 
- * - nombre: String del nombre del estudiante. Sólo puede contener letras y espacios. De lo contrario, se
- *      inicializará como "Estudiante". Tiene getter.
- * 
- * - edad: Number de edad del estudiante. Sólo puede ser positiva. De lo contrario, se inicializará como 0.
- *      Tiene getter.
- * 
- * - direccion: Objeto Direccion con campos de la dirección del estudiante. Tiene getter.
- * 
- * - asignaturas: Array (matriz) de asignaturas de las cuales el estudiante está matriculado. Cada elemento
- *      es un Array con dos posiciones. La primera ([0]) es la instancia en sí del objeto Asignatura.
- *      La segunda ([1]) es la calificación que tiene el estudiante en dicha asignatura. Su getter devuelve
- *      una copia del Array y no la referencia.
- * 
- * - registros: Array (matriz) de registros de las matrículas y desmatrículas que se han aplicado al
- *      estudiante. Cada elemento es un Array con tres posiciones. La primera ([0]) es un String del nombre
- *      de la asignatura. La segunda ([1]) es la fecha y hora en la cual se hizo el trámite. La tercera ([2])
- *      es un String del tipo de trámite ("Matrícula" o "Desmatrícula"). Su getter devuelve un Array de
- *      Strings con la información de cada registro.
- * 
- * - numerosOcupados (estático): Array de los números de las ids usadas por los estudiantes creados en ese
- *      momento. Se actualizará dinámicamente en la creación y eliminación de estudiantes. No tiene getter.
- * 
- * Métodos:
- * 
- * + constructor(nombre, edad, direccion): Calcula el número de la id, empezando por 1 hasta que encuentre un número
- *      no ocupado, lo añade al Array estático numerosOcupados, y establece la id como el String "E" concatenado de
- *      dicho número. Si el nombre es null o contiene caracteres que no sean letras o espacios, se establece como
- *      "Estudiante". De lo contrario, se establece como tal. Si la edad es un número negativo, se establece como 0.
- *      De lo contrario, se establece como tal. Se inicializan vacíos los Arrays asignaturas y registros.
- * 
- * + get promedio(): Number del promedio de la nota de cada asignatura del estudiante. Devuelve el String
- *      "Sin evaluar" si ninguna nota es un número.
- * 
- * + toString(): String con el id, nombre y edad del estudiante.
- * 
- * + matricular(...asignaturas): Introduce en el Array asignaturas Arrays de dos posiciones, tantos
- *      como asignaturas haya, y en la primera posición ([0]) de cada uno de estos, cada una de las instancias
- *      de dichas asignaturas. Introduce un nuevo registro generado en el Array registros por cada una de las asignaturas.
- * 
- * + desmatricular(...asignaturas): Elimina del Array asignaturas las asignaturas cuyo nombre coincida
- *      con los nombres de ...asignaturas e introduce un nuevo registro generado en el Array registros por cada
- *      asignatura de la cual se ha desmatriculado el estudiante.
- * 
- * + calificar(asignatura, nota): Si la asignatura está presente en el Array asignaturas y la nota es un
- *      número entre 0 y 10 (incluidos), busca el Array que contiene la asignatura dentro del Array asignaturas
- *      y establece en la segunda posición ([1]) la nota. Además añade dicha calificación a la lista de
- *      calificaciones de la asignatura mediante el método añadirCalificacion(). De lo contrario,
- *      devuelve un Error correspondiente.
- * 
- * + eliminarNumeroOcupado(numero) (estático): Elimina numero del Array estático numerosOcupados.
- */
-
-/**
- * @class
- * @classdesc Representa un **estudiante**.
- */
-class Estudiante{
-
-    /**
-     * @type {String}
-     * @private
-     * @description **Identificador** único del estudiante. Tiene getter.
-     * - Será `"E"` seguido del número siguiente posible que no esté ocupado.
-     * - Los números ocupados estarán almacenados en el atributo estático `#numerosOcupados`, y será calculado en el constructor.
-     */
-    #id;
-
-    /**
-     * @type {String}
-     * @private
-     * @description **Nombre** del estudiante. Tiene getter.
-     * - Sólo puede contener letras y espacios. De lo contrario, se inicializará como `"Estudiante"`.
-     */
-    #nombre;
-
-    /**
-     * @type {Number}
-     * @private
-     * @description **Edad** del estudiante. Tiene getter.
-     * - Sólo puede ser positiva. De lo contrario, se inicializará como `0`.
-     */
-    #edad;
-
-    /**
-     * @type {Direccion}
-     * @private
-     * @description **Dirección** del estudiante. Tiene getter.
-     */
-    #direccion;
-
-    /**
-     * @type {Array[]}
-     * @private
-     * @description **Asignaturas** de las cuales el estudiante está matriculado y sus correspondientes **calificaciones**.
-     * - Cada elemento es un Array con dos posiciones.
-     *      - La primera (`[0]`) es la instancia en sí del objeto `Asignatura`.
-     *      - La segunda (`[1]`) es la calificación que tiene el estudiante en dicha asignatura.
-     * - Su getter devuelve una copia del Array y no la referencia.
-     */
-    #asignaturas;
-
-    /**
-     * @type {String[]}
-     * @private
-     * @description **Registros** de matriculaciones y desmatriculaciones que se han aplicado al estudiante.
-     * - Cada elemento es un Array con tres posiciones.
-     *      - La primera (`[0]`) es un String del nombre de la asignatura.
-     *      - La segunda (`[1]`) es la fecha y hora en la cual se hizo el trámite.
-     *      - La tercera (`[2]`) es un String del tipo de trámite (`"Matriculación"` o `"Desmatriculación"`).
-     * - Su getter devuelve un Array de Strings con la información de cada registro.
-     */
-    #registros;
-    
-    /**
-     * @type {Number[]}
-     * @private
-     * @static
-     * @description **Números** de las ids usadas por los estudiantes creados en ese momento. No tiene getter.
-     * - Se actualizará dinámicamente en la creación y eliminación de estudiantes.
-     */
-    static #numerosOcupados = [];
-
-    /**
-     * @constructor
-     * @param {String} nombre Nombre del estudiante
-     * @param {String} edad Edad del estudiante
-     * @param {Direccion} direccion Dirección del estudiante
-     * @description Crea un **estudiante** con los datos proporcionados.
-     * - Calcula el número de la id, empezando por `1` hasta que encuentre un número no ocupado, lo añade al Array estático `#numerosOcupados`, y establece la id como el String `"E"` concatenado de dicho número.
-     * - Si el nombre es `null` o contiene caracteres que no sean letras o espacios, se establece como `"Estudiante"`. De lo contrario, se establece como tal.
-     * - Si la edad es un número negativo, se establece como `0`. De lo contrario, se establece como tal.
-     * - Se inicializan vacíos los Arrays `#asignaturas` y `#registros`.
-     * @see #id
-     * @see #nombre
-     * @see #edad
-     * @see #direccion
-     * @see #asignaturas
-     * @see #registros
-     */
-    constructor(nombre, edad, direccion){
-
-        let numeroId = 1;
-
-        while (Estudiante.#numerosOcupados.includes(numeroId)) {
-            numeroId++;
-        }
-
-        Estudiante.#numerosOcupados.push(numeroId);
-        this.#id = "E" + numeroId;
-
-        this.#nombre = (nombre != null) ? ((nombre.match(/^[a-zA-ZáéíóúüÁÉÍÓÚÜ ]+$/)) ? nombre : "Estudiante") : "Estudiante";
-
-        this.#edad = (!Number.isNaN(edad) &amp;&amp; Number.isInteger(edad) &amp;&amp; edad > 0) ? edad : 0;
-
-        this.#direccion = direccion;
-        this.#asignaturas = [];
-        this.#registros = [];
-
-    }
-
-    /**
-     * @type {String}
-     * @description Getter del identificador del estudiante.
-     * @see #id
-     */
-    get id(){
-        return this.#id;
-    }
-
-    /**
-     * @type {String}
-     * @description Getter del nombre del estudiante.
-     * @see #nombre
-     */
-    get nombre(){
-        return this.#nombre;
-    }
-
-    /**
-     * @type {Number}
-     * @description Getter de la edad del estudiante.
-     * @see #edad
-     */
-    get edad(){
-        return this.#edad;
-    }
-
-    /**
-     * @type {Direccion}
-     * @description Getter de la dirección del estudiante.
-     * @see #direccion
-     */
-    get direccion(){
-        return this.#direccion;
-    }
-
-    /**
-     * @type {Array[]}
-     * @description Getter de las asignaturas del estudiante con sus correspondientes calificaciones.
-     * @see #asignaturas
-     */
-    get asignaturas(){
-        return [...this.#asignaturas];
-    }
-
-    /**
-     * @type {String[]}
-     * @description Getter de los registros del estudiante.
-     * @see #registros
-     */
-    get registros(){
-
-        const resultado = [];
-        
-        for(const registro of this.#registros){
-            
-            const asignatura = registro[0];
-            const fecha = registro[1].toLocaleDateString("es-ES", {weekday: "long", year: "numeric", month: "short", day: "numeric"});
-            const hora = registro[1].toLocaleTimeString("es-ES");
-            const tipo = registro[2];
-
-            resultado.push("[\t" + tipo + "\t|\t" + asignatura + "\t|\t" + fecha + " a las " + hora + "\t]");
-
-        }
-        
-        return resultado;
-
-    }
-
-    /**
-     * @type {String | Number}
-     * @description **Promedio** de las calificaciones de las asignaturas del estudiante.
-     * @see #asignaturas
-     */
-    get promedio(){
-
-        const asignaturasCalificadas = this.#asignaturas.filter(a => typeof a[1] != "string");
-        
-        if(asignaturasCalificadas.length == 0) return "Sin evaluar";
-        
-        const resultado = asignaturasCalificadas.reduce((suma, asignatura) => suma += asignatura[1], 0) / asignaturasCalificadas.length;
-        
-        return Number(resultado).toFixed(2);
-
-    }
-
-    /**
-     * @function
-     * @override
-     * @returns {String} Id, nombre y edad del estudiante.
-     * @description Devuelve el id, nombre y edad del estudiante.
-     * @example "[E1] Alonso Hernández Robles, 20"
-     */
-    toString(){
-        return "[" + this.#id + "] " + this.#nombre + ", " + this.#edad;
-    }
-
-    /**
-     * @function
-     * @param  {...Asignatura} asignaturas Asignaturas a matricular
-     * @description **Matricula** al estudiante de las asignaturas proporcionadas y genera un registro con dicha información.
-     * @see #asignaturas
-     * @see #registros
-     */
-    matricular(...asignaturas){
-
-        for(const asignatura of asignaturas){
-
-            if(this.#asignaturas.filter(a => a[0].nombre == asignatura.nombre).length == 0){
-
-                this.#asignaturas.push([asignatura, "Sin evaluar"]);
-                this.#registros.push([asignatura.nombre, new Date(), "Matriculación"]);
-
-            }
-
-        }
-
-    }
-
-    /**
-     * @function
-     * @param  {...Asignatura} asignaturas Asignaturas a desmatricular
-     * @description **Desmatricula** al estudiante de las asignaturas proporcionadas y genera un registro con dicha información.
-     * @see #asignaturas
-     * @see #registros
-     */
-    desmatricular(...asignaturas){
-        
-        for(const asignatura of asignaturas){
-
-            if(this.#asignaturas.map(a => a[0].nombre).includes(asignatura.nombre)){
-
-                this.#asignaturas = this.#asignaturas.filter(a => a[0].nombre != asignatura.nombre);
-                this.#registros.push([asignatura.nombre, new Date(), "Desmatriculación"]);
-
-            }
-
-        }
-
-    }
-
-    /**
-     * @function
-     * @param {Asignatura} asignatura Asignatura a calificar
-     * @param {Number} nota Nota a asignar
-     * @throws {Error} Si la asignatura no está en el Array `#asignaturas`.
-     * @throws {Error} Si la nota no está entre `0` y `10`.
-     * @description **Califica** al estudiante en la asignatura proporcionada con la nota proporcionada.
-     * @see #asignaturas
-     */
-    calificar(asignatura, nota){
-
-        if(!this.#asignaturas.map(a => a[0].nombre).includes(asignatura.nombre)) throw new Error("El estudiante no está cursando la asignatura.");
-
-        if(nota &lt; 0 || nota > 10) throw new Error("La nota debe estar entre 0 y 10.");
-
-        for (const asig of this.#asignaturas) {
-
-            if (asig[0].nombre == asignatura.nombre) {
-
-                asig[1] = parseFloat(nota);
-                asignatura.añadirCalificacion(nota);
-                break;
-
-            }
-            
-        }
-
-    }
-
-    /**
-     * @function
-     * @param {Number} numero Número de la id a eliminar
-     * @static
-     * @description **Elimina** un número de la lista de números ocupados.
-     * @see #numerosOcupados
-     */
-    static eliminarNumeroOcupado(numero){
-        Estudiante.#numerosOcupados = Estudiante.#numerosOcupados.filter(n => n != numero);
-    }
-
-}
-
-/**
- * 2.3. Clase Asignatura
- * 
- * Atributos:
- * 
- * - nombre: String del nombre de la asignatura. Sólo puede contener letras y espacios. De lo contrario, se
- *      inicializará como "Asignatura". Tiene getter.
- * 
- * - calificaciones: Array de números de las calificaciones de todos los estudiantes en la asignatura. No tiene getter.
- * 
- * Métodos:
- * 
- * + constructor(nombre): Si el nombre contiene caracteres que no sean letras o espacios, se
- *      establece como "Asignatura". De lo contrario, se establece como tal. Se inicializa vacío el Array
- *      calificaciones.
- * 
- * + get promedio(): Number del promedio de los números del Array calificaciones. Devuelve el String
- *      "Sin evaluar" si dicho array está vacío.
- * 
- * + toString(): Devuelve el nombre de la asignatura (Ya que el objeto Asignatura no contiene más
- *      atributos sobre la información de la instancia, el método es idéntico a get nombre(), pero se declarará
- *      y usará con propósitos semánticos);
- * 
- * + añadirCalificacion(calificacion): Añade calificacion al Array calificaciones.
- * 
- * + eliminarCalificacion(calificacion): Elimina una ocurrencia cualquiera de calificacion en el Array calificaciones.
- */
-
-/**
- * @class
- * @classdesc Representa una **asignatura**.
- */
-class Asignatura{
-
-    /**
-     * @type {String}
-     * @private
-     * @description **Nombre** de la asignatura. Tiene getter.
-     * - Sólo puede contener letras y espacios. De lo contrario, se inicializará como `"Asignatura"`.
-     */
-    #nombre;
-
-    /**
-     * @type {Number[]}
-     * @private
-     * @description **Calificaciones** de los estudiantes en la asignatura. No tiene getter.
-     */
-    #calificaciones;
-
-    /**
-     * @constructor
-     * @param {String} nombre Nombre de la asignatura
-     * @description Crea una **asignatura** con los datos proporcionados.
-     * - Si el nombre contiene caracteres que no sean letras o espacios, se establece como `"Asignatura"`. De lo contrario, se establece como tal.
-     * - Se inicializa vacío el Array `#calificaciones`.
-     * @see #nombre
-     * @see #calificaciones
-     */
-    constructor(nombre){
-        
-        this.#nombre = (nombre.match(/^[a-zA-ZáéíóúüÁÉÍÓÚÜ ]+$/)) ? nombre : "Asignatura";
-        this.#calificaciones = [];
-
-    }
-
-    /**
-     * @type {String}
-     * @description Getter del nombre de la asignatura.
-     * @see #nombre
-     */
-    get nombre(){
-        return this.#nombre;
-    }
-
-    /**
-     * @type {Number}
-     * @description **Promedio** de las calificaciones de los estudiantes en la asignatura.
-     * - Devuelve `"Sin evaluar"` si no hay calificaciones.
-     * @see #calificaciones
-     */
-    get promedio(){
-
-        if(this.#calificaciones.length == 0) return "Sin evaluar";
-        
-        const resultado = this.#calificaciones.reduce((suma, calificacion) => suma += Number.parseFloat(calificacion), 0) / this.#calificaciones.length;
-    
-        return Number(resultado).toFixed(2);
-
-    }
-
-    /**
-     * @function
-     * @override
-     * @returns {String} Nombre de la asignatura.
-     * @description Devuelve el nombre de la asignatura.
-     * > Ya que el objeto Asignatura no contiene más atributos sobre la información de la instancia, el método es idéntico a `get nombre()`, pero se declarará y usará con propósitos semánticos.
-     * @example "DWEC"
-     */
-    toString(){
-        return this.#nombre;
-    }
-
-    /**
-     * @function
-     * @param {Number} calificacion Calificación a añadir
-     * @description **Añade** una calificación a la asignatura.
-     * > Saber a qué estudiante está correspondida la calificación no es relevante, para ello dicha información ya se encuentra almacenada dentro de la propiedad privada [`#asignaturas`](Estudiante.html#asignaturas) de la clase [`Estudiante`](Estudiante.html).
-     * @see #calificaciones
-     */
-    añadirCalificacion(calificacion){
-        this.#calificaciones.push(calificacion);
-    }
-
-    /**
-     * @function
-     * @param {Number} calificacion Calificación a eliminar
-     * @throws {Error} Si la calificación no está en el Array #calificaciones.
-     * @description **Elimina** una ocurrencia cualquiera de `calificacion` en el Array `#calificaciones`.
-     * > Saber a qué estudiante está correspondida la calificación no es relevante, para ello dicha información ya se encuentra almacenada dentro de la propiedad privada [`#asignaturas`](Estudiante.html#asignaturas) de la clase [`Estudiante`](Estudiante.html).
-     * @see #calificaciones
-     */
-    eliminarCalificacion(calificacion){
-
-        const indiceCalificacion = this.#calificaciones.indexOf(calificacion);
-
-        if(indiceCalificacion == -1) throw new Error("Ningún estudiante ha sacado dicha calificación.");
-
-        this.#calificaciones.splice(indiceCalificacion, 1);
-
-    }
-
-}
-
-/**
- * 2.4. Clase Lista
- * 
- * Atributos:
- * 
- * - listaRef: Array de objetos. Su getter devuelve la referencia original al Array. También tiene setter.
- *      Orientado para ser usado en la definición de las clases hijas ListaEstudiantes y ListaAsignaturas.
- * 
- * Métodos:
- * 
- * + constructor(): Inicializa vacío el Array #listaRef.
- * 
- * + get lista(): Array de objetos. Devuelve una copia del Array #listaRef y no la referencia.
- *      Orientado para ser usado en la creación y uso de objetos ListaEstudiantes y/o ListaAsignaturas.
- */
-
-/**
- * @class
- * @classdesc Representa una **lista** de objetos.
- */
-class Lista{
-
-    /**
-     * @type {Object[]}
-     * @private
-     * @description Array de objetos.
-     * - Su getter devuelve la referencia original al Array. También tiene setter.
-     * > Orientado para ser usado en la definición de las clases hijas [`ListaEstudiantes`](ListaEstudiantes.html) y [`ListaAsignaturas`](ListaAsignaturas.html).
-     */
-    #listaRef;
-
-    /**
-     * @constructor
-     * @description Crea una **lista**.
-     * - Inicializa vacío el Array `#listaRef`.
-     * @see #listaRef
-     */
-    constructor(){
-        this.#listaRef = [];
-    }
-
-    /**
-     * @type {Object[]}
-     * @description Array de objetos.
-     * - Devuelve una copia del Array `#listaRef` y no la referencia.
-     * > Orientado para ser usado en la creación y uso de objetos [`ListaEstudiantes`](ListaEstudiantes.html) y/o [`ListaAsignaturas`](ListaAsignaturas.html).
-     * @see #listaRef
-     */
-    get lista(){
-        return [...this.#listaRef];
-    }
-
-    /**
-     * @type {Object[]}
-     * @description Getter del Array `#listaRef`.
-     * @see #listaRef
-     */
-    get listaRef(){
-        return this.#listaRef;
-    }
-
-    set listaRef(listaRef){
-        this.#listaRef = listaRef;
-    }
-
-}
-
-/**
- * 2.5. Clase ListaEstudiantes
- * 
- * Métodos:
- * 
- * + constructor(...estudiantes): Llama al constructor padre y añade los estudiantes mediante el método
- *      añadirEstudiante().
- * 
- * + get promedioGeneral(): Number del promedio de los promedios de todos los estudiantes del Array listaRef.
- *      Devuelve el String "Sin evaluar" si ningún promedio es un número.
- * 
- * + mostrarReporte(): Muestra mediante console.log(), console.groupCollapsed() y console.groupEnd() el reporte
- *      con la información de todos los estudiantes del Array listaRef. console.log() muestra por
- *      consola un mensaje. console.groupCollapsed() muestra por consola un mensaje cómo título de una
- *      carpeta colapsada de los mensajes que vayan a continuación. console.groupEnd() indica el final de
- *      dicha carpeta de mensajes.
- * 
- * + añadirEstudiante(estudiante): Si no existe el estudiante dentro del Array listaRef, lo añade y ordena dicho
- *      Array según los números de las ids de los estudiantes. De lo contrario, devuelve un Error.
- * 
- * + eliminarEstudiante(id): Elimina del Array listaRef el estudiante cuya id sea la misma que id y elimina el
- *      número ocupado de dicha id mediante el método estático eliminarNumeroOcupado().
- * 
- * + busquedaEstudiantes(exp): Array de los objetos Estudiante cuyos nombres incluyen el String exp.
- */
-
-/**
- * @class
- * @classdesc Representa una **lista de estudiantes**.
- * @extends Lista
- * @see Lista
- */
-class ListaEstudiantes extends Lista{
-
-    /**
-     * @constructor
-     * @param {...Estudiante} estudiantes Estudiantes a añadir
-     * @description Crea una **lista de estudiantes**.
-     * - Llama al constructor padre y añade los estudiantes mediante el método `añadirEstudiante()`.
-     */
-    constructor(...estudiantes){
-
-        super();
-        
-        for(const estudiante of estudiantes){
-
-            this.añadirEstudiante(estudiante);
-
-        }
-
-    }
-
-    /**
-     * @type {String | Number}
-     * @description **Promedio general**, de los promedios de los estudiantes.
-     * - Devuelve `"Sin evaluar"` si ningún promedio es un número.
-     * @see #listaRef
-     */
-    get promedioGeneral(){
-
-        const estudiantesCalificados = this.listaRef.filter(e => !isNaN(Number(e.promedio)));
-        
-        if(estudiantesCalificados.length == 0) return "Sin evaluar";
-        
-        const resultado = estudiantesCalificados.reduce((suma, estudiante) => suma += Number.parseFloat(estudiante.promedio), 0) / estudiantesCalificados.length;
-    
-        return Number(resultado).toFixed(2);
-
-    }
-    
-    /**
-     * @function
-     * @description **Muestra**, mediante `console.log()`, `console.groupCollapsed()` y `console.groupEnd()`, el reporte con la información de todos los estudiantes del Array `listaRef`.
-     * 
-     * > `console.log()` muestra por consola un mensaje.
-     * >
-     * > `console.groupCollapsed()` muestra por consola un mensaje cómo título de una carpeta colapsada de los mensajes que vayan a continuación.
-     * >
-     * > `console.groupEnd()` indica el final de dicha carpeta de mensajes.
-     * @see #listaRef
-     */
-    mostrarReporte(){
-
-        for(const estudiante of this.listaRef){
-
-            console.groupCollapsed("[" + estudiante.id + "] " + estudiante.nombre, "boton");
-
-                console.groupCollapsed("\tDatos Personales", "subtitulo");
-
-                    console.log("\t\t\tNombre: " + estudiante.nombre);
-                    console.log("\t\t\tEdad: " + estudiante.edad);
-
-                    console.groupCollapsed("\t\t\tDirección");
-
-                        console.log("\t\t\t\t\tCalle: " + estudiante.direccion.calle);
-                        console.log("\t\t\t\t\tNúmero: " + estudiante.direccion.numero);
-                        console.log("\t\t\t\t\tPiso: " + estudiante.direccion.piso);
-                        console.log("\t\t\t\t\tCódigo Postal: " + estudiante.direccion.codigoPostal);
-                        console.log("\t\t\t\t\tProvincia: " + estudiante.direccion.provincia);
-                        console.log("\t\t\t\t\tLocalidad: " + estudiante.direccion.localidad);
-
-                    console.groupEnd();
-
-                console.groupEnd();
-
-                console.groupCollapsed("\tCalificaciones", "subtitulo");
-
-                    for(const asignatura of estudiante.asignaturas){
-
-                        const notaAsignatura = (typeof asignatura[1] == "string") ? asignatura[1] : Number(asignatura[1]).toFixed(2);
-                        console.log("\t\t\t" + asignatura[0].nombre + ": " + notaAsignatura);
-
-                    }
-
-                    console.log("\t\t\tPromedio: " + estudiante.promedio, "font-weight: bold;");
-
-                console.groupEnd();
-
-            console.groupEnd();
-
-        }
-
-    }
-
-    /**
-     * @function
-     * @param {Estudiante} estudiante Estudiante a añadir
-     * @throws {Error} Si el estudiante ya está en el Array `listaRef`.
-     * @description **Añade** un estudiante a la lista.
-     * - Ordena el Array según los números de las ids de los estudiantes.
-     * @see #listaRef
-     */
-    añadirEstudiante(estudiante){
-
-        if(this.listaRef.filter(e => e.id == estudiante.id).length != 0) throw new Error("Ya existe el estudiante.");
-
-        this.listaRef.push(estudiante);
-        this.listaRef.sort((e1, e2) => parseInt(e1.id.slice(1)) - parseInt(e2.id.slice(1)));
-
-    }
-
-    /**
-     * @function
-     * @param {String} id Id del estudiante a eliminar
-     * @throws {Error} Si el estudiante no está en el Array `listaRef`.
-     * @description **Elimina** un estudiante de la lista.
-     * - Elimina el número ocupado de la id del estudiante.
-     * @see #listaRef
-     */
-    eliminarEstudiante(id){
-        
-        if(this.listaRef.filter(e => e.id != id).length == this.listaRef.length) throw new Error("El estudiante no se encuentra en la lista.");
-        
-        this.listaRef = this.listaRef.filter(e => e.id != id);
-        Estudiante.eliminarNumeroOcupado(id.slice(1));
-
-    }
-
-    /**
-     * @function
-     * @param {String} exp Expresión a buscar
-     * @returns {Estudiante[]} Estudiantes cuyos nombres incluyen el String `exp`.
-     * @description **Busca** estudiantes cuyos nombres incluyen el String `exp`.
-     * @see #listaRef
-     */
-    busquedaEstudiantes(exp){
-        return this.listaRef.filter(e => e.nombre.toLowerCase().includes(exp.toLowerCase()));
-    }
-
-}
-
-/**
- * 2.6. Clase ListaAsignaturas
- * 
- * Métodos:
- * 
- * + constructor(...asignatura): Llama al constructor padre y añade las asignaturas mediante el método
- *      añadirAsignatura().
- * 
- * + añadirAsignatura(asignatura): Si no existe la asignatura dentro del Array listaRef, la añade. De lo
- *      contrario, devuelve un Error.
- * 
- * + eliminarAsignatura(nombre): Si existe una asignatura cuyo nombre coincide con alguno de los nombres de las
- *      asignaturas del Array listaRef, elimina de dicho Array dicha asignatura. De lo contrario, devuelve un Error.
- * 
- * + busquedaAsignaturas(exp): Array de los objetos Asignatura cuyos nombres incluyen el String exp.
- */
-
-/**
- * @class
- * @classdesc Representa una **lista de asignaturas**.
- * @extends Lista
- * @see Lista
- */
-class ListaAsignaturas extends Lista{
-
-    /**
-     * @constructor
-     * @param {...Asignatura} asignaturas Asignaturas a añadir
-     * @description Crea una **lista de asignaturas**.
-     * - Llama al constructor padre y añade las asignaturas mediante el método `añadirAsignatura()`.
-     */
-    constructor(...asignaturas){
-
-        super();
-        
-        for(const asignatura of asignaturas){
-
-            this.añadirAsignatura(asignatura);
-
-        }
-
-    }
-
-    /**
-     * @function
-     * @param {Asignatura} asignatura Asignatura a añadir
-     * @throws {Error} Si la asignatura ya está en el Array `listaRef`.
-     * @description **Añade** una asignatura a la lista.
-     * @see #listaRef
-     */
-    añadirAsignatura(asignatura){
-
-        if(this.listaRef.filter(a => a.nombre == asignatura.nombre).length != 0) throw new Error("Ya existe la asignatura.");
-
-        this.listaRef.push(asignatura);
-
-    }
-
-    /**
-     * @function
-     * @param {String} nombre Nombre de la asignatura a eliminar
-     * @throws {Error} Si la asignatura no está en el Array `listaRef`.
-     * @description **Elimina** una asignatura de la lista.
-     * @see #listaRef
-     */
-    eliminarAsignatura(nombre){
-
-        if(this.listaRef.filter(a => a.nombre == nombre).length == 0) throw new Error("La asignatura no se encuentra en la lista.");
-
-        this.listaRef = this.listaRef.filter(a => a.nombre != nombre);
-
-    }
-
-    /**
-     * @function
-     * @param {String} exp Expresión a buscar
-     * @returns {Asignatura[]} Asignaturas cuyos nombres incluyen el String `exp`.
-     * @description **Busca** asignaturas cuyos nombres incluyen el String `exp`.
-     * @see #listaRef
-     */
-    busquedaAsignaturas(exp){
-        return this.listaRef.filter(a => a.nombre.toLowerCase().includes(exp.toLowerCase()));
-    }
-
-}
+import { Direccion } from "./direccion.js";
+import { Estudiante } from "./estudiante.js";
+import { Asignatura } from "./asignatura.js";
+import { ListaEstudiantes } from "./listaEstudiantes.js";
+import { ListaAsignaturas } from "./listaAsignaturas.js";
 
 /**
  * 3. Programa Principal.
@@ -1403,7 +408,7 @@ while(true){
 
                         let direccion;
 
-                        if(listaDirecciones.length > 0 &amp;&amp; window.confirm("¿Desea elegir una dirección ya creada?")){
+                        if(listaDirecciones.length > 0 && window.confirm("¿Desea elegir una dirección ya creada?")){
 
                             console.clear();
                             console.log("Crear Estudiante ➕👨‍🎓", "titulo");
@@ -1423,7 +428,7 @@ while(true){
                                 
                                 if(Number.isNaN(eleccion)) eleccion = -1;
 
-                            }while(eleccion &lt; 0 || eleccion > listaDirecciones.length);
+                            }while(eleccion < 0 || eleccion > listaDirecciones.length);
 
                             if(eleccion == 0){
                                 eleccion = -1;
@@ -1581,7 +586,7 @@ while(true){
                             eleccion = Number.parseInt(window.prompt("Edad:"));
                             if(Number.isNaN(eleccion)) eleccion = -1;
                             
-                        }while(eleccion &lt; 0);
+                        }while(eleccion < 0);
 
                         const edad = eleccion;
 
@@ -1673,7 +678,7 @@ while(true){
 
             do{
 
-                if(listaDirecciones.length == 0 &amp;&amp; listaEstudiantes.lista.length == 0 &amp;&amp; listaAsignaturas.lista.length == 0){
+                if(listaDirecciones.length == 0 && listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
                     
                     window.alert("No existen datos registrados.");
                     break;
@@ -1724,7 +729,7 @@ while(true){
 
                             if(Number.isNaN(eleccion)) eleccion = -1;
 
-                        }while(eleccion &lt; 0 || eleccion > listaDirecciones.length);
+                        }while(eleccion < 0 || eleccion > listaDirecciones.length);
 
                         if(eleccion == 0){
                             eleccion = -1;
@@ -1788,7 +793,7 @@ while(true){
 
                             if(Number.isNaN(eleccion)) eleccion = -1;
 
-                        }while(eleccion &lt; 0 || eleccion > listaEstudiantes.lista.length);
+                        }while(eleccion < 0 || eleccion > listaEstudiantes.lista.length);
 
                         if(eleccion == 0){
                             eleccion = -1;
@@ -1859,7 +864,7 @@ while(true){
 
                             if(Number.isNaN(eleccion)) eleccion = -1;
 
-                        }while(eleccion &lt; 0 || eleccion > listaAsignaturas.lista.length);
+                        }while(eleccion < 0 || eleccion > listaAsignaturas.lista.length);
 
                         if(eleccion == 0){
                             eleccion = -1;
@@ -1916,7 +921,7 @@ while(true){
 
         case 3:
 
-            if(listaEstudiantes.lista.length == 0 &amp;&amp; listaAsignaturas.lista.length == 0){
+            if(listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
                 window.alert("No existen datos registrados.");
                 break;
             }
@@ -1959,7 +964,7 @@ while(true){
 
                     if(Number.isNaN(eleccion)) eleccion = -1;
 
-                }while(eleccion &lt; 0 || eleccion > listaEstudiantes.lista.length);
+                }while(eleccion < 0 || eleccion > listaEstudiantes.lista.length);
 
                 if(eleccion == 0) break;
 
@@ -2012,7 +1017,7 @@ while(true){
                         eleccion = -1;
                         break;
 
-                    }else if(eleccion > 0 &amp;&amp; eleccion &lt;= asignaturasDisponibles.length){
+                    }else if(eleccion > 0 && eleccion <= asignaturasDisponibles.length){
 
                         const asignatura = asignaturasDisponibles[eleccion - 1];
 
@@ -2028,7 +1033,7 @@ while(true){
 
                     }else{
 
-                        if(asignaturasSeleccionadas.length > 0 &amp;&amp; !volverMenuEstudiantes){
+                        if(asignaturasSeleccionadas.length > 0 && !volverMenuEstudiantes){
                     
                             estudiante.matricular(...asignaturasSeleccionadas);
         
@@ -2053,7 +1058,7 @@ while(true){
 
                 }while(true);
 
-            }while(eleccion &lt; 0 || eleccion > listaEstudiantes.lista.length);
+            }while(eleccion < 0 || eleccion > listaEstudiantes.lista.length);
 
             break;
 
@@ -2070,7 +1075,7 @@ while(true){
 
         case 4:
 
-            if(listaEstudiantes.lista.length == 0 &amp;&amp; listaAsignaturas.lista.length == 0){
+            if(listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
                 window.alert("No existen datos registrados.");
                 break;
             }
@@ -2112,7 +1117,7 @@ while(true){
 
                     if(Number.isNaN(eleccion)) eleccion = -1;
 
-                }while(eleccion &lt; 0 || eleccion > listaMatriculados.length);
+                }while(eleccion < 0 || eleccion > listaMatriculados.length);
 
                 if(eleccion == 0) break;
 
@@ -2153,7 +1158,7 @@ while(true){
                         eleccion = -1;
                         break;
 
-                    }else if(eleccion > 0 &amp;&amp; eleccion &lt;= estudiante.asignaturas.length){
+                    }else if(eleccion > 0 && eleccion <= estudiante.asignaturas.length){
 
                         const asignatura = estudiante.asignaturas[eleccion - 1][0];
 
@@ -2169,7 +1174,7 @@ while(true){
 
                     }else{
 
-                        if(asignaturasSeleccionadas.length > 0 &amp;&amp; !volverMenuEstudiantes){
+                        if(asignaturasSeleccionadas.length > 0 && !volverMenuEstudiantes){
                     
                             estudiante.desmatricular(...asignaturasSeleccionadas);
         
@@ -2194,7 +1199,7 @@ while(true){
 
                 }while(true);
 
-            }while(eleccion &lt; 0 || eleccion > listaMatriculados.length);
+            }while(eleccion < 0 || eleccion > listaMatriculados.length);
 
             break;
 
@@ -2208,7 +1213,7 @@ while(true){
 
         case 5:
 
-            if(listaEstudiantes.lista.length == 0 &amp;&amp; listaAsignaturas.lista.length == 0){
+            if(listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
                 window.alert("No existen datos registrados.");
                 break;
             }
@@ -2243,7 +1248,7 @@ while(true){
 
                     if(Number.isNaN(eleccion)) eleccion = -1;
 
-                }while(eleccion &lt; 0 || eleccion > listaEstudiantes.lista.length);
+                }while(eleccion < 0 || eleccion > listaEstudiantes.lista.length);
 
                 if(eleccion == 0) break;
 
@@ -2294,7 +1299,7 @@ while(true){
 
         case 6:
 
-            if(listaEstudiantes.lista.length == 0 &amp;&amp; listaAsignaturas.lista.length == 0){
+            if(listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
                 window.alert("No existen datos registrados.");
                 break;
             }
@@ -2336,7 +1341,7 @@ while(true){
 
                     if(Number.isNaN(eleccion)) eleccion = -1;
 
-                }while(eleccion &lt; 0 || eleccion > matriculados.length);
+                }while(eleccion < 0 || eleccion > matriculados.length);
 
                 if(eleccion == 0) break;
 
@@ -2372,7 +1377,7 @@ while(true){
                             
                             eleccion = -1;
 
-                        }else if(eleccion > 0 &amp;&amp; eleccion &lt;= estudiante.asignaturas.length){
+                        }else if(eleccion > 0 && eleccion <= estudiante.asignaturas.length){
 
                             valorNota = estudiante.asignaturas[eleccion - 1][1];
 
@@ -2403,7 +1408,7 @@ while(true){
 
                         }
 
-                    }while(eleccion &lt; 0 || eleccion > estudiante.asignaturas.length);
+                    }while(eleccion < 0 || eleccion > estudiante.asignaturas.length);
 
                     if(eleccion == 0){
                         eleccion = -1;
@@ -2423,7 +1428,7 @@ while(true){
 
                         eleccion = Number.parseFloat(window.prompt("Nota:"));
                         
-                        if (Number.isNaN(eleccion) || eleccion &lt; 0 || eleccion > 10) {
+                        if (Number.isNaN(eleccion) || eleccion < 0 || eleccion > 10) {
 
                             eleccion = -1;
                         
@@ -2433,7 +1438,7 @@ while(true){
                         
                         }
 
-                    }while(eleccion &lt; 0 || eleccion > 10);
+                    }while(eleccion < 0 || eleccion > 10);
 
                     const nota = eleccion;
 
@@ -2458,9 +1463,9 @@ while(true){
 
                     }
 
-                }while(eleccion &lt; 0 || eleccion > estudiante.asignaturas.length);
+                }while(eleccion < 0 || eleccion > estudiante.asignaturas.length);
 
-            }while(eleccion &lt; 0 || eleccion > listaEstudiantes.lista.length);
+            }while(eleccion < 0 || eleccion > listaEstudiantes.lista.length);
             
             break;
 
@@ -2472,7 +1477,7 @@ while(true){
 
         case 7:
 
-            if(listaEstudiantes.lista.length == 0 &amp;&amp; listaAsignaturas.lista.length == 0){
+            if(listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
                 window.alert("No existen datos registrados.");
                 break;
             }
@@ -2613,7 +1618,7 @@ while(true){
 
         case 8:
 
-            if(listaEstudiantes.lista.length == 0 &amp;&amp; listaAsignaturas.lista.length == 0){
+            if(listaEstudiantes.lista.length == 0 && listaAsignaturas.lista.length == 0){
                 window.alert("No existen datos registrados.");
                 break;
             }
@@ -2718,22 +1723,4 @@ while(true){
         
     }
 
-}</code></pre>
-        </article>
-    </section>
-
-
-
-
-</div>
-
-<br class="clear">
-
-<footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Thu Jan 16 2025 14:33:16 GMT+0100 (hora estándar de Europa central) using the Minami theme.
-</footer>
-
-<script>prettyPrint();</script>
-<script src="scripts/linenumber.js"></script>
-</body>
-</html>
+}

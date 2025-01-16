@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lista - Documentation</title>
+    <title>asignatura.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,399 +29,155 @@
 
 <div id="main">
     
-    <h1 class="page-title">Lista</h1>
+    <h1 class="page-title">asignatura.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-        Lista
-        </h2>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file asignatura.js
+ * @author Alonso Hernández Robles
+ */
+
+/**
+ * 2.3. Clase Asignatura
+ * 
+ * Atributos:
+ * 
+ * - nombre: String del nombre de la asignatura. Sólo puede contener letras y espacios. De lo contrario, se
+ *      inicializará como "Asignatura". Tiene getter.
+ * 
+ * - calificaciones: Array de números de las calificaciones de todos los estudiantes en la asignatura. No tiene getter.
+ * 
+ * Métodos:
+ * 
+ * + constructor(nombre): Si el nombre contiene caracteres que no sean letras o espacios, se
+ *      establece como "Asignatura". De lo contrario, se establece como tal. Se inicializa vacío el Array
+ *      calificaciones.
+ * 
+ * + get promedio(): Number del promedio de los números del Array calificaciones. Devuelve el String
+ *      "Sin evaluar" si dicho array está vacío.
+ * 
+ * + toString(): Devuelve el nombre de la asignatura (Ya que el objeto Asignatura no contiene más
+ *      atributos sobre la información de la instancia, el método es idéntico a get nombre(), pero se declarará
+ *      y usará con propósitos semánticos);
+ * 
+ * + añadirCalificacion(calificacion): Añade calificacion al Array calificaciones.
+ * 
+ * + eliminarCalificacion(calificacion): Elimina una ocurrencia cualquiera de calificacion en el Array calificaciones.
+ */
+
+/**
+ * @class
+ * @classdesc Representa una **asignatura**.
+ */
+export class Asignatura{
+
+    /**
+     * @type {String}
+     * @private
+     * @description **Nombre** de la asignatura. Tiene getter.
+     * - Sólo puede contener letras y espacios. De lo contrario, se inicializará como `"Asignatura"`.
+     */
+    #nombre;
+
+    /**
+     * @type {Number[]}
+     * @private
+     * @description **Calificaciones** de los estudiantes en la asignatura. No tiene getter.
+     */
+    #calificaciones;
+
+    /**
+     * @constructor
+     * @param {String} nombre Nombre de la asignatura
+     * @description Crea una **asignatura** con los datos proporcionados.
+     * - Si el nombre contiene caracteres que no sean letras o espacios, se establece como `"Asignatura"`. De lo contrario, se establece como tal.
+     * - Se inicializa vacío el Array `#calificaciones`.
+     * @see #nombre
+     * @see #calificaciones
+     */
+    constructor(nombre){
         
-            <div class="class-description"><p>Representa una <strong>lista</strong> de objetos.</p></div>
+        this.#nombre = (nombre.match(/^[a-zA-ZáéíóúüÁÉÍÓÚÜ ]+$/)) ? nombre : "Asignatura";
+        this.#calificaciones = [];
+
+    }
+
+    /**
+     * @type {String}
+     * @description Getter del nombre de la asignatura.
+     * @see #nombre
+     */
+    get nombre(){
+        return this.#nombre;
+    }
+
+    /**
+     * @type {Number}
+     * @description **Promedio** de las calificaciones de los estudiantes en la asignatura.
+     * - Devuelve `"Sin evaluar"` si no hay calificaciones.
+     * @see #calificaciones
+     */
+    get promedio(){
+
+        if(this.#calificaciones.length == 0) return "Sin evaluar";
         
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-<div class="section-method">
-
-    
-    <h2>Constructor</h2>
-    
-
-    <h4 class="name" id="Lista"><span class="type-signature"></span>new Lista<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Crea una <strong>lista</strong>.</p>
-<ul>
-<li>Inicializa vacío el Array <code>#listaRef</code>.</li>
-</ul>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="script.js.html">script.js</a>, <a href="script.js.html#line780">line 780</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="Lista.html#listaRef">#listaRef</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<div class="section-members">
-<h4 class="name" id="lista"><span class="type-signature"></span>lista<span class="type-signature"> :Array.&lt;Object></span></h4>
-
-
-
-
-<div class="description">
-    <p>Array de objetos.</p>
-<ul>
-<li>Devuelve una copia del Array <code>#listaRef</code> y no la referencia.</li>
-</ul>
-<blockquote>
-<p>Orientado para ser usado en la creación y uso de objetos <a href="ListaEstudiantes.html"><code>ListaEstudiantes</code></a> y/o <a href="ListaAsignaturas.html"><code>ListaAsignaturas</code></a>.</p>
-</blockquote>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="script.js.html">script.js</a>, <a href="script.js.html#line808">line 808</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="Lista.html#listaRef">#listaRef</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><code>Array.&lt;Object></code></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-</div>
-
-        
-            
-<div class="section-members">
-<h4 class="name" id="listaRef"><span class="type-signature">(private) </span>listaRef<span class="type-signature"> :Array.&lt;Object></span></h4>
-
-
-
-
-<div class="description">
-    <p>Array de objetos.</p>
-<ul>
-<li>Su getter devuelve la referencia original al Array. También tiene setter.</li>
-</ul>
-<blockquote>
-<p>Orientado para ser usado en la definición de las clases hijas <a href="ListaEstudiantes.html"><code>ListaEstudiantes</code></a> y <a href="ListaAsignaturas.html"><code>ListaAsignaturas</code></a>.</p>
-</blockquote>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="script.js.html">script.js</a>, <a href="script.js.html#line789">line 789</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><code>Array.&lt;Object></code></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-</div>
-
-        
-            
-<div class="section-members">
-<h4 class="name" id="listaRef"><span class="type-signature"></span>listaRef<span class="type-signature"> :Array.&lt;Object></span></h4>
-
-
-
-
-<div class="description">
-    <p>Getter del Array <code>#listaRef</code>.</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="script.js.html">script.js</a>, <a href="script.js.html#line817">line 817</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="Lista.html#listaRef">#listaRef</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><code>Array.&lt;Object></code></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-</div>
-
-        
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+        const resultado = this.#calificaciones.reduce((suma, calificacion) => suma += Number.parseFloat(calificacion), 0) / this.#calificaciones.length;
+    
+        return Number(resultado).toFixed(2);
+
+    }
+
+    /**
+     * @function
+     * @override
+     * @returns {String} Nombre de la asignatura.
+     * @description Devuelve el nombre de la asignatura.
+     * > Ya que el objeto Asignatura no contiene más atributos sobre la información de la instancia, el método es idéntico a `get nombre()`, pero se declarará y usará con propósitos semánticos.
+     * @example "DWEC"
+     */
+    toString(){
+        return this.#nombre;
+    }
+
+    /**
+     * @function
+     * @param {Number} calificacion Calificación a añadir
+     * @description **Añade** una calificación a la asignatura.
+     * > Saber a qué estudiante está correspondida la calificación no es relevante, para ello dicha información ya se encuentra almacenada dentro de la propiedad privada [`#asignaturas`](Estudiante.html#asignaturas) de la clase [`Estudiante`](Estudiante.html).
+     * @see #calificaciones
+     */
+    añadirCalificacion(calificacion){
+        this.#calificaciones.push(calificacion);
+    }
+
+    /**
+     * @function
+     * @param {Number} calificacion Calificación a eliminar
+     * @throws {Error} Si la calificación no está en el Array #calificaciones.
+     * @description **Elimina** una ocurrencia cualquiera de `calificacion` en el Array `#calificaciones`.
+     * > Saber a qué estudiante está correspondida la calificación no es relevante, para ello dicha información ya se encuentra almacenada dentro de la propiedad privada [`#asignaturas`](Estudiante.html#asignaturas) de la clase [`Estudiante`](Estudiante.html).
+     * @see #calificaciones
+     */
+    eliminarCalificacion(calificacion){
+
+        const indiceCalificacion = this.#calificaciones.indexOf(calificacion);
+
+        if(indiceCalificacion == -1) throw new Error("Ningún estudiante ha sacado dicha calificación.");
+
+        this.#calificaciones.splice(indiceCalificacion, 1);
+
+    }
+
+}</code></pre>
+        </article>
+    </section>
 
 
 
@@ -431,7 +187,7 @@
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Thu Jan 16 2025 14:33:16 GMT+0100 (hora estándar de Europa central) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Thu Jan 16 2025 14:40:32 GMT+0100 (hora estándar de Europa central) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
