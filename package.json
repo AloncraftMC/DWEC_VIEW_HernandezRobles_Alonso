@@ -6,7 +6,8 @@
   "scripts": {
     "doc": "jsdoc SGAEA/Tarea_4_3/script.js -d  SGAEA/Tarea_4_3/docs -p",
     "docPruebas": "jsdoc Pruebas/Prueba/script.js -d Pruebas/Prueba/docs -p",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,17 @@
   },
   "homepage": "https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso#readme",
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
     "jsdoc": "^4.0.4",
     "jsdoc-to-markdown": "^9.1.1",
     "minami": "^1.2.3",
-    "taffydb": "^2.7.3"
+    "taffydb": "^2.7.3",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "core-js": "^3.40.0"
   }
 }
