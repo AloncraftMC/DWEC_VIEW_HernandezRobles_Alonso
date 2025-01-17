@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>listaAsignaturas.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Asignatura.html">Asignatura</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Asignatura.html#a%25C3%25B1adirCalificacion">añadirCalificacion</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Asignatura.html#eliminarCalificacion">eliminarCalificacion</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Asignatura.html#toString">toString</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Direccion.html">Direccion</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Direccion.html#toString">toString</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Estudiante.html">Estudiante</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Estudiante.html#calificar">calificar</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Estudiante.html#desmatricular">desmatricular</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Estudiante.html#matricular">matricular</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Estudiante.html#toString">toString</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Estudiante.html#.eliminarNumeroOcupado">eliminarNumeroOcupado</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Lista.html">Lista</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ListaAsignaturas.html">ListaAsignaturas</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaAsignaturas.html#a%25C3%25B1adirAsignatura">añadirAsignatura</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaAsignaturas.html#busquedaAsignaturas">busquedaAsignaturas</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaAsignaturas.html#eliminarAsignatura">eliminarAsignatura</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ListaEstudiantes.html">ListaEstudiantes</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaEstudiantes.html#a%25C3%25B1adirEstudiante">añadirEstudiante</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaEstudiantes.html#busquedaEstudiantes">busquedaEstudiantes</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaEstudiantes.html#eliminarEstudiante">eliminarEstudiante</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ListaEstudiantes.html#mostrarReporte">mostrarReporte</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#defaultConsoleGroupCollapsed">defaultConsoleGroupCollapsed</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#defaultConsoleLog">defaultConsoleLog</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#eleccion">eleccion</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#listaAsignaturas">listaAsignaturas</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#listaDirecciones">listaDirecciones</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#listaEstudiantes">listaEstudiantes</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">listaAsignaturas.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file listaAsignaturas.js
+ * @author Alonso Hernández Robles
+ */
+
+import { Lista } from "./lista.js";
+import { Asignatura } from "./asignatura.js";
+
+/**
+ * 2.6. Clase ListaAsignaturas
+ * 
+ * Métodos:
+ * 
+ * + constructor(...asignatura): Llama al constructor padre y añade las asignaturas mediante el método
+ *      añadirAsignatura().
+ * 
+ * + añadirAsignatura(asignatura): Si no existe la asignatura dentro del Array listaRef, la añade. De lo
+ *      contrario, devuelve un Error.
+ * 
+ * + eliminarAsignatura(nombre): Si existe una asignatura cuyo nombre coincide con alguno de los nombres de las
+ *      asignaturas del Array listaRef, elimina de dicho Array dicha asignatura. De lo contrario, devuelve un Error.
+ * 
+ * + busquedaAsignaturas(exp): Array de los objetos Asignatura cuyos nombres incluyen el String exp.
+ */
+
+/**
+ * @class
+ * @classdesc Representa una **lista de asignaturas**.
+ * @extends Lista
+ * @see Lista
+ */
+export class ListaAsignaturas extends Lista{
+
+    /**
+     * @constructor
+     * @param {...Asignatura} asignaturas Asignaturas a añadir
+     * @description Crea una **lista de asignaturas**.
+     * - Llama al constructor padre y añade las asignaturas mediante el método `añadirAsignatura()`.
+     */
+    constructor(...asignaturas){
+
+        super();
+        
+        for(const asignatura of asignaturas){
+
+            this.añadirAsignatura(asignatura);
+
+        }
+
+    }
+
+    /**
+     * @function
+     * @param {Asignatura} asignatura Asignatura a añadir
+     * @throws {Error} Si la asignatura ya está en el Array `listaRef`.
+     * @description **Añade** una asignatura a la lista.
+     * @see #listaRef
+     */
+    añadirAsignatura(asignatura){
+
+        if(this.listaRef.filter(a => a.nombre == asignatura.nombre).length != 0) throw new Error("Ya existe la asignatura.");
+
+        this.listaRef.push(asignatura);
+
+    }
+
+    /**
+     * @function
+     * @param {String} nombre Nombre de la asignatura a eliminar
+     * @throws {Error} Si la asignatura no está en el Array `listaRef`.
+     * @description **Elimina** una asignatura de la lista.
+     * @see #listaRef
+     */
+    eliminarAsignatura(nombre){
+
+        if(this.listaRef.filter(a => a.nombre == nombre).length == 0) throw new Error("La asignatura no se encuentra en la lista.");
+
+        this.listaRef = this.listaRef.filter(a => a.nombre != nombre);
+
+    }
+
+    /**
+     * @function
+     * @param {String} exp Expresión a buscar
+     * @returns {Asignatura[]} Asignaturas cuyos nombres incluyen el String `exp`.
+     * @description **Busca** asignaturas cuyos nombres incluyen el String `exp`.
+     * @see #listaRef
+     */
+    busquedaAsignaturas(exp){
+        return this.listaRef.filter(a => a.nombre.toLowerCase().includes(exp.toLowerCase()));
+    }
+
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Thu Jan 16 2025 14:40:32 GMT+0100 (hora estándar de Europa central) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

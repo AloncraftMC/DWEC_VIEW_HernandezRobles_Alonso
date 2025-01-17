@@ -1,36 +1,37 @@
 {
-  "name": "desarrollo-web-cliente",
-  "version": "1.0.0",
-  "description": "Esta es la descripción",
-  "main": "index.js",
-  "scripts": {
-    "doc": "jsdoc SGAEA/Tarea_4_3/script.js -d  SGAEA/Tarea_4_3/docs -p",
-    "docPruebas": "jsdoc Pruebas/Prueba/script.js -d Pruebas/Prueba/docs -p",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso.git"
-  },
-  "author": "AloncraftMC",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso/issues"
-  },
-  "homepage": "https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso#readme",
-  "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
-    "babel-loader": "^9.2.1",
-    "jsdoc": "^4.0.4",
-    "jsdoc-to-markdown": "^9.1.1",
-    "minami": "^1.2.3",
-    "taffydb": "^2.7.3",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1"
-  },
-  "dependencies": {
-    "core-js": "^3.40.0"
-  }
+    "name": "desarrollo-web-cliente",
+    "version": "1.0.0",
+    "description": "Esta es la descripción",
+    "scripts": {
+        "doc4_3": "jsdoc -c jsdoc.json SGAEA/Tarea_4_3/script.js -d  SGAEA/Tarea_4_3/docs -p",
+        "doc4_4": "jsdoc -c jsdoc.json SGAEA/Tarea_4_4/main.js -d  SGAEA/Tarea_4_4/docs -p",
+        "docPruebas": "jsdoc Pruebas/Prueba/script.js -d Pruebas/Prueba/docs -p",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "buildWebpack": "webpack",
+        "start": "parcel SGAEA/Tarea_4_5_Plus/index.html",
+        "build": "parcel build SGAEA/Tarea_4_5_Plus/index.html --dist-dir SGAEA/Tarea_4_5_Plus/dist"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso.git"
+    },
+    "author": "AloncraftMC",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso/issues"
+    },
+    "homepage": "https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso#readme",
+    "devDependencies": {
+        "@babel/core": "^7.26.0",
+        "@babel/preset-env": "^7.26.0",
+        "babel-loader": "^9.2.1",
+        "core-js": "^3.40.0",
+        "jsdoc": "^4.0.4",
+        "jsdoc-to-markdown": "^9.1.1",
+        "minami": "^1.2.3",
+        "parcel": "^2.13.3",
+        "taffydb": "^2.7.3",
+        "webpack": "^5.97.1",
+        "webpack-cli": "^6.0.1"
+    }
 }
