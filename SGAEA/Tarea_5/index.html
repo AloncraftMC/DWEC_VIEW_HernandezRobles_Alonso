@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGAEA</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script type="module" src="main.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1 class="titulo" id="titulo">SGAEA</h1>
+        <h2 class="subtitulo" id="subtitulo">(Sistema de Gestión Académica de Estudiantes y Asignaturas)</h2>
+    </header>
+    
+    <main>
+
+        <!-- 0. Menú Principal -->
+
+        <section id="menuPrincipal">
+            
+            <button class="boton" id="crear">➕ Crear...</button>
+            <button class="boton" id="eliminar">➖ Eliminar...</button>
+            <button class="boton" id="matricular">✍ Matricular...</button>
+            <button class="boton" id="desmatricular">📤 Desmatricular...</button>
+            <button class="boton" id="auditoria">📋 Registro de Auditoría</button>
+            <button class="boton" id="calificar">🔢 Calificar...</button>
+            <button class="boton" id="buscar">🔎 Buscar...</button>
+            <button class="boton" id="promedio">💰 Calcular Promedio...</button>
+            <button class="boton" id="reporte">🧾 Mostrar Reporte</button>
+
+        </section>
+
+        <!-- 1. Menú Crear -->
+
+        <section id="menuCrear">
+
+            <button class="boton" id="crearDireccion">🏠 Dirección</button>
+            <button class="boton" id="crearEstudiante">👨‍🎓 Estudiante</button>
+            <button class="boton" id="crearAsignatura">📕 Asignatura</button>
+            <button class="boton" id="volverCrear">⏪ Volver</button>
+
+        </section>
+
+            <!-- 1.1. Crear Dirección -->
+            
+            <section id="menuCrearDireccion">
+                
+                <form id="formCrearDireccion">
+
+                    <p>
+                        <label for="calleCrearDireccion">Calle:</label>
+                        <input type="text" id="calleCrearDireccion" name="calleCrearDireccion" required>
+                    </p>
+
+                    <p>
+                        <label for="numeroCrearDireccion">Número:</label>
+                        <input type="text" id="numeroCrearDireccion" name="numeroCrearDireccion" required>
+                    </p>
+
+                    <p>
+                        <label for="pisoCrearDireccion">Piso:</label>
+                        <input type="text" id="pisoCrearDireccion" name="pisoCrearDireccion" required>
+                    </p>
+
+                    <p>
+                        <label for="codigoPostalCrearDireccion">Código Postal:</label>
+                        <input type="text" id="codigoPostalCrearDireccion" name="codigoPostalCrearDireccion" pattern="[0-9]{5}" required title="Debe ser un código postal de exactamente 5 dígitos">
+                    </p>
+
+                    <p>
+                        <label for="provinciaCrearDireccion">Provincia:</label>
+                        <input type="text" id="provinciaCrearDireccion" name="provinciaCrearDireccion" required>
+                    </p>
+
+                    <p>
+                        <label for="localidadCrearDireccion">Localidad:</label>
+                        <input type="text" id="localidadCrearDireccion" name="localidadCrearDireccion" required>
+                    </p>
+
+                    <input type="submit" class="boton" value="💾 Guardar"></input>
+
+                </form>
+
+                <button class="boton" id="volverCrearDireccion">⏪ Volver</button>
+
+            </section>
+
+                <!-- 1.1.1. Crear Dirección Terminado -->
+
+                <section id="menuCrearDireccionTerminado">
+                
+                    <h2 id="calleCrearDireccionTerminado">Calle: </h2>
+                    <h2 id="numeroCrearDireccionTerminado">Número: </h2>
+                    <h2 id="pisoCrearDireccionTerminado">Piso: </h2>
+                    <h2 id="codigoPostalCrearDireccionTerminado">Código Postal: </h2>
+                    <h2 id="provinciaCrearDireccionTerminado">Provincia: </h2>
+                    <h2 id="localidadCrearDireccionTerminado">Localidad: </h2>
+    
+                    <button class="boton" id="volverCrearDireccionTerminado">⏪ Volver</button>
+    
+                </section>
+
+            <!-- 1.2. Crear Estudiante -->
+
+                <!-- 1.2.0. Crear Estudiante Crear Dirección -->
+
+                <section id="menuCrearEstudianteCrearDireccion">
+
+                    <form id="formCrearEstudianteCrearDireccion">
+
+                        <p>
+                            <label for="calleCrearEstudianteCrearDireccion">Calle:</label>
+                            <input type="text" id="calleCrearEstudianteCrearDireccion" name="calleCrearEstudianteCrearDireccion" required>
+                        </p>
+
+                        <p>
+                            <label for="numeroCrearEstudianteCrearDireccion">Número:</label>
+                            <input type="text" id="numeroCrearEstudianteCrearDireccion" name="numeroCrearEstudianteCrearDireccion" required>
+                        </p>
+
+                        <p>
+                            <label for="pisoCrearEstudianteCrearDireccion">Piso:</label>
+                            <input type="text" id="pisoCrearEstudianteCrearDireccion" name="pisoCrearEstudianteCrearDireccion" required>
+                        </p>
+
+                        <p>
+                            <label for="codigoPostalCrearEstudianteCrearDireccion">Código Postal:</label>
+                            <input type="text" id="codigoPostalCrearEstudianteCrearDireccion" name="codigoPostalCrearEstudianteCrearDireccion" pattern="[0-9]{5}" required title="Debe ser un código postal de exactamente 5 dígitos">
+                        </p>
+
+                        <p>
+                            <label for="provinciaCrearEstudianteCrearDireccion">Provincia:</label>
+                            <input type="text" id="provinciaCrearEstudianteCrearDireccion" name="provinciaCrearEstudianteCrearDireccion" required>
+                        </p>
+
+                        <p>
+                            <label for="localidadCrearEstudianteCrearDireccion">Localidad:</label>
+                            <input type="text" id="localidadCrearEstudianteCrearDireccion" name="localidadCrearEstudianteCrearDireccion" required>
+                        </p>
+
+                        <input type="submit" class="boton" value="💾 Guardar"></input>
+
+                    </form>
+
+                    <button class="boton" id="volverCrearEstudianteCrearDireccion">⏪ Volver</button>
+
+                </section>
+
+                <!-- 1.2.1. Crear Estudiante Crear Dirección Preguntar si se guarda -->
+
+                <section id="menuCrearEstudianteCrearDireccionPreguntar">
+
+                    <h2 id="calleCrearEstudianteCrearDireccionTerminado">Calle: </h2>
+                    <h2 id="numeroCrearEstudianteCrearDireccionTerminado">Número: </h2>
+                    <h2 id="pisoCrearEstudianteCrearDireccionTerminado">Piso: </h2>
+                    <h2 id="codigoPostalCrearEstudianteCrearDireccionTerminado">Código Postal: </h2>
+                    <h2 id="provinciaCrearEstudianteCrearDireccionTerminado">Provincia: </h2>
+                    <h2 id="localidadCrearEstudianteCrearDireccionTerminado">Localidad: </h2>
+
+                    <h1>¿Desea guardar esta dirección?</h1>
+
+                    <button class="boton" id="siCrearEstudianteGuardarDireccion">✅ Sí</button>
+                    <button class="boton" id="noCrearEstudianteGuardarDireccion">❌ No</button>
+
+                </section>
+
+                <!-- 1.2.1.b Crear Estudiante Crear Dirección Guardada -->
+
+                <section id="menuCrearEstudianteCrearDireccionGuardada">
+
+                    <h2 id="calleCrearEstudianteCrearDireccionGuardada">Calle: </h2>
+                    <h2 id="numeroCrearEstudianteCrearDireccionGuardada">Número: </h2>
+                    <h2 id="pisoCrearEstudianteCrearDireccionGuardada">Piso: </h2>
+                    <h2 id="codigoPostalCrearEstudianteCrearDireccionGuardada">Código Postal: </h2>
+                    <h2 id="provinciaCrearEstudianteCrearDireccionGuardada">Provincia: </h2>
+                    <h2 id="localidadCrearEstudianteCrearDireccionGuardada">Localidad: </h2>
+
+                    <button class="boton" id="continuarCrearEstudianteCrearDireccionGuardada">Continuar ⏩</button>
+
+                </section>
+
+                <!-- 1.2.2. Crear Estudiante Preguntar Usar Dirección -->
+
+                <section id="menuCrearEstudiantePreguntarDireccion">
+
+                    <h1>¿Desea elegir una dirección ya creada?</h1>
+
+                    <button class="boton" id="siDireccionCrearEstudiante">✅ Sí</button>
+                    <button class="boton" id="noDireccionCrearEstudiante">❌ No</button>
+
+                    <button class="boton" id="volverCrearEstudiantePreguntarDireccion">⏪ Volver</button>
+
+                </section>
+
+                <!-- 1.2.3. Crear Estudiante Seleccionar Dirección -->
+
+                <section id="menuCrearEstudianteSeleccionarDireccion">
+
+                    <button class="boton" id="volverCrearEstudianteSeleccionarDireccion">⏪ Volver</button>
+
+                </section>
+
+                <!-- 1.2.4. Crear Estudiante Tal Cual -->
+
+                <section id="menuCrearEstudiante">
+
+                    <form id="formCrearEstudiante">
+
+                        <p>
+                            <label for="nombreCrearEstudiante">Nombre:</label>
+                            <input type="text" id="nombreCrearEstudiante" name="nombreCrearEstudiante" required>
+                        </p>
+
+                        <p>
+                            <label for="edadCrearEstudiante">Edad:</label>
+                            <input type="number" id="edadCrearEstudiante" name="edadCrearEstudiante" required min="1">
+                        </p>
+
+                        <input type="submit" class="boton" value="💾 Guardar"></input>
+
+                    </form>
+
+                    <button class="boton" id="volverCrearEstudiante">⏪ Volver</button>
+
+                </section>
+
+                <!-- 1.2.5. Crear Estudiante Terminado -->
+
+                <section id="menuCrearEstudianteTerminado">
+
+                    <h2 id="nombreCrearEstudianteTerminado">Nombre: </h2>
+                    <h2 id="edadCrearEstudianteTerminado">Edad: </h2>
+                    <h2 id="direccionCrearEstudianteTerminado">Dirección: </h2>
+
+                    <button class="boton" id="volverCrearEstudianteTerminado">⏪ Volver</button>
+
+                </section>
+
+            <!-- 1.3. Crear Asignatura -->
+
+            <section id="menuCrearAsignatura">
+
+                <form id="formCrearAsignatura">
+
+                    <p>
+                        <label for="nombreCrearAsignatura">Nombre:</label>
+                        <input type="text" id="nombreCrearAsignatura" name="nombreCrearAsignatura" required>
+                    </p>
+
+                    <input type="submit" class="boton" value="💾 Guardar"></input>
+
+                </form>
+
+                <button class="boton" id="volverCrearAsignatura">⏪ Volver</button>
+
+            </section>
+
+                <!-- 1.3.1. Crear Asignatura Guardada -->
+
+                <section id="menuCrearAsignaturaGuardada">
+
+                    <h2 id="nombreCrearAsignaturaGuardada">Nombre: </h2>
+
+                    <button class="boton" id="volverCrearAsignaturaGuardada">⏪ Volver</button>
+
+                </section>
+
+                <!-- 1.3.2. Crear Asignatura Error -->
+
+                <section id="menuCrearAsignaturaError">
+
+                    <h1>Ya existe una asignatura con ese nombre.</h1>
+
+                    <button class="boton" id="volverCrearAsignaturaError">⏪ Volver</button>
+
+                </section>
+
+        <!-- 2.0 Menú Eliminar no se puede entrar -->
+
+        <section id="menuEliminarInaccesible">
+            
+            <h1>No existen datos registrados.</h1>
+
+            <button class="boton" id="volverEliminarInaccesible">⏪ Volver</button>
+        
+        </section>
+
+        <!-- 2.1 Menú Eliminar -->
+
+        <section id="menuEliminar">
+
+            <button class="boton" id="eliminarDireccion">🏠 Dirección</button>
+            <button class="boton" id="eliminarEstudiante">👨‍🎓 Estudiante</button>
+            <button class="boton" id="eliminarAsignatura">📕 Asignatura</button>
+            <button class="boton" id="volverEliminar">⏪ Volver</button>
+
+        </section>
+
+            <!-- 2.1.1.0 Eliminar Dirección no se puede entrar -->
+
+            <section id="menuEliminarDireccionInaccesible">
+
+                <h1>No existen direcciones registradas.</h1>
+
+                <button class="boton" id="volverEliminarDireccionInaccesible">⏪ Volver</button>
+
+            </section>
+
+            <!-- 2.1.1. Eliminar Dirección -->
+
+            <section id="menuEliminarDireccion">
+
+                <button class="boton" id="volverEliminarDireccion">⏪ Volver</button>
+
+            </section>
+
+            <!-- 2.1.1.1. Eliminar Dirección Terminado -->
+
+            <section id="menuEliminarDireccionTerminado">
+
+                <button class="boton" id="volverEliminarDireccionTerminado">⏪ Volver</button>
+
+            </section>
+
+            <!-- 2.1.2.0 Eliminar Estudiante no se puede entrar -->
+
+            <section id="menuEliminarEstudianteInaccesible">
+
+                <h1>No existen estudiantes registrados.</h1>
+
+                <button class="boton" id="volverEliminarEstudianteInaccesible">⏪ Volver</button>
+
+            </section>
+
+            <!-- 2.1.2. Eliminar Estudiante -->
+
+            <section id="menuEliminarEstudiante">
+
+                <button class="boton" id="volverEliminarEstudiante">⏪ Volver</button>
+
+            </section>
+
+            <!-- 2.1.2.1. Eliminar Estudiante Terminado -->
+
+            <section id="menuEliminarEstudianteTerminado">
+
+                <button class="boton" id="volverEliminarEstudianteTerminado">⏪ Volver</button>
+
+            </section>
+
+            <!-- 2.1.3.0 Eliminar Asignatura no se puede entrar -->
+
+            <section id="menuEliminarAsignaturaInaccesible">
+
+                <h1>No existen asignaturas registradas.</h1>
+
+                <button class="boton" id="volverEliminarAsignaturaInaccesible">⏪ Volver</button>
+
+            </section>
+
+            <!-- 2.1.3. Eliminar Asignatura -->
+
+            <section id="menuEliminarAsignatura">
+
+                <button class="boton" id="volverEliminarAsignatura">⏪ Volver</button>
+
+            </section>
+
+            <!-- 2.1.3.1. Eliminar Asignatura Terminado -->
+
+            <section id="menuEliminarAsignaturaTerminado">
+
+                <button class="boton" id="volverEliminarAsignaturaTerminado">⏪ Volver</button>
+
+            </section>
+
+        <!-- 3.Pre. Menú Matricular No Existen Datos -->
+
+        <section id="menuMatricularInaccesible">
+
+            <h1>No existen datos registrados.</h1>
+
+            <button class="boton" id="volverMatricularInaccesible">⏪ Volver</button>
+
+        </section>
+
+        <!-- 3.Pre.1. Menú Matricular No Existen Estudiantes -->
+
+        <section id="menuMatricularInaccesibleEstudiantes">
+
+            <h1>No existen estudiantes registrados.</h1>
+
+            <button class="boton" id="volverMatricularInaccesibleEstudiantes">⏪ Volver</button>
+
+        </section>
+
+        <!-- 3.Pre.2. Menú Matricular No Existen Asignaturas -->
+
+        <section id="menuMatricularInaccesibleAsignaturas">
+
+            <h1>No existen asignaturas registradas.</h1>
+
+            <button class="boton" id="volverMatricularInaccesibleAsignaturas">⏪ Volver</button>
+
+        </section>
+
+        <!-- 3.Pre.3. Menú Matricular Todo el mundo matriculado de todo -->
+
+        <section id="menuMatricularInaccesibleTodos">
+            
+            <h1>Todo el mundo está matriculado de todo.</h1>
+
+            <button class="boton" id="volverMatricularInaccesibleTodos">⏪ Volver</button>
+
+        </section>
+
+        <!-- 3. Menú Matricular -->
+
+        <section id="menuMatricular">
+
+            <button class="boton" id="volverMatricular">⏪ Volver</button>
+
+        </section>
+
+            <!-- 3.1. Menú Matricular Asignaturas -->
+
+            <section id="menuMatricularAsignaturas">
+
+                <h2 id="estudianteMatricularAsignaturas">Estudiante: </h2>
+
+                <div class="horizontal" id="divMatricularAsignaturas">
+
+                    <button class="boton" id="volverMatricularAsignaturas">⏪ Volver</button>
+                    <button class="boton" id="continuarMatricularAsignaturas">Continuar ⏩</button>
+
+                </div>
+
+            </section>
+
+            <!-- 3.1.1. Menú Matricular Asignaturas Vacío -->
+
+            <section id="menuMatricularAsignaturasVacio">
+
+                <h1>Debe seleccionar al menos una asignatura.</h1>
+
+                <button class="boton" id="volverMatricularAsignaturasVacio">⏪ Volver</button>
+
+            </section>
+
+            <!-- 3.2. Menú Matricular Asignaturas Terminado -->
+
+            <section id="menuMatricularAsignaturasTerminado">
+
+                <h2 id="estudianteMatricularAsignaturasTerminado">Estudiante: </h2>
+                <h2 id="asignaturasMatricularAsignaturasTerminado">Asignaturas: </h2>
+
+                <button class="boton" id="volverMatricularAsignaturasTerminado">⏪ Volver</button>
+
+            </section>
+
+        <!-- 4.Pre. Menú Desmatricular No Existen Datos -->
+
+        <section id="menuDesmatricularInaccesible">
+
+            <h1>No existen datos registrados.</h1>
+
+            <button class="boton" id="volverDesmatricularInaccesible">⏪ Volver</button>
+
+        </section>
+
+        <!-- 4.Pre.1. Menú Desmatricular No Existen Estudiantes -->
+
+        <section id="menuDesmatricularInaccesibleEstudiantes">
+
+            <h1>No existen estudiantes registrados.</h1>
+
+            <button class="boton" id="volverDesmatricularInaccesibleEstudiantes">⏪ Volver</button>
+
+        </section>
+
+        <!-- 4.Pre.2. Menú Desmatricular No Existen Asignaturas -->
+
+        <section id="menuDesmatricularInaccesibleAsignaturas">
+
+            <h1>No existen asignaturas registradas.</h1>
+
+            <button class="boton" id="volverDesmatricularInaccesibleAsignaturas">⏪ Volver</button>
+
+        </section>
+
+        <!-- 4.Pre.3. Menú Desmatricular Nadie está matriculado -->
+
+        <section id="menuDesmatricularInaccesibleNadie">
+            
+            <h1>Nadie está matriculado de nada.</h1>
+
+            <button class="boton" id="volverDesmatricularInaccesibleNadie">⏪ Volver</button>
+
+        </section>
+
+        <!-- 4. Menú Desmatricular -->
+
+        <section id="menuDesmatricular">
+
+            <button class="boton" id="volverDesmatricular">⏪ Volver</button>
+        
+        </section>
+
+            <!-- 4.1. Menú Desmatricular Asignaturas -->
+
+            <section id="menuDesmatricularAsignaturas">
+
+                <h2 id="estudianteDesmatricularAsignaturas">Estudiante: </h2>
+
+                <div class="horizontal" id="divDesmatricularAsignaturas">
+
+                    <button class="boton" id="volverDesmatricularAsignaturas">⏪ Volver</button>
+                    <button class="boton" id="continuarDesmatricularAsignaturas">Continuar ⏩</button>
+
+                </div>
+
+            </section>
+
+            <!-- 4.1.1. Menú Desmatricular Asignaturas Vacío -->
+
+            <section id="menuDesmatricularAsignaturasVacio">
+
+                <h1>Debe seleccionar al menos una asignatura.</h1>
+
+                <button class="boton" id="volverDesmatricularAsignaturasVacio">⏪ Volver</button>
+
+            </section>
+
+            <!-- 4.2. Menú Desmatricular Asignaturas Terminado -->
+
+            <section id="menuDesmatricularAsignaturasTerminado">
+
+                <h2 id="estudianteDesmatricularAsignaturasTerminado">Estudiante: </h2>
+                <h2 id="asignaturasDesmatricularAsignaturasTerminado">Asignaturas: </h2>
+
+                <button class="boton" id="volverDesmatricularAsignaturasTerminado">⏪ Volver</button>
+
+            </section>
+
+        <!-- 5.Pre. Menú Registro de Auditoría No Existen Datos -->
+
+        <section id="menuAuditoriaInaccesible">
+
+            <h1>No existen datos registrados.</h1>
+
+            <button class="boton" id="volverAuditoriaInaccesible">⏪ Volver</button>
+
+        </section>
+
+        <!-- 5.Pre.1. Menú Registro de Auditoría No Existen Estudiantes -->
+
+        <section id="menuAuditoriaInaccesibleEstudiantes">
+
+            <h1>No existen estudiantes registrados.</h1>
+
+            <button class="boton" id="volverAuditoriaInaccesibleEstudiantes">⏪ Volver</button>
+
+        </section>
+
+        <!-- 5.Pre.2. Menú Registro de Auditoría No Existen Asignaturas -->
+
+        <section id="menuAuditoriaInaccesibleAsignaturas">
+
+            <h1>No existen asignaturas registradas.</h1>
+
+            <button class="boton" id="volverAuditoriaInaccesibleAsignaturas">⏪ Volver</button>
+
+        </section>
+
+        <!-- 5. Menú Registro de Auditoría -->
+
+        <section id="menuAuditoria">
+
+            <button class="boton" id="volverAuditoria">⏪ Volver</button>
+
+        </section>
+
+            <!-- 5.1. Menú Registro de Auditoría del Estudiante -->
+
+            <section id="menuAuditoriaEstudiante">
+
+                <button class="boton" id="volverAuditoriaEstudiante">⏪ Volver</button>
+
+            </section>
+
+        <!-- 6.Pre. Menú Calificar No Existen Datos -->
+
+        <section id="menuCalificarInaccesible">
+
+            <h1>No existen datos registrados.</h1>
+
+            <button class="boton" id="volverCalificarInaccesible">⏪ Volver</button>
+
+        </section>
+
+        <!-- 6.Pre.1. Menú Calificar No Existen Estudiantes -->
+
+        <section id="menuCalificarInaccesibleEstudiantes">
+
+            <h1>No existen estudiantes registrados.</h1>
+
+            <button class="boton" id="volverCalificarInaccesibleEstudiantes">⏪ Volver</button>
+
+        </section>
+
+        <!-- 6.Pre.2. Menú Calificar No Existen Asignaturas -->
+
+        <section id="menuCalificarInaccesibleAsignaturas">
+
+            <h1>No existen asignaturas registradas.</h1>
+
+            <button class="boton" id="volverCalificarInaccesibleAsignaturas">⏪ Volver</button>
+
+        </section>
+
+        <!-- 6.Pre.3. Menú Calificar Nadie está matriculado -->
+
+        <section id="menuCalificarInaccesibleNadie">
+            
+            <h1>Nadie está matriculado de nada.</h1>
+
+            <button class="boton" id="volverCalificarInaccesibleNadie">⏪ Volver</button>
+
+        </section>
+
+        <!-- 6. Menú Calificar (Estudiante) -->
+
+        <section id="menuCalificar">
+
+            <button class="boton" id="volverCalificar">⏪ Volver</button>
+
+        </section>
+
+            <!-- 6.1. Menú Calificar Asignatura -->
+
+            <section id="menuCalificarAsignatura">
+
+                <h2 id="estudianteCalificarAsignatura">Estudiante: </h2>
+
+                <button class="boton" id="volverCalificarAsignatura">⏪ Volver</button>
+
+            </section>
+
+            <!-- 6.2. Menú Calificar Nota -->
+
+            <section id="menuCalificarNota">
+
+                <h2 id="estudianteCalificarNota">Estudiante: </h2>
+                <h2 id="asignaturaCalificarNota">Asignatura: </h2>
+
+                <form id="formCalificarNota">
+
+                    <p>
+                        <label for="notaCalificarNota">Nota:</label>
+                        <input type="number" step=".01" id="notaCalificarNota" name="notaCalificarNota" min="0" max="10" required>
+                    </p>
+
+                    <input type="submit" class="boton" value="💾 Guardar"></input>
+
+                </form>
+
+                <button class="boton" id="volverCalificarNota">⏪ Volver</button>
+
+            </section>
+
+            <!-- 6.3. Menú Calificar Nota Terminado -->
+
+            <section id="menuCalificarNotaTerminado">
+
+                <h2 id="estudianteCalificarNotaTerminado">Estudiante: </h2>
+                <h2 id="asignaturaCalificarNotaTerminado">Asignatura: </h2>
+                <h2 id="notaCalificarNotaTerminado">Nota: </h2>
+
+                <button class="boton" id="volverCalificarNotaTerminado">⏪ Volver</button>
+
+            </section>
+
+            <!-- 6.4. Menú Calificar Nota Sobreescritura -->
+
+            <section id="menuCalificarNotaSobreescritura">
+
+                <h1 id="confirmacionCalificarNotaSobreescritura">¿Seguro que quiere sobreescribir la nota anterior ()?</h1>
+
+                <button class="boton" id="siCalificarNotaSobreescritura">✅ Sí</button>
+                <button class="boton" id="noCalificarNotaSobreescritura">❌ No</button>
+
+            </section>
+        
+        <!-- 7.Pre. Menú Buscar No Existen Datos -->
+
+        <section id="menuBuscarInaccesible">
+
+            <h1>No existen datos registrados.</h1>
+
+            <button class="boton" id="volverBuscarInaccesible">⏪ Volver</button>
+
+        </section>
+
+        <!-- 7.Pre.1. Menú Buscar No Existen Estudiantes -->
+
+        <section id="menuBuscarInaccesibleEstudiantes">
+
+            <h1>No existen estudiantes registrados.</h1>
+
+            <button class="boton" id="volverBuscarInaccesibleEstudiantes">⏪ Volver</button>
+
+        </section>
+
+        <!-- 7.Pre.2. Menú Buscar No Existen Asignaturas -->
+
+        <section id="menuBuscarInaccesibleAsignaturas">
+
+            <h1>No existen asignaturas registradas.</h1>
+
+            <button class="boton" id="volverBuscarInaccesibleAsignaturas">⏪ Volver</button>
+
+        </section>
+
+        <!-- 7. Menú Buscar -->
+
+        <section id="menuBuscar">
+            
+            <button class="boton" id="buscarEstudiantes">🎓 Estudiantes</button>
+            <button class="boton" id="buscarAsignaturas">📚 Asignaturas</button>
+            <button class="boton" id="volverBuscar">⏪ Volver</button>
+
+        </section>
+
+            <!-- 7.1. Menú Buscar Estudiantes -->
+
+            <section id="menuBuscarEstudiantes">
+
+                <form id="formBuscarEstudiantes">
+
+                    <p>
+                        <label for="inputBuscarEstudiantes">Nombre:</label>
+                        <input type="text" id="inputBuscarEstudiantes" name="inputBuscarEstudiantes">
+                    </p>
+
+                </form>
+
+                <button class="boton" id="volverBuscarEstudiantes">⏪ Volver</button>
+
+                <div id="resultadosBuscarEstudiantes"></div>
+
+            </section>
+
+            <!-- 7.2. Menú Buscar Asignaturas -->
+
+            <section id="menuBuscarAsignaturas">
+
+                <form id="formBuscarAsignaturas">
+
+                    <p>
+                        <label for="inputBuscarAsignaturas">Nombre:</label>
+                        <input type="text" id="inputBuscarAsignaturas" name="inputBuscarAsignaturas">
+                    </p>
+
+                </form>
+
+                <button class="boton" id="volverBuscarAsignaturas">⏪ Volver</button>
+
+                <div id="resultadosBuscarAsignaturas"></div>
+
+            </section>
+
+        <!-- 8.Pre. Menú Promedio No Existen Datos -->
+
+        <section id="menuPromedioInaccesible">
+
+            <h1>No existen datos registrados.</h1>
+
+            <button class="boton" id="volverPromedioInaccesible">⏪ Volver</button>
+
+        </section>
+
+        <!-- 8.Pre.1. Menú Promedio No Existen Estudiantes -->
+
+        <section id="menuPromedioInaccesibleEstudiantes">
+
+            <h1>No existen estudiantes registrados.</h1>
+
+            <button class="boton" id="volverPromedioInaccesibleEstudiantes">⏪ Volver</button>
+
+        </section>
+
+        <!-- 8.Pre.2. Menú Promedio No Existen Asignaturas -->
+
+        <section id="menuPromedioInaccesibleAsignaturas">
+
+            <h1>No existen asignaturas registradas.</h1>
+
+            <button class="boton" id="volverPromedioInaccesibleAsignaturas">⏪ Volver</button>
+
+        </section>
+        
+        <!-- 8. Menú Promedio -->
+
+        <section id="menuPromedio">
+
+            <button class="boton" id="promedioGeneral">🌍 General</button>
+            <button class="boton" id="promedioAsignaturas">📚 Asignaturas</button>
+            <button class="boton" id="volverPromedio">⏪ Volver</button>
+
+        </section>
+
+            <!-- 8.1 Menú Promedio General -->
+
+            <section id="menuPromedioGeneral">
+
+                <button class="boton" id="volverPromedioGeneral">⏪ Volver</button>
+
+            </section>
+
+            <!-- 8.2 Menú Promedio Asignaturas -->
+
+            <section id="menuPromedioAsignaturas">
+
+                <button class="boton" id="volverPromedioAsignaturas">⏪ Volver</button>
+
+            </section>
+
+        <!-- 9.Pre. Menú Reporte No Existen Estudiantes -->
+
+        <section id="menuReporteInaccesibleEstudiantes">
+
+            <h1>No existen estudiantes registrados.</h1>
+
+            <button class="boton" id="volverReporteInaccesibleEstudiantes">⏪ Volver</button>
+
+        </section>
+
+        <!-- 9. Menú Reporte -->
+
+        <section id="menuReporte">
+
+            <button class="boton boton-volver-reporte" id="volverReporte">⏪ Volver</button>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p class="autor">Alonso Hernández Robles 2º DAW AULA</p>
+
+    </footer>
+
+</body>
+</html>

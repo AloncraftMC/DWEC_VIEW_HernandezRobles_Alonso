@@ -1,0 +1,224 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url('Rubik-Regular.ttf') format('truetype');
+}
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+body{
+    justify-self: center;
+    margin: 0;
+    background-color: #29242A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+}
+
+.autor{
+    color: white;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2.5vh;
+}
+
+main {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    width: 90%;
+    color: white;
+    border-top: 1px solid rgba(211, 211, 211, 0.25);
+    border-bottom: 1px solid rgba(211, 211, 211, 0.25);
+
+    section{
+
+        display: flex;
+        flex-direction: column;
+
+        form{
+
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background-color: white;
+            color: black;
+            border: 5px solid gray;
+            border-radius: 10px;
+            font-size: 20px;
+            margin: 5px;
+            width: 300px;
+            text-align: left;
+
+            p{
+
+                margin: 10px;
+                display: flex;
+                flex-direction: column;
+
+                input{
+                    font-size: 20px;
+                    padding: 5px;
+                    margin: 5px;
+                    border-radius: 10px;
+                    border: 2px solid gray;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+.boton{
+
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: 5px solid gray;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.2s, filter 0.2s, transform 0.2s;
+    text-align: left;
+
+    &:hover{
+        filter: brightness(0.85) hue-rotate(360deg);
+        transform: scale(1.05);
+    }
+
+    &.seleccionado{
+
+        background-color: black;
+        color: white;
+        transition: 0.2s;
+
+        &::after{
+            content: "✔️";
+            margin-left: 10px;
+        }
+        
+    }
+
+}
+
+.titulo{
+    font-size: 50px;
+    margin: 5px;
+    color: white;
+    text-align: center;
+}
+
+.subtitulo{
+    font-size: 30px;
+    color: #BBBBBB;
+    padding: 2px;
+    text-align: center;
+}
+
+.registro{
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    border: 2px solid lightgray;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-family: 'consolas', 'sans-serif';
+}
+
+form{
+    align-self: center;
+}
+
+.horizontal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.grande{
+    font-size: 120%;
+}
+
+table{
+    border-collapse: collapse;
+    width: 80vw;
+    margin-top: 30px;
+    border: 1px solid white;
+}
+
+tr, th, td{
+    border: 1px solid white;
+    padding: 10px;
+}
+
+td:nth-child(1), td:nth-child(3){
+    text-align: center;
+}
+
+td:nth-child(1){
+    font-size: 150%;
+}
+
+td:nth-child(2){
+    font-size: 120%;
+}
+
+td:nth-child(4), td:nth-child(5){
+    line-height: 2;
+}
+
+th{
+    background-color: #221e22;
+    font-size: 200%;
+}
+
+tr:nth-child(odd) {
+    background-color: #342e35;
+}
+
+tr:nth-child(even) {
+    background-color: #221e22;
+}
+
+.estudiante{
+    padding: 0px 20px 20px 20px;
+    margin: 20px;
+    border: 5px solid gray;
+    border-radius: 20px;
+}
+
+.boton-vista{
+    text-align: center;
+    align-self: center;
+    width: 10em;
+}
+
+.boton-volver-reporte{
+    text-align: left;
+    align-self: center;
+    width: 10em;
+}
+
+@media (max-width: 365px) {
+
+    .horizontal .boton{
+        font-size: 110%;
+    }
+
+}
