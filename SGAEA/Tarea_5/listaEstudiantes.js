@@ -179,7 +179,7 @@ export class ListaEstudiantes extends Lista{
      * @function
      * @returns {Object[]} Array de objetos JSON de los estudiantes.
      * @description **Convierte** la lista de estudiantes en un Array de objetos JSON.
-     * 
+     * @see #listaRef
      */
     toJSON(){
         return this.listaRef.map(e => e.toJSON());
