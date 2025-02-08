@@ -106,12 +106,12 @@ git push
 Ahora la carpeta se encuentra en:
 
 - Código: [https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso/tree/master/SGAEA/Tarea_4_5/dist](https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso/tree/master/SGAEA/Tarea_4_5/dist)
-- Aplicación: [https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/Tarea_4_5/index.html](https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/Tarea_4_5/index.html).
+- Aplicación: [https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/Tarea_4_5/dist/index.html](https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/Tarea_4_5/dist/index.html).
 
 ## 3. Prueba del Código en Navegador Antiguo
 
-Ahora probemos la aplicación alojada en el enlace recién mencionado en un navegador antiguo, como Safari 17.3. Esto lo he logrado creándome una cuenta en [BrowserStack.com](BrowserStack.com).
+Ahora probemos la aplicación alojada en el enlace recién mencionado en un navegador antiguo, como Firefox 70. Esto lo he logrado creándome una cuenta en [BrowserStack.com](BrowserStack.com).
 
-Después, he elegido este navegador para probar mi codigo, y como se puede ver en la imagen, la [URL](https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/Tarea_4_5/index.html) funciona perfectamente con el código en la consola:
+Después, he elegido este navegador para probar mi código, y como se puede ver en la imagen, la [URL](https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/Tarea_4_5/dist/index.html) funciona perfectamente con el código en la consola:
 
-![alt text](image.png)
+![alt text](image-1.png)
