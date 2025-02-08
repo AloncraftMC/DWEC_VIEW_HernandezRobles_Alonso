@@ -114,4 +114,4 @@ Ahora probemos la aplicación alojada en el enlace recién mencionado en un nave
 
 Después, he elegido este navegador para probar mi código, y como se puede ver en la imagen, la [URL](https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/Tarea_4_5/dist/index.html) funciona perfectamente con el código en la consola:
 
-![alt text](image-1.png)
+![alt text](image.png)
