@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-entry: ['@babel/polyfill', './main.js'],
+entry: ['@babel/polyfill', './src/scripts/main.js'],
 output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -26,7 +26,7 @@ module: {
 plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-    template: './index.html'
+    template: './src/index.html'
     })
 ],
 mode: 'production'

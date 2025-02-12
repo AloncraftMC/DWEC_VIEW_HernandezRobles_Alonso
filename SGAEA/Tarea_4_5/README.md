@@ -44,7 +44,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-entry: ['@babel/polyfill', './main.js'],
+entry: ['@babel/polyfill', './src/scripts/main.js'],
 output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -67,7 +67,7 @@ module: {
 plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-    template: './index.html'
+    template: './src/index.html'
     })
 ],
 mode: 'production'
@@ -99,7 +99,7 @@ He ejecutado los siguientes comandos, respectivos al repositorio local que ya te
 
 ```bash
 git add .
-git commit -m "Tarea 4.5 Nueva Entrega"
+git commit -m "Tarea 4.5 Tercera Entrega"
 git push
 ```
 
@@ -110,8 +110,8 @@ Ahora la carpeta se encuentra en:
 
 ## 3. Prueba del Código en Navegador Antiguo
 
-Ahora probemos la aplicación alojada en el enlace recién mencionado en un navegador antiguo, como Firefox 70. Esto lo he logrado creándome una cuenta en [BrowserStack.com](BrowserStack.com).
+Ahora probemos la aplicación alojada en el enlace recién mencionado en un navegador antiguo que no soporta clases de _ES6_, como **Firefox 44** (26/01/2016). Esto lo he logrado creándome una cuenta en [lambdatest.com](lambdatest.com).
 
 Después, he elegido este navegador para probar mi código, y como se puede ver en la imagen, la [URL](https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/Tarea_4_5/dist/index.html) funciona perfectamente con el código en la consola:
 
-![alt text](image.png)
+![alt text](CapturaREADME.png)
