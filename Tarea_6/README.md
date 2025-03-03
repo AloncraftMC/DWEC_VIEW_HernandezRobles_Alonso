@@ -96,7 +96,7 @@ Para empezar, importo la versión base de *Tailwind CSS* en `index.html` y `jque
 <script src="https://cdn.tailwindcss.com"></script>
 ```
 
-Uso una librería externa de *Tailwind CSS* llamada *Flowbite* para el diseño de la página. Para ello, añado el siguiente script en `index.html` y `jquery.html`:
+Uso una librería externa de *Tailwind CSS* llamada *Flowbite* para mostrar dos componentes en un icono de perfil que se encuentra en los headers. Para ello, añado el siguiente script en `index.html` y `jquery.html`:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/flowbite@1.5.1/dist/flowbite.min.js"></script>
