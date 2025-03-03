@@ -18,3 +18,6 @@
                 - Tarea 4.5 Plus - Parcel ([Documentación](SGAEA/Tarea_4_5_Plus/docmedia/Tarea%204.5%20Plus.md) y [Carpeta `dist/`](SGAEA/Tarea_4_5_Plus/dist/))
         - #### Unidad 5
             - Tarea 5 - Crear Interfaz Gráfica ([Aplicación](https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/SGAEA/Tarea_5/index.html) y [Código](https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso/tree/master/SGAEA/Tarea_5))
+- ## Tarea 6
+    - [Aplicación](https://aloncraftmc.github.io/DWEC_VIEW_HernandezRobles_Alonso/Tarea_6/src/index.html)
+    - [Código](https://github.com/AloncraftMC/DWEC_VIEW_HernandezRobles_Alonso/tree/master/Tarea_6)

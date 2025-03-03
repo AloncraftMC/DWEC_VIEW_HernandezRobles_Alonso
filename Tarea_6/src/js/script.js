@@ -1,9 +1,10 @@
 let offset = 0;
+const limit = 3;
 
 // Obtener publicaciones desde la API
 
 function fetchPosts() {
-    return fetch(`https://jsonplaceholder.typicode.com/posts?_start=${offset}&_limit=3`)
+    return fetch(`https://jsonplaceholder.typicode.com/posts?_start=${offset}&_limit=${limit}`)
         .then(response => response.json());
 }
 
@@ -18,6 +19,11 @@ function fetchImage() {
 function loadPosts() {
 
     fetchPosts().then(posts => {
+
+        if (posts.length === 0) {
+            offset = 0;
+            return loadPosts();
+        }
 
         const container = document.getElementById("posts");
 
@@ -35,10 +41,9 @@ function loadPosts() {
             `;
 
             container.appendChild(card);
-
         });
 
-        offset += 3;
+        offset += limit;
 
     });
 
@@ -50,7 +55,7 @@ window.onscroll = () => {
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight) loadPosts();
 };
 
-// Botón de Cargar más y cargar inicialmente
+// Botón de Cargar más y carga inicial
 
 document.getElementById("loadMore").addEventListener("click", loadPosts);
 window.onload = loadPosts;
