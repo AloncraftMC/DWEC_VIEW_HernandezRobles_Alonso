@@ -15,7 +15,7 @@ npm init -y
 Después, vamos a instalar *Tailwind CSS* y las dependencias necesarias para usar *PostCSS*:
 
 ```bash
-npm install -D tailwindcss postcss autoprefixer
+npm install -D tailwindcss@3.3.3 postcss autoprefixer
 ```
 
 Ahora vamos a crear los archivos de configuración que usará *Tailwind* (`tailwind.config.js`):
@@ -38,17 +38,18 @@ module.exports = {
 Después, en `tailwind.config.js`, vamos a modificar su contenido tal que así:
 
 ```js
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./jquery.html",
-    "./js/**/*.js",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+    content: [
+      "./*.html",         // ✅ Detecta clases en todos los HTML
+      "./src/**/*.html",  // ✅ Si los HTML están dentro de 'src'
+      "./src/**/*.js"     // ✅ Si tienes scripts que generan clases dinámicamente
+    ],
+    theme: {
+      extend: {},
+    },
+    plugins: [],
+};
 ```
 
 Creamos la estructura de directorios y archivos necesaria (haciendo énfasis en `src/`):
@@ -79,7 +80,7 @@ Dentro de `src/styles.css`, vamos a importar *Tailwind CSS*:
 Agrego el siguiente script en `package.json`:
 
 ```json
-"build": "tailwindcss -i ./src/css/style.css -o ./dist/css/style.css --minify"
+"build": "tailwindcss -i ./src/css/style.css -o ./src/css/output.css --minify"
 ```
 
 y lo ejecuto con:
@@ -90,10 +91,10 @@ npm run build
 
 ## 2. Desarrollo
 
-Para empezar, importo la versión base de *Tailwind CSS* en `index.html` y `jquery.html`:
+Importo el archivo `output.css` en los archivos `index.html` y `jquery.html`:
 
 ```html
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/output.css">
 ```
 
 Uso una librería externa de *Tailwind CSS* llamada *Flowbite* para mostrar dos componentes en un icono de perfil que se encuentra en los headers. Para ello, añado el siguiente script en `index.html` y `jquery.html`:
@@ -104,6 +105,6 @@ Uso una librería externa de *Tailwind CSS* llamada *Flowbite* para mostrar dos 
 
 En cada página, añado en el encabezado el título de la página, un logo y un botón para ir a la otra página, ya sea `index.html` o `jquery.html`.
 
-En el cuerpo de la página, muestro las tarjetas de 3 en 3 "fetcheadas" (extraídas remotamente) de dos APIs, una de textos en latín y otra de imágenes. Además, estas tarjetas tienen un efecto con el ratón cuando pasa por encima.
+En el cuerpo de la página, muestro las tarjetas de 3 en 3 extraídas remotamente de dos APIs, una de textos en latín y otra de imágenes. Además, estas tarjetas tienen un efecto con el ratón cuando pasa por encima.
 
 Por último, en el pie de página, muestro tres enlaces genéricos, **Política de Privacidad**, **Condiciones de Uso** y **Sobre Nosotros**.

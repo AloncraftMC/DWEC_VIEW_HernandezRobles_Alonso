@@ -1,25 +1,20 @@
 let offset = 0;
-const limit = 3;
+const limit = 9;
 
 // Obtener publicaciones desde la API
-
 function fetchPosts() {
     return fetch(`https://jsonplaceholder.typicode.com/posts?_start=${offset}&_limit=${limit}`)
         .then(response => response.json());
 }
 
 // Obtener una imagen aleatoria desde la API de Picsum
-
 function fetchImage() {
     return `https://picsum.photos/300/200?random=${Math.random()}`;
 }
 
 // Cargar publicaciones en la página
-
 function loadPosts() {
-
     fetchPosts().then(posts => {
-
         if (posts.length === 0) {
             offset = 0;
             return loadPosts();
@@ -28,7 +23,6 @@ function loadPosts() {
         const container = document.getElementById("posts");
 
         posts.forEach(post => {
-
             const card = document.createElement("div");
             card.className = "bg-white p-4 shadow rounded-lg transform transition-all hover:scale-105 hover:shadow-2xl";
 
@@ -44,18 +38,15 @@ function loadPosts() {
         });
 
         offset += limit;
-
     });
-
 }
 
-// Desplazamiento infinito
-
-window.onscroll = () => {
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight) loadPosts();
-};
-
-// Botón de Cargar más y carga inicial
-
-document.getElementById("loadMore").addEventListener("click", loadPosts);
+// Carga inicial
 window.onload = loadPosts;
+
+// Desplazamiento infinito con scroll
+window.onscroll = () => {
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
+        loadPosts();
+    }
+};
